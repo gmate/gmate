@@ -48,6 +48,8 @@ class SmartIndent:
 
     def __init__(self):
         self.__not_available = True
+        self.__line_unindented = -1
+        self.__line_no = -1
         return
 
     def set_language(self, lang):
@@ -70,9 +72,12 @@ class SmartIndent:
             self.re_indent_next = re.compile(r'\s*(((if|while|else\s*(if)?|for(each)?|switch|declare)\s*\(.*\)[^{:;]*)|(do\s*[^\({:;]*))')
             self.re_unindent_curr = re.compile(r'^.*(default:\s*|case.*:.*)$')
             self.unindent_keystrokes = ':'
+        else:
+            self.__not_available = True
 
     def __get_current_line(self, view, buf):
         cursor_iter = buf.get_iter_at_mark(buf.get_insert())
+        self.__line_no = cursor_iter.get_line()
         line_start_iter = cursor_iter.copy()
         view.backward_display_line_start(line_start_iter)
         return buf.get_text(line_start_iter, cursor_iter)
@@ -93,8 +98,6 @@ class SmartIndent:
                 old_indent = line[:len(line) - len(line.lstrip())]
                 indent = '\n'+ old_indent + indent_width
                 buf.insert_interactive_at_cursor(indent, True)
-                # Indented marked as true
-                #self.__line_indented = True
                 return True
         elif keyval == 65288:
             line = self.__get_current_line(view, buf)
@@ -108,6 +111,8 @@ class SmartIndent:
                 return True
         elif keyval in [ord(k) for k in self.unindent_keystrokes]:
             line = self.__get_current_line(view, buf)
+            if self.__line_unindented == self.__line_no:
+                if self.__line_changed: return
             line_eval = line+chr(event.keyval)
             if self.re_unindent_curr and self.re_unindent_curr.match(line_eval):
                 cursor_iter = buf.get_iter_at_mark(buf.get_insert())
@@ -117,6 +122,6 @@ class SmartIndent:
                 text = buf.get_text(line_start_iter, iter_end_del)
                 if text.strip() == '':
                     buf.delete_interactive(line_start_iter, iter_end_del, True)
-                    self.__line_unindented = True
+                    self.__line_unindented = self.__line_no
                     return False
         return False

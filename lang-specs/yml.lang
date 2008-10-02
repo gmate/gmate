@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Autor: Alexandre da Silva <simpsomboy@gmail.com>
+ Copyright (C) 2008 Alexandre da Silva <simpsomboy@gmail.com>
+
+ This library is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+<language id="yaml" _name="Yaml" version="2.0" _section="Markup">
+  <metadata>
+    <property name="mimetypes">text/x-yaml</property>
+    <property name="globs">*.yml</property>
+    <property name="line-comment-start">#</property>
+  </metadata>
+
+  <styles>
+    <style id="escape"               _name="Escaped Character"     map-to="def:special-char"/>
+    <style id="comment"              _name="Comment"               map-to="def:comment"/>
+    <style id="keyword"              _name="Keyword"               map-to="def:keyword"/>
+    <style id="string"               _name="String"                map-to="def:string"/>
+    <style id="inner-key"            _name="Inner Key"             map-to="def:variable"/>
+    <style id="scalar-value"         _name="Scalar Value"          map-to="def:identifier"/>
+  </styles>
+
+  <definitions>
+    <context id="yaml">
+      <include>
+        <context ref="string"/>
+        <context ref="line-comment"/>
+        <context ref="string-2"/>
+        <context ref="key"/>
+        <context ref="inner-key"/>
+        <context ref="scalar-value"/>
+      </include>
+    </context>
+
+    <context id="escape" style-ref="escape">
+      <match>\\((0-7){3}|(x[a-fA-F0-9]{2})|(c\S)|([CM]-\S)|(M-C-\S)|.)</match>
+    </context>
+
+    <context id="line-comment" style-ref="comment" end-at-line-end="true">
+      <start>#</start>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:in-comment"/>
+      </include>
+    </context>
+
+    <context id="string" style-ref="string">
+      <start>"</start>
+      <end>"</end>
+      <include>
+        <context ref="def:escape"/>
+        <context ref="def:line-continue"/>
+      </include>
+    </context>
+
+    <context id="string-2" style-ref="string">
+      <start>'</start>
+      <end>'</end>
+    </context>
+
+    <context id="scalar-value" style-ref="scalar-value">
+      <match>/?-?\\?\??!?\.?\+?\*?\w*</match>
+    </context>
+
+    <context id="key" style-ref="keyword">
+      <match>^[\w_]*:</match>
+    </context>
+
+    <context id="inner-key" style-ref="inner-key">
+      <match>\W[\w_]*:</match>
+    </context>
+  </definitions>
+</language>

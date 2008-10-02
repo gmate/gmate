@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright (C) 2006-2007 GtkSourceView team
+ Author: Luigi Maselli <luigix_@t_gmail_com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<style-scheme id="darkmate" _name="Darkmate" version="1.0">
+  <author>Luigi Maselli</author>
+  <_description>Color scheme Darkmate, for dark backgrounds</_description>
+
+<!--
+        Colors from the Darkmate palette. See it in action on http://grigio.org/files/darkmate.png
+-->
+  <color name="gray" value="#bbbbbb"/>
+  <color name="white" value="#eeeeee"/>
+  <color name="yellow" value="#fce94f"/>
+  <color name="senape" value="#acc900"/>
+  <color name="lime" value="#96ff00"/>
+  <color name="green" value="#00c900"/>
+  <color name="alga" value="#00c99b"/>
+  <color name="aqua" value="#00d8ff"/>
+  <color name="cyan" value="#009cff"/>
+  <color name="violet" value="#9e91ff"/>
+  <color name="purple" value="#bb66ff"/>
+  <color name="fuchsia" value="#ff44cc"/>
+  <color name="magenta" value="#ff79d9"/>
+  <color name="red" value="#ff2f6a"/>
+  <color name="orange" value="#ff6100"/>
+  <color name="ambra" value="#ff9900"/>
+  <color name="asfalto" value="#555753"/>
+  <color name="carbon" value="#232323"/>
+
+<!--
+        GUI styles 
+-->
+  <style name="text" foreground="white" background="carbon"/>
+  <style name="selection" background="asfalto"/>
+  <style name="selection-unfocused" foreground="white" background="gray"/>
+  <style name="cursor" foreground="white"/>
+  <style name="secondary-cursor" foreground="magenta"/>
+  <style name="current-line" background="#black"/>
+  <style name="line-numbers" foreground="asfalto" background="gray"/>
+  <style name="bracket-match" foreground="white" background="purple" bold="true"/>
+  <style name="bracket-mismatch" foreground="white" background="magenta" bold="true"/>
+  <style name="search-match" foreground="carbon" background="yellow"/>
+
+<!--
+        Default styles 
+-->
+  <style name="def:keyword" foreground="ambra" bold="true"/>
+  <style name="def:statement" foreground="alga"/>
+  <style name="def:function" foreground="violet"/>
+  <style name="def:preprocessor" foreground="white" bold="true"/>
+  <style name="def:type" foreground="cyan"/>
+  
+  <style name="def:character" foreground="ambra"/>
+
+  <style name="def:comment" foreground="purple"/>
+  <style name="def:number" foreground="alga"/>
+  <style name="def:string" foreground="lime"/>
+  <style name="def:net-address-in-comment" foreground="violet" italic="true" underline="true"/>
+  <style name="def:note" foreground="white" background="fuchsia" bold="true"/>
+  <style name="def:error" background="red" bold="true"/>
+  <style name="def:escape" foreground="violet"/>
+  <style name="def:shebang" foreground="alga" bold="true"/>
+  <style name="def:doc-comment-element" italic="true"/>
+  <style name="def:identifier" foreground="green" bold="true"/>
+
+  <style name="def:specials" foreground="white" background="magenta"/>
+  
+  <style name="def:variable" foreground="cyan"/>
+  <style name="def:boolean" foreground="fuchsia" bold="true"/>
+  <style name="def:constant" foreground="yellow"/>
+  <style name="def:special-constant" foreground="fuchsia" bold="true"/>
+
+   
+<!--
+        Language specific styles 
+-->
+<!--  <style name="ruby:keyword"                foreground="ambra" bold="true"/> -->
+  <style name="ruby:comment" foreground="magenta"/>
+  <style name="ruby:attribute-definition" foreground="white" bold="true"/>
+  <style name="ruby:module-handler" foreground="white" bold="true"/>
+  <style name="ruby:builtin" foreground="yellow" bold="true"/>
+  <style name="ruby:special-variable" foreground="fuchsia" bold="true"/>
+  <style name="ruby:predefined-variable" foreground="aqua" bold="true"/>
+<!--  <style name="ruby:variable"               foreground="green" bold="true"/> -->
+  <style name="ruby:symbol" foreground="cyan"/>
+  <style name="ruby:regex" foreground="fuchsia" bold="true"/>
+  <style name="ruby:constant" foreground="yellow"/>
+<!--  <style name="ruby:nil-value"              foreground="fuchsia" bold="true"/> -->
+<!--  <style name="ruby:boolean"                foreground="fuchsia" bold="true"/> -->
+
+  <style name="diff:added-line" foreground="lime"/>
+  <style name="diff:removed-line" foreground="magenta"/>
+  <style name="diff:changed-line" foreground="ambra"/>
+  <style name="diff:special-case" use-style="def:string"/>
+  <style name="diff:location" use-style="def:keyword"/>
+
+</style-scheme>

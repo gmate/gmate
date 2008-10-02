@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="rhtml" _name="RHTML" version="2.0" _section="Markup">
+<metadata>
+  <property name="mimetypes">text/rhtml</property>
+  <property name="globs">*.rhtml;*.html.erb;*.erb</property>
+</metadata>
+  <definitions>
+    <context id="erb-block">
+      <start>&lt;%</start>
+      <end>%&gt;</end>
+      <include>
+        <context ref="ruby:ruby:*"/>
+      </include>
+    </context>
+    <context id="rhtml">
+      <include>
+        <context ref="html:html"/>
+        <context ref="erb-block"/>
+      </include>
+    </context>
+  </definitions>
+</language>
+

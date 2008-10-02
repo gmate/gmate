@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="rhtml">
+  <snippet>
+    <text><![CDATA[:confirm => '${1:Are you sure?}'$0]]></text>
+    <tag>conf</tag>
+    <description>confirm</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[:controller => :${1:posts}, :action => :${2:show}, :id => ${3:post}]]></text>
+    <tag>cai</tag>
+    <description>controller action id</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<div class="$1">
+	$0
+</div>]]></text>
+    <tag>divc</tag>
+    <description>div with class</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<div id="$1">
+	$0
+</div>]]></text>
+    <tag>divi</tag>
+    <description>div with id</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% ${1:@list}.each do |${2:item}| do %>
+	$0
+<% end %>]]></text>
+    <tag>each</tag>
+    <description>each</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% end %>]]></text>
+    <tag>end</tag>
+    <description>end</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= error_messages_for( :$1 ) %>$0]]></text>
+    <tag>emf</tag>
+    <description>error messages</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% form_tag $1do %>
+	$0
+<% end %>]]></text>
+    <tag>form</tag>
+    <description>form</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% if ${1:logged_in?} %>
+	$0
+<% end %>]]></text>
+    <tag>if</tag>
+    <description>if</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% if ${1:logged_in?} %>
+	$0
+<% else %>
+	
+<% end %>]]></text>
+    <tag>ife</tag>
+    <description>ife</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= image_tag '$1' %>$0]]></text>
+    <tag>img</tag>
+    <description>image</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= javascript_include_tag ${1:defaults} %>$0]]></text>
+    <tag>jit</tag>
+    <description>include javascript</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<label>$0</label>]]></text>
+    <tag>lbl</tag>
+    <description>label</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<br/>
+$0]]></text>
+    <description>line break</description>
+    <accelerator><![CDATA[<Control>m]]></accelerator>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= link_to '$1', $0 %>]]></text>
+    <tag>lt</tag>
+    <description>link</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= stylesheet_link_tag '${1:style}' %>$0]]></text>
+    <tag>slt</tag>
+    <description>link stylesheet</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= link_to_remote '$1', :url => { $2 }$3 %>$0]]></text>
+    <tag>ltr</tag>
+    <description>link to remote</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= link_to_unless_current '$1', $0 %>]]></text>
+    <tag>ltuc</tag>
+    <description>link unless current</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<li>$1</li>$0]]></text>
+    <tag>li</tag>
+    <description>list item</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= render :partial => '${1:item}'$0 %>]]></text>
+    <tag>rp</tag>
+    <description>partial</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= password_field :$1 %>$0]]></text>
+    <tag>pf</tag>
+    <description>password field</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= submit_tag '${1:save}' %>$0]]></text>
+    <tag>st</tag>
+    <description>submit</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<table class="$1">
+	<tr>
+		<th>$0</th>
+	</tr>
+</table>]]></text>
+    <tag>table</tag>
+    <description>table</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<td>$0</td>]]></text>
+    <tag>td</tag>
+    <description>table cell</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<tr>
+	$0
+</tr>]]></text>
+    <tag>tr</tag>
+    <description>table row</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<tr class="<%= cycle( 'odd', 'even' ) %>">
+	$0
+</tr>]]></text>
+    <tag>troe</tag>
+    <description>table row odd-even</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<${1:div}>
+	${2:$GEDIT_SELECTED_TEXT}
+</${1}>$0]]></text>
+    <tag>&lt;</tag>
+    <description>Tag</description>
+    <accelerator><![CDATA[<Shift><Control><Alt>t]]></accelerator>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= text_field :$1 %>$0]]></text>
+    <tag>tf</tag>
+    <description>text field</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<ul class="${1:list}">
+	$0
+</ul>]]></text>
+    <tag>ul</tag>
+    <description>unordered list</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<p>${1:content}</p>$0]]></text>
+    <tag>p</tag>
+    <description>Paragraph</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= ${1:command} %>$0]]></text>
+    <tag>pe</tag>
+    <description>Print erb</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% ${1:command} -%>$0]]></text>
+    <tag>pr</tag>
+    <description>Non Print Erb</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= text_field_tag ${1:"method"}, ${2:value} %>$0]]></text>
+    <tag>tft</tag>
+    <description>Text Field Tag</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% for ${1:item} in ${2:itens} -%>
+	<%= $1.$0 %>
+<% end -%>]]></text>
+    <tag>forin</tag>
+    <description>For In</description>
+  </snippet>
+</snippets>

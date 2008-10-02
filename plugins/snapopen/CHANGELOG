@@ -1,0 +1,41 @@
+Gedit Snap Open Plugin
+Copyright (C) 2008 Mads Buus Jensen <online@buus.net>
+
+Changelog
+
+version 1.1.4  (january 2008)
+* properly survives 'first-time' install. On new installations, the File browsers 'filter'
+  is not set yet (courtesy of Greg Gilbert).
+* NOTE: no initial search, if pattern is empty.
+* minor enhancements
+
+version 1.1.3
+* completion bug. find found all files matching subpath, which made
+	fro example a search of 'home' still find all files (because home was
+	part of the root path)
+	Now uses 'cd' and 'find .'  instead of fullpathed find
+* fixed uri bug
+* moved 'head' pipe further back to improve matching
+
+version 1.1.2 
+* multiple file open support
+* case insensitivity and mulple patterns (Thanks, Dan)
+* output piped through 'head to futher improve performance
+
+version 1.1 
+* contains simple integration for Filebrowser (and eddt) plugins.
+* performance improvements 
+* GNOME button compliance
+
+version 1.0 
+* initial (usable) version
+
+Thanks to:
+Paolo Borelli
+Marcus Lunzenauer
+Gary Haran
+Dan Lind
+Greg Gilbert 
+
+
+For more information, visit http://www.upperbound.net/upperbound/show/Linux+tools

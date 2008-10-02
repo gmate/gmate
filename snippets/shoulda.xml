@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="ruby">
+  <snippet>
+    <text><![CDATA[assert_contains(${1:collection}, ${2:/${3:x}/}${4:, "${5:extra_msg}"})]]></text>
+    <description>assert_contains</description>
+    <tag>asc</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[assert_does_not_contain(${1:collection}, ${2:/${3:x}/}${4:, "${5:extra_msg}"})]]></text>
+    <description>assert_does_not_contain</description>
+    <tag>asdnc</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[assert_same_elements(${1:array1}, ${2:array2}${3:, "${4:message}"})]]></text>
+    <description>assert_same_elements</description>
+    <tag>asse</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[assert_save ${1:object}	]]></text>
+    <description>assert_save</description>
+    <tag>assave</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[assert_sent_email${1: do |email|
+		email.${2:subject|from|to|body} ${3:==} ${4:'${5:anything}'}$0
+	end}]]></text>
+    <description>assert_sent_email</description>
+    <tag>assemail</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[assert_valid ${1:object}]]></text>
+    <description>assert_valid</description>
+    <tag>asv</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[context "${1:description}" do
+		${2:setup do
+		  $3
+		end
+
+		}should "${4:description}" do
+		  $0
+		end
+	end
+	]]></text>
+    <description>context block with setup</description>
+    <tag>cont</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[context "on GET to :${1:show}" do
+		setup do
+		  get :$1, :id => ${2:1}
+		end
+
+		should "${3:description}" do
+		  $0
+		end
+	end
+	]]></text>
+    <description>context block get</description>
+    <tag>contg</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[context "on POST to :${1:create}" do
+		setup do
+		  post :$1, :${2:user} => { ${3::${4:key} => ${5:value}${6:, :${7:key} => ${8:value}}} }
+		end
+
+		should "${9:description}" do
+		  $0
+		end
+	end
+	]]></text>
+    <description>context block post</description>
+    <tag>contp</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should "$1" do
+	$0
+end]]></text>
+    <description>should block</description>
+    <tag>sh</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_allow_values_for :${1:attribute}, "$2"${3:, "$4"${5:, "$6"}}]]></text>
+    <description>should_allow_values_for</description>
+    <tag>shavf</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_assign_to :${1:variable}]]></text>
+    <description>should_assign_to</description>
+    <tag>shat</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_belong_to :${1:object}]]></text>
+    <description>should_belong_to</description>
+    <tag>shbt</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_be_restful do |resource|
+		resource.formats = [:html]
+		${1:resource.${2:something}}
+	end
+	$0]]></text>
+    <description>should_be_restful</description>
+    <tag>shbr</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_be_restful do |resource|
+		resource.denied.actions  = :${1:all}
+		resource.denied.flash    = /${2:must be logged in}/i
+		resource.denied.redirect = '${3:login_url}'
+	end]]></text>
+    <description>should_be_restful denied</description>
+    <tag>shbrdenied</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_ensure_length_at_least :${1:attribute}, ${2:min_length}]]></text>
+    <description>should_ensure_length_at_least</description>
+    <tag>shelal</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_ensure_length_in_range :${1:attribute}, (${2:range})]]></text>
+    <description>should_ensure_length_in_range</description>
+    <tag>shelir</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_ensure_value_in_range :${1:attribute}, (${2:range})]]></text>
+    <description>should_ensure_value_in_range</description>
+    <tag>shevir</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_eventually "$1" do
+		$0
+	end]]></text>
+    <description>should_eventually</description>
+    <tag>she</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_and_belong_to_many :${1:object}${2:, :${3:object}${4:, :${5:object}}}]]></text>
+    <description>should_have_and_belong_to_many</description>
+    <tag>shhabtm</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_class_methods :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
+    <description>should_have_class_methods</description>
+    <tag>shhcm</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_db_column :${1:name}${2:, :${3:type} => ${4:"${5:text}"}${6:, :${7:default} => ${8:nil}}}]]></text>
+    <description>should_have_db_column</description>
+    <tag>shhdc</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_db_columns :${1:column}${2:, :${3:column}${4:, :${5:column}}}]]></text>
+    <description>should_have_db_columns</description>
+    <tag>shhdc</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_index :${1:column}]]></text>
+    <description>should_have_index</description>
+    <tag>shhi</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_indices :${1:column}${2:, :${3:column}${4:, :${5:column}}}]]></text>
+    <description>should_have_indices</description>
+    <tag>shhi</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_instance_methods :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
+    <description>should_have_instance_methods</description>
+    <tag>shhim</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_many :${1:objects}${2:, :through => :${3:association}}]]></text>
+    <description>should_have_many</description>
+    <tag>shhm</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_have_one :${1:object}]]></text>
+    <description>should_have_one</description>
+    <tag>shho</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_not_allow_values_for :${1:attribute}, "$2"${3:, "$4"${5:, "$6"}}]]></text>
+    <description>should_not_allow_values_for</description>
+    <tag>shnavf</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_not_assign_to :${1:variable}]]></text>
+    <description>should_not_assign_to</description>
+    <tag>shnat</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_not_set_the_flash]]></text>
+    <description>should_not_set_the_flash</description>
+    <tag>shnstf</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_only_allow_numeric_values_for :${1:attribute}]]></text>
+    <description>should_only_allow_numeric_values_for</description>
+    <tag>shoanvf</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_protect_attributes :${1:attribute}${2:, :${3:attribute}${4:, :${5:attribute}}}]]></text>
+    <description>should_protect_attributes</description>
+    <tag>shpa</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_redirect_to ${1:${2:user}s_url(@$2)}]]></text>
+    <description>should_redirect_to</description>
+    <tag>shrt</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_render_a_form]]></text>
+    <description>should_render_a_form</description>
+    <tag>shraf</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_render_template :${1:template}]]></text>
+    <description>should_render_template</description>
+    <tag>shrt</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_require_acceptance_of :${1:attribute}]]></text>
+    <description>should_require_acceptance_of</description>
+    <tag>shrao</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_require_attributes :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
+    <description>should_require_attributes</description>
+    <tag>shra</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_require_unique_attributes :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
+    <description>should_require_unique_attributes</description>
+    <tag>shrua</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[should_respond_with :${1:response}]]></text>
+    <description>should_respond_with</description>
+    <tag>shrw</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[shuold_set_the_flash_to ${1:value}]]></text>
+    <description>should_set_the_flash_to</description>
+    <tag>shstft</tag>
+  </snippet>
+</snippets>

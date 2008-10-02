@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="desert" _name="Desert" version="1.0">
+
+  <author>krims0n</author>
+  <_description>Dark color scheme based on GVIM Desert scheme.</_description>
+
+  <!-- Global Settings -->
+  <style name="text" foreground="#f3f3f3" background="#333333"/>
+  <style name="selection" background="#CDCDA1"/>
+  <style name="current-line" background="#506050"/>
+  <style name="line-numbers" foreground="#353535" background="#e7e7e7"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match" background="#97B26B" bold="true"/>
+  <style name="bracket-mismatch" background="#D9B798" bold="true"/>
+
+  <!-- Comments -->
+  <style name="def:comment" foreground="#87ceeb" italic="true"/>
+  <style name="def:sheband" foreground="#grey" bold="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant" foreground="#FFA0A0"/>
+  <style name="def:string" foreground="#FFA0A0"/>
+  <style name="def:special-char" foreground="#FFA0A0"/>
+  <style name="def:special-constant" foreground="#FFA0A0"/>
+  <style name="def:floating-point" foreground="#FFA0A0"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier" foreground="#LightGoldenrod"/> 
+
+  <!-- Statements -->
+  <style name="def:statement" foreground="#f0e68c" bold="true"/>
+
+  <!-- Types -->
+  <style name="def:type" foreground="#bbb469" bold="true"/> 
+
+  <!-- Others -->
+  <style name="def:preprocessor" foreground="#CD5C5C"/>
+  <style name="def:error" foreground="#yellow" background="#red" bold="true"/>
+<!--  <style name="def:note"                    background="butter1" foreground="aluminium4" bold="true"/> -->
+<!--  <style name="def:underlined"              italic="true" underline="true"/> -->
+ 
+</style-scheme>

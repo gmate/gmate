@@ -1,0 +1,8 @@
+[Gedit Plugin]
+Loader=python
+Module=quickhighlightmode
+IAge=2
+Name=Quick Highlight Mode
+Description=Press Ctrl+Shift+H for quick highlight selection
+Authors=Nando Vieira <fnando dot vieira at gmail dot com>
+Website=http://simplesideias.com.br/

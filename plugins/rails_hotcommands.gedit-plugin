@@ -1,0 +1,8 @@
+[Gedit Plugin]
+Loader=python
+Module=rails_hotcommands
+IAge=2
+Name=Rails Hot Commands
+Description=Run Rails (or shell) Commands!
+Authors=Tiago bastos <comechao@gmail.com>
+Website=http://tiago.zusee.com

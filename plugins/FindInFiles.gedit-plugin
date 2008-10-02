@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=FindInFiles
+IAge=2
+Name=Find In Files
+Description=Search within files of your filebrowser root.
+Authors=Mike Doty <mike@psyguygames.com>, Vince Wadhwani <vince@econify.com>
+Copyright=© Mike Doty 2007-2008
+Websites=http://www.gedit.org/

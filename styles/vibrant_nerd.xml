@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright (C) 2006-2007 Will Farrington <wcfarrington@gmail.com> & 
+  Matthew Swasey <matt@viget.com>
+ 
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<style-scheme id="vibrantnerd" _name="Vibrant Nerd" version="1.0">
+  <author>Matt Swasey (re Will Farrington)</author>
+  <_description>Hack of Darkmacs</_description>
+
+<!-- Colors  -->
+  <color name="gray20" value="#333333"/>
+  <color name="gray70" value="#b3b3b3"/>
+  <color name="white" value="#ffffff"/>
+  <color name="black" value="#2E3436"/>
+  <color name="green" value="#7CC6A2"/>
+  <color name="aqua" value="#00d8ff"/>
+  <color name="blue" value="#398EE6"/>
+  <color name="lightskyblue" value="#87CEFA"/>
+  <color name="purple" value="#B067BB"/>
+  <color name="orange" value="#E67321"/>
+  <color name="carbon" value="#232323"/>
+  <color name="salmon" value="#fa8072"/>
+  <color name="steelblue3" value="#4f94cd"/>
+  <color name="palevioletred2" value="#ee799f"/>
+  <color name="brown4" value="#8b2323"/>
+  <color name="red" value="#ff0000"/>
+
+<!-- Global Settings -->
+
+  <style name="text" foreground="white" background="black"/>
+  <style name="cursor" foreground="white"/>
+  <style name="current-line" background="gray20"/>
+  <style name="line-numbers" foreground="gray70" background="carbon"/>
+  
+<!-- Bracket Matching -->
+  <style name="bracket-match" background="steelblue3"/>
+  <style name="bracket-mismatch" background="purple" bold="true"/>
+  <style name="search-match" foreground="brown4" background="palevioletred2"/>
+
+<!-- Comments -->
+  <style name="def:comment" foreground="purple"/>
+  <style name="def:shebang" foreground="purple"/>
+  <style name="def:doc-comment-element" foreground="purple" bold="true"/>
+
+<!-- Constants and Variables-->
+  <style name="def:constant" foreground="blue"/>
+  <style name="def:string" foreground="green" bold="true"/>
+  <style name="def:special-char" foreground="purple"/>
+  <style name="def:special-constant" foreground="purple" bold="true"/>
+  <style name="def:boolean" foreground="purple" bold="true"/>
+  <style name="def:number" foreground="white"/>
+  <style name="def:floating-point" foreground="white"/>
+  <style name="def:keyword" foreground="orange" bold="true"/>
+  <style name="def:builtin" foreground="lightskyblue"/>
+  <style name="def:variable" foreground="purple"/>
+  
+<!-- Identifiers -->
+  <style name="def:identifier" foreground="purple"/>
+
+<!-- Statements -->
+  <style name="def:statement" foreground="lightskyblue"/>
+
+<!-- Types -->
+  <style name="def:type" foreground="blue"/>
+  
+<!-- Others -->
+  <style name="def:error" foreground="white" background="red" bold="true"/>
+  <style name="def:note" foreground="black" background="orange" bold="true"/>
+  <style name="def:net-address-in-comment" foreground="blue" italic="true" underline="true"/>
+  <style name="def:preprocessor" foreground="purple" bold="true"/>
+    
+<!-- Unknown? -->
+  <style name="def:specials" foreground="white" background="purple"/>
+
+<!-- C Styles -->
+  <style name="c:preprocessor" foreground="purple" map-to="def:special-char"/>
+
+<!-- Diff Styles -->
+  <style name="diff:ignore" foreground="gray70"/>
+
+<!-- Ruby Styles -->
+  <style name="ruby:module-handler" foreground="blue"/>
+  <style name="ruby:symbol" foreground="blue"/>
+  <style name="ruby:special-variable" foreground="orange" bold="true"/>
+  <style name="ruby:predefined-variable" foreground="purple"/>
+  <style name="ruby:regex" foreground="green"/>
+
+<!-- SH Styles -->
+  <style name="sh:function" foreground="salmon"/>
+  <style name="sh:variable1" foreground="purple"/>
+  <style name="sh:variable2" foreground="purple"/>
+  <style name="sh:others" map-to="text"/>
+  
+<!-- XML Styles -->
+  <style name="xml:attribute-name" foreground="purple"/>
+  <style name="xml:element-name" foreground="blue"/>
+
+</style-scheme>

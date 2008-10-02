@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="vibrantink" _name="VibrantInk" version="1.0">
+  <author>Matthew Swasey</author>
+  <_description>A clone of VibrantInk</_description>
+
+<!-- Colors -->
+
+  <color name="background" value="#272c2e"/>
+  <color name="caret" value="#FFFF00"/>
+  <color name="foreground" value="#EEEEEC"/>
+  <color name="highlight" value="#BFBFBF"/>
+  <color name="comment" value="#9933CC"/>
+  <color name="keyword" value="#FF6600"/>
+  <color name="function" value="#FFCC00"/>
+  <color name="class" value="#FFFFFF"/>
+  <color name="number" value="#CCFF33"/>
+  <color name="variable" value="#6dbcd1"/>
+  <color name="constant" value="#339999"/>
+  <color name="constant2" value="#FFCC00"/>
+  <color name="string" value="#66FF00"/>
+  <color name="builtin" value="#CCCC33"/>
+  
+
+<!-- Global Settings -->
+
+  <style name="text" foreground="foreground" background="background"/>
+  <style name="cursor" foreground="foreground"/>
+  <style name="current-line" background="background"/>
+  <style name="line-numbers" foreground="foreground" background="background"/>
+  
+<!-- Bracket Matching 
+  <style name="bracket-match" background="highlight"/>
+  <style name="bracket-mismatch" background="highlight" bold="true"/>
+  <style name="search-match" foreground="foreground" background="caret"/> -->
+
+<!-- Comments -->
+  <style name="def:comment" foreground="comment" italic="true"/>
+  <style name="def:shebang" foreground="comment" italic="true"/>
+  <style name="def:doc-comment-element" foreground="comment" bold="true"/>
+
+<!-- Constants and Variables-->
+  <style name="def:constant" foreground="constant"/>
+  <style name="def:string" foreground="string"/>
+  <style name="def:special-char" foreground="foreground"/>
+  <style name="def:special-constant" foreground="foreground" bold="true"/>
+  <style name="def:boolean" foreground="constant"/>
+  <style name="def:number" foreground="number"/>
+  <style name="def:floating-point" foreground="number"/>
+  <style name="def:keyword" foreground="keyword" bold="true"/>
+  <style name="def:builtin" foreground="function" bold="true"/>
+  <style name="def:variable" foreground="variable"/>
+  
+<!-- Identifiers -->
+  <style name="def:identifier" foreground="variable"/>
+
+<!-- Statements -->
+  <style name="def:statement" foreground="constant2"/>
+
+<!-- Types -->
+  <style name="def:type" foreground="constant2"/>
+  
+<!-- Others -->
+  <style name="def:error" foreground="highlight" bold="true"/>
+  <style name="def:note" foreground="highlight" bold="true"/>
+  <style name="def:net-address-in-comment" foreground="variable" italic="false" underline="true"/>
+  <style name="def:preprocessor" foreground="highlight"/>
+    
+<!-- Unknown? -->
+  <style name="def:specials" background="class"/>
+
+<!-- C Styles -->
+  <style name="c:preprocessor" map-to="def:special-char"/>
+
+<!-- Diff Styles -->
+  <style name="diff:ignore" foreground="highlight"/>
+
+<!-- Ruby Styles -->
+  <style name="ruby:module-handler" foreground="class"/>
+  <style name="ruby:symbol" foreground="constant"/>
+  <style name="ruby:regex" foreground="number"/>
+  <style name="ruby:comment" foreground="comment"/>
+  <style name="ruby:attribute-definition" foreground="variable"/>
+  <style name="ruby:function" foreground="function"/>
+<!--  <style name="ruby:module-handler" foreground="white" bold="true"/>-->
+<!--  <style name="ruby:builtin" foreground="builtin"/>-->
+<!--  <style name="ruby:special-variable" foreground="fuchsia" bold="true"/>-->
+<!--  <style name="ruby:predefined-variable" foreground="aqua" bold="true"/>-->
+<!--  <style name="ruby:symbol" foreground="cyan"/>-->
+<!--  <style name="ruby:regex" foreground="fuchsia" bold="true"/>-->
+<!--  <style name="ruby:constant" foreground="yellow"/>-->
+
+<!-- SH Styles -->
+  <style name="sh:others" map-to="text"/>
+  
+<!-- XML Styles -->
+  <style name="xml:attribute-name" foreground="keyword"/>
+  <style name="xml:element-name" foreground="keyword"/>
+
+</style-scheme>

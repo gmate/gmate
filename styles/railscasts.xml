@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (C) 2008 Matthew Swasey <matt.swasey@viget.com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+-->
+
+<style-scheme id="railscasts" _name="RailsCasts" version="1.0">
+  <author>Alexandre da Silva</author>
+  <_description>A clone of the RailsCasts TextMate theme by Ryan Bates</_description>
+
+<!-- General Colors -->
+  <color name="white"       value="#FFFFFF"/>
+  <color name="black"       value="#000000"/>
+
+<!-- Theme Colors -->
+  <color name="background"  value="#2B2B2B"/>
+  <color name="caret"       value="#FFFFFF"/>
+  <color name="foreground"  value="#E6E1DC"/>
+  <color name="highlight"   value="#F0EA20"/>
+  <color name="brkmatch"    value="#4C4C4C"/>
+  <color name="searchmatch" value="#404040"/>
+  <color name="error"       value="#C80000"/>
+  <color name="comment"     value="#BC9458"/>
+  <color name="keyword"     value="#CC7833"/>
+  <color name="function"    value="#FFC66D"/>
+  <color name="markup"      value="#E8BF6A"/>
+  <color name="class"       value="#FFFFFF"/>
+  <color name="number"      value="#A5C261"/>
+  <color name="variable"    value="#D0D0FF"/>
+  <color name="symbol"      value="#6D9CBE"/>
+  <color name="constant"    value="#DA4939"/>
+  <color name="string"      value="#A5C261"/>
+  <color name="interpolat"  value="#519F50"/>
+  <color name="lhighlight"  value="#333435"/>
+  <color name="selection"   value="#5A647E"/>
+  <color name="modulehandl" value="#CC7833"/> <!--#FD924B-->
+
+<!-- TODO: Add specific background to gutter  -->
+
+<!-- Diff Settings -->
+  <style name="diff:added-line"   background="#144212"    foreground="foreground"/>
+  <style name="diff:removed-line" background="#660000"    foreground="foreground"/>
+  <style name="diff:location"     background="#2F33AB"    foreground="foreground"/>
+  <style name="diff:ignore"       foreground="highlight"/>
+  <style name="diff:changed-line" foreground="symbol"/>
+  <style name="diff:diff-file"    foreground="keyword"/>
+  <style name="diff:special-case" map-to="diff:location"/>
+
+<!-- Global Settings -->
+  <style name="selection"         background="selection"/>
+  <style name="text"              foreground="foreground" background="background"/>
+  <style name="cursor"            foreground="foreground"/>
+  <style name="current-line"      background="lhighlight"/>
+  <style name="line-numbers"      foreground="foreground" background="background"/>
+
+<!-- Bracket Matching -->
+  <style name="bracket-match"     background="brkmatch"/>
+  <style name="bracket-mismatch"  background="brkmatch" bold="true"/>
+  <style name="search-match"      background="searchmatch"/>
+
+<!-- Comments -->
+  <style name="def:comment"                 foreground="comment" italic="true"/>
+  <style name="def:shebang"                 foreground="comment" italic="true"/>
+  <style name="def:doc-comment-element"     foreground="comment" bold="true"/>
+<!-- Constants and Variables-->
+  <style name="def:constant"                foreground="constant"/>
+  <style name="def:string"                  foreground="string"/>
+  <style name="def:special-char"            foreground="foreground"/>
+  <style name="def:special-constant"        foreground="symbol"     bold="true"/>
+  <style name="def:instance-variable"       foreground="variable"/>
+  <style name="def:boolean"                 foreground="symbol"/>
+  <style name="def:number"                  foreground="number"/>
+  <style name="def:floating-point"          foreground="number"/>
+  <style name="def:keyword"                 foreground="keyword"    bold="true"/>
+  <style name="def:builtin"                 foreground="function"   bold="true"/>
+  <style name="def:variable"                foreground="variable"/>
+  <style name="def:class-variable"          foreground="variable"/>
+  <style name="def:identifier"              foreground="variable"/>
+  <style name="def:statement"               foreground="constant"/>
+  <style name="def:type"                    foreground="constant"/>
+  <style name="def:error"                   foreground="highlight"  background="error"     bold="true"/>
+  <style name="def:note"                    foreground="black"      background="highlight" bold="true"/>
+  <style name="def:net-address-in-comment"  foreground="variable"   italic="false"         underline="true"/>
+  <style name="def:preprocessor"            foreground="keyword"/>
+  <style name="def:specials"                background="class"/>
+
+<!-- Ruby Styles -->
+  <style name="ruby:module-handler"         foreground="modulehandl"/>
+  <style name="ruby:regex"                  foreground="number"/>
+  <style name="ruby:class-definition"       foreground="class"/>
+  <style name="ruby:simple-interpolation"   foreground="interpolat"/>
+  <style name="ruby:complex-interpolation"  foreground="interpolat"/>
+
+  <!--style name="ruby:builtin"                foreground="constant"/-->
+  <style name="ruby:function-definition"    foreground="function"/>
+  <style name="ruby:special-variable"       foreground="variable"/>
+  <style name="ruby:predefined-variable"    foreground="markup"/>
+  <style name="ruby:global-variable"        foreground="variable"/>
+  <style name="ruby:instance-variable"      foreground="variable"/>
+  <style name="ruby:class-variable"         foreground="variable"/>
+  <style name="ruby:operators"              foreground="keyword"/>
+  <style name="ruby:symbol"                 foreground="symbol"/>
+
+<!-- YAML Styles -->
+  <style name="yaml:inner-key"              foreground="symbol"/>
+  <style name="yaml:scalar-value"           foreground="string"/>
+
+<!-- Rails Styles -->
+  <style name="ruby:rails"                  foreground="constant"/>
+
+<!-- SH Styles -->
+  <style name="sh:others" map-to="text"/>
+
+<!-- C Styles -->
+  <style name="c:preprocessor"              map-to="def:special-char"/>
+
+<!-- XML Styles -->
+  <style name="xml:attribute-name"          foreground="function"/>
+  <style name="xml:element-name"            foreground="markup"/>
+  <style name="xml:attribute-value"         foreground="string"/>
+</style-scheme>

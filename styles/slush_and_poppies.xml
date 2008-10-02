@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright (C) 2006-2007 Will Farrington <wcfarrington@gmail.com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<style-scheme id="slushpoppies" _name="Slush and Poppies" version="1.0">
+  <author>Will Farrington</author>
+  <_description>Low-contrast theme with a white background</_description>
+
+<!-- Colors -->
+
+  <color name="off_white" value="#f8f8ff"/>
+  <color name="black" value="#000000"/>
+  <color name="light_grey" value="#d9d9d9"/>
+  <color name="medium_grey" value="#bfbfbf"/>
+  <color name="dark_grey" value="#333333"/>
+  <color name="steelblue3" value="#4f94cd"/>
+  <color name="dark_maroon" value="#002f29"/>
+  <color name="dark_pine_green" value="#406040"/>
+  <color name="maroon" value="#800000"/>
+  <color name="faded_red" value="#c03030"/>
+  <color name="dark_teal" value="#2060a0"/>
+  <color name="teal" value="#0080a0"/>
+  <color name="purple" value="#8000c0"/>
+  <color name="yellow" value="#f9ee98"/>
+
+<!-- Global Settings -->
+
+  <style name="text" foreground="black" background="off_white"/>
+  <style name="cursor" foreground="black"/>
+  <style name="current-line" background="light_grey"/>
+  <style name="line-numbers" foreground="dark_grey" background="off_white"/>
+  
+<!-- Bracket Matching -->
+  <style name="bracket-match" background="steelblue3"/>
+  <style name="bracket-mismatch" background="dark_maroon" bold="true"/>
+  <style name="search-match" foreground="off_white" background="steelblue3"/>
+
+<!-- Comments -->
+  <style name="def:comment" foreground="dark_pine_green"/>
+  <style name="def:shebang" foreground="dark_pine_green" italic="true"/>
+  <style name="def:doc-comment-element" foreground="dark_pine_green" bold="true"/>
+
+<!-- Constants and Variables-->
+  <style name="def:constant" foreground="black"/>
+  <style name="def:string" foreground="faded_red"/>
+  <style name="def:special-char" foreground="black"/>
+  <style name="def:special-constant" foreground="teal" bold="true"/>
+  <style name="def:boolean" foreground="black"/>
+  <style name="def:number" foreground="dark_teal"/>
+  <style name="def:floating-point" foreground="dark_teal"/>
+  <style name="def:keyword" foreground="teal" bold="true"/>
+  <style name="def:builtin" foreground="teal" bold="true"/>
+  <style name="def:variable" foreground="black"/>
+  
+<!-- Identifiers -->
+  <style name="def:identifier" foreground="black"/>
+
+<!-- Statements -->
+  <style name="def:statement" foreground="teal"/>
+
+<!-- Types -->
+  <style name="def:type" foreground="maroon"/>
+  
+<!-- Others -->
+  <style name="def:error" foreground="off_white" background="dark_maroon" bold="true"/>
+  <style name="def:note" foreground="yellow" bold="true"/>
+  <style name="def:net-address-in-comment" foreground="steelblue3" italic="false" underline="true"/>
+  <style name="def:preprocessor" color="maroon"/>
+    
+<!-- Unknown? -->
+  <style name="def:specials" background="purple"/>
+
+<!-- C Styles -->
+  <style name="c:preprocessor" map-to="def:special-char"/>
+
+<!-- Diff Styles -->
+  <style name="diff:ignore" foreground="medium_grey"/>
+
+<!-- Ruby Styles -->
+  <style name="ruby:module-handler" foreground="teal"/>
+  <style name="ruby:symbol" foreground="black"/>
+  <style name="ruby:regex" foreground="faded_red"/>
+
+<!-- SH Styles -->
+  <style name="sh:others" map-to="text"/>
+  
+<!-- XML Styles -->
+  <style name="xml:attribute-name" foreground="purple"/>
+  <style name="xml:element-name" foreground="teal"/>
+
+</style-scheme>

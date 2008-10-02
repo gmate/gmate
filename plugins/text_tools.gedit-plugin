@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=text_tools
+IAge=2
+Name=Text Tools
+Description=Text Manipulation enhancements
+Authors=Alexandre da Silva
+Copyright=Copyright @ 2008 Alexandre da Silva
+Website=

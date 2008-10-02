@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="rjs">
+  <snippet id="forin">
+    <text><![CDATA[for ${1:element} in ${2:collection}
+	${1:element}.$0
+end]]></text>
+    <description>for .. in .. end</description>
+    <tag>forin</tag>
+  </snippet>
+  <snippet id="inject">
+    <text><![CDATA[inject(${1:object}) { |${2:injection}, ${3:element}| $0 }]]></text>
+    <description>inject object</description>
+    <tag>inject</tag>
+  </snippet>
+  <snippet id="reject">
+    <text><![CDATA[reject { |${1:element}| ${1:element}.$0 }]]></text>
+    <description>reject element</description>
+    <tag>reject</tag>
+  </snippet>
+  <snippet id="select">
+    <text><![CDATA[select { |${1:element}| ${1:element}.$0 }]]></text>
+    <description>select element</description>
+    <tag>select</tag>
+  </snippet>
+  <snippet id="ife">
+    <text><![CDATA[if ${1:condition}
+	$2
+else
+	$3
+end]]></text>
+    <description>if .. else .. end</description>
+    <tag>ife</tag>
+  </snippet>
+  <snippet id="if">
+    <text><![CDATA[if ${1:condition}
+	$0
+end]]></text>
+    <description>if .. end</description>
+    <tag>if</tag>
+  </snippet>
+  <snippet id="case">
+    <text><![CDATA[case ${1:object}
+	when ${2:condition}
+		$0
+end]]></text>
+    <description>case .. end</description>
+    <tag>case</tag>
+  </snippet>
+  <snippet id="begin">
+    <text><![CDATA[begin
+	$1
+rescue ${2:Exception} => ${3:e}
+	$0
+end]]></text>
+    <description>begin .. rescue .. end</description>
+    <tag>begin</tag>
+  </snippet>
+  <snippet id="class">
+    <text><![CDATA[class ${1:class_name}
+	$0
+end]]></text>
+    <description>class .. end</description>
+    <tag>class</tag>
+  </snippet>
+  <snippet id="collecto">
+    <text><![CDATA[collect do |${1:element}|
+	${1:element}.$0
+end]]></text>
+    <description>collect element do</description>
+    <tag>collecto</tag>
+  </snippet>
+  <snippet id="collect">
+    <text><![CDATA[collect { |${1:element}| ${1:element}.$0 }]]></text>
+    <description>collect element</description>
+    <tag>collect</tag>
+  </snippet>
+  <snippet id="def">
+    <text><![CDATA[def ${1:method_name}
+	$0
+end]]></text>
+    <description>def .. end</description>
+    <tag>def</tag>
+  </snippet>
+  <snippet id="do">
+    <text><![CDATA[do
+	$0
+end]]></text>
+    <description>do .. end</description>
+    <tag>do</tag>
+  </snippet>
+  <snippet id="doo">
+    <text><![CDATA[do |${1:object}|
+	$0
+end]]></text>
+    <description>do |object| .. end</description>
+    <tag>doo</tag>
+  </snippet>
+  <snippet id="eacho">
+    <text><![CDATA[each do |${1:element}|
+	${1:element}.$0
+end]]></text>
+    <description>each element do</description>
+    <tag>eacho</tag>
+  </snippet>
+  <snippet id="each">
+    <text><![CDATA[each { |${1:element}| ${1:element}.$0 }]]></text>
+    <description>each element</description>
+    <tag>each</tag>
+  </snippet>
+  <snippet id="each_with_indexo">
+    <text><![CDATA[each_with_index do |${1:element}, ${2:idx}|
+	${1:element}.$0
+end]]></text>
+    <description>each_with_index do</description>
+    <tag>eachwithindexo</tag>
+  </snippet>
+  <snippet id="each_with_index">
+    <text><![CDATA[each_with_index { |${1:element}, ${2:idx}| ${1:element}.$0 }]]></text>
+    <description>each_with_index</description>
+    <tag>eachwithindex</tag>
+  </snippet>
+  <snippet id=":">
+    <text><![CDATA[:${1:key} => ${2:"value"}${3:, }]]></text>
+    <description>hash pair</description>
+    <tag>:</tag>
+  </snippet>
+  <snippet id="hashpointer">
+    <text><![CDATA[ => ]]></text>
+    <accelerator><![CDATA[<Shift><Alt>l]]></accelerator>
+    <description>hash pointer</description>
+  </snippet>
+  <snippet id="injecto">
+    <text><![CDATA[inject(${1:object}) do |${2:injection}, ${3:element}| 
+	$0
+end]]></text>
+    <description>inject object do</description>
+    <tag>injecto</tag>
+  </snippet>
+  <snippet id="rejecto">
+    <text><![CDATA[reject do |${1:element}| 
+	${1:element}.$0
+end]]></text>
+    <description>reject element do</description>
+    <tag>rejecto</tag>
+  </snippet>
+  <snippet id="selecto">
+    <text><![CDATA[select do |${1:element}|
+	${1:element}.$0
+end]]></text>
+    <description>select element do</description>
+    <tag>selecto</tag>
+  </snippet>
+  <snippet id="unless">
+    <text><![CDATA[unless ${1:condition}
+	$0
+end]]></text>
+    <description>unless</description>
+    <tag>unless</tag>
+  </snippet>
+  <snippet id="when">
+    <text><![CDATA[when ${1:condition}
+	$0]]></text>
+    <description>when</description>
+    <tag>when</tag>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].insert_html :${2:bottom}, '${3:text}' $0]]></text>
+    <tag>insert</tag>
+    <description>page.insert_html :bottom, 'dom_id', 'text'</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.insert_html :${1:bottom}, ${2:dom_id}
+								 							 :partial => '${3:partial}',
+															 :object => @${4:object} $0]]></text>
+    <tag>insert</tag>
+    <description>page.insert_html :bottom, 'dom_id', :partial =&gt; 'partial', :object =&gt; @object</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].replace_html '${2:text}' $0]]></text>
+    <tag>replace</tag>
+    <description>page.replace_html 'dom_id', "text"</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].replace_html :partial => '${2:partial}', :object => @${3:object} $0]]></text>
+    <tag>replace</tag>
+    <description>page.replace_html 'dom_id, :partial =&gt; 'partial', :object =&gt; @object</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].remove $0]]></text>
+    <tag>remove</tag>
+    <description>page.remove 'dom_id'</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].hide $0]]></text>
+    <tag>hide</tag>
+    <description>page.hide 'dom_id'</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].show $0]]></text>
+    <tag>show</tag>
+    <description>page.show 'dom_id'</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:some-element}].toggle $0]]></text>
+    <tag>tog</tag>
+    <description>page.toggle 'dom_id'</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.alert '${1:Hello world}' $0]]></text>
+    <tag>alert</tag>
+    <description>page.alert 'message'</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.redirect_to :controller => '${1:controller}', :action => '${2:action}', :id => @${3:object} $0]]></text>
+    <tag>redirect</tag>
+    <description>page.redirect_to :controller =&gt; 'controller', :action =&gt; 'action', :id =&gt; @object</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.call ${1:function}, ${2:param1}, ${3:param2} $0]]></text>
+    <tag>call</tag>
+    <description>page.call function, param1, param2</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].assign ${2:value} $0]]></text>
+    <tag>assign</tag>
+    <description>page.assign "dom_id", value</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page << "${1:alert('hello world);}"]]></text>
+    <tag>raw</tag>
+    <description>page &lt;&lt; "alert('hello world);"</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.delay(${1:5}) do
+	$0
+end]]></text>
+    <tag>delay</tag>
+    <description>page.delay(time)</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].visual_effect :${2:highlight} $0]]></text>
+    <tag>visual</tag>
+    <description>page.visual_effect :effect, 'dom_id'</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page[:${1:dom_id}].visual_effect :${2:highlight}, :duration => ${3:2} $0]]></text>
+    <tag>visual</tag>
+    <description>page.visual_effect :effect, 'dom_id', :duration =&gt; 2</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.sortable '${1:my_list}', :url => { :action => '${2:order}' } $0]]></text>
+    <tag>sort</tag>
+    <description>page.sortable 'my_list', :url =&gt; { :action =&gt; 'order' }</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.dragable '${1:my_image}', :revert => ${2:true} $0]]></text>
+    <tag>drag</tag>
+    <description>page.dragable 'my_image', :revert =&gt; true</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[page.drop_recieving '${1:my_cart}', :url => { :controller => '${2:cart}', :action => '${3:add}' } $0]]></text>
+    <tag>drop</tag>
+    <description>page.drop_recieving 'my_cart', :url =&gt; { :controller =&gt; 'cart', :action =&gt; 'add' }</description>
+  </snippet>
+</snippets>

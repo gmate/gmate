@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=todo
+IAge=2
+Name=TODO List
+Description=Textmate TODO List bundle port for Gedit
+Authors=Alexandre da Silva <simpsom_boy@users.sourceforge.net>;Nando Vieira<fnando.vieira@gmail.com> (Original)
+Copyright=Copyright © 2007 Alexandre da Silva (Original by Naneo Vieira)
+Website=http://gedit-todo.sourceforge.net/

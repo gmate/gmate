@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright (C) 2006-2007 Will Farrington <wcfarrington@gmail.com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<style-scheme id="twilight" _name="Twilight" version="1.0">
+  <author>Will Farrington</author>
+  <_description>Soft, dark color scheme, based on the style of the same name from pastie.caboo.se</_description>
+
+<!-- Colors -->
+
+  <color name="off_white" value="#f8f8f8"/>
+  <color name="black_grey" value="#141414"/>
+  <color name="tinted_grey" value="#3f3c40"/>
+  <color name="dark_grey" value="#665f57"/>
+  <color name="med_grey" value="#888888"/>
+  <color name="light_grey" value="#a6a6a6"/>
+  <color name="olive_green" value="#8f9d6a"/>
+  <color name="washed_orange" value="#cda869"/>
+  <color name="faded_violet" value="#9b859d"/>
+  <color name="faded_cornwall" value="#7587a6"/>
+  <color name="pink_sandstone" value="#cf6a4c"/>
+  <color name="steelblue3" value="#4f94cd"/>
+  <color name="light_brown" value="#9b70f3"/>
+  <color name="super_faded_orange" value="#e9c062"/>
+  <color name="dark_maroon" value="#002f29"/>
+  <color name="yellow" value="#f9ee98"/>
+
+<!-- Global Settings -->
+
+  <style name="text" foreground="off_white" background="black_grey"/>
+  <style name="cursor" foreground="off_white"/>
+  <style name="current-line" background="tinted_grey"/>
+  <style name="line-numbers" foreground="light_grey" background="black_grey"/>
+  
+<!-- Bracket Matching -->
+  <style name="bracket-match" background="steelblue3"/>
+  <style name="bracket-mismatch" background="dark_maroon" bold="true"/>
+  <style name="search-match" foreground="off_white" background="steelblue3"/>
+
+<!-- Comments -->
+  <style name="def:comment" foreground="dark_grey" italic="true"/>
+  <style name="def:shebang" foreground="dark_grey" italic="true"/>
+  <style name="def:doc-comment-element" foreground="dark_grey" bold="true"/>
+
+<!-- Constants and Variables-->
+  <style name="def:constant" foreground="faded_cornwall"/>
+  <style name="def:string" foreground="olive_green"/>
+  <style name="def:special-char" foreground="faded_cornwall"/>
+  <style name="def:special-constant" foreground="washed_orange" bold="true"/>
+  <style name="def:boolean" foreground="pink_sandstone"/>
+  <style name="def:number" foreground="pink_sandstone"/>
+  <style name="def:floating-point" foreground="pink_sandstone"/>
+  <style name="def:keyword" foreground="washed_orange" bold="true"/>
+  <style name="def:builtin" foreground="washed_orange" bold="true"/>
+  <style name="def:variable" foreground="faded_cornwall"/>
+  
+<!-- Identifiers -->
+  <style name="def:identifier" foreground="faded_cornwall"/>
+
+<!-- Statements -->
+  <style name="def:statement" foreground="washed_orange"/>
+
+<!-- Types -->
+  <style name="def:type" foreground="faded_violet"/>
+  
+<!-- Others -->
+  <style name="def:error" foreground="off_white" background="dark_maroon" bold="true"/>
+  <style name="def:note" foreground="yellow" bold="true"/>
+  <style name="def:net-address-in-comment" foreground="steelblue3" italic="false" underline="true"/>
+  <style name="def:preprocessor" foreground="light_grey"/>
+    
+<!-- Unknown? -->
+  <style name="def:specials" background="faded_cornwall"/>
+
+<!-- C Styles -->
+  <style name="c:preprocessor" map-to="def:special-char"/>
+
+<!-- Diff Styles -->
+  <style name="diff:ignore" foreground="med_grey"/>
+
+<!-- Ruby Styles -->
+  <style name="ruby:module-handler" foreground="washed_orange"/>
+  <style name="ruby:symbol" foreground="pink_sandstone"/>
+  <style name="ruby:regex" foreground="super_faded_orange"/>
+
+<!-- SH Styles -->
+  <style name="sh:others" map-to="text"/>
+  
+<!-- XML Styles -->
+  <style name="xml:attribute-name" foreground="washed_orange"/>
+  <style name="xml:element-name" foreground="faded_cornwall"/>
+
+</style-scheme>

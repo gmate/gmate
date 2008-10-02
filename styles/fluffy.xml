@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="fluffy" name="Fluffy" version="1.0">
+  <author>Osmo Salomaa</author>
+  <description>A soft and downy color scheme</description>
+
+  <color name="almost-black" value="#111111"/>
+  <color name="blue" value="#0066ff"/>
+  <color name="cyan" value="#02b5d1"/>
+  <color name="dark-grey" value="#babdb6"/>
+  <color name="green" value="#00bb87"/>
+  <color name="highlight-blue" value="#abf5ff"/>
+  <color name="highlight-green" value="#c1ff9d"/>
+  <color name="highlight-yellow" value="#fce94f"/>
+  <color name="indigo" value="#b76fff"/>
+  <color name="light-grey" value="#eeeeec"/>
+  <color name="magenta" value="#ff6fff"/>
+  <color name="medium-grey" value="#d3d7cf"/>
+  <color name="red" value="#ff405a"/>
+  <color name="very-dark-grey" value="#888a85"/>
+  <color name="very-light-grey" value="#fafaf8"/>
+  <color name="white" value="#ffffff"/>
+
+  <style name="bracket-match" background="highlight-green" bold="false"/>
+  <style name="bracket-mismatch" background="red" bold="false"/>
+  <style name="current-line" background="very-light-grey"/>
+  <style name="line-numbers" background="light-grey" foreground="very-dark-grey"/>
+  <style name="right-margin" background="dark-grey" foreground="almost-black"/>
+  <style name="search-match" background="highlight-blue"/>
+  <style name="text" foreground="almost-black"/>
+  <style name="selection" background="highlight-yellow" foreground="almost-black"/>
+  <style name="selection-unfocused" background="light-grey" foreground="almost-black"/>
+
+  <style name="def:base-n-integer" foreground="magenta"/>
+  <style name="def:boolean" foreground="green"/>
+  <style name="def:builtin" foreground="indigo"/>
+  <style name="def:character" foreground="magenta"/>
+  <style name="def:comment" foreground="blue"/>
+  <style name="def:complex" foreground="magenta"/>
+  <style name="def:constant" foreground="magenta"/>
+  <style name="def:decimal" foreground="magenta"/>
+  <style name="def:doc-comment-element" foreground="blue"/>
+  <style name="def:error" foreground="red" bold="true"/>
+  <style name="def:floating-point" foreground="magenta"/>
+  <style name="def:function" foreground="indigo"/>
+  <style name="def:identifier" foreground="cyan"/>
+  <style name="def:keyword" foreground="red"/>
+  <style name="def:note" background="highlight-blue"/>
+  <style name="def:preprocessor" foreground="green"/>
+  <style name="def:shebang" foreground="blue"/>
+  <style name="def:special-char" foreground="magenta"/>
+  <style name="def:special-constant" foreground="green"/>
+  <style name="def:statement" foreground="red"/>
+  <style name="def:string" foreground="magenta"/>
+  <style name="def:type" foreground="green"/>
+  <style name="def:underlined" underline="true"/>
+
+  <style name="diff:added-line" foreground="green"/>
+  <style name="diff:changed-line" foreground="cyan"/>
+  <style name="diff:diff-file" foreground="magenta"/>
+  <style name="diff:location" foreground="indigo"/>
+  <style name="diff:removed-line" foreground="red"/>
+  <style name="diff:special-case" foreground="magenta"/>
+
+  <style name="latex:display-math" foreground="green"/>
+  <style name="latex:command" use-style="def:builtin"/>
+  <style name="latex:include" use-style="def:preprocessor"/>
+  <style name="latex:verbatim" use-style="def:string"/>
+
+  <style name="Others" foreground="red"/>
+  <style name="Others 2" foreground="green"/>
+  <style name="Others 3" foreground="blue"/>
+
+</style-scheme>

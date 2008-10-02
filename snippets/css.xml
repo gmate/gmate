@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="css">
+  <snippet>
+    <text><![CDATA[body
+{
+	$0
+}]]></text>
+    <tag>body</tag>
+    <description>body</description>
+  </snippet>
+</snippets>

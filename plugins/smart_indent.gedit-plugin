@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=smart_indent
+IAge=2
+Name=Smart Indent
+Description=A Smart Indentation Plugin for Gedit
+Authors=Alexandre da Silva <lexrupy at gmail dot com>
+Copyright=Copyright © 2008 Alexandre da Silva
+Website=http://alexandredasilva.wordpress.com/gmate

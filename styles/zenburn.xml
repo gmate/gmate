@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="zenburn" _name="Zenburn" version="1.0">
+
+  <author>Nazgum</author>
+  <_description>Zenburn color scheme</_description>
+
+<!--
+      ZENBURN
+      COLOR
+      PALETTE
+-->
+
+  <!-- Greys -->
+  <color name="darker grey"             value="#262626"/>
+  <color name="dark grey"               value="#3f3f3f"/>
+  <color name="almost dark grey"        value="#4A4A4A"/>
+  <color name="slightly dark grey"      value="#9E9B81"/>
+  <color name="grey"                    value="#C3BF9F"/>
+  <color name="very light grey"         value="#DCDCCC"/>
+  <color name="white"                   value="#ffffff"/>
+
+  <!-- Reds -->
+  <color name="dark red"                value="#705050"/>
+  <color name="dark pink"               value="#D19D9D"/>
+  <color name="pink"                    value="#DCA3A3"/>
+  <color name="plum"                    value="#DFAF8F"/>
+
+  <!-- Blues -->
+  <color name="dark blue"               value="#506070"/>
+  <color name="turquoise"               value="#60B48A"/>
+  <color name="blue"                    value="#9AB1CD"/>
+  <color name="light blue"              value="#94BFF3"/>
+  <color name="dark cyan"               value="#709080"/>
+  <color name="cyan"                    value="#8CD0D3"/>
+  <color name="light cyan"              value="#93E0E3"/>
+
+  <!-- Purples -->
+  <color name="dark magenta"            value="#945E83"/>
+  <color name="light magenta"           value="#DC8CC3"/>
+  <color name="very light magenta"      value="#EC93D3"/>
+
+  <!-- Yellows -->
+  <color name="dark yellow"             value="#B5DCA3"/>
+  <color name="light yellow"            value="#F0DFAF"/>
+
+  <!-- Greens -->
+  <color name="green"                   value="#9CC54A"/>
+
+<!--
+      CONTENT
+      TO
+      COLOR
+-->
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="very light grey" background="dark grey"/>
+  <style name="selection"                   foreground="white" background="dark blue"/>
+  <style name="cursor"                      foreground="very light grey"/>
+  <style name="current-line"                background="almost dark grey"/>
+  <style name="line-numbers"                foreground="slightly dark grey" background="darker grey"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="white" background="dark cyan" bold="true"/>
+  <style name="bracket-mismatch"            foreground="white" background="light yellow" bold="true"/>
+
+  <!-- Right Margin -->
+  <style name="right-margin"                foreground="white" background="dark blue"/>
+  
+  <!-- Search Matching -->
+  <style name="search-match"                foreground="dark grey" background="plum"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="light magenta"/>
+  <style name="def:shebang"                 foreground="dark blue" bold="true"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="turquoise"/>
+  <style name="def:string"                  foreground="turquoise"/>
+  <style name="def:special-char"            foreground="pink"/>
+  <style name="def:special-constant"        foreground="pink"/>
+  <style name="def:floating-point"          foreground="pink"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="light blue"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="white" bold="true"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="cyan" bold="true"/> 
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="plum"/>
+  <style name="def:error"                   foreground="pink" background="dark blue" bold="true"/>
+  <style name="def:note"                    background="light yellow" foreground="dark blue" bold="true"/>
+  <style name="def:underlined"              italic="true" underline="true"/>
+
+  <!-- Language specific -->
+  <style name="diff:added-line"             foreground="turquoise"/>
+  <style name="diff:removed-line"           foreground="light blue"/>
+  <style name="diff:changed-line"           foreground="plum"/>
+  <style name="diff:diff-file"              foreground="cyan" bold="true"/> 
+  <style name="diff:location"               foreground="cyan"/> 
+  <style name="diff:special-case"           foreground="white" bold="true"/>
+
+  <!-- Ruby specific -->
+<!--  <style name="ruby:keyword"                foreground="ambra" bold="true"/> -->
+  <style name="ruby:comment"                foreground="pink"/>
+  <style name="ruby:attribute-definition"   foreground="white" bold="true"/>
+  <style name="ruby:module-handler"         foreground="white" bold="true"/>
+  <style name="ruby:builtin"                foreground="blue" bold="true"/>
+  <style name="ruby:special-variable"       foreground="light magenta" bold="true"/>
+  <style name="ruby:predefined-variable"    foreground="light blue" bold="true"/>
+<!--  <style name="ruby:variable"               foreground="green" bold="true"/> -->
+  <style name="ruby:symbol"                 foreground="cyan"/>
+  <style name="ruby:regex"                  foreground="light magenta" bold="true"/>
+  <style name="ruby:constant"               foreground="blue" bold="true"/>
+
+  <!-- Other ruby styles
+  <style name="ruby:keyword"                foreground="ambra" bold="true"/>
+  <style name="ruby:variable"               foreground="green" bold="true"/>
+  <style name="ruby:nil-value"              foreground="fuchsia" bold="true"/>
+  <style name="ruby:boolean"                foreground="fuchsia" bold="true"/> 
+  -->
+</style-scheme>
+

@@ -1,0 +1,23 @@
+GMATE
+-----
+
+This package contains some Gedit improvements to make it more
+similar to TextMate.
+package contain code snippets, plugins, and an automatic registration
+of rails-related files.
+
+Run install.sh to install gmate
+
+NOTE: Some commands will expect you enter your sudo password
+
+in addition you can edit your /etc/mime.types file and add
+following lines next to other "text/x-????" entries:
+
+text/x-ruby-source                              rhtml html.erb erb
+text/x-eruby                                    rjs
+text/x-yaml                                     yml
+
+More info : http://alexandredasilva.wordpress.com/gmate
+
+NOTE: refer to each plugin source code and readme file to get information
+about specific plugin licencing and copyright

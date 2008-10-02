@@ -1,0 +1,8 @@
+[Gedit Plugin]
+Loader=python
+Module=rails_hotkeys
+IAge=2
+Name=Rails Hotkeys
+Description=Press Ctrl+Shift+R for Rails shortcuts
+Authors=Nando Vieira <fnando dot vieira at gmail dot com>
+Website=http://simplesideias.com.br/

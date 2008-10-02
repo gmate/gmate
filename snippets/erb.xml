@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="erb">
+  <snippet>
+    <text><![CDATA[<%= $0 %>]]></text>
+    <tag>erb</tag>
+    <description>erb &lt;%=</description>
+    <drop-targets>text/erb, text/html</drop-targets>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% $0 %>]]></text>
+    <tag>erbc</tag>
+    <description>erb &lt;%</description>
+    <drop-targets>text/erb, text/html</drop-targets>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% end %>]]></text>
+    <tag>end</tag>
+    <description>erb end</description>
+    <drop-targets>text/erb, text/html</drop-targets>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<${1:p}>$0</${1:p}>]]></text>
+    <tag>p</tag>
+    <description>html tag</description>
+    <drop-targets>text/erb, text/html</drop-targets>
+  </snippet>
+</snippets>

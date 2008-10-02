@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=classbrowser
+IAge=2
+Name=Class Browser
+Description=class browser for gedit
+Authors=Frederic Back <fredericback@gmail.com>
+Copyright=Copyright 2006 Frederic Back <fredericback@gmail.com>
+Website=http://www.stambouliote.de/projects/gedit_plugins.html

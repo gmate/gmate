@@ -57,7 +57,7 @@ class SmartIndent:
         if lang == 'none':
             self.__not_available = True
         elif lang == 'ruby':
-            self.re_indent_next = re.compile(r'[^#]*\s+do(\s*|(\s+\|.+\|\s*))|\s*(if\s+.*|elsif.*|else.*|do(\s*|\s+.*)|case\s+.*|when\s+.*|while\s+.*|for\s+.*|until\s+.*|loop\s+.*|def\s+.*|class\s+.*|module\s+.*|begin.*|unless\s+.*|rescue.*|ensure.*)+')
+            self.re_indent_next = re.compile(r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+')
             self.re_unindent_curr = re.compile(r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$')
             self.unindent_keystrokes = 'edfn'
         elif lang == 'python':
@@ -75,9 +75,14 @@ class SmartIndent:
         else:
             self.__not_available = True
 
-    def __get_current_line(self, view, buf):
+    def __update_line_no(self, buf):
         cursor_iter = buf.get_iter_at_mark(buf.get_insert())
         self.__line_no = cursor_iter.get_line()
+        if self.__line_no != self.__line_unindented:
+            self.__line_unindented = -1
+
+    def __get_current_line(self, view, buf):
+        cursor_iter = buf.get_iter_at_mark(buf.get_insert())
         line_start_iter = cursor_iter.copy()
         view.backward_display_line_start(line_start_iter)
         return buf.get_text(line_start_iter, cursor_iter)
@@ -91,6 +96,7 @@ class SmartIndent:
         else:
           indent_width = '\t'
         keyval = event.keyval
+        self.__update_line_no(buf)
         if keyval == 65293:
             # Check next line indentation for current line
             line = self.__get_current_line(view, buf)
@@ -111,17 +117,16 @@ class SmartIndent:
                 return True
         elif keyval in [ord(k) for k in self.unindent_keystrokes]:
             line = self.__get_current_line(view, buf)
-            if self.__line_unindented == self.__line_no:
-                if self.__line_changed: return
-            line_eval = line+chr(event.keyval)
-            if self.re_unindent_curr and self.re_unindent_curr.match(line_eval):
-                cursor_iter = buf.get_iter_at_mark(buf.get_insert())
-                line_start_iter = cursor_iter.copy()
-                view.backward_display_line_start(line_start_iter)
-                iter_end_del = buf.get_iter_at_offset(line_start_iter.get_offset() + len(indent_width))
-                text = buf.get_text(line_start_iter, iter_end_del)
-                if text.strip() == '':
-                    buf.delete_interactive(line_start_iter, iter_end_del, True)
-                    self.__line_unindented = self.__line_no
-                    return False
+            if self.__line_unindented != self.__line_no:
+                line_eval = line+chr(event.keyval)
+                if self.re_unindent_curr and self.re_unindent_curr.match(line_eval):
+                    cursor_iter = buf.get_iter_at_mark(buf.get_insert())
+                    line_start_iter = cursor_iter.copy()
+                    view.backward_display_line_start(line_start_iter)
+                    iter_end_del = buf.get_iter_at_offset(line_start_iter.get_offset() + len(indent_width))
+                    text = buf.get_text(line_start_iter, iter_end_del)
+                    if text.strip() == '':
+                        buf.delete_interactive(line_start_iter, iter_end_del, True)
+                        self.__line_unindented = self.__line_no
+                        return False
         return False

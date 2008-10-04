@@ -26,23 +26,12 @@ import gtk
 import gtk.gdk
 import os
 import pygtk
-import gtkmozembed
+import webkit
 import re
 
 DEBUG_NAME = 'TODO_DEBUG'
 DEBUG_TITLE = 'todo'
 TMP_FILE = '/tmp/_todo_%s_todo.html' %  os.environ['USER']
-
-MOZILLA_HOME="/usr/lib/firefox-3.0"
-
-put, get = os.popen4("firefox -v")
-version_string = get.readlines()[0]
-
-
-match = re.match(r'Mozilla\sFirefox\s(?P<version>.*), Copyright', version_string)
-version = match.group('version')
-if version:
-    MOZILLA_HOME="/usr/lib/firefox-%s" % version
 
 ui_str = """
 <ui>
@@ -53,6 +42,10 @@ ui_str = """
     </menubar>
 </ui>
 """
+
+class BrowserPage(webkit.WebView):
+    def __init__(self):
+        webkit.WebView.__init__(self)
 
 def debug(text, level=1):
     if os.environ.has_key(DEBUG_NAME):
@@ -85,18 +78,20 @@ class TodoPlugin(gedit.Plugin):
 class TodoWindowHelper:
     handlers = {}
 
+    mt = re.compile(r'(?P<protocol>^gedit:\/\/)(?P<file>.*?)\?line=(?P<line>.*?)$')
+
     def __init__(self, plugin, window):
         self.window = window
         self.plugin = plugin
         self.todo_window = None
-        self.moz = None
+        self._browser = None
         self.client = gconf.client_get_default()
         self.add_menu()
 
     def deactivate(self):
         debug('deactivate function called')
 
-        self.moz = None
+        self._browser = None
         self.todo_window = None
         self.window = None
         self.plugin = None
@@ -180,24 +175,55 @@ class TodoWindowHelper:
             self.todo_window.show()
             self.todo_window.grab_focus()
         else:
-            gtkmozembed.set_comp_path(MOZILLA_HOME)
-            self.moz = gtkmozembed.MozEmbed()
+            self._browser = BrowserPage()
+            self._browser.connect('navigation-requested', self.on_navigation_request)
             self.todo_window = gtk.Window()
             self.todo_window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
             self.todo_window.resize(700,510)
             self.todo_window.connect('delete_event', self.on_todo_close)
             self.todo_window.set_destroy_with_parent(True)
-            self.todo_window.add(self.moz)
+            self.todo_window.add(self._browser)
             self.todo_window.show_all()
 
         self.todo_window.set_title(title)
-        self.moz.load_url(TMP_FILE)
+        f = open(TMP_FILE)
+        html_str = ''
+        for l in f.readlines():
+            html_str += l
+        self._browser.load_string(html_str, "text/html", "utf-8", "about:")
         # remove the temporary file after load to avoid any security issue
         os.unlink(TMP_FILE)
 
     def on_todo_close(self, *args):
         self.todo_window.hide()
         return True
+
+    def on_navigation_request(self, page, frame, request):
+        file_uri = None
+        uri = request.get_uri()
+        gp =  self.mt.search(uri)
+        if gp:
+            file_uri = 'file:///%s' % gp.group('file')
+            line_number = gp.group('line')
+            if file_uri:
+                # Test if document is not already open
+                for doc in self.window.get_documents():
+                    if doc.get_uri() == file_uri:
+                        tab = gedit.tab_get_from_document(doc)
+                        view = tab.get_view()
+                        self.window.set_active_tab(tab)
+                        doc.goto_line(int(line_number))
+                        view.scroll_to_cursor()
+                        self.todo_window.hide()
+                        return 1
+                # Document isn't open, create a new tab from uri
+                self.window.create_tab_from_uri(file_uri,
+                            gedit.encoding_get_current(),
+                            int(line_number), False, True)
+        else:
+            print "(%s) not found" % file_uri
+        self.todo_window.hide()
+        return 1
 
     def update(self, text=None):
         pass

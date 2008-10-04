@@ -74,7 +74,7 @@ total_marks = 0
 
 # Helper Functions
 def file_link(file, line=0):
-    return "gedit://%s?line=%d" % (file,line-1)
+    return "gedit:///%s?line=%d" % (file,line-1)
 
 # Escape possible tags from comments as HTML
 def escape(str_):

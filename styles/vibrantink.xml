@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<style-scheme id="vibrantink" name="Vibrantink" version="1.0">
+	<author/>
+	<_description>Vibrantink theme</_description>
+	<style background="#Black" foreground="#White" name="text"/>
+	<style background="#Yellow" foreground="#Black" name="cursor"/>
+	<style foreground="#FF6600" name="def:keyword"/>
+	<style foreground="#9933CC" name="def:comment"/>
+	<style foreground="#White" name="def:type"/>
+	<style foreground="#White" name="def:identifier"/>
+	<style foreground="#FFEE98" name="def:constant"/>
+	<style foreground="#FFCC00" name="def:function"/>
+	<style foreground="#FF6600" name="def:statement"/>
+	<style foreground="#66FF00" name="def:string"/>
+	<style background="#White" name="search-match"/>
+</style-scheme>
+

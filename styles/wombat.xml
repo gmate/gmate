@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<style-scheme id="wombat" name="Wombat" version="1.0">
+	<author/>
+	<_description>Wombat theme</_description>
+	<style background="#2d2d2d" name="current-line"/>
+	<style background="#857b6f" bold="true" foreground="#f6f3e8" name="bracket-match"/>
+	<style background="#656565" name="cursor"/>
+	<style background="#242424" foreground="#f6f3e8" name="text"/>
+	<style background="#000000" foreground="#857b6f" name="line-numbers"/>
+	<style foreground="#99968b" italic="true" name="def:comment"/>
+	<style foreground="#e5786d" name="def:constant"/>
+	<style foreground="#95e454" italic="true" name="def:string"/>
+	<style foreground="#cae682" name="def:identifier"/>
+	<style foreground="#cae682" name="def:function"/>
+	<style foreground="#cae682" name="def:type"/>
+	<style foreground="#8ac6f2" name="def:statement"/>
+	<style foreground="#8ac6f2" name="def:keyword"/>
+	<style foreground="#e5786d" name="def:preprocessor"/>
+	<style foreground="#e5786d" name="def:number"/>
+	<style foreground="#e7f6da" name="def:specials"/>
+</style-scheme>
+

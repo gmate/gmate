@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright (C) 2007 Pedro Gongora
+ Author: Pedro Gongora <pedro.gongora@gmail.com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+
+<style-scheme id="chela_light" _name="chela_light" version="1.0">
+
+  <author>Pedro Gongora</author>
+  <_description>chela light color scheme from gvim</_description>
+
+  <!-- Tango Palette -->
+  <color name="green1"                      value="#339900"/>
+  <color name="red1"                        value="#dd3333"/>
+  <color name="red2"                        value="#ff3333"/>
+  <color name="blue1"                       value="#3333ff"/>
+  <color name="magenta1"                    value="#cc00cc"/>
+  <color name="white1"                      value="#fafafa"/>
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="#black" background="white"/>
+  <style name="selection"                   foreground="#black" background="#gray"/>
+  <style name="cursor"                      foreground="#black"/>
+  <style name="current-line"                background="#gray92"/>
+  <style name="line-numbers"                foreground="#gray" background="#white"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="#black" background="#cyan"/>
+  <style name="bracket-mismatch"            foreground="#white" background="#red"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="green1"/>
+  <style name="def:sheband"                 foreground="green1" bold="false"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="red1"/>    
+  <style name="def:string"                  foreground="red1"/>
+  <style name="def:special-char"            foreground="magenta1"/>
+  <style name="def:special-constant"        foreground="magenta1"/>
+  <style name="def:floating-point"          foreground="red1"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="blue1" bold="false"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="blue1" bold="false"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="blue1" bold="false"/> 
+
+  <!-- Others -->
+  <style name="def:keyword"                 foreground="blue1" bold="false"/> 
+  <style name="def:preprocessor"            foreground="blue1" bold="false"/>
+  <style name="def:error"                   foreground="#white" background="#red" bold="false"/>
+  <style name="def:underlined"              italic="true" underline="true" bold="false"/>
+  <style name="latex:display-math"          foreground="magenta1" bold="false"/> 
+ 
+</style-scheme>

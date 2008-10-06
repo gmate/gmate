@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<style-scheme id="dusk" name="Dusk" version="1.0">
+	<author/>
+	<_description>
+		Dusk theme
+	</_description>
+	<style background="#1f3048" foreground="#ivory" name="text"/>
+	<style background="#Green" foreground="#Black" name="cursor"/>
+	<style background="#bg" foreground="#MistyRose3" name="line-numbers"/>
+	<style background="#Bisque" foreground="#SkyBlue4" name="search-match"/>
+	<style background="#LightCyan" foreground="#Blue" name="diff:added-line"/>
+	<style background="#LightCyan4" foreground="#white" name="diff:changed-line"/>
+	<style background="#LightCyan" foreground="#LightBlue" name="diff:removed-line"/>
+	<style background="#bg" foreground="#MistyRose3" name="def:constant"/>
+	<style background="#bg" foreground="#LightBlue3" name="def:string"/>
+	<style background="#bg" foreground="#GoldenRod" name="def:specials"/>
+	<style background="#bg" foreground="#khaki" name="def:statement"/>
+	<style background="#Linen" foreground="#Red" name="def:error"/>
+	<style background="#bg" foreground="#SlateGrey" name="def:comment"/>
+	<style background="#bg" foreground="#Lavender" name="def:comment"/>
+	<style background="#bg" foreground="#BlanchedAlmond" name="def:identifier"/>
+	<style background="#bg" foreground="#ffa0a0" name="def:preprocessor"/>
+	<style background="#bg" foreground="#NavajoWhite" name="def:type"/>
+</style-scheme>
+

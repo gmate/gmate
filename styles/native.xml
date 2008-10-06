@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<style-scheme id="native" name="Native" version="1.0">
+	<author/>
+	<_description>Native theme</_description>
+	<style background="#222222" foreground="#f2f2f2" name="text"/>
+	<style background="#aaaaaa" name="cursor"/>
+	<style background="#peru" foreground="#wheat" name="search-match"/>
+	<style foreground="#ed9d13" name="def:string"/>
+	<style foreground="#ed9d13" name="def:constant"/>
+	<style foreground="#3677a9" name="def:number"/>
+	<style bold="true" foreground="#6ab825" name="def:statement"/>
+	<style foreground="#447fcf" name="def:function"/>
+	<style bold="true" foreground="#cd2828" name="def:preprocessor"/>
+	<style foreground="#999999" italic="true" name="def:comment"/>
+	<style bold="true" foreground="#bbbbbb" name="def:type"/>
+</style-scheme>
+

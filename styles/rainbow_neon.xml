@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<style-scheme id="rainbow_neon" name="Rainbow_Neon" version="1.0">
+	<author/>
+	<_description>Rainbow Neon theme</_description>
+	<style background="#303030" foreground="#f0f0f0" name="text"/>
+	<style background="#808000" foreground="#ffffa8" name="search-match"/>
+	<style background="#601830" foreground="#e03870" name="diff:changed-line"/>
+	<style background="#0020a0" foreground="#a0d0ff" name="diff:removed-line"/>
+	<style background="#0020a0" foreground="#a0d0ff" name="diff:added-line"/>
+	<style background="#8040ff" foreground="#70ffc0" name="cursor"/>
+	<style foreground="#707070" name="line-numbers"/>
+	<style foreground="#c0c0c0" name="def:comment"/>
+	<style foreground="#92d4ff" name="def:constant"/>
+	<style background="#8000ff" foreground="#ffffff" name="def:error"/>
+	<style foreground="#40f8f8" name="def:identifier"/>
+	<style foreground="#ffa8ff" name="def:preprocessor"/>
+	<style foreground="#ffc890" name="def:specials"/>
+	<style foreground="#dcdc78" name="def:statement"/>
+	<style foreground="#60f0a8" name="def:type"/>
+</style-scheme>
+

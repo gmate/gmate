@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright (C) 2006-2007 GtkSourceView team
+ Author: Fabiano Shark <fabiano@fshark.com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<style-scheme id="dreamweaver" _name="Dreamweaver" version="1.0">
+  <author>Fabiano Shark</author>
+  <_description>Color scheme based on Dreamweaver</_description>
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="#black" background="#white"/>
+  <style name="selection"                   foreground="#black" background="#gray"/>
+  <style name="cursor"                      foreground="#black"/>
+  <style name="current-line"                background="#gray92"/>
+  <style name="line-numbers"                foreground="#black" background="#gray"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="#black" background="#cyan"/>
+  <style name="bracket-mismatch"            foreground="#white" background="#red"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="#FF8000"/>
+  <style name="def:sheband"                 foreground="#gray"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="#F00000"/>    
+  <style name="def:string"                  foreground="#D00000"/>
+  <style name="def:special-char"            foreground="#slate blue"/>
+  <style name="def:special-constant"        foreground="#slate blue"/>
+  <style name="def:floating-point"          foreground="#D00000"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="#dark blue"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="#0000FF" bold="false"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="#0000FF" bold="false"/> 
+
+  <!-- Others -->
+  <style name="def:keyword"                 foreground="#007700" bold="false"/> 
+  <style name="def:preprocessor"            foreground="#blue"/>
+  <style name="def:error"                   foreground="#0000FF" background="#white" bold="false"/>
+  <style name="def:underlined"              italic="true" underline="true"/>
+  <style name="latex:display-math"          foreground="#slate blue" bold="false"/> 
+ 
+</style-scheme>

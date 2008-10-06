@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<style-scheme id="fruity" name="Fruity" version="1.0">
+	<author/>
+	<_description>Fruity theme</_description>
+	<style background="#111111" foreground="#ffffff" name="text"/>
+	<style background="#aaaaaa" name="cursor"/>
+	<style background="#ffae00" foreground="#800000" name="search-match"/>
+	<style background="#181818" name="current-line"/>
+	<style background="#222222" foreground="#aaaaaa" name="line-numbers"/>
+	<style foreground="#fd8900" name="def:specials"/>
+	<style foreground="#0086d2" name="def:string"/>
+	<style foreground="#0086d2" name="def:constant"/>
+	<style bold="true" foreground="#0086f7" name="def:number"/>
+	<style bold="true" foreground="#fb660a" name="def:statement"/>
+	<style bold="true" foreground="#ff0086" name="def:function"/>
+	<style bold="true" foreground="#ff0007" name="def:preprocessor"/>
+	<style background="#0f140f" foreground="#00d2ff" italic="true" name="def:comment"/>
+	<style bold="true" foreground="#cdcaa9" name="def:type"/>
+	<style background="#ab0000" foreground="#ffffff" name="def:error"/>
+	<style bold="true" foreground="#ff0086" name="def:identifier"/>
+</style-scheme>
+

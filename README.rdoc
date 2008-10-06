@@ -5,7 +5,7 @@ The package contain code snippets, plugins, and an automatic registration of rai
 
 
 Now Todo-List plugin is a part of GMATE and does not depend of mozilla / gtkmozembed
-todo plugin now depends of python-webkitgtk package.
+todo plugin now depends of python-webkitgtk package.   (Currently tested on ubuntu 8.10 beta)
 to install on a debian/ubuntu based distro just run in a terminal:
 
   $ sudo apt-get install python-webkitgtk

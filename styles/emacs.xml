@@ -21,7 +21,7 @@
 
 -->
 
-<style-scheme id="emacs" _name="emacs" version="1.0">
+<style-scheme id="emacs" _name="Emacs" version="1.0">
 
   <author>Pedro Gongora</author>
   <_description>Emacs-like color scheme borrowed from gvim</_description>

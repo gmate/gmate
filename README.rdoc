@@ -36,22 +36,62 @@ NOTE: Some commands will expect you enter your sudo password
 
 === Themes/Styles
 
+* Autumn
+* Blue Dream
+* Chela Light
 * Cobalt
 * Darkmacs
 * Darkmate
-* Darktango
 * Desert
+* Dreamweaver
+* Dusk
+* Emacs Dark
+* Emacs
 * Fluffy
-* Idle
+* Fruity
+* IDLE
+* Ironman
+* Kate
+* Native
+* Neon
 * Railscasts (Changed by me to complete integration with my modifications of gtksourceview2 ruby.lang, originally written for Matthew Swasey <matt.swasey@viget.com>)
 * Rubycius
 * Slush and Poppies
+* Tango
+* Textmate (mac classic)
 * Tinge
 * Twilight
 * Vibrant Fun
 * Vibrant Ink
 * Vibrant Nerd
+* Warm Grey
+* Wombat
 * Zenburn
+
+-rw-r--r-- 1 alexandre alexandre 3316 2008-10-06 14:11 emacs-darkslategrey.xml
+-rw-r--r-- 1 alexandre alexandre 3198 2008-10-06 14:11 emacs.xml
+-rw-r--r-- 1 alexandre alexandre 3446 2008-10-06 14:11 fluffy.xml
+-rw-r--r-- 1 alexandre alexandre 1137 2008-10-06 14:11 fruity.xml
+-rw-r--r-- 1 alexandre alexandre 3864 2008-10-06 14:11 idle.xml
+-rw-r--r-- 1 alexandre alexandre 1104 2008-10-06 14:11 ironman.xml
+-rw-r--r-- 1 alexandre alexandre  781 2008-10-06 14:11 native.xml
+-rw-r--r-- 1 alexandre alexandre 1053 2008-10-06 14:11 neon.xml
+-rw-r--r-- 1 alexandre alexandre 5387 2008-10-06 14:11 oblivion.xml
+-rw-r--r-- 1 alexandre alexandre 6697 2008-10-06 14:11 railscasts.xml
+-rw-r--r-- 1 alexandre alexandre 1077 2008-10-06 14:11 rainbow_neon.xml
+-rw-r--r-- 1 alexandre alexandre 4976 2008-10-06 14:11 Rubycius.xml
+-rw-r--r-- 1 alexandre alexandre 4113 2008-10-06 14:11 slush_and_poppies.xml
+-rw-r--r-- 1 alexandre alexandre 3027 2008-10-06 14:11 textmate.xml
+-rw-r--r-- 1 alexandre alexandre 5861 2008-10-06 14:11 Tinge.xml
+-rw-r--r-- 1 alexandre alexandre 4431 2008-10-06 14:11 twilight.xml
+-rw-r--r-- 1 alexandre alexandre 4910 2008-10-06 14:11 vibrant_fun.xml
+-rw-r--r-- 1 alexandre alexandre 3941 2008-10-06 14:11 vibrant_ink.xml
+-rw-r--r-- 1 alexandre alexandre  739 2008-10-06 14:11 vibrantink.xml
+-rw-r--r-- 1 alexandre alexandre 4486 2008-10-06 14:11 vibrant_nerd.xml
+-rw-r--r-- 1 alexandre alexandre 1332 2008-10-06 14:11 warm_grey.xml
+-rw-r--r-- 1 alexandre alexandre 1052 2008-10-06 14:11 wombat.xml
+-rw-r--r-- 1 alexandre alexandre 5643 2008-10-06 14:11 zenburn.xml
+
 
 === Language Improvements
 

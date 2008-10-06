@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright (C) 2007 Gustavo J. A. M. Carneiro
+ Copyright (C) 2007 GtkSourceView team
+ Author: Paolo Maggi <paolo@gnome.org>
+         Paolo Borelli <pborelli@gnome.org>
+         Gustavo Carneiro <gjc@gnome.org>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+
+<style-scheme id="emacs-darkslategray" _name="Emacs Dark" version="1.0">
+
+  <author>Gustavo Carneiro</author>
+  <_description>Dark color scheme, based on GNU Emacs, but with some modifications.</_description>
+
+  <color name="DarkSlateGray"               value="#2F4F4F"/>
+  <color name="Wheat"                       value="#F5DEB3"/>
+  <color name="DarkBlue"                    value="#00008B"/>
+  <color name="Orchid"                      value="#DA70D6"/>
+
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="Wheat" background="DarkSlateGray"/>
+  <style name="selection"                   background="DarkBlue"/>
+  <style name="cursor"                      foreground="Orchid"/>
+  <style name="current-line"                background="#506050"/>
+  <style name="line-numbers"                foreground="#grey" background="#black"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               background="#247824" bold="true"/>
+  <style name="bracket-mismatch"            background="#8f4f4f" bold="true"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="#grey"/>
+  <style name="def:sheband"                 foreground="#grey" bold="true"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="#Aquamarine"/>
+  <style name="def:string"                  foreground="#LightSalmon"/>
+  <style name="def:special-char"            foreground="#white"/>
+  <style name="def:special-constant"        foreground="#Aquamarine"/>
+  <style name="def:floating-point"          foreground="#Aquamarine"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="#LightGoldenrod"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="#Cyan" bold="true"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="#PaleGreen"/> 
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="#CornFlowerBlue"/>
+  <style name="def:error"                   foreground="#yellow" background="#red" bold="true"/>
+<!--  <style name="def:note"                    background="butter1" foreground="aluminium4" bold="true"/> -->
+<!--  <style name="def:underlined"              italic="true" underline="true"/> -->
+ 
+</style-scheme>

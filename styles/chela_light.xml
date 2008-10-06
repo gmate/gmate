@@ -21,7 +21,7 @@
 
 -->
 
-<style-scheme id="chela_light" _name="chela_light" version="1.0">
+<style-scheme id="chela_light" _name="Chela Light" version="1.0">
 
   <author>Pedro Gongora</author>
   <_description>chela light color scheme from gvim</_description>

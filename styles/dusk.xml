@@ -1,9 +1,7 @@
 <?xml version="1.0" ?>
 <style-scheme id="dusk" name="Dusk" version="1.0">
 	<author/>
-	<_description>
-		Dusk theme
-	</_description>
+	<_description>Dusk theme</_description>
 	<style background="#1f3048" foreground="#ivory" name="text"/>
 	<style background="#Green" foreground="#Black" name="cursor"/>
 	<style background="#bg" foreground="#MistyRose3" name="line-numbers"/>
@@ -22,4 +20,3 @@
 	<style background="#bg" foreground="#ffa0a0" name="def:preprocessor"/>
 	<style background="#bg" foreground="#NavajoWhite" name="def:type"/>
 </style-scheme>
-

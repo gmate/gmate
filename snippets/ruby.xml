@@ -1227,4 +1227,18 @@ end]]></text>
     <tag>rd</tag>
     <description>Redirect To Path</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[it "deveria ${1:test}" do
+	$0
+end]]></text>
+    <tag>it</tag>
+    <description>Rspec It</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[describe "${1:description}" do
+	$0
+end]]></text>
+    <tag>desc</tag>
+    <description>Rspec describe</description>
+  </snippet>
 </snippets>

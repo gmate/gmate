@@ -393,7 +393,7 @@
 
     <!-- TODO: Ignore when foloowed by a dot "Class.something" -->
     <context id="class-definition" style-ref="class-definition">
-      <match>(&lt;\s*)?(::)?\b[A-Z][A-Za-z0-9_]*\b</match>
+      <match>(?&lt;!&lt;)(&lt;\s*)?(::)?\b[A-Z][A-Za-z0-9_]*\b</match>
     </context>
 
     <context id="nil-value" style-ref="nil-value">

@@ -666,6 +666,11 @@
       <keyword>redirect_to</keyword>
       <keyword>redirect_to_path</keyword>
       <keyword>redirect_to_url</keyword>
+      <keyword>link_to</keyword>
+      <keyword>link_to_remote</keyword>
+      <keyword>link_to_if</keyword>
+      <keyword>link_to_current</keyword>
+      <keyword>link_to_unless_current</keyword>
       <keyword>helper</keyword>
       <keyword>helper_method</keyword>
       <keyword>model</keyword>
@@ -727,6 +732,7 @@
       <keyword>integrate_views</keyword>
       <keyword>have_text</keyword>
       <keyword>have_tag</keyword>
+      <keyword>with_tag</keyword>
       <keyword>without_tag</keyword>
       <keyword>has_no_table</keyword>
     </context>

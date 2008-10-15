@@ -25,14 +25,14 @@
     <description>div with id</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% ${1:@list}.each do |${2:item}| do %>
+    <text><![CDATA[<% ${1:@list}.each do |${2:item}| do -%>
 	$0
-<% end %>]]></text>
+<% end -%>]]></text>
     <tag>each</tag>
     <description>each</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% end %>]]></text>
+    <text><![CDATA[<% end -%>]]></text>
     <tag>end</tag>
     <description>end</description>
   </snippet>
@@ -42,25 +42,25 @@
     <description>error messages</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% form_tag $1do %>
+    <text><![CDATA[<% form_tag $1do -%>
 	$0
-<% end %>]]></text>
+<% end -%>]]></text>
     <tag>form</tag>
     <description>form</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% if ${1:logged_in?} %>
+    <text><![CDATA[<% if ${1:logged_in?} -%>
 	$0
-<% end %>]]></text>
+<% end -%>]]></text>
     <tag>if</tag>
     <description>if</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% if ${1:logged_in?} %>
+    <text><![CDATA[<% if ${1:logged_in?} -%>
 	$0
-<% else %>
+<% else -%>
 	
-<% end %>]]></text>
+<% end -%>]]></text>
     <tag>ife</tag>
     <description>ife</description>
   </snippet>
@@ -199,5 +199,31 @@ $0]]></text>
 <% end -%>]]></text>
     <tag>forin</tag>
     <description>For In</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% else -%>]]></text>
+    <tag>else</tag>
+    <description>else</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% unless ${1:logged_in?} -%>
+	$0
+<% end -%>]]></text>
+    <tag>unless</tag>
+    <description>unless</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<% unless ${1:logged_in?} -%>
+	$0
+<% else -%>
+	
+<% end -%>]]></text>
+    <tag>unlesse</tag>
+    <description>unlesse</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<th>$0</th>]]></text>
+    <tag>th</tag>
+    <description>table head</description>
   </snippet>
 </snippets>

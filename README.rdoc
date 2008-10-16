@@ -54,7 +54,7 @@ NOTE: Some commands will expect you enter your sudo password
 * Kate
 * Native
 * Neon
-* Railscasts (Changed by me to complete integration with my modifications of gtksourceview2 ruby.lang, originally written for Matthew Swasey <matt.swasey@viget.com>)
+* Railscasts (Changed by me to complete integration with my modifications of gtksourceview2 ruby.lang)
 * Rubycius
 * Slush and Poppies
 * Tango

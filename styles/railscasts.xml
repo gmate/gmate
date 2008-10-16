@@ -75,25 +75,31 @@
 <!-- Comments -->
   <style name="def:comment"                 foreground="comment" italic="true"/>
   <style name="def:shebang"                 foreground="comment" italic="true"/>
-  <style name="def:doc-comment-element"     foreground="comment" bold="true"/>
+  <!--style name="def:doc-comment-element"     foreground="comment" bold="true"/-->
+  <style name="def:doc-comment-element"     foreground="comment"/>
 <!-- Constants and Variables-->
   <style name="def:constant"                foreground="constant"/>
   <style name="def:string"                  foreground="string"/>
   <style name="def:special-char"            foreground="foreground"/>
-  <style name="def:special-constant"        foreground="symbol"     bold="true"/>
+  <!--style name="def:special-constant"        foreground="symbol"     bold="true"/-->
+  <style name="def:special-constant"        foreground="symbol"/>
   <style name="def:instance-variable"       foreground="variable"/>
   <style name="def:boolean"                 foreground="symbol"/>
   <style name="def:number"                  foreground="number"/>
   <style name="def:floating-point"          foreground="number"/>
-  <style name="def:keyword"                 foreground="keyword"    bold="true"/>
-  <style name="def:builtin"                 foreground="function"   bold="true"/>
+  <!--style name="def:keyword"                 foreground="keyword"    bold="true"/>
+  <style name="def:builtin"                 foreground="function"   bold="true"/-->
+  <style name="def:keyword"                 foreground="keyword"/>
+  <style name="def:builtin"                 foreground="function"/>
   <style name="def:variable"                foreground="variable"/>
   <style name="def:class-variable"          foreground="variable"/>
   <style name="def:identifier"              foreground="variable"/>
   <style name="def:statement"               foreground="constant"/>
   <style name="def:type"                    foreground="constant"/>
-  <style name="def:error"                   foreground="highlight"  background="error"     bold="true"/>
-  <style name="def:note"                    foreground="black"      background="highlight" bold="true"/>
+  <!--style name="def:error"                   foreground="highlight"  background="error"     bold="true"/>
+  <style name="def:note"                    foreground="black"      background="highlight" bold="true"/-->
+  <style name="def:error"                   foreground="highlight"  background="error"/>
+  <style name="def:note"                    foreground="black"      background="highlight"/>
   <style name="def:net-address-in-comment"  foreground="variable"   italic="false"         underline="true"/>
   <style name="def:preprocessor"            foreground="keyword"/>
   <style name="def:specials"                background="class"/>

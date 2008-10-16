@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
- Copyright (C) 2006-2007 Will Farrington <wcfarrington@gmail.com>
+ Copyright (C) 2008 Alexandre da Silva <simpsomboy at gmail dot com>
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
@@ -20,91 +20,104 @@
 
 -->
 <style-scheme id="twilight" _name="Twilight" version="1.0">
-  <author>Will Farrington</author>
-  <_description>Soft, dark color scheme, based on the style of the same name from pastie.caboo.se</_description>
+  <author>Alexandre da Silva</author>
+  <_description>Soft, dark color scheme</_description>
 
 <!-- Colors -->
 
-  <color name="off_white" value="#f8f8f8"/>
-  <color name="black_grey" value="#141414"/>
-  <color name="tinted_grey" value="#3f3c40"/>
-  <color name="dark_grey" value="#665f57"/>
-  <color name="med_grey" value="#888888"/>
-  <color name="light_grey" value="#a6a6a6"/>
-  <color name="olive_green" value="#8f9d6a"/>
-  <color name="washed_orange" value="#cda869"/>
-  <color name="faded_violet" value="#9b859d"/>
-  <color name="faded_cornwall" value="#7587a6"/>
-  <color name="pink_sandstone" value="#cf6a4c"/>
-  <color name="steelblue3" value="#4f94cd"/>
-  <color name="light_brown" value="#9b70f3"/>
-  <color name="super_faded_orange" value="#e9c062"/>
-  <color name="dark_maroon" value="#002f29"/>
-  <color name="yellow" value="#f9ee98"/>
+  <color name="foreground"    value="#F8F8F8"/>
+  <color name="background"    value="#141414"/>
+  <color name="currentline"   value="#3F3C40"/>
+  <color name="comment"       value="#5F5A60"/>
+  <color name="diffignore"    value="#888888"/>
+  <color name="linenumber"    value="#A6A6A6"/>
+  <color name="string"        value="#8F9D6A"/>
+  <color name="keyword"       value="#CDA869"/>
+  <color name="type"          value="#9b859d"/>
+  <color name="variable"      value="#7587A6"/>
+  <color name="number"        value="#CF6A4C"/>
+  <color name="brackets"      value="#4F94CD"/>
+  <color name="regex"         value="#E9C062"/>
+  <color name="error"         value="#F8F8F8"/>
+  <color name="errorbg"       value="#562D56"/>
+  <color name="note"          value="#F9EE98"/>
+  <color name="function"      value="#DAD085"/> <!--#9B703F-->
+  <color name="string-inter"  value="#B0B3BA"/>
+  <color name="class"         value="#9B703F"/>
+  <color name="modulehdlr"    value="#8996A8"/>
+  <color name="special"       value="#AC885B"/>
 
 <!-- Global Settings -->
+  <style name="text"          foreground="foreground" background="background"/>
+  <style name="cursor"        foreground="foreground"/>
+  <style name="current-line"  background="currentline"/>
+  <style name="line-numbers"  foreground="linenumber" background="background"/>
 
-  <style name="text" foreground="off_white" background="black_grey"/>
-  <style name="cursor" foreground="off_white"/>
-  <style name="current-line" background="tinted_grey"/>
-  <style name="line-numbers" foreground="light_grey" background="black_grey"/>
-  
 <!-- Bracket Matching -->
-  <style name="bracket-match" background="steelblue3"/>
-  <style name="bracket-mismatch" background="dark_maroon" bold="true"/>
-  <style name="search-match" foreground="off_white" background="steelblue3"/>
+  <style name="bracket-match"     background="brackets"/>
+  <style name="bracket-mismatch"  foreground="error" background="errorbg" bold="true"/>
+  <style name="search-match"      foreground="foreground" background="brackets"/>
 
 <!-- Comments -->
-  <style name="def:comment" foreground="dark_grey" italic="true"/>
-  <style name="def:shebang" foreground="dark_grey" italic="true"/>
-  <style name="def:doc-comment-element" foreground="dark_grey" bold="true"/>
+  <style name="def:comment"             foreground="comment" italic="true"/>
+  <style name="def:shebang"             foreground="comment" italic="true"/>
+  <style name="def:doc-comment-element" foreground="comment" bold="true"/>
 
 <!-- Constants and Variables-->
-  <style name="def:constant" foreground="faded_cornwall"/>
-  <style name="def:string" foreground="olive_green"/>
-  <style name="def:special-char" foreground="faded_cornwall"/>
-  <style name="def:special-constant" foreground="washed_orange" bold="true"/>
-  <style name="def:boolean" foreground="pink_sandstone"/>
-  <style name="def:number" foreground="pink_sandstone"/>
-  <style name="def:floating-point" foreground="pink_sandstone"/>
-  <style name="def:keyword" foreground="washed_orange" bold="true"/>
-  <style name="def:builtin" foreground="washed_orange" bold="true"/>
-  <style name="def:variable" foreground="faded_cornwall"/>
-  
+  <style name="def:constant"          foreground="type"/>
+  <style name="def:string"            foreground="string"/>
+  <style name="def:special-char"      foreground="special"/>
+<!--  <style name="def:special-constant"  foreground="keyword" /> -->
+  <style name="def:special-constant"  foreground="keyword"/>
+  <style name="def:boolean"           foreground="number"/>
+  <style name="def:number"            foreground="number"/>
+  <style name="def:floating-point"    foreground="number"/>
+  <!--style name="def:keyword"           foreground="keyword" bold="true"/>
+  <style name="def:builtin"           foreground="keyword" bold="true"/-->
+  <style name="def:keyword"           foreground="keyword"/>
+  <style name="def:builtin"           foreground="keyword"/>
+  <style name="def:variable"          foreground="variable"/>
+
 <!-- Identifiers -->
-  <style name="def:identifier" foreground="faded_cornwall"/>
+  <style name="def:identifier"  foreground="variable"/>
 
 <!-- Statements -->
-  <style name="def:statement" foreground="washed_orange"/>
+  <style name="def:statement"   foreground="keyword"/>
 
 <!-- Types -->
-  <style name="def:type" foreground="faded_violet"/>
-  
+  <style name="def:type"        foreground="type"/>
+
 <!-- Others -->
-  <style name="def:error" foreground="off_white" background="dark_maroon" bold="true"/>
-  <style name="def:note" foreground="yellow" bold="true"/>
-  <style name="def:net-address-in-comment" foreground="steelblue3" italic="false" underline="true"/>
-  <style name="def:preprocessor" foreground="light_grey"/>
-    
+  <style name="def:error"                   foreground="error" background="errorbg" bold="true"/>
+  <style name="def:note"                    foreground="note" bold="true"/>
+  <style name="def:net-address-in-comment"  foreground="brackets" italic="false" underline="true"/>
+  <style name="def:preprocessor"            foreground="linenumber"/>
+
 <!-- Unknown? -->
-  <style name="def:specials" background="faded_cornwall"/>
+  <style name="def:specials"    background="variable"/>
 
 <!-- C Styles -->
-  <style name="c:preprocessor" map-to="def:special-char"/>
+  <style name="c:preprocessor"  map-to="def:special-char"/>
 
 <!-- Diff Styles -->
-  <style name="diff:ignore" foreground="med_grey"/>
+  <style name="diff:ignore"     foreground="diffignore"/>
 
 <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="washed_orange"/>
-  <style name="ruby:symbol" foreground="pink_sandstone"/>
-  <style name="ruby:regex" foreground="super_faded_orange"/>
+  <style name="ruby:module-handler"         foreground="modulehdlr"/>
+  <style name="ruby:simple-interpolation"   foreground="string-inter"/>
+  <style name="ruby:complex-interpolation"  foreground="string-inter"/>
+  <style name="ruby:nil-value"              foreground="number"/>
+  <style name="ruby:class-definition"       foreground="class"/>
+  <style name="ruby:function-definition"    foreground="function"/>
+  <style name="ruby:symbol"                 foreground="number"/>
+  <style name="ruby:regex"                  foreground="regex"/>
+  <style name="ruby:rails"                  foreground="type"/>
 
 <!-- SH Styles -->
   <style name="sh:others" map-to="text"/>
-  
+
 <!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="washed_orange"/>
-  <style name="xml:element-name" foreground="faded_cornwall"/>
+  <style name="xml:attribute-name"  foreground="keyword"/>
+  <style name="xml:element-name"    foreground="variable"/>
 
 </style-scheme>

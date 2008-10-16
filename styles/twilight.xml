@@ -41,11 +41,11 @@
   <color name="error"         value="#F8F8F8"/>
   <color name="errorbg"       value="#562D56"/>
   <color name="note"          value="#F9EE98"/>
-  <color name="function"      value="#DAD085"/> <!--#9B703F-->
-  <color name="string-inter"  value="#B0B3BA"/>
-  <color name="class"         value="#9B703F"/>
-  <color name="modulehdlr"    value="#8996A8"/>
+  <color name="function"      value="#9B703F"/>
+  <color name="string-inter"  value="#DAEfA3"/>
   <color name="special"       value="#AC885B"/>
+  <color name="rails"         value="#CCC362"/>
+
 
 <!-- Global Settings -->
   <style name="text"          foreground="foreground" background="background"/>
@@ -103,15 +103,17 @@
   <style name="diff:ignore"     foreground="diffignore"/>
 
 <!-- Ruby Styles -->
-  <style name="ruby:module-handler"         foreground="modulehdlr"/>
+  <style name="ruby:module-handler"         foreground="keyword"/>
   <style name="ruby:simple-interpolation"   foreground="string-inter"/>
   <style name="ruby:complex-interpolation"  foreground="string-inter"/>
-  <style name="ruby:nil-value"              foreground="number"/>
-  <style name="ruby:class-definition"       foreground="class"/>
+  <style name="ruby:nil-value"              foreground="foreground"/>
+  <style name="ruby:class-definition"       foreground="type"/>
   <style name="ruby:function-definition"    foreground="function"/>
   <style name="ruby:symbol"                 foreground="number"/>
   <style name="ruby:regex"                  foreground="regex"/>
-  <style name="ruby:rails"                  foreground="type"/>
+  <style name="ruby:constant"               foreground="variable"/>
+  <style name="ruby:rails"                  foreground="rails"/>
+
 
 <!-- SH Styles -->
   <style name="sh:others" map-to="text"/>

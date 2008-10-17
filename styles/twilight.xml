@@ -27,7 +27,7 @@
 
   <color name="foreground"    value="#F8F8F8"/>
   <color name="background"    value="#141414"/>
-  <color name="currentline"   value="#3F3C40"/>
+  <color name="currentline"   value="#1C1C1C"/>
   <color name="comment"       value="#5F5A60"/>
   <color name="diffignore"    value="#888888"/>
   <color name="linenumber"    value="#A6A6A6"/>

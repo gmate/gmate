@@ -226,4 +226,19 @@ $0]]></text>
     <tag>th</tag>
     <description>table head</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[<div>${1:content}</div>$0]]></text>
+    <tag>div</tag>
+    <description>div</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<span>${1:content}</span>$0]]></text>
+    <tag>span</tag>
+    <description>span</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<h${2:1}>${1:content}</h$2>$0]]></text>
+    <tag>h</tag>
+    <description>New snippet</description>
+  </snippet>
 </snippets>

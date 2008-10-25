@@ -390,7 +390,6 @@
       <match>\b[A-Z][A-Z0-9_]*\b</match>
     </context>
 
-
     <!-- TODO: Ignore when foloowed by a dot "Class.something" -->
     <context id="class-definition" style-ref="class-definition">
       <match>(?&lt;!&lt;)(&lt;\s*)?(::)?\b[A-Z][A-Za-z0-9_]*\b</match>
@@ -625,8 +624,8 @@
         <context ref="regexp-variables"/>
         <context ref="nil-value"/>
         <context ref="boolean"/>
-        <context ref="class-definition"/>
         <context ref="constants"/>
+        <context ref="class-definition"/>
         <context ref="float"/>
         <context ref="decimal"/>
         <context ref="hex"/>

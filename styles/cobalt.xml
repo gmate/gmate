@@ -2,6 +2,7 @@
 <!--
 
  Copyright (C) 2006-2007 Will Farrington <wcfarrington@gmail.com>
+ Copyright (C) 2008 Alexandre da Silva <simpsomboy at gmail dot com>
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
@@ -39,6 +40,7 @@
   <color name="pale_grey" value="#eeeeee"/>
   <color name="steel_grey" value="#333333"/>
   <color name="spring_green" value="#3ad900"/>
+  <color name="light_spring_green" value="#9eff80"/>
   <color name="light_grey" value="#cccccc"/>
   <color name="dark_maroon" value="#002f29"/>
   <color name="bluish_grey" value="#777777"/>
@@ -50,7 +52,7 @@
   <style name="cursor" foreground="white"/>
   <style name="current-line" background="medium_blue"/>
   <style name="line-numbers" foreground="light_blue" background="black_blue"/>
-  
+
 <!-- Bracket Matching -->
   <style name="bracket-match" background="steelblue3"/>
   <style name="bracket-mismatch" background="dark_maroon" bold="true"/>
@@ -65,14 +67,17 @@
   <style name="def:constant" foreground="faded_yellow"/>
   <style name="def:string" foreground="spring_green"/>
   <style name="def:special-char" foreground="light_grey"/>
-  <style name="def:special-constant" foreground="nail_polish_pink" bold="true"/>
+  <!--style name="def:special-constant" foreground="nail_polish_pink" bold="true"/-->
+  <style name="def:special-constant" foreground="nail_polish_pink"/>
   <style name="def:boolean" foreground="nail_polish_pink"/>
   <style name="def:number" foreground="nail_polish_pink"/>
   <style name="def:floating-point" foreground="nail_polish_pink"/>
-  <style name="def:keyword" foreground="bright_orange" bold="true"/>
-  <style name="def:builtin" foreground="bright_orange" bold="true"/>
+  <!--style name="def:keyword" foreground="bright_orange" bold="true"/>
+  <style name="def:builtin" foreground="bright_orange" bold="true"/-->
+  <style name="def:keyword" foreground="bright_orange"/>
+  <style name="def:builtin" foreground="bright_orange"/>
   <style name="def:variable" foreground="light_grey"/>
-  
+
 <!-- Identifiers -->
   <style name="def:identifier" foreground="light_grey"/>
 
@@ -81,13 +86,13 @@
 
 <!-- Types -->
   <style name="def:type" foreground="teal_blue"/>
-  
+
 <!-- Others -->
   <style name="def:error" foreground="white" background="dark_maroon" bold="true"/>
   <style name="def:note" foreground="neon_pink" bold="true"/>
   <style name="def:net-address-in-comment" foreground="teal_blue" italic="false" underline="true"/>
   <style name="def:preprocessor" foreground="light_grey"/>
-    
+
 <!-- Unknown? -->
   <style name="def:specials" foreground="white" background="neon_pink"/>
 
@@ -98,14 +103,24 @@
   <style name="diff:ignore" foreground="bluish_grey"/>
 
 <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="teal_blue"/>
+  <style name="ruby:module-handler" foreground="bright_orange"/>
   <style name="ruby:symbol" foreground="nail_polish_pink"/>
+  <style name="ruby:class-definition" foreground="teal_blue"/>
+  <style name="ruby:function-definition" foreground="neon_pink"/>
   <style name="ruby:regex" foreground="teal_blue"/>
+  <style name="ruby:constant" foreground="light_grey"/>
+  <style name="ruby:variable" foreground="light_grey"/>
+  <style name="ruby:class-variable" foreground="light_grey"/>
+  <style name="ruby:string" foreground="white"/>
+  <style name="ruby:simple-interpolation" foreground="light_spring_green"/>
+  <style name="ruby:complex-interpolation" foreground="light_spring_green"/>
+  <style name="ruby:rails" foreground="faded_orange"/>
+  <style name="ruby:nil-value" foreground="white"/>
 
 <!-- SH Styles -->
   <style name="sh:function" foreground="neon_pink"/>
   <style name="sh:others" map-to="text"/>
-  
+
 <!-- XML Styles -->
   <style name="xml:attribute-name" foreground="light_grey"/>
   <style name="xml:element-name" foreground="teal_blue"/>

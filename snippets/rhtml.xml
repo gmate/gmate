@@ -42,7 +42,7 @@
     <description>error messages</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% form_tag $1do -%>
+    <text><![CDATA[<% form_tag $1 do -%>
 	$0
 <% end -%>]]></text>
     <tag>formtag</tag>
@@ -59,7 +59,7 @@
     <text><![CDATA[<% if ${1:logged_in?} -%>
 	$0
 <% else -%>
-	
+
 <% end -%>]]></text>
     <tag>ife</tag>
     <description>ife</description>
@@ -216,7 +216,7 @@ $0]]></text>
     <text><![CDATA[<% unless ${1:logged_in?} -%>
 	$0
 <% else -%>
-	
+
 <% end -%>]]></text>
     <tag>unlesse</tag>
     <description>unlesse</description>
@@ -232,5 +232,19 @@ $0]]></text>
 <% end -%>]]></text>
     <tag>formfor</tag>
     <description>form for</description>
+  </snippet>
+    <text><![CDATA[<div>${1:content}</div>$0]]></text>
+    <tag>div</tag>
+    <description>div</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<span>${1:content}</span>$0]]></text>
+    <tag>span</tag>
+    <description>span</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<h${2:1}>${1:content}</h$2>$0]]></text>
+    <tag>h</tag>
+    <description>header</description>
   </snippet>
 </snippets>

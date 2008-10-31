@@ -233,6 +233,7 @@ $0]]></text>
     <tag>formfor</tag>
     <description>form for</description>
   </snippet>
+  <snippet>
     <text><![CDATA[<div>${1:content}</div>$0]]></text>
     <tag>div</tag>
     <description>div</description>

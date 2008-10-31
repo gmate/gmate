@@ -33,6 +33,7 @@ NOTE: Some commands will expect you enter your sudo password
 * Snap Open - Regex based file open (like textmate Go to file...)
 * Text Tools - Some text manipulation improvements (adapted from line tools)
 * Trailsave - Remove trailing spaces before save a document
+* Advanced Bookmarks - Highlight, remenber and toggle bookmarks in your files
 
 === Themes/Styles
 

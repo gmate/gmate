@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=advanced-bookmarks
+IAge=2
+Name=Advanced Bookmarks
+Description=Advanced bookmarking tool
+Icon=stock_help-add-bookmark
+Authors=Eugene Khorev <eugene.khorev@gmail.com>
+Copyright=Copyright © 2008 Eugene Khorev
+Website=http://www.gedit.org

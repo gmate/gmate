@@ -1,0 +1,26 @@
+<ui>
+  <menubar name="MenuBar">
+    <menu name="EditMenu" action="Edit">
+      <placeholder name="EditOps_6">
+        <menu name="AdvancedBookmarks" action="AdvancedBookmarks">
+          <menu name="NumberedBookmarks" action="NumberedBookmarks">
+            <menuitem name="ToggleBookmark0" action="ToggleBookmark0"/>
+            <menuitem name="ToggleBookmark1" action="ToggleBookmark1"/>
+            <menuitem name="ToggleBookmark2" action="ToggleBookmark2"/>
+            <menuitem name="ToggleBookmark3" action="ToggleBookmark3"/>
+            <menuitem name="ToggleBookmark4" action="ToggleBookmark4"/>
+            <menuitem name="ToggleBookmark5" action="ToggleBookmark5"/>
+            <menuitem name="ToggleBookmark6" action="ToggleBookmark6"/>
+            <menuitem name="ToggleBookmark7" action="ToggleBookmark7"/>
+            <menuitem name="ToggleBookmark8" action="ToggleBookmark8"/>
+            <menuitem name="ToggleBookmark9" action="ToggleBookmark9"/>
+          </menu>
+          
+          <menuitem name="ToggleBookmark" action="ToggleBookmark"/>
+          <menuitem name="ToggleBookmarkAdvanced" action="ToggleBookmarkAdvanced"/>
+          <menuitem name="EditBookmark" action="EditBookmark"/>
+        </menu>
+      </placeholder>
+    </menu>
+  </menubar>
+</ui>

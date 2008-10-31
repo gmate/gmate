@@ -25,7 +25,7 @@
     <description>div with id</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% ${1:@list}.each do |${2:item}| do -%>
+    <text><![CDATA[<% ${1:@list}.each do |${2:item}| -%>
 	$0
 <% end -%>]]></text>
     <tag>each</tag>
@@ -42,11 +42,11 @@
     <description>error messages</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<% form_tag $1do -%>
+    <text><![CDATA[<% form_tag $1 do -%>
 	$0
 <% end -%>]]></text>
-    <tag>form</tag>
-    <description>form</description>
+    <tag>formtag</tag>
+    <description>form tag</description>
   </snippet>
   <snippet>
     <text><![CDATA[<% if ${1:logged_in?} -%>
@@ -59,7 +59,7 @@
     <text><![CDATA[<% if ${1:logged_in?} -%>
 	$0
 <% else -%>
-	
+
 <% end -%>]]></text>
     <tag>ife</tag>
     <description>ife</description>
@@ -216,7 +216,7 @@ $0]]></text>
     <text><![CDATA[<% unless ${1:logged_in?} -%>
 	$0
 <% else -%>
-	
+
 <% end -%>]]></text>
     <tag>unlesse</tag>
     <description>unlesse</description>
@@ -227,6 +227,12 @@ $0]]></text>
     <description>table head</description>
   </snippet>
   <snippet>
+    <text><![CDATA[<% form_for ${1:@object} do |${2:f}| -%>
+	$0
+<% end -%>]]></text>
+    <tag>formfor</tag>
+    <description>form for</description>
+  </snippet>
     <text><![CDATA[<div>${1:content}</div>$0]]></text>
     <tag>div</tag>
     <description>div</description>
@@ -239,6 +245,6 @@ $0]]></text>
   <snippet>
     <text><![CDATA[<h${2:1}>${1:content}</h$2>$0]]></text>
     <tag>h</tag>
-    <description>New snippet</description>
+    <description>header</description>
   </snippet>
 </snippets>

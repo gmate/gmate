@@ -33,7 +33,7 @@ end]]></text>
     <text><![CDATA[assert_redirected_to :action => "${1:index}"]]></text>
   </snippet>
   <snippet>
-    <tag>as</tag>
+    <tag>assert</tag>
     <description>assert(..)</description>
     <text><![CDATA[assert(${1:test}, "${2:message}")]]></text>
   </snippet>
@@ -295,13 +295,6 @@ end]]></text>
     <text><![CDATA[Dir.glob(${1:glob}) { |${2:file}| ${0} }]]></text>
   </snippet>
   <snippet>
-    <tag>doo</tag>
-    <description>Insert do |object| … end</description>
-    <text><![CDATA[do |${1:object}|
-	${0}
-end]]></text>
-  </snippet>
-  <snippet>
     <tag>dow</tag>
     <description>downto(0) { |n| .. }</description>
     <text><![CDATA[downto(${1}) { |${2:n}| ${0} }]]></text>
@@ -325,11 +318,6 @@ end]]></text>
     <tag>eac</tag>
     <description>each_cons(..) { |group| .. }</description>
     <text><![CDATA[each_cons(${1:2}) { |${2:group}| ${0} }]]></text>
-  </snippet>
-  <snippet>
-    <tag>each</tag>
-    <description>each element</description>
-    <text><![CDATA[each { |${1:element}| ${1}.${0} }]]></text>
   </snippet>
   <snippet>
     <tag>eachwithindex</tag>
@@ -427,13 +415,6 @@ end]]></text>
     <text><![CDATA[flash[:${1:notice}] = "${2:Successfully}"${0}]]></text>
   </snippet>
   <snippet>
-    <tag>forin</tag>
-    <description>for … in … end</description>
-    <text><![CDATA[for ${1:element} in ${2:collection}
-	${1}.${0}
-end]]></text>
-  </snippet>
-  <snippet>
     <tag>Forw</tag>
     <description>extend Forwardable</description>
     <text><![CDATA[extend Forwardable]]></text>
@@ -477,11 +458,6 @@ end]]></text>
     <tag>inj</tag>
     <description>inject(init) { |mem, var| .. }</description>
     <text><![CDATA[inject(${1:init}) { |${2:mem}, ${3:var}| ${0} }]]></text>
-  </snippet>
-  <snippet>
-    <tag>inject</tag>
-    <description>inject object</description>
-    <text><![CDATA[inject(${1:object}) { |${2:injection}, ${3:element}| ${4} }${0}]]></text>
   </snippet>
   <snippet>
     <tag>lam</tag>
@@ -896,11 +872,6 @@ end
     <text><![CDATA[select { |${1:e}| ${0} }]]></text>
   </snippet>
   <snippet>
-    <tag>select</tag>
-    <description>select element</description>
-    <text><![CDATA[select { |${1:element}| ${1}.${2} }${0}]]></text>
-  </snippet>
-  <snippet>
     <tag>session</tag>
     <description>session[…]</description>
     <text><![CDATA[session[:${1:User}]]]></text>
@@ -966,13 +937,6 @@ require "tc_${2:test_case_file}"
     <tag>uni</tag>
     <description>unix_filter { .. }</description>
     <text><![CDATA[ARGF.each_line${1} do |${2:line}|
-	${0}
-end]]></text>
-  </snippet>
-  <snippet>
-    <tag>unless</tag>
-    <description>unless … end</description>
-    <text><![CDATA[unless ${1:condition}
 	${0}
 end]]></text>
   </snippet>
@@ -1055,12 +1019,6 @@ end]]></text>
     <tag>w</tag>
     <description>attr_writer ..</description>
     <text><![CDATA[attr_writer :${1:attr_names}]]></text>
-  </snippet>
-  <snippet>
-    <tag>when</tag>
-    <description>when …</description>
-    <text><![CDATA[when ${1:condition}
-	${0}]]></text>
   </snippet>
   <snippet>
     <tag>while</tag>
@@ -1240,5 +1198,45 @@ end]]></text>
 end]]></text>
     <tag>desc</tag>
     <description>Rspec describe</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_save :${0:method}]]></text>
+    <tag>bs</tag>
+    <description>before_save</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_update :${0:method}]]></text>
+    <tag>bu</tag>
+    <description>before_update</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_create :${0:method}]]></text>
+    <tag>bc</tag>
+    <description>before_create</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_save :${0:method}]]></text>
+    <tag>as</tag>
+    <description>after_save</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_update :${0:method}]]></text>
+    <tag>au</tag>
+    <description>after_update</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_create :${0:method}]]></text>
+    <tag>ac</tag>
+    <description>after_create</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_destroy :${0:method}]]></text>
+    <tag>ad</tag>
+    <description>after_destroy</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_destroy :${0:method}]]></text>
+    <tag>bd</tag>
+    <description>before_destroy</description>
   </snippet>
 </snippets>

@@ -5,7 +5,7 @@
  Copyright (C) 2004 Archit Baweja <bighead@users.sourceforge.net>
  Copyright (C) 2005 Michael Witrant <mike@lepton.fr>
  Copyright (C) 2006 Gabriel Bauman <gbauman@gmail.com>
- Copyright (C) 2008 Alexandre da Silva <simpsomboy@gmail.com>
+ Copyright (C) 2008 Alexandre da Silva <lexrupy@gmail.com>
 
  This library is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -463,8 +463,8 @@
       </include-->
     </context>
 
-    <!-- in double quotes and backticks -->
-    <!-- FIXME: really would like for the syntax highlight to go back
+    <!-- in double quotes and backticks
+         FIXME: really would like for the syntax highlight to go back
          to none here, as any ruby code could go here
          XXX: Removed original interpolation since it's not work properly
          instead, exposed the complex-interpolation so it can be colored.
@@ -502,10 +502,10 @@
     </context>
 
     <!-- The following 4 contexts should be easyer. if we have a way to match
-	 the closing bracket directly we could predict the closing by openning
+         the closing bracket directly we could predict the closing by openning
          and put all in one context. If someone have knownledge about this
-         please contribute -->
-    <!-- %Q{Hello world} %{Hello world} -->
+         please contribute.
+         %Q{Hello world} %{Hello world} -->
     <context id="query-string1" style-ref="string">
       <start>%Q?{</start>
       <end>}</end>
@@ -553,9 +553,12 @@
       </include>
     </context>
 
-    <!-- %Q-Hello world- %-Hello world- %+hello world+ and so on... -->
+    <!-- %Q-Hello world- %-Hello world- %+hello world+ and so on...
+         %>some text> is still valid, but is not included to avoid conflicts
+         when using with erb tags inside rhtml documents.
+    -->
     <context id="query-string5" style-ref="string">
-      <start>%Q?([^[:alpha:]])</start>
+      <start>%Q?([^[:alpha:]&gt;])</start>
       <end>\%{1@start}</end>
       <include>
         <context ref="escape"/>
@@ -565,8 +568,8 @@
       </include>
     </context>
 
-    <!-- Basicly same as above but with no support for interpolations -->
-    <!-- %q{Hello world} -->
+    <!-- Basicly same as above but with no support for interpolations
+         %q{Hello world} -->
     <context id="query-string-simple1" style-ref="string">
       <start>%q{</start>
       <end>}</end>
@@ -612,7 +615,7 @@
 
     <!-- %q-Hello world- %q+Hello world+ %q*Hello world* and so on... -->
     <context id="query-string-simple5" style-ref="string">
-      <start>%q([^[:alpha:]])</start>
+      <start>%q([^[:alpha:]&gt;])</start>
       <end>\%{1@start}</end>
       <include>
         <context style-ref="escape">
@@ -621,8 +624,8 @@
       </include>
     </context>
 
-    <!-- Arrays of strings -->
-    <!-- %W{Array of #{interpolated} strings} -->
+    <!-- Arrays of strings
+         %W{Array of #{interpolated} strings} -->
     <context id="string-array1" style-ref="string">
       <start>%W{</start>
       <end>}</end>

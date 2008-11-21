@@ -501,6 +501,246 @@
       </include>
     </context>
 
+    <!-- The following 4 contexts should be easyer. if we have a way to match
+	 the closing bracket directly we could predict the closing by openning
+         and put all in one context. If someone have knownledge about this
+         please contribute -->
+    <!-- %Q{Hello world} %{Hello world} -->
+    <context id="query-string1" style-ref="string">
+      <start>%Q?{</start>
+      <end>}</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %Q(Hello world) %(Hello world) -->
+    <context id="query-string2" style-ref="string">
+      <start>%Q?\(</start>
+      <end>\)</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %Q[Hello world] %[Hello world] -->
+    <context id="query-string3" style-ref="string">
+      <start>%Q?\[</start>
+      <end>\]</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %Q<Hello world> %<Hello world> -->
+    <context id="query-string4" style-ref="string">
+      <start>%Q?&lt;</start>
+      <end>&gt;</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %Q-Hello world- %-Hello world- %+hello world+ and so on... -->
+    <context id="query-string5" style-ref="string">
+      <start>%Q?([^[:alpha:]])</start>
+      <end>\%{1@start}</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- Basicly same as above but with no support for interpolations -->
+    <!-- %q{Hello world} -->
+    <context id="query-string-simple1" style-ref="string">
+      <start>%q{</start>
+      <end>}</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %q(Hello world) -->
+    <context id="query-string-simple2" style-ref="string">
+      <start>%q\(</start>
+      <end>\)</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %q[Hello world] -->
+    <context id="query-string-simple3" style-ref="string">
+      <start>%q\[</start>
+      <end>\]</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %q<Hello world> -->
+    <context id="query-string-simple4" style-ref="string">
+      <start>%q&lt;</start>
+      <end>&gt;</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %q-Hello world- %q+Hello world+ %q*Hello world* and so on... -->
+    <context id="query-string-simple5" style-ref="string">
+      <start>%q([^[:alpha:]])</start>
+      <end>\%{1@start}</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- Arrays of strings -->
+    <!-- %W{Array of #{interpolated} strings} -->
+    <context id="string-array1" style-ref="string">
+      <start>%W{</start>
+      <end>}</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %W(Array of #{interpolated} strings) -->
+    <context id="string-array2" style-ref="string">
+      <start>%W\(</start>
+      <end>\)</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %W[Array of #{interpolated} strings] -->
+    <context id="string-array3" style-ref="string">
+      <start>%W\[</start>
+      <end>\]</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %W<Array of #{interpolated} strings> -->
+    <context id="string-array4" style-ref="string">
+      <start>%W&lt;</start>
+      <end>&gt;</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- %W-Array of #{interpolated} strings-
+	 %W+Array of #{interpolated} strings+
+         %W*Array of #{interpolated} strings* and so on... -->
+    <context id="string-array5" style-ref="string">
+      <start>%W([^[:alpha:]\s])</start>
+      <end>\%{1@start}</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+
+    <!-- Basicly same as above but with no support for interpolations -->
+    <!-- %w{Array of strings} -->
+    <context id="string-array-simple1" style-ref="string">
+      <start>%w{</start>
+      <end>}</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %w(Array of strings) -->
+    <context id="string-array-simple2" style-ref="string">
+      <start>%w\(</start>
+      <end>\)</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %w[Array of strings] -->
+    <context id="string-array-simple3" style-ref="string">
+      <start>%w\[</start>
+      <end>\]</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %w<Array of strings> -->
+    <context id="string-array-simple4" style-ref="string">
+      <start>%w&lt;</start>
+      <end>&gt;</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+    <!-- %w-Array of strings- %w+Array of strings+ %w*Array of strings* and so on... -->
+    <context id="string-array-simple5" style-ref="string">
+      <start>%w([^[:alpha:]\s])</start>
+      <end>\%{1@start}</end>
+      <include>
+        <context style-ref="escape">
+          <match>\\['\\]</match>
+        </context>
+      </include>
+    </context>
+
+
     <context id="backtick-quoted-string" style-ref="string">
       <start>`</start>
       <end>`</end>
@@ -607,6 +847,26 @@
         <context ref="here-doc-indented-string"/>
         <context ref="double-quoted-string"/>
         <context ref="single-quoted-string"/>
+        <context ref="query-string1"/>
+        <context ref="query-string2"/>
+        <context ref="query-string3"/>
+        <context ref="query-string4"/>
+        <context ref="query-string5"/>
+        <context ref="query-string-simple1"/>
+        <context ref="query-string-simple2"/>
+        <context ref="query-string-simple3"/>
+        <context ref="query-string-simple4"/>
+        <context ref="query-string-simple5"/>
+        <context ref="string-array1"/>
+        <context ref="string-array2"/>
+        <context ref="string-array3"/>
+        <context ref="string-array4"/>
+        <context ref="string-array5"/>
+        <context ref="string-array-simple1"/>
+        <context ref="string-array-simple2"/>
+        <context ref="string-array-simple3"/>
+        <context ref="string-array-simple4"/>
+        <context ref="string-array-simple5"/>
         <context ref="backtick-quoted-string"/>
         <context ref="attribute-definitions"/>
         <context ref="definitions"/>

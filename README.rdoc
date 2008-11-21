@@ -7,8 +7,9 @@ The package contain code snippets, plugins, and an automatic registration of rai
 Now Todo-List plugin is a part of GMATE and does not depend of mozilla / gtkmozembed
 todo plugin now depends of python-webkitgtk package, this package was introduced on
 Ubuntu 8.10, and may or not disponible in other distros, if not you will need to downlolad
-and install manually. The Python Webkit Home:[link:http://code.google.com/p/pywebkitgtk/]
-to install on a debian/ubuntu based distro just run in a terminal:
+and install manually. The Python Webkit Home is located on http://code.google.com/p/pywebkitgtk/
+
+To install on a debian/ubuntu based distro just run in a terminal:
 
   $ sudo apt-get install python-webkitgtk
 
@@ -16,8 +17,8 @@ to install gmate package run:
 
   $ sh install.sh
 
-
 NOTE: Some commands will expect you enter your sudo password
+
 
 == Gmate package include:
 
@@ -71,16 +72,17 @@ NOTE: Some commands will expect you enter your sudo password
 * Wombat
 * Zenburn
 
+
 === Language Improvements
 
 * ruby.lang gtksourceview2 language improvements
 * rhtml language registration
 * basic yml languate recognition
 
+
 === Code snippets
 
 ==== I need help to create a good snippet base, for now current snippets I got from some place, and most are outdated.
-
 
 in addition you can edit your /etc/mime.types file and add
 following lines next to other "text/x-????" entries:
@@ -88,6 +90,7 @@ following lines next to other "text/x-????" entries:
   text/x-ruby-source                              rhtml html.erb erb
   text/x-eruby                                    rjs
   text/x-yaml                                     yml
+
 
 More info : http://alexandredasilva.wordpress.com/gmate
 

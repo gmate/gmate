@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=autocomplete
+IAge=2
+Name=Autocomplete, version 0.9.6
+Description=Select from a list of Autocomplete options
+Authors=Alin Avasilcutei <avasilcuteia@gmail.com>\nhttp://www.geocities.com/avasilcuteia\n\nOsmo Salomaa <otsaloma@cc.hut.fi>\nhttp://users.tkk.fi/~otsaloma/
+Copyright=Copyright © 2006 Alin Avasilcutei\nCopyright © 2006 Information Technology Group\n[www.itgroup.ro]\n
+Website=http://sourceforge.net/projects/gedit-autocomp

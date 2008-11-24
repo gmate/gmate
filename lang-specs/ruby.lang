@@ -987,6 +987,7 @@
       <keyword>attr_accessor</keyword>
       <keyword>with_scope</keyword>
       <keyword>named_scope</keyword>
+      <keyword>memoize</keyword>
       <!-- plugins or tests -->
       <keyword>validates_cpf_of</keyword>
       <keyword>validates_cnpj_of</keyword>

@@ -1239,4 +1239,11 @@ end]]></text>
     <tag>bd</tag>
     <description>before_destroy</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[test '$1' do
+ $0
+end]]></text>
+    <tag>test</tag>
+    <description>test</description>
+  </snippet>
 </snippets>

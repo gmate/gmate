@@ -1,4 +1,5 @@
-# gEdit Autocomplete 
+# gEdit Autocomplete
+# vim: ts=4
 # (C) 2006 Alin Avasilcutei
 #
 # 	Based on an initial version (C) 2006 Osmo Salomaa
@@ -18,11 +19,9 @@
 # Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
-
 import gedit
 import gtk
 import re
-
 
 SIMPLE_WORD_SYNTAX   = r'@?[a-zA-Z0-9_$]+'                                           # only characters
 COMPOUND_WORD_SYNTAX = r'@?[a-zA-Z0-9_$]+(?:(?:://|::|->|:|/|@|\.)@?[a-zA-Z0-9_$]+)+'   # characters and tokens
@@ -103,7 +102,7 @@ class AutocompleteWordsPlugin(gedit.Plugin):
         self.dictionary_words = []
         self.last_typed_line = None
         self.regex_completion = 0
-        
+
     def activate(self, window):
         """Activate plugin."""
 
@@ -184,19 +183,19 @@ class AutocompleteWordsPlugin(gedit.Plugin):
 
     def on_document_end_user_action(self, doc):
         """Scan document for words."""
-  
+
 #        print len(doc.get_text(doc.get_start_iter(), doc.get_end_iter(), False))
         current_position = doc.get_iter_at_mark(doc.get_insert())
         if self.last_typed_line != current_position.get_line():
-#        	print "Scanning Now"
-        	self.scan(doc)
+#            print "Scanning Now"
+            self.scan(doc)
         elif current_position.backward_char() and len(doc.get_text(doc.get_start_iter(), doc.get_end_iter(), False)) < 10000:
-        	# for large files don't scan at every beginning of a word
-        	if RE_SIMPLE_WORD_SYNTAX.match(current_position.get_char()):
-        		if current_position.backward_char():
-        			if not RE_SIMPLE_WORD_SYNTAX.match(current_position.get_char()):
-#        				print "Scanning now"
-        				self.scan(doc)
+            # for large files don't scan at every beginning of a word
+            if RE_SIMPLE_WORD_SYNTAX.match(current_position.get_char()):
+                if current_position.backward_char():
+                    if not RE_SIMPLE_WORD_SYNTAX.match(current_position.get_char()):
+#                        print "Scanning now"
+                        self.scan(doc)
         self.last_typed_line = current_position.get_line()
         return
 
@@ -212,10 +211,10 @@ class AutocompleteWordsPlugin(gedit.Plugin):
         doc = view.get_buffer()
         self.scan(doc)
         self.hide_tip()
-    
+
     def len_compare(self, x, y):
-    	"""This is the comparing function for the alternative words to autocomplete"""
-    	
+        """This is the comparing function for the alternative words to autocomplete"""
+
         x1=''
         for a in x:
            if a in AUTOCOMPLETE_BREAKS:
@@ -245,8 +244,8 @@ class AutocompleteWordsPlugin(gedit.Plugin):
            return 1
 
     def len_compare___alphaSomething(self, x, y):
-    	"""This is the comparing function for the alternative words to autocomplete"""
-    	
+        """This is the comparing function for the alternative words to autocomplete"""
+
         x1=''
         for a in x:
            if a in AUTOCOMPLETE_BREAKS:
@@ -310,25 +309,25 @@ class AutocompleteWordsPlugin(gedit.Plugin):
            else:
               break
 
-    	new_list = list()
-#    	print "dichotomy loop exit: list_to_filter_search", list_to_filter_search
-    	while list_to_filter_search != list_to_filter_len and reference_item[0:MIN_CHARACTERS_BEFORE_AUTOCOMPLETE] == list_to_filter[list_to_filter_search][0:MIN_CHARACTERS_BEFORE_AUTOCOMPLETE]:
-    	   if list_to_filter[list_to_filter_search].startswith(reference_item) and list_to_filter[list_to_filter_search] != reference_item:
+        new_list = list()
+#        print "dichotomy loop exit: list_to_filter_search", list_to_filter_search
+        while list_to_filter_search != list_to_filter_len and reference_item[0:MIN_CHARACTERS_BEFORE_AUTOCOMPLETE] == list_to_filter[list_to_filter_search][0:MIN_CHARACTERS_BEFORE_AUTOCOMPLETE]:
+           if list_to_filter[list_to_filter_search].startswith(reference_item) and list_to_filter[list_to_filter_search] != reference_item:
 #              print "new_list", new_list
               new_list.append(list_to_filter[list_to_filter_search])
            list_to_filter_search += 1
 
-    	return new_list
+        return new_list
 
     def startswith_filter_linear(self, list_to_filter, reference_item):
-    	"""Filters the list of words"""
-    	if not list_to_filter: return []
-    	if len(reference_item) < MIN_CHARACTERS_BEFORE_AUTOCOMPLETE: return []
-    	    
-    	new_list = list()
-    	for item in list_to_filter:
-    		if item.startswith(reference_item) and item != reference_item:
-    			new_list.append(item)
+        """Filters the list of words"""
+        if not list_to_filter: return []
+        if len(reference_item) < MIN_CHARACTERS_BEFORE_AUTOCOMPLETE: return []
+
+        new_list = list()
+        for item in list_to_filter:
+            if item.startswith(reference_item) and item != reference_item:
+                new_list.append(item)
 
 #        s=str(list_to_filter)
 #        reference_item_regex = ''
@@ -337,33 +336,33 @@ class AutocompleteWordsPlugin(gedit.Plugin):
 #        new_list = re.findall(reference_item_regex + "[^\'^\"]+", str(list_to_filter))
 #        print "new_list", new_list
 
-    	return new_list
-    
+        return new_list
+
     def simple_contains_filter(self, list_to_filter, reference_item):
-    	new_list = list()
+        new_list = list()
         current_position = doc.get_iter_at_mark(doc.get_insert())
-    	for item in list_to_filter:
-    	    if not RE_COMPOUND_WORD_SYNTAX.match(item) and reference_item in item:
+        for item in list_to_filter:
+            if not RE_COMPOUND_WORD_SYNTAX.match(item) and reference_item in item:
                emph_item = item.replace(reference_item, TIP_EMPHASIS[0]+reference_item+TIP_EMPHASIS[1])
                new_list.append(emph_item)
-    	return new_list
-        
+        return new_list
+
     def re_contains_filter(self, list_to_filter, reference_item):
-    	new_list = list()
-    	reference_item_case_insensitive = ''
-    	for c in reference_item:
-    	   if (c>='a' and c<='z') or (c>='A' and c<='Z'):
-    	      reference_item_case_insensitive += '['+c.lower()+c.upper()+']'
-    	   else:
-    	      reference_item_case_insensitive += c
-    	for item in list_to_filter:
-    	       if not RE_COMPOUND_WORD_SYNTAX.match(item) and re.findall(reference_item_case_insensitive, item):
+        new_list = list()
+        reference_item_case_insensitive = ''
+        for c in reference_item:
+           if (c>='a' and c<='z') or (c>='A' and c<='Z'):
+              reference_item_case_insensitive += '['+c.lower()+c.upper()+']'
+           else:
+              reference_item_case_insensitive += c
+        for item in list_to_filter:
+               if not RE_COMPOUND_WORD_SYNTAX.match(item) and re.findall(reference_item_case_insensitive, item):
                   new_list.append(item)
-    	return new_list
+        return new_list
 
     def on_view_key_press_event(self, view, event):
         """Display a completion or complete the current word."""
-        
+
 #        print "1", gtk.gdk.keyval_name(event.keyval)   # why gets here twice when <ATL> or <ALT><Something> ???
         # Return if anything masked pressed.
         if event.state & gtk.gdk.CONTROL_MASK:
@@ -373,44 +372,44 @@ class AutocompleteWordsPlugin(gedit.Plugin):
 
         # Complete the current word if Tab pressed.
         key = gtk.gdk.keyval_name(event.keyval)
-        if  key == 'Tab':
+        if  key == 'Return':
             if self.completion is None:
                 return self.cancel()
             self.complete()
             complete_key_pressed = True
         else:
             complete_key_pressed = False
-        
+
         # Select the next word in the list if Down MARKER pressed.
         if gtk.gdk.keyval_name(event.keyval) == 'Down':
             if self.completion is None:
                 return self.cancel()
             self.select_alternative('Down')
             return True
-        
+
         # Select the next word in the list if Up arrrow  pressed.
         if gtk.gdk.keyval_name(event.keyval) == 'Up':
             if self.completion is None:
                 return self.cancel()
             self.select_alternative('Up')
             return True
-       
+
         # Require input of one alphanumeric character or BackSpace.
-       	doc = view.get_buffer()
-       	insert = doc.get_iter_at_mark(doc.get_insert())
+        doc = view.get_buffer()
+        insert = doc.get_iter_at_mark(doc.get_insert())
         if event.keyval>=128: # non-alphanumeric key
-        	if gtk.gdk.keyval_name(event.keyval) == 'BackSpace':
-        		doc = view.get_buffer()
-        		insert = doc.get_iter_at_mark(doc.get_insert())
-        		insert.backward_char()
-        		
-        		# Test if the character before the one which will be deleted is alphnumeric
-#        		temp_iter = insert.copy()
-#        		temp_iter.backward_char()
-#        		if not RE_COMPOUND_WORD_SYNTAX.match(temp_iter.get_char()):
-#        			return self.cancel()
-        	elif not complete_key_pressed:
-        		return self.cancel()
+            if gtk.gdk.keyval_name(event.keyval) == 'BackSpace':
+                doc = view.get_buffer()
+                insert = doc.get_iter_at_mark(doc.get_insert())
+                insert.backward_char()
+
+                # Test if the character before the one which will be deleted is alphnumeric
+#                temp_iter = insert.copy()
+#                temp_iter.backward_char()
+#                if not RE_COMPOUND_WORD_SYNTAX.match(temp_iter.get_char()):
+#                return self.cancel()
+            elif not complete_key_pressed:
+                return self.cancel()
 
         # Find regex: beginning of string up to whitespace, or the selected text if any
         selection_iters = view.get_buffer().get_selection_bounds()
@@ -466,15 +465,15 @@ class AutocompleteWordsPlugin(gedit.Plugin):
 
         # find the list of possible completions for 'incomplete_compound_word' based on the words in the dictionary
 #        print "dictionary", self.dictionary_words
-       	compound_word_alternatives = self.startswith_filter(self.dictionary_words, incomplete_compound_word)
+        compound_word_alternatives = self.startswith_filter(self.dictionary_words, incomplete_compound_word)
         compound_word_alternatives.sort(self.len_compare)
-        
+
 #        print "compound_word_alternatives1", compound_word_alternatives
         compound_word_alternatives = self.aggressive_filter( compound_word_alternatives, incomplete_compound_word )
         alternatives = compound_word_alternatives
         incomplete = incomplete_compound_word
 #        print "compound_word_alternatives2", compound_word_alternatives
-        
+
         # if no alternatives for compound_word, find completions for 'incomplete_simple_word'
         if not compound_word_alternatives:
             simple_word_alternatives = self.startswith_filter(self.dictionary_words, incomplete_simple_word)
@@ -507,7 +506,7 @@ class AutocompleteWordsPlugin(gedit.Plugin):
 
         if gtk.gdk.keyval_name(event.keyval) == 'BackSpace':
             insert.forward_char()
-        
+
         if self.complete_word is None:
             self.cancel()
             if complete_key_pressed:
@@ -523,7 +522,7 @@ class AutocompleteWordsPlugin(gedit.Plugin):
         x, y = view.translate_coordinates(self.window, x, y)
         self.show_tip(display_string.rstrip(), x, y)
 
-        if complete_key_pressed: 
+        if complete_key_pressed:
             return True
         else:
             return False
@@ -542,12 +541,12 @@ class AutocompleteWordsPlugin(gedit.Plugin):
             break_pos = len(item)
             item_end = item[cursor_pos:]
             for separator in list(AUTOCOMPLETE_BREAKS):
-	        if separator in item_end: 
-	            break_pos = min(break_pos, item_end.index(separator))
-            if not (item[:break_pos+cursor_pos+1] in filtered_alternatives):
-#                if item[:break_pos+cursor_pos+1] in initial_alternatives:
-#                    initial_alternatives.remove(item[:break_pos+cursor_pos+1])
-                filtered_alternatives += [item[:break_pos+cursor_pos+1]]
+                if separator in item_end:
+                    break_pos = min(break_pos, item_end.index(separator))
+                if not (item[:break_pos+cursor_pos+1] in filtered_alternatives):
+#                    if item[:break_pos+cursor_pos+1] in initial_alternatives:
+#                        initial_alternatives.remove(item[:break_pos+cursor_pos+1])
+                    filtered_alternatives += [item[:break_pos+cursor_pos+1]]
 
 #        if len(initial_alternatives) < MAX_SUGGESTIONS:
 #            filtered_alternatives += initial_alternatives
@@ -597,69 +596,68 @@ class AutocompleteWordsPlugin(gedit.Plugin):
         """Show a completion tip in the main window's coordinates."""
 
         root_x, root_y = self.window.get_position()
-	self.tip.move(root_x + x + 48, root_y + y + 48)
+        self.tip.move(root_x + x + 48, root_y + y + 48)
         self.tip.set_text(text)
         self.tip.show_all()
 
     def refresh_tip_on_complete(self):
-    	"""Refresh the alternative word list when 'Tab' is pressed and a completion is done."""
-    	
-	display_string = ""
-	local_complete_word = self.complete_word
-	for current_line in (self.tip.get_text() + "\n").splitlines(True): #!!!
-		if current_line.startswith(SPACES + local_complete_word):
-			if display_string == "":
-				display_string += current_line.replace(SPACES, MARKER)
-				self.completion = current_line.strip()[len(local_complete_word):]
-				self.complete_word = current_line.strip(" \n")
-			else:
-				display_string += current_line
-	if len(display_string) != 0:
-		self.tip.set_text(display_string.rstrip("\n"))
-	else:
-		self.hide_tip()
-	return True
+        """Refresh the alternative word list when 'Tab' is pressed and a completion is done."""
+        display_string = ""
+        local_complete_word = self.complete_word
+        for current_line in (self.tip.get_text() + "\n").splitlines(True): #!!!
+            if current_line.startswith(SPACES + local_complete_word):
+                if display_string == "":
+                    display_string += current_line.replace(SPACES, MARKER)
+                    self.completion = current_line.strip()[len(local_complete_word):]
+                    self.complete_word = current_line.strip(" \n")
+                else:
+                    display_string += current_line
+        if len(display_string) != 0:
+            self.tip.set_text(display_string.rstrip("\n"))
+        else:
+            self.hide_tip()
+        return True
 
     def select_alternative(self, direction=None):
-    	"""Makes all the necessary modifications when an alternative word is selected from the list."""
-    	
-	display_string = self.tip.get_text() + "\n"
-	previous_line = ""
-	first_line = None
-	marker_moved = False
-	display_lines = display_string.splitlines(True)
-	if len(display_lines)==1: return True
+        """Makes all the necessary modifications when an alternative word is selected from the list."""
 
-	for current_line in display_lines: 
-		if first_line is None:
-			first_line = current_line
-		if direction == "Down":
-			if previous_line == MARKER + self.complete_word + "\n":
-				marker_moved = True
-		        	display_string = display_string.replace(previous_line, previous_line.replace(MARKER, SPACES))
-		        	display_string = display_string.replace(current_line, current_line.replace(SPACES, MARKER))
-				self.completion = current_line.strip()[len(self.complete_word)-len(self.completion):]
-				self.complete_word = current_line.strip()
-				break
-		if direction == "Up":
-			if current_line == MARKER + self.complete_word + "\n" and previous_line != "":
-				marker_moved = True
-				display_string = display_string.replace(current_line, current_line.replace(MARKER, SPACES))
-				display_string = display_string.replace(previous_line, previous_line.replace(SPACES, MARKER))
-				self.completion = previous_line.strip()[len(self.complete_word)-len(self.completion):]
-				self.complete_word = previous_line.strip()
-				break
-		previous_line = current_line
-	if not marker_moved:
-		if direction == 'Down':
-			display_string = display_string.replace(current_line, current_line.replace(MARKER, SPACES))
-			display_string = display_string.replace(first_line, first_line.replace(SPACES, MARKER))
-			self.completion = first_line.strip()[len(self.complete_word)-len(self.completion):]
-			self.complete_word = first_line.strip()
-		if direction == 'Up':
-			display_string = display_string.replace(current_line, current_line.replace(SPACES, MARKER))
-			display_string = display_string.replace(first_line, first_line.replace(MARKER, SPACES))
-			self.completion = current_line.strip()[len(self.complete_word)-len(self.completion):]
-			self.complete_word = current_line.strip()
-	self.tip.set_text(display_string.rstrip("\n")) 
-	return True
+        display_string = self.tip.get_text() + "\n"
+        previous_line = ""
+        first_line = None
+        marker_moved = False
+        display_lines = display_string.splitlines(True)
+
+        if len(display_lines)==1: return True
+        for current_line in display_lines:
+            if first_line is None:
+                first_line = current_line
+            if direction == "Down":
+                if previous_line == MARKER + self.complete_word + "\n":
+                    marker_moved = True
+                    display_string = display_string.replace(previous_line, previous_line.replace(MARKER, SPACES))
+                    display_string = display_string.replace(current_line, current_line.replace(SPACES, MARKER))
+                    self.completion = current_line.strip()[len(self.complete_word)-len(self.completion):]
+                    self.complete_word = current_line.strip()
+                    break
+            if direction == "Up":
+                if current_line == MARKER + self.complete_word + "\n" and previous_line != "":
+                    marker_moved = True
+                    display_string = display_string.replace(current_line, current_line.replace(MARKER, SPACES))
+                    display_string = display_string.replace(previous_line, previous_line.replace(SPACES, MARKER))
+                    self.completion = previous_line.strip()[len(self.complete_word)-len(self.completion):]
+                    self.complete_word = previous_line.strip()
+                    break
+            previous_line = current_line
+        if not marker_moved:
+            if direction == 'Down':
+                display_string = display_string.replace(current_line, current_line.replace(MARKER, SPACES))
+                display_string = display_string.replace(first_line, first_line.replace(SPACES, MARKER))
+                self.completion = first_line.strip()[len(self.complete_word)-len(self.completion):]
+                self.complete_word = first_line.strip()
+            if direction == 'Up':
+                display_string = display_string.replace(current_line, current_line.replace(SPACES, MARKER))
+                display_string = display_string.replace(first_line, first_line.replace(MARKER, SPACES))
+                self.completion = current_line.strip()[len(self.complete_word)-len(self.completion):]
+                self.complete_word = current_line.strip()
+        self.tip.set_text(display_string.rstrip("\n"))
+        return True

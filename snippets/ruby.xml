@@ -1246,4 +1246,9 @@ end]]></text>
     <tag>test</tag>
     <description>test</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[validates_inclusion_of :${1:attribute}, :${2:in} => ${3:range}]]></text>
+    <tag>vi</tag>
+    <description>validates_inclusion_of</description>
+  </snippet>
 </snippets>

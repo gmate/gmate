@@ -248,4 +248,16 @@ $0]]></text>
     <tag>h</tag>
     <description>header</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[<% content_for :${1:place} do -%>
+	<%= ${2:output} %>
+<% end -%>]]></text>
+    <tag>cfd</tag>
+    <description>Content for block</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<%= content_for :${1:place}, "${2:content}" %>]]></text>
+    <tag>cf</tag>
+    <description>Content for</description>
+  </snippet>
 </snippets>

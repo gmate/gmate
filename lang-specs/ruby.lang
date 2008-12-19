@@ -925,11 +925,13 @@
       <keyword>render_component</keyword>
       <keyword>render_without_layout</keyword>
       <keyword>url_for</keyword>
+      <keyword>content_for</keyword>
       <keyword>redirect_to</keyword>
       <keyword>redirect_to_path</keyword>
       <keyword>redirect_to_url</keyword>
       <keyword>link_to</keyword>
       <keyword>link_to_remote</keyword>
+      <keyword>link_to_function</keyword>
       <keyword>link_to_if</keyword>
       <keyword>link_to_current</keyword>
       <keyword>link_to_unless_current</keyword>
@@ -984,10 +986,15 @@
       <keyword>attr_protected</keyword>
       <keyword>attr_accessible</keyword>
       <keyword>attr_readonly</keyword>
-      <keyword>attr_accessor</keyword>
       <keyword>with_scope</keyword>
       <keyword>named_scope</keyword>
       <keyword>memoize</keyword>
+      <keyword>alias_method_chain</keyword>
+      <keyword>alias_attribute</keyword>
+      <keyword>delegate</keyword>
+      <keyword>cattr_accessor</keyword>
+      <keyword>mattr_accessor</keyword>
+      <keyword>returning</keyword>
       <!-- plugins or tests -->
       <keyword>validates_cpf_of</keyword>
       <keyword>validates_cnpj_of</keyword>
@@ -998,6 +1005,7 @@
       <keyword>with_tag</keyword>
       <keyword>without_tag</keyword>
       <keyword>has_no_table</keyword>
+
     </context>
     <!-- End Keywords -->
   </definitions>

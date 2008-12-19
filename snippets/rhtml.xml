@@ -260,4 +260,9 @@ $0]]></text>
     <tag>cf</tag>
     <description>Content for</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[<%= link_to_function '${1:Funcao}', ${2:javascript} %>$0]]></text>
+    <tag>ltf</tag>
+    <description>link to function</description>
+  </snippet>
 </snippets>

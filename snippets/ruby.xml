@@ -133,7 +133,7 @@ end]]></text>
     <text><![CDATA[assert_throws(:${1:expected}) { ${0} }]]></text>
   </snippet>
   <snippet>
-    <tag>b</tag>
+    <tag>rdoc</tag>
     <description>New Block</description>
     <text><![CDATA[=begin rdoc
 	${0}
@@ -410,7 +410,7 @@ end]]></text>
     <text><![CDATA[inject(Array.new) { |${1:arr}, ${2:a}| ${1}.push(*${a}) }]]></text>
   </snippet>
   <snippet>
-    <tag>flash</tag>
+    <tag>f</tag>
     <description>flash[…]</description>
     <text><![CDATA[flash[:${1:notice}] = "${2:Successfully}"${0}]]></text>
   </snippet>
@@ -430,7 +430,7 @@ end]]></text>
     <text><![CDATA[gsub(/${1:pattern}/) { |${2:match}|${0} }]]></text>
   </snippet>
   <snippet>
-    <tag>habtm</tag>
+    <tag>hbtm</tag>
     <description>has_and_belongs_to_many</description>
     <text><![CDATA[has_and_belongs_to_many :${1:object}]]></text>
   </snippet>
@@ -438,11 +438,6 @@ end]]></text>
     <tag>Hash</tag>
     <description>Hash.new { |hash, key| hash[key] = .. }</description>
     <text><![CDATA[Hash.new { |${1:hash}, ${2:key}| ${1}[${2}] = ${0} }]]></text>
-  </snippet>
-  <snippet>
-    <tag>HashPointer</tag>
-    <description>Hash Pointer — =&gt;</description>
-    <text><![CDATA[ => ]]></text>
   </snippet>
   <snippet>
     <tag>hm</tag>
@@ -557,16 +552,17 @@ end]]></text>
     <description>module .. ClassMethods .. end</description>
     <text><![CDATA[module ${1:ModuleName}
 	module ClassMethods
-		${0}
+		$0
 	end
 	
-	extend ClassMethods
+	module InstanceMethods
+		
+	end
 	
 	def self.included(receiver)
-		receiver.extend(ClassMethods)
+		receiver.extend         ClassMethods
+		receiver.send :include, InstanceMethods
 	end
-	
-	
 end]]></text>
   </snippet>
   <snippet>
@@ -1177,7 +1173,7 @@ end]]></text>
   </snippet>
   <snippet override="ruby-:">
     <text><![CDATA[:${1:key} => $0]]></text>
-    <tag>kv</tag>
+    <tag>k</tag>
     <description>hash pair</description>
   </snippet>
   <snippet>
@@ -1250,5 +1246,21 @@ end]]></text>
     <text><![CDATA[validates_inclusion_of :${1:attribute}, :${2:in} => ${3:range}]]></text>
     <tag>vi</tag>
     <description>validates_inclusion_of</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[# => $1]]></text>
+    <tag>#</tag>
+    <description>Add a # =&gt; Marker</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[:${1:key} => "${2:value}"]]></text>
+    <accelerator><![CDATA[<Shift><Control>l]]></accelerator>
+    <description>Hash Pair :key =&gt; "value"</description>
+  </snippet>
+  <snippet override="ruby-hashpointer">
+    <text><![CDATA[ => ]]></text>
+    <tag>l</tag>
+    <description>hash pointer</description>
+    <accelerator><![CDATA[<Shift><Alt>l]]></accelerator>
   </snippet>
 </snippets>

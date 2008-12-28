@@ -914,6 +914,7 @@
       <keyword>around_filter</keyword>
       <keyword>filter</keyword>
       <keyword>filter_parameter_logging</keyword>
+      <keyword>protect_from_forgery</keyword>
       <keyword>layout</keyword>
       <keyword>require_dependency</keyword>
       <keyword>render</keyword>
@@ -989,6 +990,7 @@
       <keyword>with_scope</keyword>
       <keyword>named_scope</keyword>
       <keyword>memoize</keyword>
+      <keyword>with_options</keyword>
       <keyword>alias_method_chain</keyword>
       <keyword>alias_attribute</keyword>
       <keyword>delegate</keyword>

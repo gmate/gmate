@@ -101,7 +101,7 @@ class WalkDirectoryThread(Thread):
             ignore = ignore.replace(".", "\.")
             ignore = ignore.replace("*", ".*")
             ignore = "^"+ignore+"$"
-            log.debug("Ignore Regex = %s" % ignore)
+            log.debug("[WalkDirectoryThread] Ignore Regex = %s" % ignore)
             ignore_res.append(re.compile(ignore))
         log.debug("[WalkDirectoryThread] : ignore_res = %s" % ignore_res)
 
@@ -112,7 +112,7 @@ class WalkDirectoryThread(Thread):
                     ignore = False
                     for ignore_re in ignore_res:
                         if ignore_re.match(name):
-                            log.debug("Ignored %s", name)
+                            log.debug("[WalkDirectoryThread] Ignored %s", name)
                             ignore = True
                             break
                     if ignore:
@@ -120,6 +120,8 @@ class WalkDirectoryThread(Thread):
                     # Check to see if it is a dir
                     if not os.path.isdir(os.path.join(path, name)):
                         self._db_wrapper.add_file(path, name)
+
+        print "***** Total files %s *****" % (self._db_wrapper.file_count(), )
 
     def _walk_file_system(self, root, ignore_regexs):
         """
@@ -137,7 +139,7 @@ class WalkDirectoryThread(Thread):
                 ignore = False
                 for ignore_re in ignore_regexs:
                     if ignore_re.match(name):
-                        log.debug("Ignored %s", name)
+                        log.debug("[WalkDirectoryThread] Ignored %s", name)
                         ignore = True
                         break
                 if ignore:
@@ -211,7 +213,7 @@ class FileWrapper(object):
         last_postion = 0
         for word in query_list:
             location = path.lower().find(word, last_postion)
-            log.debug("Found Postion = " + str(location))
+            log.debug("[FileWrapper] Found Postion = " + str(location))
             if location > -1:
                 last_postion = (location + len(word) + 3)
                 a_path = list(path)

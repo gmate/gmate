@@ -25,16 +25,20 @@ class DBWrapper(Thread):
         while True:
             if not self._queue.empty():
                 try:
-                    sql, result = self._queue.get()
-                    log.info("QUERY: %s" % sql)
-                    log.info("RESULT: " + str(result))
+                    sql, params, result = self._queue.get()
+                    log.info("[DBWrapper] QUERY: %s" % sql)
+                    log.info("[DBWrapper] PARAMS: %s" % str(params))
+                    log.info("[DBWrapper] RESULT: " + str(result))
                     cursor = self._db.cursor()
-                    cursor.execute(sql)
+                    if params:
+                        cursor.execute(sql, params)
+                    else:
+                        cursor.execute(sql)
                 except sqlite3.OperationalError, e:
                     log.error("[DBWrapper] OperationalError : %s" % e)
 
                 if result:
-                    log.info("Putting Results")
+                    log.info("[DBWrapper] Putting Results")
                     for row in cursor.fetchall():
                         result.put(row)
                     result.put("__END__")
@@ -42,35 +46,26 @@ class DBWrapper(Thread):
                 self._db.commit()
 
     def execute(self, sql, params=None, result=None):
-        if params:
-            self._queue.put((sql % params, result))
-        else:
-            self._queue.put((sql, result))
+        self._queue.put((sql, params, result))
 
     def select(self, sql, params=None):
         list_result = []
         result = Queue()
-        log.info("Params: " + params)
-        if params:
-            log.debug("QUERY with params")
-            self.execute(sql, params, result)
-        else:
-            log.debug("QUERY with out params")
-            self.execute(sql, result=result)
+        self.execute(sql, params, result=result)
 
         while True:
             row = result.get()
             if row == '__END__':
                 break
             list_result.append(row)
-        log.info("SELECT RESULT COUNT: " + str(len(list_result)))
+        log.info("[DBWrapper] SELECT RESULT COUNT: " + str(len(list_result)))
         return list_result
 
     def select_on_filename(self, query_input):
         log.info("[DBWrapper] select_on_filename method")
         query_param = query_input.replace(" ", "%")+"%"
         res = self.select("SELECT DISTINCT name, path FROM files " +
-            "WHERE path LIKE '%s' ORDER BY path LIMIT 51", query_param)
+            "WHERE path LIKE ? ORDER BY path LIMIT 51", (query_param, ))
         for row in res:
             yield row
 
@@ -86,24 +81,28 @@ class DBWrapper(Thread):
     def add_file(self, path, name):
         path = os.path.join(path, name)
         log.debug("[DBWrapper] Adding File: " + path)
-        self.execute("INSERT INTO files (name, path) VALUES ('%s', '%s')",
+        self.execute("INSERT INTO files (name, path) VALUES (?, ?)",
             (name, path))
 
     def remove_file(self, path, name):
         path = os.path.join(path, name)
         log.debug("[DBWrapper] Removing File: " + path)
-        self.execute("DELETE FROM files where path = '%s'", (path, ))
+        self.execute("DELETE FROM files where path = ?", (path, ))
 
     def remove_dir(self, path):
         log.debug("[DBWrapper] Remove Dir: " + path)
-        self.execute("DELETE FROM files WHERE path like '%s'", (path+"%", ))
+        self.execute("DELETE FROM files WHERE path like ?", (path+"%", ))
 
     def clear_database(self):
         log.debug("[DBWrapper] Clearing Databases")
         self.execute("DELETE FROM files")
 
+    def file_count(self):
+        res = self.select("SELECT COUNT(*) FROM files")
+        return res[0][0]
+
 if __name__ == '__main__':
     db = DBWrapper()
-    db.execute("INSERT INTO files (path, name) VALUES ('%s', '%s')",
+    db.execute("INSERT INTO files (path, name) VALUES (?, ?)",
          ("vbabiy", "/home/vbabiy"))
     print (db.select("SELECT * FROM files"))

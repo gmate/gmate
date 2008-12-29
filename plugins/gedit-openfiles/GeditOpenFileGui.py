@@ -110,8 +110,7 @@ class GeditOpenFileGui(object):
             self._file_browser_checkbox.set_active(True)
         else:
             self._file_browser_checkbox.set_active(False)
-        log.debug("IGNORE_FILE_FILETYPES = " + str(self._config.get_value("IGNORE_FILE_FILETYPES")))
-        log.debug("TYPE = " + str(type(self._config.get_value("IGNORE_FILE_FILETYPES"))))
+        log.debug("[GeditOpenFileGui] IGNORE_FILE_FILETYPES = " + str(self._config.get_value("IGNORE_FILE_FILETYPES")))
         self._config_ignore_input.set_text(", ".join(self._config.get_value("IGNORE_FILE_FILETYPES")))
 
     def _cancel_config_event(self, event):
@@ -121,9 +120,9 @@ class GeditOpenFileGui(object):
     def _save_config_event(self, event):
         self._config.set_value("USE_FILEBROWSER", self._file_browser_checkbox.get_active())
         self._config.set_value("ROOT_PATH", self._open_root_path.get_current_folder())
-        
+
         ignored_list = [s.strip() for s in self._config_ignore_input.get_text().split(",")]
-        log.debug("ignored_list = " + str(ignored_list))
+        log.debug("[GeditOpenFileGui] ignored_list = " + str(ignored_list))
         self._config.set_value("IGNORE_FILE_FILETYPES", ignored_list)
         self._file_monitor.set_root_path(self._config.root_path())
         self._file_monitor.refresh_database()
@@ -172,8 +171,6 @@ class GeditOpenFileGui(object):
     def _on_window_release(self, widget, event):
         if event.keyval == gtk.keysyms.Escape:
             self._plugin_window.hide()
-        elif event.keyval == gtk.keysyms.Down:
-            log.debug("DOWN WAS PRESSED")
 
     def _on_query_entry(self, widget, event):
         # Check to see if key pressed is Return if so open first file
@@ -184,7 +181,7 @@ class GeditOpenFileGui(object):
         self._clear_treeveiw() # Remove all
 
         input_query = widget.get_text()
-        log.debug(" [GeditOpenFileGui] input_query : %s" % input_query)
+        log.debug("[GeditOpenFileGui] input_query : %s" % input_query)
 
         if input_query:
             # Query database based on input

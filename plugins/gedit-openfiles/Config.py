@@ -56,7 +56,7 @@ class Config(object):
                     self.set_value(name, [v.strip() for v in value.split(',')])
                 else:
                     self.set_value(name, value)
-        log.info("Config Map = %s", self._config)
+        log.info("[Config] Config Map = %s", self._config)
 
     def root_path(self):
         root = "."

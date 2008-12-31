@@ -13,7 +13,16 @@ To install on a debian/ubuntu based distro just run in a terminal:
 
   $ sudo apt-get install python-webkitgtk
 
-to install gmate package run:
+
+I have changed the SnapOpen plugin by a new one called Gedit Open Files, it do the same work with the
+same shortcut, but have more options. this plugin requires pyinotify.
+
+To install on a debian/ubuntu based distro run in a terminal:
+
+  $ sudo apt-get install python-pyinotify
+
+
+To install gmate package run:
 
   $ sh install.sh
 

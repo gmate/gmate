@@ -192,9 +192,10 @@
                             <child>
                               <widget class="GtkFileChooserButton" id="open_root_path">
                                 <property name="visible">True</property>
-                                <property name="preview_widget_active">False</property>
-                                <property name="local_only">False</property>
                                 <property name="action">GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER</property>
+                                <property name="local_only">False</property>
+                                <property name="preview_widget_active">False</property>
+                                <property name="title" translatable="yes">Select Project Root</property>
                               </widget>
                               <packing>
                                 <property name="position">1</property>

@@ -2,6 +2,7 @@ import gtk
 import os
 from Logger import log
 import gedit
+import urllib
 
 menu_str="""
 <ui>
@@ -119,6 +120,7 @@ class GeditOpenFileGui(object):
 
     def _save_config_event(self, event):
         self._config.set_value("USE_FILEBROWSER", self._file_browser_checkbox.get_active())
+        log.debug("[GeditOpenFileGui] : ROOT_PATH = %s" % self._open_root_path.get_current_folder())
         self._config.set_value("ROOT_PATH", self._open_root_path.get_current_folder())
 
         ignored_list = [s.strip() for s in self._config_ignore_input.get_text().split(",")]
@@ -201,6 +203,7 @@ class GeditOpenFileGui(object):
         self._liststore.clear()
 
     def _open_file(self, uri):
+        log.debug("[GeditOpenFileGui] uri to open : %s" % uri)
         # Check to make sure file is not allready opened
         tab = self._window.get_tab_from_uri(uri)
         if not tab:

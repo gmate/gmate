@@ -9,11 +9,14 @@ File Monitor Contains
 import os
 import stat
 import re
+import urllib
 from Logger import log
-from pyinotify import WatchManager, Notifier, ThreadedNotifier, EventsCodes, ProcessEvent
+from pyinotify import WatchManager, Notifier, ThreadedNotifier, \
+EventsCodes, ProcessEvent
 from threading import Thread
 
-EVENT_MASK = EventsCodes.IN_DELETE | EventsCodes.IN_CREATE | EventsCodes.IN_MOVED_TO | EventsCodes.IN_MOVED_FROM # watched events
+EVENT_MASK = EventsCodes.IN_DELETE | EventsCodes.IN_CREATE | \
+EventsCodes.IN_MOVED_TO | EventsCodes.IN_MOVED_FROM # watched events
 
 
 class FileMonitor(object):
@@ -22,27 +25,55 @@ class FileMonitor(object):
     """
 
     def __init__(self, db_wrapper, root, config):
+        self._file_count = 0
         self._db_wrapper = db_wrapper
         self._root = os.path.realpath(root)
         self._walk_thread = None
         self._config = config
+        self._ignore_regexs = []
+        self._set_ignore_list()
 
         # Add a watch to the root of the dir
         self._watch_manager = WatchManager()
-        self._notifier = ThreadedNotifier(self._watch_manager, FileProcessEvent(self)).start()
+        self._notifier = ThreadedNotifier(self._watch_manager,
+            FileProcessEvent(self)).start()
 
         # initial walk
         self.add_dir(self._root)
+
+    def _set_ignore_list(self):
+        log.info("[FileMonitor] Set Regexs for Ignore List")
+
+        ignore_res = []
+        # Complie Ignore list in to a list of regexs
+        for ignore in self._config.get_value("IGNORE_FILE_FILETYPES"):
+            ignore = ignore.replace(".", "\.")
+            ignore = ignore.replace("*", ".*")
+            ignore = "^"+ignore+"$"
+            log.debug("[FileMonitor] Ignore Regex = %s" % ignore)
+            self._ignore_regexs.append(re.compile(ignore))
 
     def add_dir(self, path):
         """
         Starts a WalkDirectoryThread to add the directory
         """
-        self._watch_manager.add_watch(path, EVENT_MASK, rec=True)
-        self._walk_thread = WalkDirectoryThread(self._db_wrapper, path, self._config.get_value("IGNORE_FILE_FILETYPES"))
+        if self.validate(path):
+            self._watch_manager.add_watch(path, EVENT_MASK, rec=True)
+            self._walk_thread = WalkDirectoryThread(self, path,
+                self._ignore_regexs)
 
     def add_file(self, path, name):
-        self._db_wrapper.add_file(path, name)
+        if self.validate(name):
+            self._db_wrapper.add_file(path, name)
+            self._file_count = self._file_count + 1
+
+    def validate(self, name):
+         # Check to make sure the file not in the ignore list
+        for ignore_re in self._ignore_regexs:
+            if ignore_re.match(name):
+                log.debug("[WalkDirectoryThread] ##### Ignored %s #####", name)
+                return False
+        return True
 
     def remove_file(self, path, name):
         self._db_wrapper.remove_file(path, name)
@@ -73,7 +104,8 @@ class FileMonitor(object):
         if self._validate_file_query_input(name):
             path_name = self._root + "%" + name
             for row in self._db_wrapper.select_on_filename(path_name):
-                res_filewrappers.append(FileWrapper(name, self._root, row[0], row[1]))
+                res_filewrappers.append(FileWrapper(name, self._root,
+                    row[0], row[1]))
         return res_filewrappers
 
 
@@ -83,47 +115,29 @@ class WalkDirectoryThread(Thread):
     to the database.
     """
 
-    def __init__(self, db_wrapper, root, ignore_list):
+    def __init__(self, file_monitor, root, ignore_regexs):
         log.debug("[FileMonitor] WalkDirectoryThread Root: %s" % root)
         Thread.__init__(self)
-        self._db_wrapper = db_wrapper
+        self._file_monitor = file_monitor
         self._root = root
-        self._ignore_list = ignore_list
+        self._ignore_regexs = ignore_regexs
         self.start()
 
     def run(self):
         """
         Runs the Thread
         """
-        ignore_res = []
-        # Complie Ignore list in to a list of regexs
-        for ignore in self._ignore_list:
-            ignore = ignore.replace(".", "\.")
-            ignore = ignore.replace("*", ".*")
-            ignore = "^"+ignore+"$"
-            log.debug("[WalkDirectoryThread] Ignore Regex = %s" % ignore)
-            ignore_res.append(re.compile(ignore))
-        log.debug("[WalkDirectoryThread] : ignore_res = %s" % ignore_res)
-
         if os.path.isdir(self._root):
-            for (path, names) in self._walk_file_system(self._root, ignore_res):
+            for (path, names) in self._walk_file_system(self._root):
+                log.debug("[WalkDirectoryThread] Path: %s" % path)
+                log.debug("[WalkDirectoryThread] Names: %s" % names)
                 for name in names:
-                    # Check to make sure the file not in the ignore list
-                    ignore = False
-                    for ignore_re in ignore_res:
-                        if ignore_re.match(name):
-                            log.debug("[WalkDirectoryThread] Ignored %s", name)
-                            ignore = True
-                            break
-                    if ignore:
-                        continue
                     # Check to see if it is a dir
                     if not os.path.isdir(os.path.join(path, name)):
-                        self._db_wrapper.add_file(path, name)
+                        self._file_monitor.add_file(path, name)
+        #print "***** Total files %s *****" % (self._file_monitor._file_count, )
 
-        print "***** Total files %s *****" % (self._db_wrapper.file_count(), )
-
-    def _walk_file_system(self, root, ignore_regexs):
+    def _walk_file_system(self, root):
         """
         From a give root of a tree this method will walk through ever branch
         and return a generator.
@@ -136,16 +150,18 @@ class WalkDirectoryThread(Thread):
                 continue
 
             if stat.S_ISDIR(file_stat.st_mode):
+                # Check to make sure the file not in the ignore list
                 ignore = False
-                for ignore_re in ignore_regexs:
+                for ignore_re in self._ignore_regexs:
                     if ignore_re.match(name):
-                        log.debug("[WalkDirectoryThread] Ignored %s", name)
+                        log.debug("[WalkDirectoryThread] ### Ignored %s ####",
+                            name)
                         ignore = True
                         break
                 if ignore:
                     continue
                 for (newroot, children) in self._walk_file_system(
-                    os.path.join(root, name), ignore_regexs):
+                    os.path.join(root, name)):
                     yield newroot, children
         yield root, names
 
@@ -197,7 +213,7 @@ class FileWrapper(object):
     path = property(_get_path)
 
     def _get_uri(self):
-        uri = "file://" + self._path
+        uri = "file://" + urllib.quote(self._path)
         return uri
     uri = property(_get_uri)
 

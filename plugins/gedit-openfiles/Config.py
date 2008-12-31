@@ -1,6 +1,7 @@
 from Logger import log
 import os
 import gconf
+import urllib
 
 
 class Config(object):
@@ -64,7 +65,8 @@ class Config(object):
             root = self._get_root_from_filebrowser()
         else:
             root = self.get_value("ROOT_PATH")
-        return root
+        log.debug("[Config] ROOT: %s" % root)
+        return urllib.unquote(root)
 
     def _get_root_from_filebrowser(self):
         base = u'/apps/gedit-2/plugins/filebrowser/on_load'

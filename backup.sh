@@ -8,3 +8,4 @@ cp ~/.gnome2/gedit/styles/* ./styles/
 
 cp /usr/share/gtksourceview-2.0/language-specs/ruby.lang ./lang-specs/
 cp /usr/share/gtksourceview-2.0/language-specs/yml.lang ./lang-specs/
+cp /usr/share/gtksourceview-2.0/language-specs/rhtml.lang ./lang-specs/

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language id="rhtml" _name="RHTML" version="2.0" _section="Markup">
-<metadata>
-  <property name="mimetypes">text/rhtml</property>
-  <property name="globs">*.rhtml;*.html.erb;*.erb</property>
-</metadata>
+  <metadata>
+    <property name="mimetypes">text/rhtml</property>
+    <property name="globs">*.rhtml;*.html.erb;*.erb</property>
+  </metadata>
+  <styles>
+    <style id="comment" _name="Comment" map-to="xml:comment"/>
+  </styles>
   <definitions>
+    <context id="comment" style-ref="comment">
+        <start>&lt;%=?\s*#</start>
+        <end>%&gt;</end>
+        <include>
+            <context ref="def:in-comment"/>
+        </include>
+    </context>
     <context id="erb-block">
       <start>&lt;%</start>
       <end>%&gt;</end>
@@ -14,8 +24,9 @@
     </context>
     <context id="rhtml">
       <include>
-        <context ref="html:html"/>
+        <context ref="comment"/>
         <context ref="erb-block"/>
+        <context ref="html:html"/>
       </include>
     </context>
   </definitions>

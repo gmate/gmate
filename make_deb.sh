@@ -24,4 +24,4 @@ cp README.rdoc ./build/tmp/gedit-gmate/usr/share/doc/gedit-plugins/GMATE-README.
 # Make the deb package
 dpkg-deb -b ./build/tmp/gedit-gmate ./build
 # Remove temporary directory
-#rm -rf ./build/tmp
+rm -rf ./build/tmp

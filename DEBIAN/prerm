@@ -1,0 +1,3 @@
+#!/bin/sh
+mv /usr/share/gtksourceview-2.0/language-specs/ruby.lang /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate
+mv /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate.bak /usr/share/gtksourceview-2.0/language-specs/ruby.lang

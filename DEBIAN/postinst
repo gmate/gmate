@@ -1,2 +1,9 @@
 #!/bin/sh
+# Only create a backup if a backup not exist yet
+if [ ! -f /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate.bak ]
+then
+  mv /usr/share/gtksourceview-2.0/language-specs/ruby.lang /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate.bak
+fi
+mv /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate /usr/share/gtksourceview-2.0/language-specs/ruby.lang
 update-mime-database /usr/share/mime
+# TODO: Show a message to user execute post-install scripts to enable plugins

@@ -1,0 +1,13 @@
+Package: gedit-gmate
+Version: 0.9-ubuntu1
+Architecture: i386
+Maintainer: Alexandre da Silva
+Installed-Size: 828
+Priority: optional
+Depends: python-pyinotify, python-webkitgtk
+Section: gnome
+Description: Gedit Gmate Plugins pack
+ This package contains a collection of plugins and gtksourceview improvements to
+ make Gedit more powerfull to develop especially Ruby on Rails applications.
+ To know more details about what ins included in gedit-gmate package please see
+ the read-me file at /usr/share/doc/gedit-plugins/GMATE-README.rdoc

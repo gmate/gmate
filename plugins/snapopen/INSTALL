@@ -1,0 +1,9 @@
+Gedit Snap Open Plugin
+Copyright (C) 2008 Mads Buus Westmark <online@buus.net>
+
+INSTALLATION INSTRUCTIONS
+1) Extract contents of archive
+2) Copy files from gedit-snapopen directory to
+   ~/.gnome2/gedit/plugins
+3) Fire up gedit, go to Edit->Preferences, select the
+   Plugins tab, and make sure "Snap Open" is checked

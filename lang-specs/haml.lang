@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Author: Ivan Kerin <kerin@rizn.info>
+-->
+<language id="haml" _name="HAML" version="2.0" _section="Markup">
+  <metadata>
+    <property name="mimetypes">text/x-haml</property>
+    <property name="globs">*.haml</property>
+  </metadata>
+  <styles>
+    <style id="comment"                 _name="Comment"                 map-to="def:comment"/>
+    <style id="tag"                     _name="Tag"                     map-to="def:keyword"/>
+    <style id="class-tag"               _name="Class Tag"               map-to="def:function"/>
+    <style id="id-tag"                  _name="Id Tag"                  map-to="def:identifier"/>
+    <style id="error"                   _name="Error"                   map-to="def:error"/>
+  </styles>
+  <definitions>
+    <context id="comment" style-ref="comment">
+      <match>^(  )*\/.*$</match>
+    </context>
+    
+    <context id="identation-error">
+      <match>^( (  )*)[^\s].*$</match>
+      <include>
+        <context sub-pattern="1" style-ref="error"/>
+      </include>
+    </context>
+    
+    
+    <context id="tags">
+      <start>^(  )*</start>
+      <end>$</end>
+      
+      <include>
+      
+        <context id="erb-block" end-parent="true">
+          <start>=|-|~</start>
+          <end>$</end>
+          <include>
+            <context ref="ruby:ruby:*"/>
+          </include>
+        </context>
+        
+        <context id="tag" style-ref="tag" once-only="true">
+          <match>%[a-zA-Z0-9\-\_]+</match>
+        </context>
+        
+        <context id="id-tag" style-ref="id-tag">
+          <match>#[a-zA-Z0-9\-\_]+</match>
+        </context>
+        
+        <context id="class-tag" style-ref="class-tag">
+          <match>\.[a-zA-Z0-9\-\_]+</match>
+        </context>
+        
+        <context id="unclosed-brecket" style-ref="error">
+          <match>\}(?!{)</match>
+        </context>
+        
+        <context id="erb-hash">
+          <start>{</start>
+          <end>}</end>
+          <include>
+            <context ref="ruby:ruby:*"/>
+          </include>
+        </context>
+        
+      </include>
+    </context>
+    
+    
+    <context id="haml">
+      <include>
+        <context ref="comment"/> 
+        <context ref="identation-error"/> 
+        <context ref="tags"/> 
+      </include>
+    </context>        
+  </definitions>
+</language>

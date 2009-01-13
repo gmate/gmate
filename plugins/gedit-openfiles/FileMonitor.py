@@ -135,7 +135,7 @@ class WalkDirectoryThread(Thread):
                     # Check to see if it is a dir
                     if not os.path.isdir(os.path.join(path, name)):
                         self._file_monitor.add_file(path, name)
-        print "***** Total files %s *****" % (self._file_monitor._file_count, )
+        # print "***** Total files %s *****" % (self._file_monitor._file_count, )
 
     def _walk_file_system(self, root):
         """

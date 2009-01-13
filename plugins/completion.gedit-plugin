@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=completion
+IAge=2
+Name=Word completion
+Description=Complete words with the tab key
+Authors=Osmo Salomaa <otsaloma@cc.hut.fi>
+Copyright=Copyright (C) 2006-2008 Osmo Salomaa
+Website=http://users.tkk.fi/~otsaloma/gedit

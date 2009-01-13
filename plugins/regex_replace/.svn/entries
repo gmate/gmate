@@ -1,0 +1,44 @@
+8
+
+dir
+0
+https://vaem.googlecode.com/svn/trunk/releases/gedit2_regex_replace_plugin/regex_replace
+https://vaem.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+__init__.py
+file
+
+
+
+add
+
+regexsearch.gladep
+file
+
+
+
+add
+
+regexsearch.glade
+file
+
+
+
+add
+
+regexsearchinstance.py
+file
+
+
+
+add
+

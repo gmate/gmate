@@ -163,11 +163,11 @@ end]]></text>
     <text><![CDATA[class ${1:ClassName} < DelegateClass(${2:ParentClass})
 	def initialize${1}
 		super(${3:del_obj})
-		
+
 		${0}
 	end
-	
-	
+
+
 end]]></text>
   </snippet>
   <snippet>
@@ -177,8 +177,8 @@ end]]></text>
 	def initialize${1}
 		${0}
 	end
-	
-	
+
+
 end]]></text>
   </snippet>
   <snippet>
@@ -187,11 +187,11 @@ end]]></text>
     <text><![CDATA[class ${1:ClassName} < Struct.new(:${2:attr_names})
 	def initialize(*args)
 		super
-		
+
 		${0}
 	end
-	
-	
+
+
 end]]></text>
   </snippet>
   <snippet>
@@ -201,8 +201,8 @@ end]]></text>
 	def initialize${1}
 		${0}
 	end
-	
-	
+
+
 end]]></text>
   </snippet>
   <snippet>
@@ -217,18 +217,18 @@ end]]></text>
     <description>class BlankSlate .. initialize .. end</description>
     <text><![CDATA[class ${1:BlankSlate}
 	instance_methods.each { |meth| undef_method(meth) unless meth =~ /\A__/ }
-	
+
 	def initialize${1}
 		@${3:delegate} = ${delegate_object}
-		
+
 		${0}
 	end
-	
+
 	def method_missing(meth, *args, &block)
 		@${3}.send(meth, *args, &block)
 	end
-	
-	
+
+
 end]]></text>
   </snippet>
   <snippet>
@@ -554,11 +554,11 @@ end]]></text>
 	module ClassMethods
 		$0
 	end
-	
+
 	module InstanceMethods
-		
+
 	end
-	
+
 	def self.included(receiver)
 		receiver.extend         ClassMethods
 		receiver.send :include, InstanceMethods
@@ -577,7 +577,7 @@ end]]></text>
     <description>module .. module_function .. end</description>
     <text><![CDATA[module ${1:ModuleName}
 	module_function
-	
+
 	${0}
 end]]></text>
   </snippet>
@@ -627,20 +627,20 @@ options = OpenStruct.new(${1:default})
 
 ARGV.options do |opts|
 	opts.banner = "Usage:  #{File.basename($$PROGRAM_NAME)}  [OPTIONS]${1}"
-	
+
 	opts.separator ""
 	opts.separator "Specific Options:"
-	
+
 	${0}
-	
+
 	opts.separator "Common Options:"
-	
+
 	opts.on( "-h", "--help",
 	         "Show this message." ) do
 		puts opts
 		exit
 	end
-	
+
 	begin
 		opts.parse!
 	rescue

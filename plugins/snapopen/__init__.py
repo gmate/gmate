@@ -85,7 +85,7 @@ class SnapOpenPluginInstance:
         self._hit_list = self._snapopen_glade.get_widget( "hit_list" )
         self._hit_list.connect("select-cursor-row", self.on_select_from_list)
         self._hit_list.connect("button_press_event", self.on_list_mouse)
-        self._liststore = gtk.ListStore(str, str)
+        self._liststore = gtk.ListStore(str, str, str)
         self._hit_list.set_model(self._liststore)
         column = gtk.TreeViewColumn("Name" , gtk.CellRendererText(), markup=0)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
@@ -132,7 +132,7 @@ class SnapOpenPluginInstance:
             file = file.rstrip().replace("./", "") #remove cwd prefix
             name = os.path.basename(file)
 
-            self._liststore.append([self.highlight_pattern(name, pattern), self.highlight_pattern(file, pattern)])
+            self._liststore.append([self.highlight_pattern(name, pattern), self.highlight_pattern(file, pattern), file])
             if maxcount > max_result:
                 break
             maxcount = maxcount + 1
@@ -186,7 +186,7 @@ class SnapOpenPluginInstance:
             self._snapopen_window.hide()
 
     def foreach(self, model, path, iter, selected):
-        selected.append(model.get_value(iter, 1))
+        selected.append(model.get_value(iter, 2))
 
     #open file in selection and hide window
     def open_selected_item( self, event ):

@@ -44,17 +44,18 @@ class TextToolsPlugin(gedit.Plugin):
 
   bookmarks = {}
 
+
   def __init__(self):
     gedit.Plugin.__init__(self)
 
   def activate(self, window):
     actions = [
       ('TextTools',           None, 'Text Tools'),
-      ('ClearLine',           None, 'Clear Line',         '<Shift><Control>c',        'Remove all the characters on the current line',                             self.clear_line),
+      ('ClearLine',           None, 'Clear Line',         '<Shift><Control>c', 'Remove all the characters on the current line',                             self.clear_line),
       ('DuplicateLine',       None, 'Duplicate Line',     '<Shift><Control>d', 'Create a duplicate of the current line below the current line',             self.duplicate_line),
       ('RaiseLine',           None, 'Move Line Up',       '<Alt>Up',           'Transpose the current line with the line above it',                         self.raise_line),
       ('LowerLine',           None, 'Move Line Down',     '<Alt>Down',         'Transpose the current line with the line below it',                         self.lower_line),
-      ('SelectEnclosed',      None, 'Select Enclosed Text','<Alt><Control>9','Select the content between enclose chars, quotes or tags',            self.select_enclosed)
+      ('SelectEnclosed',      None, 'Select Enclosed Text','<Alt><Control>9',  'Select the content between enclose chars, quotes or tags',                  self.select_enclosed)
     ]
     windowdata = dict()
     window.set_data("TextToolsPluginWindowDataKey", windowdata)

@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=snapopen
+IAge=2
+Name=Snap open
+Description=Opens files by regex
+Authors=Mads Buus Jensen <online@buus.net>
+Copyright=Copyright © 2008 Mads Buus Jensen <online@buus.net>
+Website=http://www.upperbound.net

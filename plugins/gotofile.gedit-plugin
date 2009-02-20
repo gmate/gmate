@@ -1,0 +1,8 @@
+[Gedit Plugin]
+Loader=python
+Module=gotofile
+IAge=2
+Name=Go to File
+Description=Easily open and switch between files.
+Authors=Eric Butler <eric@extremeboredom.net>\nChristian Hergert <chris@dronelabs.com>
+Copyright=(C) 2008 Eric Butler

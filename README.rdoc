@@ -49,6 +49,9 @@ NOTE: Some commands will expect you enter your sudo password
 * Text Tools - Some text manipulation improvements (adapted from line tools)
 * Trailsave - Remove trailing spaces before save a document
 * Word Completion - Word completion plugin
+* Gedit Go To File - Yet Another Go to File plugin Just Like SnapOpen and GeditOpenFiles also based in Textmate Go to file.
+
+NOTE: In order to use Go to File feature you need to choose just one of: <tt>GeditGoToFile</tt>, <tt>SnapOpen</tt> or <tt>GeditOpenFiles</tt>
 
 === Themes/Styles
 

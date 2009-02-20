@@ -1,6 +1,6 @@
 Package: gedit-gmate
 Version: 0.9-ubuntu1
-Architecture: i386
+Architecture: all
 Maintainer: Alexandre da Silva
 Installed-Size: 828
 Priority: optional

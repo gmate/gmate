@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Author: Ivan Kerin <kerin@rizn.info>
+-->
+<language id="sass" _name="SASS" version="2.0" _section="Others">
+  <metadata>
+    <property name="mimetypes">text/x-sass</property>
+    <property name="globs">*.sass</property>
+  </metadata>
+  <styles>
+    <style id="comment"                 _name="Comment"                 map-to="def:comment"/>
+    <style id="tag"                     _name="Tag"                     map-to="def:special-constant"/>
+    <style id="class-tag"               _name="Class Tag"               map-to="def:function"/>
+    <style id="id-tag"                  _name="Id Tag"                  map-to="def:identifier"/>
+    <style id="error"                   _name="Error"                   map-to="def:error"/>
+    <style id="keyword"                 _name="Keyword"                 map-to="def:keyword"/>
+    <style id="function"                _name="Function"                map-to="def:function"/>    
+    <style id="known-property-values"   _name="Known Property Value"    map-to="def:type"/>
+    <style id="decimal"                 _name="Decimal"                 map-to="def:decimal"/>
+    <style id="dimension"               _name="Dimension"               map-to="def:floating-point"/>
+    <style id="color"                   _name="Color"                   map-to="def:base-n-integer"/>
+  </styles>
+  
+  <definitions>
+    <context id="comment" style-ref="comment">
+      <match>^(  )*\/.*$</match>
+    </context>
+    
+    <context id="identation-error">
+      <match>^( (  )*)[^\s].*$</match>
+      <include>
+        <context sub-pattern="1" style-ref="error"/>
+      </include>
+    </context>
+  
+    <context id="selector-pseudo-elements" style-ref="function">
+      <keyword>first-line</keyword>
+      <keyword>first-letter</keyword>
+      <keyword>before</keyword>
+      <keyword>after</keyword>
+    </context>
+
+    <context id="selector-pseudo-classes" style-ref="function">
+      <keyword>first-child</keyword>
+      <keyword>link</keyword>
+      <keyword>visited</keyword>
+      <keyword>hover</keyword>
+      <keyword>active</keyword>
+      <keyword>focus</keyword>
+      <keyword>lang</keyword>
+    </context>
+  
+    <context id="property-names" style-ref="keyword">
+      <prefix>^(  )+:</prefix>
+      <keyword>azimuth</keyword>
+      <keyword>background-attachment</keyword>
+      <keyword>background-color</keyword>
+      <keyword>background-image</keyword>
+      <keyword>background-position</keyword>
+      <keyword>background-repeat</keyword>
+      <keyword>background</keyword>
+      <keyword>border-bottom-color</keyword>
+      <keyword>border-bottom-style</keyword>
+      <keyword>border-bottom-width</keyword>
+      <keyword>border-bottom</keyword>
+      <keyword>border-collapse</keyword>
+      <keyword>border-color</keyword>
+      <keyword>border-left-color</keyword>
+      <keyword>border-left-style</keyword>
+      <keyword>border-left-width</keyword>
+      <keyword>border-left</keyword>
+      <keyword>border-right-color</keyword>
+      <keyword>border-right-style</keyword>
+      <keyword>border-right-width</keyword>
+      <keyword>border-right</keyword>
+      <keyword>border-spacing</keyword>
+      <keyword>border-style</keyword>
+      <keyword>border-top-color</keyword>
+      <keyword>border-top-style</keyword>
+      <keyword>border-top-width</keyword>
+      <keyword>border-top</keyword>
+      <keyword>border-width</keyword>
+      <keyword>border</keyword>
+      <keyword>bottom</keyword>
+      <keyword>caption-side</keyword>
+      <keyword>clear</keyword>
+      <keyword>clip</keyword>
+      <keyword>color</keyword>
+      <keyword>content</keyword>
+      <keyword>counter-increment</keyword>
+      <keyword>counter-reset</keyword>
+      <keyword>cue-after</keyword>
+      <keyword>cue-before</keyword>
+      <keyword>cue</keyword>
+      <keyword>cursor</keyword>
+      <keyword>direction</keyword>
+      <keyword>display</keyword>
+      <keyword>elevation</keyword>
+      <keyword>empty-cells</keyword>
+      <keyword>float</keyword>
+      <keyword>font-family</keyword>
+      <keyword>font-size-adjust</keyword>
+      <keyword>font-size</keyword>
+      <keyword>font-style</keyword>
+      <keyword>font-variant</keyword>
+      <keyword>font-weight</keyword>
+      <keyword>font</keyword>
+      <keyword>height</keyword>
+      <keyword>left</keyword>
+      <keyword>letter-spacing</keyword>
+      <keyword>line-height</keyword>
+      <keyword>list-style-image</keyword>
+      <keyword>list-style-position</keyword>
+      <keyword>list-style-type</keyword>
+      <keyword>list-style</keyword>
+      <keyword>margin-bottom</keyword>
+      <keyword>margin-left</keyword>
+      <keyword>margin-right</keyword>
+      <keyword>margin-top</keyword>
+      <keyword>margin</keyword>
+      <keyword>marker-offset</keyword>
+      <keyword>marks</keyword>
+      <keyword>max-height</keyword>
+      <keyword>max-width</keyword>
+      <keyword>min-height</keyword>
+      <keyword>min-width</keyword>
+      <keyword>orphans</keyword>
+      <keyword>outline-color</keyword>
+      <keyword>outline-style</keyword>
+      <keyword>outline-width</keyword>
+      <keyword>outline</keyword>
+      <keyword>overflow</keyword>
+      <keyword>padding-bottom</keyword>
+      <keyword>padding-left</keyword>
+      <keyword>padding-right</keyword>
+      <keyword>padding-top</keyword>
+      <keyword>padding</keyword>
+      <keyword>page-break-after</keyword>
+      <keyword>page-break-before</keyword>
+      <keyword>page-break-inside</keyword>
+      <keyword>page</keyword>
+      <keyword>pause-after</keyword>
+      <keyword>pause-before</keyword>
+      <keyword>pause</keyword>
+      <keyword>pitch-range</keyword>
+      <keyword>pitch</keyword>
+      <keyword>play-during</keyword>
+      <keyword>position</keyword>
+      <keyword>quotes</keyword>
+      <keyword>richness</keyword>
+      <keyword>right</keyword>
+      <keyword>size</keyword>
+      <keyword>speak-header</keyword>
+      <keyword>speak-numerical</keyword>
+      <keyword>speak-punctuation</keyword>
+      <keyword>speak</keyword>
+      <keyword>speech-rate</keyword>
+      <keyword>stress</keyword>
+      <keyword>table-layout</keyword>
+      <keyword>text-align</keyword>
+      <keyword>text-decoration</keyword>
+      <keyword>text-indent</keyword>
+      <keyword>text-shadow</keyword>
+      <keyword>text-transform</keyword>
+      <keyword>top</keyword>
+      <keyword>unicode-bidi</keyword>
+      <keyword>vertical-align</keyword>
+      <keyword>visibility</keyword>
+      <keyword>voice-family</keyword>
+      <keyword>volume</keyword>
+      <keyword>white-space</keyword>
+      <keyword>widows</keyword>
+      <keyword>width</keyword>
+      <keyword>word-spacing</keyword>
+      <keyword>z-index</keyword>
+    </context>
+
+    <context id="known-property-values" style-ref="known-property-values">
+      <keyword>above</keyword>
+      <keyword>absolute</keyword>
+      <keyword>always</keyword>
+      <keyword>aqua</keyword>
+      <keyword>armenian</keyword>
+      <keyword>auto</keyword>
+      <keyword>avoid</keyword>
+      <keyword>baseline</keyword>
+      <keyword>behind</keyword>
+      <keyword>below</keyword>
+      <keyword>bidi-override</keyword>
+      <keyword>black</keyword>
+      <keyword>blink</keyword>
+      <keyword>block</keyword>
+      <keyword>blue</keyword>
+      <keyword>bolder</keyword>
+      <keyword>bold</keyword>
+      <keyword>both</keyword>
+      <keyword>bottom</keyword>
+      <keyword>capitalize</keyword>
+      <keyword>center-left</keyword>
+      <keyword>center-right</keyword>
+      <keyword>center</keyword>
+      <keyword>circle</keyword>
+      <keyword>cjk-ideographic</keyword>
+      <keyword>close-quote</keyword>
+      <keyword>code</keyword>
+      <keyword>collapse</keyword>
+      <keyword>compact</keyword>
+      <keyword>condensed</keyword>
+      <keyword>continuous</keyword>
+      <keyword>crop</keyword>
+      <keyword>crosshair</keyword>
+      <keyword>cross</keyword>
+      <keyword>cue-after</keyword>
+      <keyword>cue-before</keyword>
+      <keyword>cursive</keyword>
+      <keyword>dashed</keyword>
+      <keyword>decimal</keyword>
+      <keyword>decimal-leading-zero</keyword>
+      <keyword>default</keyword>
+      <keyword>digits</keyword>
+      <keyword>disc</keyword>
+      <keyword>dotted</keyword>
+      <keyword>double</keyword>
+      <keyword>embed</keyword>
+      <keyword>e-resize</keyword>
+      <keyword>expanded</keyword>
+      <keyword>extra-condensed</keyword>
+      <keyword>extra-expanded</keyword>
+      <keyword>fantasy</keyword>
+      <keyword>far-left</keyword>
+      <keyword>far-right</keyword>
+      <keyword>faster</keyword>
+      <keyword>fast</keyword>
+      <keyword>fixed</keyword>
+      <keyword>fixed</keyword>
+      <keyword>fuchsia</keyword>
+      <keyword>georgian</keyword>
+      <keyword>gray</keyword>
+      <keyword>green</keyword>
+      <keyword>groove</keyword>
+      <keyword>hebrew</keyword>
+      <keyword>help</keyword>
+      <keyword>hidden</keyword>
+      <keyword>hide</keyword>
+      <keyword>higher</keyword>
+      <keyword>high</keyword>
+      <keyword>hiragana-iroha</keyword>
+      <keyword>hiragana</keyword>
+      <keyword>inherit</keyword>
+      <keyword>inline</keyword>
+      <keyword>inline-table</keyword>
+      <keyword>inset</keyword>
+      <keyword>inside</keyword>
+      <keyword>invert</keyword>
+      <keyword>italic</keyword>
+      <keyword>justify</keyword>
+      <keyword>katakana-iroha</keyword>
+      <keyword>katakana</keyword>
+      <keyword>landscape</keyword>
+      <keyword>large</keyword>
+      <keyword>larger</keyword>
+      <keyword>left</keyword>
+      <keyword>left-side</keyword>
+      <keyword>leftwards</keyword>
+      <keyword>level</keyword>
+      <keyword>lighter</keyword>
+      <keyword>lime</keyword>
+      <keyword>line-through</keyword>
+      <keyword>list-item</keyword>
+      <keyword>loud</keyword>
+      <keyword>lower-alpha</keyword>
+      <keyword>lowercase</keyword>
+      <keyword>lower-greek</keyword>
+      <keyword>lower-latin</keyword>
+      <keyword>lower-roman</keyword>
+      <keyword>lower</keyword>
+      <keyword>low</keyword>
+      <keyword>ltr</keyword>
+      <keyword>marker</keyword>
+      <keyword>maroon</keyword>
+      <keyword>medium</keyword>
+      <keyword>medium</keyword>
+      <keyword>middle</keyword>
+      <keyword>mix</keyword>
+      <keyword>monospace</keyword>
+      <keyword>move</keyword>
+      <keyword>narrower</keyword>
+      <keyword>navy</keyword>
+      <keyword>ne-resize</keyword>
+      <keyword>no-close-quote</keyword>
+      <keyword>none</keyword>
+      <keyword>no-open-quote</keyword>
+      <keyword>no-repeat</keyword>
+      <keyword>normal</keyword>
+      <keyword>nowrap</keyword>
+      <keyword>n-resize</keyword>
+      <keyword>nw-resize</keyword>
+      <keyword>oblique</keyword>
+      <keyword>olive</keyword>
+      <keyword>once</keyword>
+      <keyword>open-quote</keyword>
+      <keyword>outset</keyword>
+      <keyword>outside</keyword>
+      <keyword>overline</keyword>
+      <keyword>pointer</keyword>
+      <keyword>portait</keyword>
+      <keyword>pre</keyword>
+      <keyword>purple</keyword>
+      <keyword>red</keyword>
+      <keyword>relative</keyword>
+      <keyword>repeat-x</keyword>
+      <keyword>repeat-y</keyword>
+      <keyword>repeat</keyword>
+      <keyword>ridge</keyword>
+      <keyword>right-side</keyword>
+      <keyword>right</keyword>
+      <keyword>rightwards</keyword>
+      <keyword>rlt</keyword>
+      <keyword>run-in</keyword>
+      <keyword>sans-serif</keyword>
+      <keyword>scroll</keyword>
+      <keyword>scroll</keyword>
+      <keyword>semi-condensed</keyword>
+      <keyword>semi-expanded</keyword>
+      <keyword>separate</keyword>
+      <keyword>se-resize</keyword>
+      <keyword>serif</keyword>
+      <keyword>show</keyword>
+      <keyword>silent</keyword>
+      <keyword>silver</keyword>
+      <keyword>slower</keyword>
+      <keyword>slow</keyword>
+      <keyword>small-caps</keyword>
+      <keyword>smaller</keyword>
+      <keyword>small</keyword>
+      <keyword>soft</keyword>
+      <keyword>solid</keyword>
+      <keyword>spell-out</keyword>
+      <keyword>square</keyword>
+      <keyword>s-resize</keyword>
+      <keyword>static</keyword>
+      <keyword>sub</keyword>
+      <keyword>super</keyword>
+      <keyword>sw-resize</keyword>
+      <keyword>table-caption</keyword>
+      <keyword>table-cell</keyword>
+      <keyword>table-column-group</keyword>
+      <keyword>table-column</keyword>
+      <keyword>table-footer-group</keyword>
+      <keyword>table-header-group</keyword>
+      <keyword>table-row-group</keyword>
+      <keyword>table-row</keyword>
+      <keyword>table</keyword>
+      <keyword>teal</keyword>
+      <keyword>text-bottom</keyword>
+      <keyword>text</keyword>
+      <keyword>text-top</keyword>
+      <keyword>thick</keyword>
+      <keyword>thin</keyword>
+      <keyword>top</keyword>
+      <keyword>top</keyword>
+      <keyword>transparent</keyword>
+      <keyword>ultra-condensed</keyword>
+      <keyword>ultra-expanded</keyword>
+      <keyword>underline</keyword>
+      <keyword>upper-alpha</keyword>
+      <keyword>uppercase</keyword>
+      <keyword>upper-latin</keyword>
+      <keyword>upper-roman</keyword>
+      <keyword>visible</keyword>
+      <keyword>wait</keyword>
+      <keyword>white</keyword>
+      <keyword>wider</keyword>
+      <keyword>w-resize</keyword>
+      <keyword>x-fast</keyword>
+      <keyword>x-high</keyword>
+      <keyword>x-large</keyword>
+      <keyword>x-loud</keyword>
+      <keyword>x-low</keyword>
+      <keyword>x-slow</keyword>
+      <keyword>x-small</keyword>
+      <keyword>x-soft</keyword>
+      <keyword>xx-large</keyword>
+      <keyword>xx-small</keyword>
+      <keyword>yellow</keyword>
+    </context>
+
+    <context id="tags" style-ref="tag">
+      <keyword>table</keyword>
+      <keyword>td</keyword>
+      <keyword>th</keyword>
+      <keyword>tr</keyword>
+      <keyword>div</keyword>
+      <keyword>span</keyword>
+      <keyword>a</keyword>
+      <keyword>h1</keyword>
+      <keyword>h2</keyword>
+      <keyword>h3</keyword>
+      <keyword>h4</keyword>
+      <keyword>h5</keyword>
+      <keyword>h6</keyword>
+      <keyword>strong</keyword>
+      <keyword>em</keyword>
+      <keyword>quote</keyword>
+      <keyword>form</keyword>
+      <keyword>fieldset</keyword>
+      <keyword>label</keyword>
+      <keyword>input</keyword>
+      <keyword>textarea</keyword>
+      <keyword>button</keyword>
+      <keyword>body</keyword>
+      <keyword>img</keyword>
+      <keyword>ul</keyword>
+      <keyword>li</keyword>
+    </context>
+    
+    <context id="dimension" style-ref="dimension">
+      <match>[\+-]?([0-9]+|[0-9]*\.[0-9]+)(%|e(m|x)|p(x|t|c)|in|ft|(m|c)m|k?Hz|deg|g?rad|m?s)</match>
+    </context>
+
+    <context id="hexadecimal-color" style-ref="color">
+      <match>#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})</match>
+    </context>
+        
+    <context id="function" style-ref="function">
+      <start>[a-zA-Z][a-z0-9-]+\(</start>
+      <end>\)</end>
+      <include>
+        <context ref="def:escape"/>
+        <context ref="def:line-continue"/>
+      </include>
+    </context>
+
+    <context id="number" style-ref="decimal">
+      <match>\b(0|[\+-]?[1-9][0-9]*)</match>
+    </context>
+
+    <context id="importance-modifier" style-ref="keyword">
+      <match>\![ \t]*important</match>
+    </context>
+    
+    <context id="sass">
+      <include>
+        <context ref="comment"/> 
+        <context ref="identation-error"/> 
+        <context ref="def:string"/>
+        <context ref="def:single-quoted-string"/>
+        <context ref="selector-pseudo-elements"/>
+        <context ref="selector-pseudo-classes"/>
+        <context ref="property-names"/>
+        <context ref="known-property-values"/>
+        <context ref="tags"/>
+        <context ref="dimension"/>
+        <context ref="hexadecimal-color"/>
+        <context ref="function"/>
+        <context ref="number"/>
+        <context ref="importance-modifier"/>
+      </include>
+    </context>        
+  </definitions>    
+</language>
+

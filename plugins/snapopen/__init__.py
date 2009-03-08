@@ -14,8 +14,8 @@ max_result = 50
 
 ui_str="""<ui>
 <menubar name="MenuBar">
-    <menu name="SnapOpenMenu" action="SnapOpenMenuAction">
-        <placeholder name="SnapOpen Options">
+    <menu name="SearchMenu" action="Search">
+        <placeholder name="SearchOps_7">
             <menuitem name="SnapOpen" action="SnapOpenAction"/>
         </placeholder>
     </menu>
@@ -54,9 +54,9 @@ class SnapOpenPluginInstance:
         self._action_group = gtk.ActionGroup( "SnapOpenPluginActions" )
         snapopen_menu_action = gtk.Action( name="SnapOpenMenuAction", label="Snap", tooltip="Snap tools", stock_id=None )
         self._action_group.add_action( snapopen_menu_action )
-        snapopen_action = gtk.Action( name="SnapOpenAction", label="Open...\t", tooltip="Open a file", stock_id=gtk.STOCK_OPEN )
+        snapopen_action = gtk.Action( name="SnapOpenAction", label="Go to File...\t", tooltip="Go to a file with regex search", stock_id=gtk.STOCK_JUMP_TO )
         snapopen_action.connect( "activate", lambda a: self.on_snapopen_action() )
-        self._action_group.add_action_with_accel( snapopen_action, "<Ctrl><Alt>o" )
+        self._action_group.add_action_with_accel( snapopen_action, "<Alt>T" )
         manager.insert_action_group( self._action_group, 0 )
         self._ui_id = manager.new_merge_id()
         manager.add_ui_from_string( ui_str )
@@ -270,3 +270,4 @@ class SnapOpenPlugin( gedit.Plugin ):
 
     def update_ui( self, window ):
         self._get_instance( window ).update_ui()
+

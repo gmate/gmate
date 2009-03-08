@@ -18,7 +18,6 @@
 
 import gedit
 
-
 class SaveWithoutTrailingSpacePlugin(gedit.Plugin):
 
     """Automatically strip all trailing whitespace before saving."""
@@ -75,8 +74,16 @@ class SaveWithoutTrailingSpacePlugin(gedit.Plugin):
             while itr.backward_line():
                 if not itr.ends_line():
                     itr.forward_to_line_end()
+                    itr.forward_char()
                     break
             doc.delete(itr, buffer_end)
+            buffer_end = doc.get_end_iter()
+
+        itr = buffer_end.copy()
+        if itr.backward_char():
+            if not itr.get_text(buffer_end) == "\n":
+                doc.insert(buffer_end, "\n")
+
 
     def strip_trailing_spaces_on_lines(self, doc):
         """Delete trailing space at the end of each line."""
@@ -91,3 +98,4 @@ class SaveWithoutTrailingSpacePlugin(gedit.Plugin):
                     itr.forward_char()
                     break
             doc.delete(itr, line_end)
+

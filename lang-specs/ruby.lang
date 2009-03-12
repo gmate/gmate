@@ -818,6 +818,18 @@
        </include>
      </context>
 
+    <context id="regex-alt-form2" style-ref="regex">
+      <start>\%r\{</start>
+      <end>\}\%{regex-opts}</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+        <context ref="regex-bracketed"/>
+       </include>
+     </context>
+
     <context id="regex-simple" style-ref="regex">
       <start extended="true">
         ((?&lt;=([(]|\s))|^)
@@ -896,6 +908,7 @@
         <context ref="binary"/>
         <context ref="numeric-literal"/>
         <context ref="regex-alt-form"/>
+        <context ref="regex-alt-form2"/>
         <context ref="regex-simple"/>
         <context ref="function-definition"/>
         <context ref="simple-interpolation"/>
@@ -1012,3 +1025,4 @@
     <!-- End Keywords -->
   </definitions>
 </language>
+

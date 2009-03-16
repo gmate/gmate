@@ -1020,8 +1020,22 @@
       <keyword>with_tag</keyword>
       <keyword>without_tag</keyword>
       <keyword>has_no_table</keyword>
-
+      <!-- BaseApp Styles -->
+      <keyword>link_to_action</keyword>
+      <keyword>link_to_new</keyword>
+      <keyword>link_to_edit</keyword>
+      <keyword>link_to_go</keyword>
+      <keyword>link_to_destroy</keyword>
+      <keyword>link_to_show</keyword>
+      <keyword>link_to_action</keyword>
+      <keyword>link_to_back</keyword>
+      <keyword>link_to_search</keyword>
+      <keyword>link_to_ext</keyword>
+      <keyword>secure_mail_to</keyword>
+      <keyword>tab_to</keyword>
+      <keyword>yield_or_default</keyword>
     </context>
+
     <!-- End Keywords -->
   </definitions>
 </language>

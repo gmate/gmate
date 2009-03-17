@@ -558,7 +558,7 @@
          when using with erb tags inside rhtml documents.
     -->
     <context id="query-string5" style-ref="string">
-      <start>%Q?([^[:alpha:]&gt;])</start>
+      <start>%Q([^[:alpha:]&gt;])</start>
       <end>\%{1@start}</end>
       <include>
         <context ref="escape"/>

@@ -68,7 +68,7 @@ class SnapOpenPluginInstance:
         manager.remove_action_group( self._action_group )
         manager.ensure_update()
 
-  # UI DIALOGUES
+    # UI DIALOGUES
     def _init_glade( self ):
         self._snapopen_glade = gtk.glade.XML( os.path.dirname( __file__ ) + "/snapopen.glade" )
         #setup window
@@ -270,4 +270,3 @@ class SnapOpenPlugin( gedit.Plugin ):
 
     def update_ui( self, window ):
         self._get_instance( window ).update_ui()
-

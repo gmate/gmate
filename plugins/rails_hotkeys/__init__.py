@@ -4,7 +4,7 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2, or (at your option)
 # any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -28,7 +28,7 @@ def debug(text, level=1):
     if os.environ.has_key('RH_DEBUG'):
         try:
             required_level = int(os.environ['RH_DEBUG'])
-            
+
             if required_level >= level:
                 print "[rails_mode] %s" % text
         except:
@@ -54,7 +54,7 @@ class RailsHotkeysPlugin(gedit.Plugin):
 
 class RailsHotkeysWindowHelper:
     handlers = {}
-    
+
     def __init__(self, plugin, window):
         self.window = window
         self.plugin = plugin
@@ -62,63 +62,63 @@ class RailsHotkeysWindowHelper:
         self.context_id = self.statusbar.get_context_id('RailsHotkeysStatusbar')
         self.status_label = gtk.Label('RH')
         self.frame = gtk.Frame()
-        
+
         self.status_label.set_alignment(0, 0)
         self.status_label.show()
         self.frame.add(self.status_label)
         self.frame.show()
         self.statusbar.add(self.frame)
-        
+
         self.set_status()
-        
+
         for view in window.get_views():
             self.connect_handlers(view)
-        
+
         window.connect('tab_added', self.on_tab_added)
-    
+
     def deactivate(self):
         debug('deactivate function called')
         for view in self.handlers:
-            view.disconnect(self.handlers[view])
-        
+            if view.handler_is_connected(self.handlers[view]):
+                view.disconnect(self.handlers[view])
         self.window = None
         self.plugin = None
-    
+
     def connect_handlers(self, view):
         handler = view.connect('key-press-event', self.on_key_press)
         self.handlers[view] = handler
-        
+
     def on_tab_added(self, window, tab):
         self.connect_handlers(tab.get_view())
-    
+
     def update(self, text=None):
         pass
-    
+
     def update_ui(self):
         self.set_status()
-    
+
     def set_status(self, text=None):
         self.statusbar.pop(self.context_id)
         label = 'RH'
-        
+
         if text is not None:
             label = "RH: %s " % _(text)
-        
+
         self.status_label.set_text(label)
-    
+
     def create_tab(self, uri):
         # have to find out the file's encoding
         # so calling gedit command is probably better
         # self.window.create_tab_from_uri(uri, None, 1, False, False)
         os.system('gedit %s' % uri)
-    
+
     def get_rails_root(self, uri):
         rails_root = self.get_data('RailsModeRoot')
-        
+
         if rails_root:
             debug('returning previously defined rails_root')
             return rails_root
-        
+
         base_dir = os.path.dirname(uri)
         depth = 10
 
@@ -135,11 +135,11 @@ class RailsHotkeysWindowHelper:
 
         if rails_root:
             self.set_data('RailsModeRoot', rails_root)
-        
+
         debug('setting rails_root to %s' % rails_root)
-        
+
         return rails_root
-    
+
     def pluralize(self, text):
         plurals = [
             ('$', 's'),
@@ -168,7 +168,7 @@ class RailsHotkeysWindowHelper:
             ('^(deer|fish|sheep|species)$', '\\1')
         ]
         plurals.reverse()
-        
+
         for re_from, re_to in plurals:
             if re.search(re_from, text):
                 text = re.sub(re_from, re_to, text)
@@ -209,7 +209,7 @@ class RailsHotkeysWindowHelper:
             ('^(deer|fish|sheep|species)$', '\\1')
         ]
         singulars.reverse()
-        
+
         for re_from, re_to in singulars:
             if re.search(re_from, text):
                 text = re.sub(re_from, re_to, text)
@@ -220,7 +220,7 @@ class RailsHotkeysWindowHelper:
         ctrl = False
         shift = False
         alt = False
-        
+
         keys = {
             'A': (gtk.keysyms.a, gtk.keysyms.A),
             'B': (gtk.keysyms.b, gtk.keysyms.B),
@@ -241,29 +241,29 @@ class RailsHotkeysWindowHelper:
             'U': (gtk.keysyms.u, gtk.keysyms.U),
             'V': (gtk.keysyms.v, gtk.keysyms.V),
         }
-        
+
         if event.state & gtk.gdk.CONTROL_MASK:
             ctrl = True
-        
+
         if event.state & gtk.gdk.SHIFT_MASK:
             shift = True
-        
+
         if event.state & gtk.gdk.MOD1_MASK:
             alt = True
-        
+
         debug('key: %s, ctrl: %s, shift: %s, alt: %s' % (event.keyval, ctrl, shift, alt), 2)
-        
+
         # canceling Rails Mode
         if self.get_rails_mode() and event.keyval == gtk.keysyms.Escape:
             debug('Rails mode enabled, so disable it')
             self.set_status()
             view.set_data('RailsMode', False)
             return True
-        
+
         r_pressed = event.keyval in keys['R']
-        
+
         debug('R key pressed? %s' % r_pressed, 2)
-        
+
         # starting Rails Mode
         if r_pressed and ctrl and shift:
             if not self.get_rails_mode():
@@ -271,18 +271,18 @@ class RailsHotkeysWindowHelper:
                 self.set_status('Press F1 for help')
                 self.set_rails_mode(True)
                 return True
-        
+
         if self.get_rails_mode():
             uri = view.get_buffer().get_uri_for_display()
             debug('current file uri: %s' % uri)
-            
+
             if not uri:
                 return True
-            
+
             uri = os.path.abspath(uri)
             name = re.sub('(_controller|_test|_controller_test)?\.(rb|yml)$', '', os.path.basename(uri))
             type = None
-            
+
             if event.keyval in keys['A']:
                 type = 'application'
             elif event.keyval in keys['B']:
@@ -320,9 +320,9 @@ class RailsHotkeysWindowHelper:
                 type = 'unit'
             elif event.keyval in keys['V']:
                 type = 'views'
-            
+
             debug('type: %s' % type)
-            
+
             if type:
                 debug('Rails mode enabled, so disable it')
                 self.open(type, uri, name)
@@ -333,29 +333,29 @@ class RailsHotkeysWindowHelper:
                 return True
         else:
             return False
-    
+
     def set_data(self, name, value):
         self.window.get_active_tab().get_view().set_data(name, value)
-    
+
     def get_data(self, name):
         return self.window.get_active_tab().get_view().get_data(name)
-    
+
     def set_rails_mode(self, value):
         self.set_data('RailsMode', value)
-    
+
     def get_rails_mode(self):
         return self.get_data('RailsMode')
-    
+
     def open(self, type, uri, name=None):
         rails_root = rails_root = self.get_rails_root(uri)
         status = None
-        
+
         if not rails_root:
             return self.set_status(_('Root not found'))
-        
+
         if re.search('\/app\/views\/', uri):
             name = os.path.basename(os.path.dirname(uri))
-        
+
         if type == 'unit':
             name = self.singularize(name)
             path = os.path.join(rails_root, 'test', 'unit', '%s_test.rb' % name)
@@ -407,16 +407,16 @@ class RailsHotkeysWindowHelper:
             path = os.path.join(rails_root, 'app', 'views')
         elif type == 'public':
             path = os.path.join(rails_root, 'public')
-        
+
         debug('type: %s, path: %s' % (type, path))
-        
+
         status_message = type
-        
+
         if os.path.isdir(path):
             os.system('nautilus %s' % path)
         elif os.path.isfile(path):
             self.create_tab(path)
         else:
             status_message = 'File not found'
-        
+
         self.set_status(status_message)

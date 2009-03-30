@@ -24,7 +24,8 @@ class SmartIndentPlugin(gedit.Plugin):
 
     def deactivate(self, window):
         for (handler_id, view) in self.handler_ids:
-            view.disconnect(handler_id)
+            if view.handler_is_connected(handler_id):
+                view.disconnect(handler_id)
 
     def update_ui(self, window):
         view = window.get_active_view()

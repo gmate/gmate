@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
+
+ This file was generated from a textmate theme named Stoneship
+ with tm2gtksw2 tool. (Alexandre da Silva)
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+-->
+
+<style-scheme id="stoneship" _name="Stoneship" version="1.0">
+  <author>tm2gtksw2(Alexandre da Silva)</author>
+  <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
+
+  <!-- Global Settings -->
+  <style name="selection"         background="#860606"/>
+  <style name="text"              foreground="#f8f8f2" background="#0e0e0e"/>
+  <style name="cursor"            foreground="#f8f8f0"/>
+  <style name="current-line"      background="#2d210c"/>
+  <style name="line-numbers"      foreground="#f8f8f2" background="#0e0e0e"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match" background="#4C4C4C"/>
+  <style name="bracket-mismatch" background="#4C4C4C" bold="true"/>
+  <style name="search-match" background="#404040"/>
+
+  <!-- Comments -->
+  <style name="def:comment" foreground="#4d4d4d"/>
+  <style name="def:shebang" foreground="#4d4d4d"/>
+  <style name="def:doc-comment-element" foreground="#4d4d4d"/>
+
+  <!-- Constants and Variables-->
+  <style name="def:constant" foreground="#ffc27f"/>
+  <style name="def:string" foreground="#ffe834" background="#41380d"/>
+  <style name="def:character" foreground="#ffe834" background="#41380d"/>
+  <style name="def:special-char" foreground="#f8f8f2"/>
+  <style name="def:special-constant" foreground="#ffe834"/>
+  <style name="def:instance-variable" foreground="#ffc27f"/>
+  <style name="def:boolean" foreground="#ffe834"/>
+  <style name="def:number" foreground="#ffe834"/>
+  <style name="def:base-n-integer" foreground="#ffe834"/>
+  <style name="def:decimal" foreground="#ffe834"/>
+  <style name="def:complex" foreground="#ffe834"/>
+  <style name="def:floating-point" foreground="#ffe834"/>
+  <style name="def:keyword" foreground="#ff0000"/>
+  <style name="def:builtin" foreground="#ff971e"/>
+  <style name="def:variable" foreground="#ffc27f"/>
+  <style name="def:class-variable" foreground="#ffc27f"/>
+  <style name="def:identifier" foreground="#ffc27f"/>
+  <style name="def:statement" foreground="#ffc27f"/>
+  <style name="def:type" foreground="#ffc27f"/>
+  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:note" background="#F0EA20" foreground="#C80000"/>
+  <style name="def:net-address-in-comment" foreground="#ffc27f"/>
+  <style name="def:preprocessor" foreground="#ff0000"/>
+  <style name="def:specials" foreground="#ff971e"/>
+  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <style name="def:operator"/-->
+  <style name="def:underlined" underline="true"/>
+  <style name="def:function" foreground="#ff971e"/>
+
+  <!-- Ruby Styles -->
+  <style name="ruby:module-handler" foreground="#ffc27f"/>
+  <style name="ruby:regex" foreground="#ffe834" background="#41380d"/>
+  <style name="ruby:class-definition" foreground="#ff971e"/>
+  <style name="ruby:simple-interpolation" foreground="#ffe834"/>
+  <style name="ruby:complex-interpolation" foreground="#ffe834"/>
+  <style name="ruby:function-definition" foreground="#ff971e"/>
+  <style name="ruby:special-variable" foreground="#ffc27f"/>
+  <style name="ruby:predefined-variable" />
+  <style name="ruby:global-variable" foreground="#ffc27f"/>
+  <style name="ruby:instance-variable" foreground="#ffc27f"/>
+  <style name="ruby:class-variable" foreground="#ffc27f"/>
+  <style name="ruby:operators" foreground="#ff0000"/>
+  <style name="ruby:symbol" foreground="#ffe834"/>
+
+  <!-- YAML Styles -->
+  <style name="yaml:inner-key" foreground="#ffe834"/>
+  <style name="yaml:scalar-value" foreground="#ffe834" background="#41380d"/>
+
+  <!-- Rails Styles -->
+  <style name="rubyonrails:module-handler" foreground="#ffc27f"/>
+  <style name="rubyonrails:regex" foreground="#ffe834" background="#41380d"/>
+  <style name="rubyonrails:class-definition" foreground="#ff971e"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#ffe834"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#ffe834"/>
+  <style name="rubyonrails:function-definition" foreground="#ff971e"/>
+  <style name="rubyonrails:special-variable" foreground="#ffc27f"/>
+  <style name="rubyonrails:predefined-variable" />
+  <style name="rubyonrails:global-variable" foreground="#ffc27f"/>
+  <style name="rubyonrails:instance-variable" foreground="#ffc27f"/>
+  <style name="rubyonrails:class-variable" foreground="#ffc27f"/>
+  <style name="rubyonrails:operators" foreground="#ff0000"/>
+  <style name="rubyonrails:symbol" foreground="#ffe834"/>
+  <style name="rubyonrails:rails" foreground="#ffc27f"/>
+
+  <!-- Diff Settings -->
+  <style name="diff:added-line" />
+  <style name="diff:removed-line" />
+  <style name="diff:location" />
+  <style name="diff:ignore" />
+  <style name="diff:changed-line" foreground="#ffe834"/>
+  <style name="diff:diff-file" foreground="#ff0000"/>
+  <style name="diff:special-case" map-to="diff:location"/>
+
+  <!-- SH Styles -->
+  <style name="sh:others" map-to="text"/>
+
+  <!-- C Styles -->
+  <style name="c:preprocessor" map-to="def:special-char"/>
+
+  <!-- CSS Styles -->
+  <style name="css:function" foreground="#ffc27f"/>
+  <style name="css:known-property-values" foreground="#ffe834"/>
+  <style name="css:others-2" foreground="#ff971e"/>
+  <style name="css:others-3"  foreground="#ff971e"/>
+
+  <!-- XML Styles -->
+  <style name="xml:attribute-name" foreground="#ff971e"/>
+  <style name="xml:element-name" />
+  <style name="xml:attribute-value" foreground="#ffe834" background="#41380d"/>
+  <style name="xml:namespace" foreground="#ffe834"/>
+  <style name="xml:entity" foreground="#ffc27f"/>
+  <style name="html:script" foreground="#ff971e"/>
+
+</style-scheme>
+

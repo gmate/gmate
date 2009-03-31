@@ -19,7 +19,7 @@
  Boston, MA 02111-1307, USA.
 
 -->
-<style-scheme id="twilight" _name="Twilight" version="1.0">
+<style-scheme id="twilightmod" _name="Twilight Modified" version="1.0">
   <author>Alexandre da Silva</author>
   <_description>Soft, dark color scheme</_description>
 
@@ -126,3 +126,4 @@
   <style name="xml:element-name"    foreground="variable"/>
 
 </style-scheme>
+

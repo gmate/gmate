@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
+
+ This file was generated from a textmate theme named Blackboard
+ with tm2gtksw2 tool. (Alexandre da Silva)
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+-->
+
+<style-scheme id="blackboard" _name="Blackboard" version="1.0">
+  <author>tm2gtksw2(Alexandre da Silva)</author>
+  <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
+
+  <!-- Global Settings -->
+  <style name="selection"         background="#253b76"/>
+  <style name="text"              foreground="#f8f8f8" background="#0c1021"/>
+  <style name="cursor"            foreground="#ffffff"/>
+  <style name="current-line"      background="#1a1e2e"/>
+  <style name="line-numbers"      foreground="#f8f8f8" background="#0c1021"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match" background="#4C4C4C"/>
+  <style name="bracket-mismatch" background="#4C4C4C" bold="true"/>
+  <style name="search-match" background="#404040"/>
+
+  <!-- Comments -->
+  <style name="def:comment" foreground="#aeaeae"/>
+  <style name="def:shebang" foreground="#aeaeae"/>
+  <style name="def:doc-comment-element" foreground="#aeaeae"/>
+
+  <!-- Constants and Variables-->
+  <style name="def:constant" />
+  <style name="def:string" foreground="#61ce3c"/>
+  <style name="def:character" foreground="#61ce3c"/>
+  <style name="def:special-char" foreground="#f8f8f8"/>
+  <style name="def:special-constant" foreground="#d8fa3c"/>
+  <style name="def:instance-variable" />
+  <style name="def:boolean" foreground="#d8fa3c"/>
+  <style name="def:number" foreground="#d8fa3c"/>
+  <style name="def:base-n-integer" foreground="#d8fa3c"/>
+  <style name="def:decimal" foreground="#d8fa3c"/>
+  <style name="def:complex" foreground="#d8fa3c"/>
+  <style name="def:floating-point" foreground="#d8fa3c"/>
+  <style name="def:keyword" foreground="#fbde2d"/>
+  <style name="def:builtin" foreground="#ff6400"/>
+  <style name="def:variable" />
+  <style name="def:class-variable" />
+  <style name="def:identifier" />
+  <style name="def:statement" />
+  <style name="def:type" />
+  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:note" background="#F0EA20" foreground="#C80000"/>
+  <style name="def:net-address-in-comment" />
+  <style name="def:preprocessor" foreground="#fbde2d"/>
+  <style name="def:specials" foreground="#ff6400"/>
+  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <style name="def:operator"/-->
+  <style name="def:underlined" underline="true"/>
+  <style name="def:function" foreground="#ff6400"/>
+
+  <!-- Ruby Styles -->
+  <style name="ruby:module-handler" />
+  <style name="ruby:regex" foreground="#61ce3c"/>
+  <style name="ruby:class-definition" foreground="#ff6400"/>
+  <style name="ruby:simple-interpolation" foreground="#d8fa3c"/>
+  <style name="ruby:complex-interpolation" foreground="#d8fa3c"/>
+  <style name="ruby:function-definition" foreground="#ff6400"/>
+  <style name="ruby:special-variable" />
+  <style name="ruby:predefined-variable" foreground="#7f90aa"/>
+  <style name="ruby:global-variable" />
+  <style name="ruby:instance-variable" />
+  <style name="ruby:class-variable" />
+  <style name="ruby:operators" foreground="#fbde2d"/>
+  <style name="ruby:symbol" foreground="#d8fa3c"/>
+
+  <!-- YAML Styles -->
+  <style name="yaml:inner-key" foreground="#d8fa3c"/>
+  <style name="yaml:scalar-value" foreground="#61ce3c"/>
+
+  <!-- Rails Styles -->
+  <style name="rubyonrails:module-handler" />
+  <style name="rubyonrails:regex" foreground="#61ce3c"/>
+  <style name="rubyonrails:class-definition" foreground="#ff6400"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#d8fa3c"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#d8fa3c"/>
+  <style name="rubyonrails:function-definition" foreground="#ff6400"/>
+  <style name="rubyonrails:special-variable" />
+  <style name="rubyonrails:predefined-variable" foreground="#7f90aa"/>
+  <style name="rubyonrails:global-variable" />
+  <style name="rubyonrails:instance-variable" />
+  <style name="rubyonrails:class-variable" />
+  <style name="rubyonrails:operators" foreground="#fbde2d"/>
+  <style name="rubyonrails:symbol" foreground="#d8fa3c"/>
+  <style name="rubyonrails:rails" />
+
+  <!-- Diff Settings -->
+  <style name="diff:added-line" />
+  <style name="diff:removed-line" />
+  <style name="diff:location" />
+  <style name="diff:ignore" />
+  <style name="diff:changed-line" foreground="#d8fa3c"/>
+  <style name="diff:diff-file" foreground="#fbde2d"/>
+  <style name="diff:special-case" map-to="diff:location"/>
+
+  <!-- SH Styles -->
+  <style name="sh:others" map-to="text"/>
+
+  <!-- C Styles -->
+  <style name="c:preprocessor" map-to="def:special-char"/>
+
+  <!-- CSS Styles -->
+  <style name="css:function" />
+  <style name="css:known-property-values" foreground="#d8fa3c"/>
+  <style name="css:others-2" foreground="#ff6400"/>
+  <style name="css:others-3"  foreground="#ff6400"/>
+
+  <!-- XML Styles -->
+  <style name="xml:attribute-name" foreground="#ff6400"/>
+  <style name="xml:element-name" foreground="#7f90aa"/>
+  <style name="xml:attribute-value" foreground="#61ce3c"/>
+  <style name="xml:namespace" foreground="#d8fa3c"/>
+  <style name="xml:entity" />
+  <style name="html:script" foreground="#ff6400"/>
+
+</style-scheme>
+

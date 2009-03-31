@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
+
+ This file was generated from a textmate theme named Merbivore Soft
+ with tm2gtksw2 tool. (Alexandre da Silva)
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+-->
+
+<style-scheme id="merbivoresoft" _name="Merbivore Soft" version="1.0">
+  <author>tm2gtksw2(Alexandre da Silva)</author>
+  <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
+
+  <!-- Global Settings -->
+  <style name="selection"         background="#35213e"/>
+  <style name="text"              foreground="#e6e1dc" background="#1c1c1c"/>
+  <style name="cursor"            foreground="#ffffff"/>
+  <style name="current-line"      background="#333435"/>
+  <style name="line-numbers"      foreground="#e6e1dc" background="#1c1c1c"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match" background="#4C4C4C"/>
+  <style name="bracket-mismatch" background="#4C4C4C" bold="true"/>
+  <style name="search-match" background="#404040"/>
+
+  <!-- Comments -->
+  <style name="def:comment" foreground="#ac4bb8" italic="true"/>
+  <style name="def:shebang" foreground="#ac4bb8" italic="true"/>
+  <style name="def:doc-comment-element" foreground="#ac4bb8" italic="true"/>
+
+  <!-- Constants and Variables-->
+  <style name="def:constant" />
+  <style name="def:string" foreground="#8ec65f"/>
+  <style name="def:character" foreground="#8ec65f"/>
+  <style name="def:special-char" foreground="#e6e1dc"/>
+  <style name="def:special-constant" foreground="#e1c582"/>
+  <style name="def:instance-variable" />
+  <style name="def:boolean" foreground="#e1c582"/>
+  <style name="def:number" foreground="#7fc578"/>
+  <style name="def:base-n-integer" foreground="#7fc578"/>
+  <style name="def:decimal" foreground="#7fc578"/>
+  <style name="def:complex" foreground="#7fc578"/>
+  <style name="def:floating-point" foreground="#7fc578"/>
+  <style name="def:keyword" foreground="#fc803a"/>
+  <style name="def:builtin" />
+  <style name="def:variable" />
+  <style name="def:class-variable" />
+  <style name="def:identifier" />
+  <style name="def:statement" />
+  <style name="def:type" />
+  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:note" background="#F0EA20" foreground="#C80000"/>
+  <style name="def:net-address-in-comment" />
+  <style name="def:preprocessor" foreground="#fc803a"/>
+  <style name="def:specials" />
+  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <style name="def:operator"/-->
+  <style name="def:underlined" underline="true"/>
+  <style name="def:function" />
+
+  <!-- Ruby Styles -->
+  <style name="ruby:module-handler" />
+  <style name="ruby:regex" foreground="#8ec65f"/>
+  <style name="ruby:class-definition" />
+  <style name="ruby:simple-interpolation" foreground="#b3e5b4"/>
+  <style name="ruby:complex-interpolation" foreground="#b3e5b4"/>
+  <style name="ruby:function-definition" />
+  <style name="ruby:special-variable" />
+  <style name="ruby:predefined-variable" foreground="#fc803a"/>
+  <style name="ruby:global-variable" />
+  <style name="ruby:instance-variable" />
+  <style name="ruby:class-variable" />
+  <style name="ruby:operators" foreground="#fc803a"/>
+  <style name="ruby:symbol" foreground="#68c1d8"/>
+
+  <!-- YAML Styles -->
+  <style name="yaml:inner-key" foreground="#68c1d8"/>
+  <style name="yaml:scalar-value" foreground="#8ec65f"/>
+
+  <!-- Rails Styles -->
+  <style name="rubyonrails:module-handler" />
+  <style name="rubyonrails:regex" foreground="#8ec65f"/>
+  <style name="rubyonrails:class-definition" />
+  <style name="rubyonrails:simple-interpolation" foreground="#b3e5b4"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#b3e5b4"/>
+  <style name="rubyonrails:function-definition" />
+  <style name="rubyonrails:special-variable" />
+  <style name="rubyonrails:predefined-variable" foreground="#fc803a"/>
+  <style name="rubyonrails:global-variable" />
+  <style name="rubyonrails:instance-variable" />
+  <style name="rubyonrails:class-variable" />
+  <style name="rubyonrails:operators" foreground="#fc803a"/>
+  <style name="rubyonrails:symbol" foreground="#68c1d8"/>
+  <style name="rubyonrails:rails" />
+
+  <!-- Diff Settings -->
+  <style name="diff:added-line" foreground="#e6e1dc" background="#6fc58b"/>
+  <style name="diff:removed-line" foreground="#e6e1dc" background="#ac3735"/>
+  <style name="diff:location" />
+  <style name="diff:ignore" />
+  <style name="diff:changed-line" foreground="#68c1d8"/>
+  <style name="diff:diff-file" foreground="#fc803a"/>
+  <style name="diff:special-case" map-to="diff:location"/>
+
+  <!-- SH Styles -->
+  <style name="sh:others" map-to="text"/>
+
+  <!-- C Styles -->
+  <style name="c:preprocessor" map-to="def:special-char"/>
+
+  <!-- CSS Styles -->
+  <style name="css:function" />
+  <style name="css:known-property-values" foreground="#68c1d8"/>
+  <style name="css:others-2" />
+  <style name="css:others-3"  />
+
+  <!-- XML Styles -->
+  <style name="xml:attribute-name" />
+  <style name="xml:element-name" foreground="#fc803a"/>
+  <style name="xml:attribute-value" foreground="#8ec65f"/>
+  <style name="xml:namespace" foreground="#68c1d8"/>
+  <style name="xml:entity" />
+  <style name="html:script" />
+
+</style-scheme>
+

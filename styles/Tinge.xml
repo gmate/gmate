@@ -6,7 +6,7 @@
  URL: http://www.harshj.com/2008/01/27/tinge-theme-for-gedit/
  Email: harshj [@] gmail [.] com
 
- Tinge is a theme inspired by Monokai and improved upon Darkmate: Copyright (C) 2006-2008 GtkSourceView team 
+ Tinge is a theme inspired by Monokai and improved upon Darkmate: Copyright (C) 2006-2008 GtkSourceView team
  Author:  Luigi Maselli
  Email: luigix [@] gmail [.] com
  Monokai: http://www.monokai.nl/blog/2006/07/15/textmate-color-theme/
@@ -50,11 +50,11 @@
   <color name="orange"                  value="#ff6100"/>
   <color name="ambra"                   value="#ff9900"/>
   <color name="asfalto"                 value="#555753"/>
-  <color name="blue"					value="#97e1ff"/>
-  <color name="bright_blue"				value="#00fffa"/>
+  <color name="blue"					          value="#97e1ff"/>
+  <color name="bright_blue"				      value="#00fffa"/>
   <color name="carbon"                  value="#232323"/>
   <color name="pink"                    value="#ff3a35"/>
-  <color name="less_grey"               value="#dddeee"/>
+  <color name="less_grey"               value="#2b2b2b"/>
 
 <!--GUI styles-->
 
@@ -103,7 +103,8 @@
   <style name="diff:changed-line"           foreground="ambra"/>
   <style name="diff:special-case"           use-style="def:string"/>
   <style name="diff:location"               use-style="def:keyword"/>
-  
+
 <!--TODO - Add lots of language specific code, coming soon-->
-               
+
 </style-scheme>
+

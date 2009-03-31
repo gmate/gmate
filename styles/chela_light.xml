@@ -27,6 +27,7 @@
   <_description>chela light color scheme from gvim</_description>
 
   <!-- Tango Palette -->
+  <color name="white"                       value="#ffffff"/>
   <color name="green1"                      value="#339900"/>
   <color name="red1"                        value="#dd3333"/>
   <color name="red2"                        value="#ff3333"/>
@@ -51,7 +52,7 @@
   <style name="def:doc-comment-element"     italic="true"/>
 
   <!-- Constants -->
-  <style name="def:constant"                foreground="red1"/>    
+  <style name="def:constant"                foreground="red1"/>
   <style name="def:string"                  foreground="red1"/>
   <style name="def:special-char"            foreground="magenta1"/>
   <style name="def:special-constant"        foreground="magenta1"/>
@@ -64,13 +65,14 @@
   <style name="def:statement"               foreground="blue1" bold="false"/>
 
   <!-- Types -->
-  <style name="def:type"                    foreground="blue1" bold="false"/> 
+  <style name="def:type"                    foreground="blue1" bold="false"/>
 
   <!-- Others -->
-  <style name="def:keyword"                 foreground="blue1" bold="false"/> 
+  <style name="def:keyword"                 foreground="blue1" bold="false"/>
   <style name="def:preprocessor"            foreground="blue1" bold="false"/>
   <style name="def:error"                   foreground="#white" background="#red" bold="false"/>
   <style name="def:underlined"              italic="true" underline="true" bold="false"/>
-  <style name="latex:display-math"          foreground="magenta1" bold="false"/> 
- 
+  <style name="latex:display-math"          foreground="magenta1" bold="false"/>
+
 </style-scheme>
+

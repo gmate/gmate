@@ -1,12 +1,2 @@
 #!/bin/sh
-# Only create a backup if a backup not exist yet
-if [ ! -f /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate.bak ]
-then
-  mv /usr/share/gtksourceview-2.0/language-specs/ruby.lang /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate.bak
-fi
-mv /usr/share/gtksourceview-2.0/language-specs/ruby.lang.gmate /usr/share/gtksourceview-2.0/language-specs/ruby.lang
-update-mime-database /usr/share/mime
-# Create a symlink to post install snippets instalation
-chmod +x /usr/share/gedit-2/gmate/gmate-installsnippets.sh
-ln -s /usr/share/gedit-2/gmate/gmate-installsnippets.sh /usr/local/bin/gmate-installsnippets
-# TODO: Show a message to user execute post-install scripts to enable plugins
+

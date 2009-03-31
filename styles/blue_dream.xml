@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
- Author: Stanko Tadić 
+ Author: Stanko Tadić
  stanko@mfhinc.net
  http://stanko.mfhinc.net
  http://www.mfhinc.net
- 
+
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
  License as published by the Free Software Foundation; either
@@ -28,6 +28,7 @@
   <_description>Clean blue theme</_description>
 
   <!-- Tango Palette -->
+  <color name="white" value="#ffffff"/>
   <color name="green1" value="#339900"/>
   <color name="blue1" value="#3333ff"/>
   <color name="magenta1" value="#cc00cc"/>
@@ -54,7 +55,7 @@
   <style name="def:doc-comment-element" italic="true"/>
 
   <!-- Constants -->
-  <style name="def:constant" foreground="orange"/>    
+  <style name="def:constant" foreground="orange"/>
   <style name="def:string" foreground="purple"/>
   <style name="def:special-char" foreground="magenta1"/>
   <style name="def:special-constant" foreground="magenta1"/>
@@ -67,13 +68,14 @@
   <style name="def:statement" foreground="blue1" bold="false"/>
 
   <!-- Types -->
-  <style name="def:type" foreground="blue5" bold="false"/> 
+  <style name="def:type" foreground="blue5" bold="false"/>
 
   <!-- Others -->
-  <style name="def:keyword" foreground="#navy" bold="true"/> 
+  <style name="def:keyword" foreground="#navy" bold="true"/>
   <style name="def:preprocessor" foreground="blue1" bold="false"/>
   <style name="def:error" foreground="#white" background="#red" bold="false"/>
   <style name="def:underlined" italic="true" underline="true" bold="false"/>
-  <style name="latex:display-math" foreground="magenta1" bold="false"/> 
- 
+  <style name="latex:display-math" foreground="magenta1" bold="false"/>
+
 </style-scheme>
+

@@ -57,7 +57,7 @@ class SmartIndent:
         self.__not_available = False
         if lang == 'none':
             self.__not_available = True
-        elif lang == 'ruby':
+        elif lang in ['ruby', 'rubyonrails']:
             self.re_indent_next = re.compile(r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+')
             self.re_unindent_curr = re.compile(r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$')
             self.unindent_keystrokes = 'edfn'
@@ -131,3 +131,4 @@ class SmartIndent:
                         self.__line_unindented = self.__line_no
                         return False
         return False
+

@@ -55,42 +55,108 @@ NOTE: In order to use Go to File feature you need to choose just one of: <tt>Ged
 
 === Themes/Styles
 
-* Autumn
+* Active4d (Converted from Textmate)
+* All Hallow's Eve (Converted from Textmate)
+* Amy (Converted from Textmate)
+* Argonaut  (Converted from Textmate)
+* barf (Converted from Textmate)
+* BBEdit (Converted from Textmate)
+* Blackboard (Converted from Textmate)
+* Black Pearl (Converted from Textmate)
+* Black Pearl II (Converted from Textmate)
 * Blue Dream
+* Boys & Girls 0.1 (Converted from Textmate)
+* Briliance Black (Converted from Textmate)
+* Briliance Dull (Converted from Textmate)
 * Chela Light
-* Cobalt
+* choco (Converted from Textmate)
+* Classic Modified (Mac classic)
+* Cobalt [Was removed, now is included by default in Gedit]
+* Cool Glow (Converted from Textmate)
+* Daltonism (Converted from Textmate)
 * Darkmacs
 * Darkmate
 * Desert
+* Dawn (Converted from Textmate)
+* Desert
+* Django (Converted from Textmate)
+* Django (Smoothy) (Converted from Textmate)
 * Dreamweaver
-* Dusk
-* Emacs Dark
+* eclips3.media (ECLM) (Converted from Textmate)
+* Eiffel (Converted from Textmate)
 * Emacs
+* Emacs Dark (Converted from Textmate)
+* Emacs Strict (Converted from Textmate)
+* Expresso Libre (Converted from Textmate)
+* Fade to Grey (Converted from Textmate)
 * Fluffy
+* ForLaTeX (Converted from Textmate)
 * Fruity
-* IDLE
+* Github (Converted from Textmate)
+* GlitterBomb (Converted from Textmate)
+* IDLE (Converted from Textmate)
+* idleFingers (Converted from Textmate)
+* iLife 05 (Converted from Textmate)
+* iPlastic (Converted from Textmate)
+* IR_Black (Converted from Textmate)
 * Ironman
+* IR_White (Converted from Textmate)
 * Kate
-* Native
-* Neon
-* Railscasts (Changed by me to complete integration with my modifications of gtksourceview2 ruby.lang)
+* LAZY (Converted from Textmate)
+* Lowlight (Converted from Textmate)
+* Mac Classic (Converted from Textmate)
+* MacMoose (Converted from Textmate)
+* MagicWB (Amiga) (Converted from Textmate)
+* Matrix (Converted from Textmate)
+* Merbivore (Converted from Textmate)
+* Merbivore Soft (Converted from Textmate)
+* Midnight (Converted from Textmate)
+* minimal Theme (Converted from Textmate)
+* monoindustrial (Converted from Textmate)
+* Monokai (Converted from Textmate)
+* Neopro (Converted from Textmate)
+* Notepad 2 (Converted from Textmate)
+* Overcast (Converted from Textmate)
+* Pastels on Dark (Converted from Textmate)
+* PlasticCodeWrap (Converted from Textmate)
+* Plum Dump (Converted from Textmate)
+* Railscasts (Converted from Textmate)
+* RDark (Converted from Textmate)
+* Ruby Blue (Converted from Textmate)
 * Rubycius
-* Slush and Poppies
-* Tango
-* Textmate (mac classic)
+* RubyRobot (Converted from Textmate)
+* Ryan Light (Converted from Textmate)
+* Slate (Converted from Textmate)
+* Slush & Poppies (Converted from Textmate)
+* Slush and Poppies (Mod)
+* Smurfy (Converted from Textmate)
+* SpaceCadet (Converted from Textmate)
+* SpaceCadet Pro (Converted from Textmate)
+* Spetacular (Converted from Textmate)
+* Stoneship (Converted from Textmate)
+* Sunburst (Converted from Textmate)
+* Swyphs II (Converted from Textmate)
+* Tango (Converted from Textmate)
+* Tek (Converted from Textmate)
+* Text Ex Machina (Converted from Textmate)
+* Textmate (mac classic) (Converted from Textmate)
 * Tinge
-* Twilight
+* Travis Jeffery (Converted from Textmate)
+* Twilight (Converted from Textmate)
+* Twilight Modified
 * Vibrant Fun
-* Vibrant Ink
+* Vibrant Ink (Converted from Textmate)
 * Vibrant Nerd
 * Warm Grey
+* Why's Poingnant (Converted from Textmate)
 * Wombat
 * Zenburn
+* Zenburnesque (Converted from Textmate)
 
 
 === Language Improvements
 
-* ruby.lang gtksourceview2 language improvements
+* ruby_on_rails.lang gtksourceview2 ruby language improvements for Ruby on Rails
 * rhtml language registration
 * basic yml languate recognition
 
@@ -107,7 +173,8 @@ following lines next to other "text/x-????" entries:
   text/x-yaml                                     yml
 
 
-More info : http://alexandredasilva.wordpress.com/gmate
+More info : http://blog.siverti.com.br/gmate
 
 NOTE: refer to each plugin source code and readme file to get information
 about specific plugin licencing and copyright
+

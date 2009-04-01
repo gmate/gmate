@@ -19,7 +19,7 @@
       <start>&lt;%</start>
       <end>%&gt;</end>
       <include>
-        <context ref="ruby:ruby:*"/>
+        <context ref="rubyonrails:rubyonrails:*"/>
       </include>
     </context>
     <context id="rhtml">

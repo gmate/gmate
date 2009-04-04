@@ -43,7 +43,7 @@
   <style name="def:doc-comment-element" foreground="#bc9458" italic="true"/>
 
   <!-- Constants and Variables-->
-  <style name="def:constant" foreground="#6d9cbe"/>
+  <style name="def:constant" foreground="#da4939"/>
   <style name="def:string" foreground="#a5c261"/>
   <style name="def:character" foreground="#a5c261"/>
   <style name="def:special-char" foreground="#e6e1dc"/>
@@ -60,8 +60,8 @@
   <style name="def:variable" foreground="#d0d0ff"/>
   <style name="def:class-variable" foreground="#d0d0ff"/>
   <style name="def:identifier" foreground="#d0d0ff"/>
-  <style name="def:statement" foreground="#6d9cbe"/>
-  <style name="def:type" foreground="#6d9cbe"/>
+  <style name="def:statement" foreground="#da4939"/>
+  <style name="def:type" foreground="#da4939"/>
   <style name="def:error" foreground="#ffffff" background="#990000"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" foreground="#d0d0ff"/>
@@ -73,7 +73,7 @@
   <style name="def:function" foreground="#ffffff"/>
 
   <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="#6d9cbe"/>
+  <style name="ruby:module-handler" foreground="#da4939"/>
   <style name="ruby:regex" foreground="#a5c261"/>
   <style name="ruby:class-definition" foreground="#ffffff"/>
   <style name="ruby:simple-interpolation" foreground="#519f50"/>
@@ -92,7 +92,7 @@
   <style name="yaml:scalar-value" foreground="#a5c261"/>
 
   <!-- Rails Styles -->
-  <style name="rubyonrails:module-handler" foreground="#6d9cbe"/>
+  <style name="rubyonrails:module-handler" foreground="#da4939"/>
   <style name="rubyonrails:regex" foreground="#a5c261"/>
   <style name="rubyonrails:class-definition" foreground="#ffffff"/>
   <style name="rubyonrails:simple-interpolation" foreground="#519f50"/>
@@ -134,7 +134,7 @@
   <style name="xml:attribute-value" foreground="#a5c261"/>
   <style name="xml:processing-instruction" foreground="#e8bf6a"/>
   <style name="xml:namespace" foreground="#6d9cbe"/>
-  <style name="xml:entity" foreground="#6d9cbe"/>
+  <style name="xml:entity" foreground="#da4939"/>
   <style name="html:script" foreground="#ffffff"/>
 
 </style-scheme>

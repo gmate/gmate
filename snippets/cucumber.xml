@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="cucumber">
+  <snippet>
+    <text><![CDATA[Característica: $1]]></text>
+    <tag>ca</tag>
+    <description>Característica</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Para $1]]></text>
+    <tag>pa</tag>
+    <description>Para</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Como um $1]]></text>
+    <tag>co</tag>
+    <description>Como um</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Dado $1]]></text>
+    <tag>dd</tag>
+    <description>Dado</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Feature: $1]]></text>
+    <tag>fe</tag>
+    <description>Feature</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[In order $1]]></text>
+    <tag>io</tag>
+    <description>In order</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[As a $1]]></text>
+    <tag>aa</tag>
+    <description>As a</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[As an $1]]></text>
+    <tag>an</tag>
+    <description>As an</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[I want $1]]></text>
+    <tag>iw</tag>
+    <description>I want</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Eu quero $1]]></text>
+    <tag>eq</tag>
+    <description>Eu quero</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Então $1]]></text>
+    <tag>et</tag>
+    <description>Então</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Given $1]]></text>
+    <tag>gv</tag>
+    <description>Given</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[But $1]]></text>
+    <tag>bt</tag>
+    <description>But</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Mas $1]]></text>
+    <tag>ms</tag>
+    <description>Mas</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[E $1]]></text>
+    <tag>e</tag>
+    <description>E</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Característica: ${1:Descrição da característica}
+	Para ${2:Objetivo}
+	Como um ${3:Tipo de usuário}
+	Eu quero ${4:Uma funcionalidade}
+	
+	$0]]></text>
+    <tag>car</tag>
+    <description>Característica (Completa)</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Cenário: $1]]></text>
+    <tag>ce</tag>
+    <description>Cenário</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Cenário: ${1:Descrição do cenário}
+	Dado ${2:Situação}
+	$0]]></text>
+    <tag>cen</tag>
+    <description>Cenário</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[And $1]]></text>
+    <tag>a</tag>
+    <description>And</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Feature: ${1:Feature description}
+	In order ${2:to acomplish the objective}
+	As a ${3:User type}
+	I want ${4:to get the feature working}
+	
+	$0]]></text>
+    <tag>fea</tag>
+    <description>Feature</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Scenario: $1]]></text>
+    <tag>sc</tag>
+    <description>Scenario</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Scenario: ${1:Scenario description}
+	Given ${2:situation}
+	$0]]></text>
+    <tag>sce</tag>
+    <description>Scenario</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[Quando $1]]></text>
+    <tag>qd</tag>
+    <description>Quando</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[When $1]]></text>
+    <tag>wn</tag>
+    <description>When</description>
+  </snippet>
+</snippets>

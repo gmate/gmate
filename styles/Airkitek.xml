@@ -62,12 +62,12 @@
   <style name="def:identifier" />
   <style name="def:statement" />
   <style name="def:type" />
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:error" />
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" />
   <style name="def:preprocessor" />
   <style name="def:specials" />
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"  />
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" />
@@ -129,9 +129,10 @@
   <style name="css:others-3"  />
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" />
-  <style name="xml:element-name" foreground="#474747"/>
+  <style name="xml:element-name" foreground="#4678bc"/>
+  <style name="xml:attribute-name" foreground="#b84610"/>
   <style name="xml:attribute-value" foreground="#5d9629"/>
+  <style name="xml:processing-instruction" foreground="#474747"/>
   <style name="xml:namespace" />
   <style name="xml:entity" />
   <style name="html:script" />

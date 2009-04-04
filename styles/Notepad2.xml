@@ -47,9 +47,9 @@
   <style name="def:string" foreground="#008000"/>
   <style name="def:character" foreground="#008000"/>
   <style name="def:special-char" foreground="#000000"/>
-  <style name="def:special-constant" />
+  <style name="def:special-constant"  bold="true"/>
   <style name="def:instance-variable" foreground="#000080" italic="true"/>
-  <style name="def:boolean" />
+  <style name="def:boolean"  bold="true"/>
   <style name="def:number" foreground="#ff0000"/>
   <style name="def:base-n-integer" foreground="#ff0000"/>
   <style name="def:decimal" foreground="#ff0000"/>
@@ -62,12 +62,12 @@
   <style name="def:identifier" foreground="#000080" italic="true"/>
   <style name="def:statement" foreground="#000080" italic="true"/>
   <style name="def:type" foreground="#000080" italic="true"/>
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:error"  bold="true"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" foreground="#000080" italic="true"/>
   <style name="def:preprocessor" foreground="#800080"/>
   <style name="def:specials" foreground="#000080" italic="true"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"   bold="true"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" foreground="#000080" italic="true"/>
@@ -76,11 +76,11 @@
   <style name="ruby:module-handler" foreground="#000080" italic="true"/>
   <style name="ruby:regex" foreground="#008000"/>
   <style name="ruby:class-definition" foreground="#000080" italic="true"/>
-  <style name="ruby:simple-interpolation" />
-  <style name="ruby:complex-interpolation" />
+  <style name="ruby:simple-interpolation" foreground="#008000"/>
+  <style name="ruby:complex-interpolation" foreground="#008000"/>
   <style name="ruby:function-definition" foreground="#000000"/>
   <style name="ruby:special-variable" foreground="#000080" italic="true"/>
-  <style name="ruby:predefined-variable" />
+  <style name="ruby:predefined-variable" foreground="#000000"/>
   <style name="ruby:global-variable" foreground="#000080" italic="true"/>
   <style name="ruby:instance-variable" foreground="#000080" italic="true"/>
   <style name="ruby:class-variable" foreground="#000080" italic="true"/>
@@ -95,17 +95,17 @@
   <style name="rubyonrails:module-handler" foreground="#000080" italic="true"/>
   <style name="rubyonrails:regex" foreground="#008000"/>
   <style name="rubyonrails:class-definition" foreground="#000080" italic="true"/>
-  <style name="rubyonrails:simple-interpolation" />
-  <style name="rubyonrails:complex-interpolation" />
+  <style name="rubyonrails:simple-interpolation" foreground="#008000"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#008000"/>
   <style name="rubyonrails:function-definition" foreground="#000000"/>
   <style name="rubyonrails:special-variable" foreground="#000080" italic="true"/>
-  <style name="rubyonrails:predefined-variable" />
+  <style name="rubyonrails:predefined-variable" foreground="#000000"/>
   <style name="rubyonrails:global-variable" foreground="#000080" italic="true"/>
   <style name="rubyonrails:instance-variable" foreground="#000080" italic="true"/>
   <style name="rubyonrails:class-variable" foreground="#000080" italic="true"/>
   <style name="rubyonrails:operators" foreground="#800080"/>
   <style name="rubyonrails:symbol" />
-  <style name="rubyonrails:rails" foreground="#000080" italic="true"/>
+  <style name="rubyonrails:rails" foreground="#800080"/>
 
   <!-- Diff Settings -->
   <style name="diff:added-line" />
@@ -129,9 +129,10 @@
   <style name="css:others-3"  foreground="#000080" italic="true"/>
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="#000000"/>
-  <style name="xml:element-name" />
+  <style name="xml:element-name" foreground="#0000af"/>
+  <style name="xml:attribute-name" foreground="#ce0000"/>
   <style name="xml:attribute-value" foreground="#008000"/>
+  <style name="xml:processing-instruction" foreground="#000000"/>
   <style name="xml:namespace" />
   <style name="xml:entity" foreground="#000080" italic="true"/>
   <style name="html:script" foreground="#000080" italic="true"/>

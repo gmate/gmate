@@ -21,7 +21,7 @@
 
 -->
 
-<style-scheme id="emacs" _name="Emacs" version="1.0">
+<style-scheme id="emacs_mod" _name="Emacs Mod" version="1.0">
 
   <author>Pedro Gongora</author>
   <_description>Emacs-like color scheme borrowed from gvim</_description>
@@ -49,7 +49,7 @@
   <style name="def:doc-comment-element"     italic="true"/>
 
   <!-- Constants -->
-  <style name="def:constant"                foreground="red2"/>    
+  <style name="def:constant"                foreground="red2"/>
   <style name="def:string"                  foreground="red2"/>
   <style name="def:special-char"            foreground="#slate blue"/>
   <style name="def:special-constant"        foreground="#slate blue"/>
@@ -62,13 +62,14 @@
   <style name="def:statement"               foreground="pink2" bold="true"/>
 
   <!-- Types -->
-  <style name="def:type"                    foreground="pink2" bold="true"/> 
+  <style name="def:type"                    foreground="pink2" bold="true"/>
 
   <!-- Others -->
-  <style name="def:keyword"                 foreground="pink2" bold="false"/> 
+  <style name="def:keyword"                 foreground="pink2" bold="false"/>
   <style name="def:preprocessor"            foreground="pink1"/>
   <style name="def:error"                   foreground="#white" background="#red" bold="true"/>
   <style name="def:underlined"              italic="true" underline="true"/>
-  <style name="latex:display-math"          foreground="#slate blue" bold="false"/> 
- 
+  <style name="latex:display-math"          foreground="#slate blue" bold="false"/>
+
 </style-scheme>
+

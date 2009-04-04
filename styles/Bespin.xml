@@ -43,7 +43,7 @@
   <style name="def:doc-comment-element" foreground="#666666" italic="true"/>
 
   <!-- Constants and Variables-->
-  <style name="def:constant" foreground="#7587a6"/>
+  <style name="def:constant" foreground="#cf6a4c"/>
   <style name="def:string" foreground="#54be0d"/>
   <style name="def:character" foreground="#54be0d"/>
   <style name="def:special-char" foreground="#baae9e"/>
@@ -60,24 +60,24 @@
   <style name="def:variable" foreground="#7587a6"/>
   <style name="def:class-variable" foreground="#7587a6"/>
   <style name="def:identifier" foreground="#7587a6"/>
-  <style name="def:statement" foreground="#7587a6"/>
-  <style name="def:type" foreground="#7587a6"/>
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:statement" foreground="#cf6a4c"/>
+  <style name="def:type" foreground="#cf6a4c"/>
+  <style name="def:error" foreground="#f8f8f8" background="#4a2947"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" foreground="#7587a6"/>
   <style name="def:preprocessor" foreground="#5ea6ea"/>
   <style name="def:specials" foreground="#937121"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"  foreground="#f8f8f8" background="#4a2947"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" foreground="#937121"/>
 
   <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="#7587a6"/>
+  <style name="ruby:module-handler" foreground="#cf6a4c"/>
   <style name="ruby:regex" foreground="#e9c062"/>
   <style name="ruby:class-definition" foreground="#937121"/>
-  <style name="ruby:simple-interpolation" foreground="#cf6a4c"/>
-  <style name="ruby:complex-interpolation" foreground="#cf6a4c"/>
+  <style name="ruby:simple-interpolation" foreground="#daefa3"/>
+  <style name="ruby:complex-interpolation" foreground="#daefa3"/>
   <style name="ruby:function-definition" foreground="#937121"/>
   <style name="ruby:special-variable" foreground="#7587a6"/>
   <style name="ruby:predefined-variable" foreground="#ac885b"/>
@@ -92,11 +92,11 @@
   <style name="yaml:scalar-value" foreground="#54be0d"/>
 
   <!-- Rails Styles -->
-  <style name="rubyonrails:module-handler" foreground="#7587a6"/>
+  <style name="rubyonrails:module-handler" foreground="#cf6a4c"/>
   <style name="rubyonrails:regex" foreground="#e9c062"/>
   <style name="rubyonrails:class-definition" foreground="#937121"/>
-  <style name="rubyonrails:simple-interpolation" foreground="#cf6a4c"/>
-  <style name="rubyonrails:complex-interpolation" foreground="#cf6a4c"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#daefa3"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#daefa3"/>
   <style name="rubyonrails:function-definition" foreground="#937121"/>
   <style name="rubyonrails:special-variable" foreground="#7587a6"/>
   <style name="rubyonrails:predefined-variable" foreground="#ac885b"/>
@@ -105,7 +105,7 @@
   <style name="rubyonrails:class-variable" foreground="#7587a6"/>
   <style name="rubyonrails:operators" foreground="#5ea6ea"/>
   <style name="rubyonrails:symbol" foreground="#cf6a4c"/>
-  <style name="rubyonrails:rails" foreground="#7587a6"/>
+  <style name="rubyonrails:rails" foreground="#9b859d"/>
 
   <!-- Diff Settings -->
   <style name="diff:added-line" foreground="#f8f8f8" background="#253b22"/>
@@ -129,11 +129,12 @@
   <style name="css:others-3"  foreground="#937121"/>
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="#937121"/>
   <style name="xml:element-name" foreground="#ac885b"/>
+  <style name="xml:attribute-name" foreground="#ac885b"/>
   <style name="xml:attribute-value" foreground="#54be0d"/>
+  <style name="xml:processing-instruction" foreground="#ac885b"/>
   <style name="xml:namespace" foreground="#cf6a4c"/>
-  <style name="xml:entity" foreground="#7587a6"/>
+  <style name="xml:entity" foreground="#cf6a4c"/>
   <style name="html:script" foreground="#937121"/>
 
 </style-scheme>

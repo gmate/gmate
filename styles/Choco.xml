@@ -2,7 +2,7 @@
 <!--
  Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
 
- This file was generated from a textmate theme named choco
+ This file was generated from a textmate theme named Choco
  with tm2gtksw2 tool. (Alexandre da Silva)
 
  This library is free software; you can redistribute it and/or
@@ -21,7 +21,7 @@
  Boston, MA 02111-1307, USA.
 -->
 
-<style-scheme id="choco" _name="choco" version="1.0">
+<style-scheme id="choco" _name="Choco" version="1.0">
   <author>tm2gtksw2(Alexandre da Silva)</author>
   <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
 
@@ -43,7 +43,7 @@
   <style name="def:doc-comment-element" foreground="#679d47" background="#172013" italic="true"/>
 
   <!-- Constants and Variables-->
-  <style name="def:constant" foreground="#7989a6"/>
+  <style name="def:constant" foreground="#da5659"/>
   <style name="def:string" foreground="#7ca563"/>
   <style name="def:character" foreground="#7ca563"/>
   <style name="def:special-char" foreground="#c3be98"/>
@@ -60,24 +60,24 @@
   <style name="def:variable" foreground="#7989a6"/>
   <style name="def:class-variable" foreground="#7989a6"/>
   <style name="def:identifier" foreground="#7989a6"/>
-  <style name="def:statement" foreground="#7989a6"/>
-  <style name="def:type" foreground="#7989a6"/>
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:statement" foreground="#da5659"/>
+  <style name="def:type" foreground="#da5659"/>
+  <style name="def:error" foreground="#f8f8f8" background="#462543"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" foreground="#7989a6"/>
   <style name="def:preprocessor" foreground="#b3935c"/>
   <style name="def:specials" foreground="#6d4c2f"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"  foreground="#f8f8f8" background="#462543"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" foreground="#6d4c2f"/>
 
   <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="#7989a6"/>
+  <style name="ruby:module-handler" foreground="#da5659"/>
   <style name="ruby:regex" foreground="#e9c062"/>
   <style name="ruby:class-definition" foreground="#6d4c2f"/>
-  <style name="ruby:simple-interpolation" foreground="#da5659"/>
-  <style name="ruby:complex-interpolation" foreground="#da5659"/>
+  <style name="ruby:simple-interpolation" foreground="#daefa3"/>
+  <style name="ruby:complex-interpolation" foreground="#daefa3"/>
   <style name="ruby:function-definition" foreground="#6d4c2f"/>
   <style name="ruby:special-variable" foreground="#7989a6"/>
   <style name="ruby:predefined-variable" foreground="#9f785b"/>
@@ -92,11 +92,11 @@
   <style name="yaml:scalar-value" foreground="#7ca563"/>
 
   <!-- Rails Styles -->
-  <style name="rubyonrails:module-handler" foreground="#7989a6"/>
+  <style name="rubyonrails:module-handler" foreground="#da5659"/>
   <style name="rubyonrails:regex" foreground="#e9c062"/>
   <style name="rubyonrails:class-definition" foreground="#6d4c2f"/>
-  <style name="rubyonrails:simple-interpolation" foreground="#da5659"/>
-  <style name="rubyonrails:complex-interpolation" foreground="#da5659"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#daefa3"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#daefa3"/>
   <style name="rubyonrails:function-definition" foreground="#6d4c2f"/>
   <style name="rubyonrails:special-variable" foreground="#7989a6"/>
   <style name="rubyonrails:predefined-variable" foreground="#9f785b"/>
@@ -105,7 +105,7 @@
   <style name="rubyonrails:class-variable" foreground="#7989a6"/>
   <style name="rubyonrails:operators" foreground="#b3935c"/>
   <style name="rubyonrails:symbol" foreground="#da5659"/>
-  <style name="rubyonrails:rails" foreground="#7989a6"/>
+  <style name="rubyonrails:rails" foreground="#a8799c"/>
 
   <!-- Diff Settings -->
   <style name="diff:added-line" foreground="#f8f8f8" background="#253b22"/>
@@ -129,11 +129,12 @@
   <style name="css:others-3"  foreground="#6d4c2f"/>
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="#6d4c2f"/>
   <style name="xml:element-name" foreground="#9f785b"/>
+  <style name="xml:attribute-name" foreground="#9f785b"/>
   <style name="xml:attribute-value" foreground="#7ca563"/>
+  <style name="xml:processing-instruction" foreground="#9f785b"/>
   <style name="xml:namespace" foreground="#da5659"/>
-  <style name="xml:entity" foreground="#7989a6"/>
+  <style name="xml:entity" foreground="#da5659"/>
   <style name="html:script" foreground="#6d4c2f"/>
 
 </style-scheme>

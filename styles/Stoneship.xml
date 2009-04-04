@@ -43,7 +43,7 @@
   <style name="def:doc-comment-element" foreground="#4d4d4d"/>
 
   <!-- Constants and Variables-->
-  <style name="def:constant" foreground="#ffc27f"/>
+  <style name="def:constant" foreground="#ffe834"/>
   <style name="def:string" foreground="#ffe834" background="#41380d"/>
   <style name="def:character" foreground="#ffe834" background="#41380d"/>
   <style name="def:special-char" foreground="#f8f8f2"/>
@@ -60,27 +60,27 @@
   <style name="def:variable" foreground="#ffc27f"/>
   <style name="def:class-variable" foreground="#ffc27f"/>
   <style name="def:identifier" foreground="#ffc27f"/>
-  <style name="def:statement" foreground="#ffc27f"/>
-  <style name="def:type" foreground="#ffc27f"/>
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:statement" foreground="#ffe834"/>
+  <style name="def:type" foreground="#ffe834"/>
+  <style name="def:error"  background="#ff0000"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" foreground="#ffc27f"/>
   <style name="def:preprocessor" foreground="#ff0000"/>
   <style name="def:specials" foreground="#ff971e"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"   background="#ff0000"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" foreground="#ff971e"/>
 
   <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="#ffc27f"/>
+  <style name="ruby:module-handler" foreground="#ffe834"/>
   <style name="ruby:regex" foreground="#ffe834" background="#41380d"/>
   <style name="ruby:class-definition" foreground="#ff971e"/>
-  <style name="ruby:simple-interpolation" foreground="#ffe834"/>
-  <style name="ruby:complex-interpolation" foreground="#ffe834"/>
+  <style name="ruby:simple-interpolation" foreground="#ffe834" background="#41380d"/>
+  <style name="ruby:complex-interpolation" foreground="#ffe834" background="#41380d"/>
   <style name="ruby:function-definition" foreground="#ff971e"/>
   <style name="ruby:special-variable" foreground="#ffc27f"/>
-  <style name="ruby:predefined-variable" />
+  <style name="ruby:predefined-variable" foreground="#ff971e"/>
   <style name="ruby:global-variable" foreground="#ffc27f"/>
   <style name="ruby:instance-variable" foreground="#ffc27f"/>
   <style name="ruby:class-variable" foreground="#ffc27f"/>
@@ -92,20 +92,20 @@
   <style name="yaml:scalar-value" foreground="#ffe834" background="#41380d"/>
 
   <!-- Rails Styles -->
-  <style name="rubyonrails:module-handler" foreground="#ffc27f"/>
+  <style name="rubyonrails:module-handler" foreground="#ffe834"/>
   <style name="rubyonrails:regex" foreground="#ffe834" background="#41380d"/>
   <style name="rubyonrails:class-definition" foreground="#ff971e"/>
-  <style name="rubyonrails:simple-interpolation" foreground="#ffe834"/>
-  <style name="rubyonrails:complex-interpolation" foreground="#ffe834"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#ffe834" background="#41380d"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#ffe834" background="#41380d"/>
   <style name="rubyonrails:function-definition" foreground="#ff971e"/>
   <style name="rubyonrails:special-variable" foreground="#ffc27f"/>
-  <style name="rubyonrails:predefined-variable" />
+  <style name="rubyonrails:predefined-variable" foreground="#ff971e"/>
   <style name="rubyonrails:global-variable" foreground="#ffc27f"/>
   <style name="rubyonrails:instance-variable" foreground="#ffc27f"/>
   <style name="rubyonrails:class-variable" foreground="#ffc27f"/>
   <style name="rubyonrails:operators" foreground="#ff0000"/>
   <style name="rubyonrails:symbol" foreground="#ffe834"/>
-  <style name="rubyonrails:rails" foreground="#ffc27f"/>
+  <style name="rubyonrails:rails" foreground="#6dff1b"/>
 
   <!-- Diff Settings -->
   <style name="diff:added-line" />
@@ -129,11 +129,12 @@
   <style name="css:others-3"  foreground="#ff971e"/>
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="#ff971e"/>
-  <style name="xml:element-name" />
+  <style name="xml:element-name" foreground="#6dff1b"/>
+  <style name="xml:attribute-name" foreground="#a65500"/>
   <style name="xml:attribute-value" foreground="#ffe834" background="#41380d"/>
+  <style name="xml:processing-instruction" foreground="#ff971e"/>
   <style name="xml:namespace" foreground="#ffe834"/>
-  <style name="xml:entity" foreground="#ffc27f"/>
+  <style name="xml:entity" foreground="#ffe834"/>
   <style name="html:script" foreground="#ff971e"/>
 
 </style-scheme>

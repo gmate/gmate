@@ -62,12 +62,12 @@
   <style name="def:identifier" />
   <style name="def:statement" />
   <style name="def:type" />
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:error" foreground="#ffffff" background="#990000"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" />
   <style name="def:preprocessor" foreground="#00ffff"/>
   <style name="def:specials" />
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"  foreground="#ffffff" background="#990000"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" />
@@ -80,7 +80,7 @@
   <style name="ruby:complex-interpolation" foreground="#ff9e7b"/>
   <style name="ruby:function-definition" foreground="#81cef9"/>
   <style name="ruby:special-variable" />
-  <style name="ruby:predefined-variable" />
+  <style name="ruby:predefined-variable" foreground="#81cef9"/>
   <style name="ruby:global-variable" />
   <style name="ruby:instance-variable" />
   <style name="ruby:class-variable" />
@@ -99,7 +99,7 @@
   <style name="rubyonrails:complex-interpolation" foreground="#ff9e7b"/>
   <style name="rubyonrails:function-definition" foreground="#81cef9"/>
   <style name="rubyonrails:special-variable" />
-  <style name="rubyonrails:predefined-variable" />
+  <style name="rubyonrails:predefined-variable" foreground="#81cef9"/>
   <style name="rubyonrails:global-variable" />
   <style name="rubyonrails:instance-variable" />
   <style name="rubyonrails:class-variable" />
@@ -129,9 +129,10 @@
   <style name="css:others-3"  />
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="#81cef9"/>
-  <style name="xml:element-name" />
+  <style name="xml:element-name" foreground="#9ccff4"/>
+  <style name="xml:attribute-name" foreground="#ebdb8d"/>
   <style name="xml:attribute-value" foreground="#ff9e7b"/>
+  <style name="xml:processing-instruction" foreground="#81cef9"/>
   <style name="xml:namespace" />
   <style name="xml:entity" />
   <style name="html:script" />

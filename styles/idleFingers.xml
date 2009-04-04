@@ -43,7 +43,7 @@
   <style name="def:doc-comment-element" foreground="#bc9458" italic="true"/>
 
   <!-- Constants and Variables-->
-  <style name="def:constant" foreground="#b7dff8"/>
+  <style name="def:constant" foreground="#6c99bb"/>
   <style name="def:string" foreground="#a5c261"/>
   <style name="def:character" foreground="#a5c261"/>
   <style name="def:special-char" foreground="#ffffff"/>
@@ -60,24 +60,24 @@
   <style name="def:variable" foreground="#b7dff8"/>
   <style name="def:class-variable" foreground="#b7dff8"/>
   <style name="def:identifier" foreground="#b7dff8"/>
-  <style name="def:statement" foreground="#b7dff8"/>
-  <style name="def:type" foreground="#b7dff8"/>
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:statement" foreground="#6c99bb"/>
+  <style name="def:type" foreground="#6c99bb"/>
+  <style name="def:error" foreground="#ffffff" background="#ff0000"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" foreground="#b7dff8"/>
   <style name="def:preprocessor" foreground="#cc7833"/>
   <style name="def:specials" foreground="#ffc66d"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"  foreground="#ffffff" background="#ff0000"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" foreground="#ffc66d"/>
 
   <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="#b7dff8"/>
+  <style name="ruby:module-handler" foreground="#6c99bb"/>
   <style name="ruby:regex" foreground="#cccc33"/>
   <style name="ruby:class-definition" foreground="#ffc66d"/>
-  <style name="ruby:simple-interpolation" foreground="#6c99bb"/>
-  <style name="ruby:complex-interpolation" foreground="#6c99bb"/>
+  <style name="ruby:simple-interpolation" foreground="#a5c261" background="#cccc33"/>
+  <style name="ruby:complex-interpolation" foreground="#a5c261" background="#cccc33"/>
   <style name="ruby:function-definition" />
   <style name="ruby:special-variable" foreground="#b7dff8"/>
   <style name="ruby:predefined-variable" foreground="#ffe5bb"/>
@@ -92,11 +92,11 @@
   <style name="yaml:scalar-value" foreground="#a5c261"/>
 
   <!-- Rails Styles -->
-  <style name="rubyonrails:module-handler" foreground="#b7dff8"/>
+  <style name="rubyonrails:module-handler" foreground="#6c99bb"/>
   <style name="rubyonrails:regex" foreground="#cccc33"/>
   <style name="rubyonrails:class-definition" foreground="#ffc66d"/>
-  <style name="rubyonrails:simple-interpolation" foreground="#6c99bb"/>
-  <style name="rubyonrails:complex-interpolation" foreground="#6c99bb"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#a5c261" background="#cccc33"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#a5c261" background="#cccc33"/>
   <style name="rubyonrails:function-definition" />
   <style name="rubyonrails:special-variable" foreground="#b7dff8"/>
   <style name="rubyonrails:predefined-variable" foreground="#ffe5bb"/>
@@ -105,7 +105,7 @@
   <style name="rubyonrails:class-variable" foreground="#b7dff8"/>
   <style name="rubyonrails:operators" foreground="#cc7833"/>
   <style name="rubyonrails:symbol" foreground="#6c99bb"/>
-  <style name="rubyonrails:rails" foreground="#b7dff8"/>
+  <style name="rubyonrails:rails" foreground="#b83426"/>
 
   <!-- Diff Settings -->
   <style name="diff:added-line" />
@@ -129,11 +129,12 @@
   <style name="css:others-3"  foreground="#ffc66d"/>
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" />
   <style name="xml:element-name" foreground="#ffe5bb"/>
+  <style name="xml:attribute-name" foreground="#ffe5bb"/>
   <style name="xml:attribute-value" foreground="#a5c261"/>
+  <style name="xml:processing-instruction" foreground="#ffe5bb"/>
   <style name="xml:namespace" foreground="#6c99bb"/>
-  <style name="xml:entity" foreground="#b7dff8"/>
+  <style name="xml:entity" foreground="#6c99bb"/>
   <style name="html:script" foreground="#ffc66d"/>
 
 </style-scheme>

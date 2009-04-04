@@ -62,12 +62,12 @@
   <style name="def:identifier" />
   <style name="def:statement" />
   <style name="def:type" />
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:error" foreground="#000000" background="#ff0000"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" />
   <style name="def:preprocessor" foreground="#ff6fcf"/>
   <style name="def:specials" foreground="#00ff00"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"  foreground="#000000" background="#ff0000"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" foreground="#00ff00"/>
@@ -80,7 +80,7 @@
   <style name="ruby:complex-interpolation" foreground="#ff0000" bold="true"/>
   <style name="ruby:function-definition" foreground="#00ff00"/>
   <style name="ruby:special-variable" />
-  <style name="ruby:predefined-variable" />
+  <style name="ruby:predefined-variable" foreground="#00ff00"/>
   <style name="ruby:global-variable" />
   <style name="ruby:instance-variable" />
   <style name="ruby:class-variable" />
@@ -99,7 +99,7 @@
   <style name="rubyonrails:complex-interpolation" foreground="#ff0000" bold="true"/>
   <style name="rubyonrails:function-definition" foreground="#00ff00"/>
   <style name="rubyonrails:special-variable" />
-  <style name="rubyonrails:predefined-variable" />
+  <style name="rubyonrails:predefined-variable" foreground="#00ff00"/>
   <style name="rubyonrails:global-variable" />
   <style name="rubyonrails:instance-variable" />
   <style name="rubyonrails:class-variable" />
@@ -129,9 +129,10 @@
   <style name="css:others-3"  foreground="#00ff00"/>
 
   <!-- XML Styles -->
+  <style name="xml:element-name" foreground="#00ff00"/>
   <style name="xml:attribute-name" foreground="#00ff00"/>
-  <style name="xml:element-name" />
   <style name="xml:attribute-value" foreground="#ff0000" bold="true"/>
+  <style name="xml:processing-instruction" foreground="#00ff00"/>
   <style name="xml:namespace" />
   <style name="xml:entity" />
   <style name="html:script" foreground="#00ff00"/>

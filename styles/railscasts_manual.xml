@@ -18,7 +18,7 @@
  Boston, MA 02111-1307, USA.
 -->
 
-<style-scheme id="railscasts" _name="Railscasts" version="1.0">
+<style-scheme id="railscasts_manual" _name="Railscasts (Manual Editer Version)" version="1.0">
   <author>Alexandre da Silva</author>
   <_description>A clone of the RailsCasts TextMate theme by Ryan Bates</_description>
 

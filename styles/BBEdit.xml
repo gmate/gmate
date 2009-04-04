@@ -43,7 +43,7 @@
   <style name="def:doc-comment-element" foreground="#804000"/>
 
   <!-- Constants and Variables-->
-  <style name="def:constant" foreground="#006600"/>
+  <style name="def:constant" foreground="#c5060b"/>
   <style name="def:string" foreground="#ff0080"/>
   <style name="def:character" foreground="#ff0080"/>
   <style name="def:special-char" foreground="#000000"/>
@@ -60,22 +60,22 @@
   <style name="def:variable" foreground="#006600"/>
   <style name="def:class-variable" foreground="#006600"/>
   <style name="def:identifier" foreground="#006600"/>
-  <style name="def:statement" foreground="#006600"/>
-  <style name="def:type" foreground="#006600"/>
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:statement" foreground="#c5060b"/>
+  <style name="def:type" foreground="#c5060b"/>
+  <style name="def:error" foreground="#ffffff" background="#990000"/>
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" foreground="#006600"/>
   <style name="def:preprocessor" foreground="#0000ff"/>
-  <style name="def:specials" foreground="#006600"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <style name="def:specials" foreground="#c5060b"/>
+  <!--style name="def:reserved"  foreground="#ffffff" background="#990000"/>
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
-  <style name="def:function" foreground="#006600"/>
+  <style name="def:function" foreground="#c5060b"/>
 
   <!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="#006600"/>
+  <style name="ruby:module-handler" foreground="#c5060b"/>
   <style name="ruby:regex" foreground="#ff0080"/>
-  <style name="ruby:class-definition" foreground="#006600"/>
+  <style name="ruby:class-definition" foreground="#c5060b"/>
   <style name="ruby:simple-interpolation" foreground="#33cc33"/>
   <style name="ruby:complex-interpolation" foreground="#33cc33"/>
   <style name="ruby:function-definition" foreground="#0000a2"/>
@@ -92,9 +92,9 @@
   <style name="yaml:scalar-value" foreground="#ff0080"/>
 
   <!-- Rails Styles -->
-  <style name="rubyonrails:module-handler" foreground="#006600"/>
+  <style name="rubyonrails:module-handler" foreground="#c5060b"/>
   <style name="rubyonrails:regex" foreground="#ff0080"/>
-  <style name="rubyonrails:class-definition" foreground="#006600"/>
+  <style name="rubyonrails:class-definition" foreground="#c5060b"/>
   <style name="rubyonrails:simple-interpolation" foreground="#33cc33"/>
   <style name="rubyonrails:complex-interpolation" foreground="#33cc33"/>
   <style name="rubyonrails:function-definition" foreground="#0000a2"/>
@@ -105,7 +105,7 @@
   <style name="rubyonrails:class-variable" foreground="#006600"/>
   <style name="rubyonrails:operators" foreground="#0000ff"/>
   <style name="rubyonrails:symbol" foreground="#c5060b"/>
-  <style name="rubyonrails:rails" foreground="#006600"/>
+  <style name="rubyonrails:rails" foreground="#0000ff"/>
 
   <!-- Diff Settings -->
   <style name="diff:added-line" />
@@ -125,16 +125,17 @@
   <!-- CSS Styles -->
   <style name="css:function" foreground="#006600"/>
   <style name="css:known-property-values" foreground="#c5060b"/>
-  <style name="css:others-2" foreground="#006600"/>
-  <style name="css:others-3"  foreground="#006600"/>
+  <style name="css:others-2" foreground="#c5060b"/>
+  <style name="css:others-3"  foreground="#c5060b"/>
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="#0000a2"/>
   <style name="xml:element-name" foreground="#1c02ff"/>
+  <style name="xml:attribute-name" foreground="#1c02ff"/>
   <style name="xml:attribute-value" foreground="#ff0080"/>
+  <style name="xml:processing-instruction" foreground="#1c02ff"/>
   <style name="xml:namespace" foreground="#c5060b"/>
-  <style name="xml:entity" foreground="#006600"/>
-  <style name="html:script" foreground="#006600"/>
+  <style name="xml:entity" foreground="#c5060b"/>
+  <style name="html:script" foreground="#c5060b"/>
 
 </style-scheme>
 

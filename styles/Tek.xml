@@ -55,19 +55,19 @@
   <style name="def:decimal" foreground="#f0f8ff"/>
   <style name="def:complex" foreground="#f0f8ff"/>
   <style name="def:floating-point" foreground="#f0f8ff"/>
-  <style name="def:keyword" />
+  <style name="def:keyword"  bold="true"/>
   <style name="def:builtin" />
   <style name="def:variable" />
   <style name="def:class-variable" />
   <style name="def:identifier" />
   <style name="def:statement" />
   <style name="def:type" />
-  <style name="def:error" background="#C80000" foreground="#F0EA20"/>
+  <style name="def:error" />
   <style name="def:note" background="#F0EA20" foreground="#C80000"/>
   <style name="def:net-address-in-comment" />
-  <style name="def:preprocessor" />
+  <style name="def:preprocessor"  bold="true"/>
   <style name="def:specials" />
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
+  <!--style name="def:reserved"  />
   <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" />
@@ -76,15 +76,15 @@
   <style name="ruby:module-handler" />
   <style name="ruby:regex" foreground="#fffccf"/>
   <style name="ruby:class-definition" />
-  <style name="ruby:simple-interpolation" />
-  <style name="ruby:complex-interpolation" />
+  <style name="ruby:simple-interpolation" foreground="#fffccf"/>
+  <style name="ruby:complex-interpolation" foreground="#fffccf"/>
   <style name="ruby:function-definition" />
   <style name="ruby:special-variable" />
   <style name="ruby:predefined-variable" />
   <style name="ruby:global-variable" />
   <style name="ruby:instance-variable" />
   <style name="ruby:class-variable" />
-  <style name="ruby:operators" />
+  <style name="ruby:operators"  bold="true"/>
   <style name="ruby:symbol" />
 
   <!-- YAML Styles -->
@@ -95,15 +95,15 @@
   <style name="rubyonrails:module-handler" />
   <style name="rubyonrails:regex" foreground="#fffccf"/>
   <style name="rubyonrails:class-definition" />
-  <style name="rubyonrails:simple-interpolation" />
-  <style name="rubyonrails:complex-interpolation" />
+  <style name="rubyonrails:simple-interpolation" foreground="#fffccf"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#fffccf"/>
   <style name="rubyonrails:function-definition" />
   <style name="rubyonrails:special-variable" />
   <style name="rubyonrails:predefined-variable" />
   <style name="rubyonrails:global-variable" />
   <style name="rubyonrails:instance-variable" />
   <style name="rubyonrails:class-variable" />
-  <style name="rubyonrails:operators" />
+  <style name="rubyonrails:operators"  bold="true"/>
   <style name="rubyonrails:symbol" />
   <style name="rubyonrails:rails" />
 
@@ -113,7 +113,7 @@
   <style name="diff:location" />
   <style name="diff:ignore" />
   <style name="diff:changed-line" />
-  <style name="diff:diff-file" />
+  <style name="diff:diff-file"  bold="true"/>
   <style name="diff:special-case" map-to="diff:location"/>
 
   <!-- SH Styles -->
@@ -129,9 +129,10 @@
   <style name="css:others-3"  />
 
   <!-- XML Styles -->
-  <style name="xml:attribute-name" />
   <style name="xml:element-name" />
+  <style name="xml:attribute-name" />
   <style name="xml:attribute-value" foreground="#fffccf"/>
+  <style name="xml:processing-instruction" />
   <style name="xml:namespace" />
   <style name="xml:entity" />
   <style name="html:script" />

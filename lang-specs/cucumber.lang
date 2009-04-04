@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Autor: Alexandre da Silva <simpsomboy@gmail.com>
+ Copyright (C) 2009 Alexandre da Silva <simpsomboy@gmail.com>
+
+ This library is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+<language id="cucumber" _name="Cubumber Plain Text" version="2.0" _section="Other">
+  <metadata>
+    <property name="mimetypes">text/x-cucumber</property>
+    <property name="globs">*.feature</property>
+    <property name="line-comment-start">#</property>
+  </metadata>
+
+  <styles>
+    <style id="keyword"              _name="Keyword"               map-to="def:keyword"/>
+    <style id="string"               _name="String"                map-to="def:string"/>
+  </styles>
+
+  <definitions>
+    <context id="string" style-ref="string">
+      <start>"</start>
+      <end>"</end>
+      <include>
+        <context ref="def:escape"/>
+        <context ref="def:line-continue"/>
+      </include>
+    </context>
+
+    <context id="string-2" style-ref="string">
+      <start>'</start>
+      <end>'</end>
+    </context>
+
+    <context id="key-en" style-ref="keyword">
+      <match>^\s*(Feature|In\s[Oo]rder|As\san?|I\s[Ww]ant|Scenario(\sOutline)?|Given|When|Then|And|But|Background)</match>
+    </context>
+
+    <context id="key-pt" style-ref="keyword">
+      <match>^\s*(Característica|Funcionalidade|Para|Como\s[Uu]m|Eu\s[Qq]uero|Cenário|Dado|Quando|Então|E|Mas|Contexto)</match>
+    </context>
+
+    <context id="cucumber">
+      <include>
+        <context ref="string"/>
+        <context ref="string-2"/>
+        <context ref="key-en"/>
+        <context ref="key-pt"/>
+      </include>
+    </context>
+
+  </definitions>
+</language>
+

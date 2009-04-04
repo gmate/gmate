@@ -30,5 +30,9 @@
     <comment>YAML Ain't Markup Language</comment>
     <glob pattern="*.yml"/>
   </mime-type>
+  <mime-type type="text/x-cucumber">
+    <comment>Cucumber feature plain text file</comment>
+    <glob pattern="*.feature"/>
+  </mime-type>
 </mime-info>
 

@@ -56,7 +56,7 @@ class SnapOpenPluginInstance:
         self._action_group.add_action( snapopen_menu_action )
         snapopen_action = gtk.Action( name="SnapOpenAction", label="Go to File...\t", tooltip="Go to a file with regex search", stock_id=gtk.STOCK_JUMP_TO )
         snapopen_action.connect( "activate", lambda a: self.on_snapopen_action() )
-        self._action_group.add_action_with_accel( snapopen_action, "<Ctrl<Alt>O" )
+        self._action_group.add_action_with_accel( snapopen_action, "<Ctrl><Alt>O" )
         manager.insert_action_group( self._action_group, 0 )
         self._ui_id = manager.new_merge_id()
         manager.add_ui_from_string( ui_str )

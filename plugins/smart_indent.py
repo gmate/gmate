@@ -10,6 +10,7 @@
 import gedit
 import gtk
 import gobject
+import gconf
 import re
 
 class SmartIndentPlugin(gedit.Plugin):
@@ -43,7 +44,7 @@ class SmartIndentPlugin(gedit.Plugin):
                 setattr(view, 'smart_indent_instance', SmartIndent())
                 handler_id = view.connect('key-press-event', view.smart_indent_instance.key_press_handler)
                 self.handler_ids.append((handler_id, view))
-            view.smart_indent_instance.set_language(lang)
+            view.smart_indent_instance.set_language(lang, view)
 
 class SmartIndent:
 
@@ -51,17 +52,29 @@ class SmartIndent:
         self.__not_available = True
         self.__line_unindented = -1
         self.__line_no = -1
+        self.__config = gconf.client_get_default()
         return
 
-    def set_language(self, lang):
+    def set_language(self, lang, view):
         self.__not_available = False
+        # TODO: Load tabs and spaces configuration from a file or files
+        tab_size = 2
+        use_tabs = False
+        _tab_size = self.__config.get(u"/apps/gedit-2/preferences/editor/tabs/tabs_size")
+        _use_spaces = self.__config.get(u"/apps/gedit-2/preferences/editor/tabs/insert_spaces")
+        if _tab_size:
+            tab_size = _tab_size.get_int()
+        if _use_spaces:
+            use_spaces = _use_spaces.get_bool()
         if lang == 'none':
             self.__not_available = True
         elif lang in ['ruby', 'rubyonrails']:
+            tab_size = 2
             self.re_indent_next = re.compile(r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+')
             self.re_unindent_curr = re.compile(r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$')
             self.unindent_keystrokes = 'edfn'
         elif lang == 'python':
+            tab_size = 4
             self.re_indent_next = re.compile(r'\s*[^#]{3,}:\s*(#.*)?')
             self.re_unindent_curr = re.compile(r'^\s*(else|elif\s.*|except(\s.*)?|finally)\s*:')
             self.unindent_keystrokes = ':'
@@ -75,6 +88,9 @@ class SmartIndent:
             self.unindent_keystrokes = ':'
         else:
             self.__not_available = True
+        # Set the buffer tab configuration
+        view.set_tab_width(tab_size)
+        view.set_insert_spaces_instead_of_tabs(use_spaces)
 
     def __update_line_no(self, buf):
         cursor_iter = buf.get_iter_at_mark(buf.get_insert())

@@ -33,17 +33,15 @@ class TextToolsPlugin(gedit.Plugin):
               <menuitem action="RaiseLine"/>
               <menuitem action="LowerLine"/>
               <menuitem action="SelectEnclosed"/>
+              <menuitem action="SelectWord"/>
             </menu>
           </placeholder>
         </menu>
       </menubar>
     </ui>
     """
-    #
-
 
   bookmarks = {}
-
 
   def __init__(self):
     gedit.Plugin.__init__(self)
@@ -55,7 +53,8 @@ class TextToolsPlugin(gedit.Plugin):
       ('DuplicateLine',       None, 'Duplicate Line',     '<Shift><Control>d', 'Create a duplicate of the current line below the current line',             self.duplicate_line),
       ('RaiseLine',           None, 'Move Line Up',       '<Alt>Up',           'Transpose the current line with the line above it',                         self.raise_line),
       ('LowerLine',           None, 'Move Line Down',     '<Alt>Down',         'Transpose the current line with the line below it',                         self.lower_line),
-      ('SelectEnclosed',      None, 'Select Enclosed Text','<Alt><Control>9',  'Select the content between enclose chars, quotes or tags',                  self.select_enclosed)
+      ('SelectEnclosed',      None, 'Select Enclosed Text','<Alt><Control>9',  'Select the content between enclose chars, quotes or tags',                  self.select_enclosed),
+      ('SelectWord',          None, 'Select Word',        '<Alt>W',            'Select the word located under cursor',                                      self.select_word)
     ]
     windowdata = dict()
     window.set_data("TextToolsPluginWindowDataKey", windowdata)
@@ -154,3 +153,22 @@ class TextToolsPlugin(gedit.Plugin):
             end_iter = itr.copy()
             break
     doc.select_range(beg_iter, end_iter)
+
+  def select_word(self, action, window):
+    """Select Characters enclosed by quotes or braces"""
+    beg_iter = None
+    end_iter = None
+    char_match = None
+    doc = window.get_active_document()
+    itr = doc.get_iter_at_mark(doc.get_insert())
+    while itr.backward_char():
+        if itr.get_char() == " ":
+            itr.forward_char()
+            beg_iter = itr.copy()
+            break
+    while itr.forward_char():
+        if itr.get_char() in [" ","\n"]:
+            end_iter = itr.copy()
+            break
+    doc.select_range(beg_iter, end_iter)
+

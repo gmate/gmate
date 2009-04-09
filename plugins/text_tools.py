@@ -166,7 +166,7 @@ class TextToolsPlugin(gedit.Plugin):
             if itr.get_char() in word_delimiter_chars:
                 itr.forward_char()
                 beg_iter = itr.copy()
-                breaky
+                break
         while itr.forward_char():
             if itr.get_char() in word_delimiter_chars:
                 end_iter = itr.copy()

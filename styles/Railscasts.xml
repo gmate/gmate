@@ -31,6 +31,7 @@
   <style name="cursor"            foreground="#ffffff"/>
   <style name="current-line"      background="#333435"/>
   <style name="line-numbers"      foreground="#e6e1dc" background="#2b2b2b"/>
+  <style name="draw-spaces"       foreground="#363636"/>
 
   <!-- Bracket Matching -->
   <style name="bracket-match" background="#4C4C4C"/>

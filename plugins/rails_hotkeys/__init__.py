@@ -420,3 +420,4 @@ class RailsHotkeysWindowHelper:
             status_message = 'File not found'
 
         self.set_status(status_message)
+

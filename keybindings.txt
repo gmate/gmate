@@ -23,6 +23,7 @@ ALT+n           => Go to Document/Tab n
 
 Text Manipulation
 =================
+
 CTRL+A         => Select all
 CTRL+Z         => Undo last action
 CTRL+SHIFT+Z   => Redo last undo action
@@ -50,6 +51,10 @@ CTRL+I       => Go to Line
 Plugins Keystrokes
 ==================
 
+Regex Search and Replace
+------------------------
+CTRL+SHIFT+H => Open Search and Relpace by regex dialog
+
 Code Comment
 ------------
 CTRL+M       => Comment selected region
@@ -66,7 +71,6 @@ SHIFT+F7 => Spell check
 Todo List
 ---------------
 CTRL+ALT+T => Show Todo Marks List Window
-
 
 Text Tools
 ----------
@@ -128,10 +132,9 @@ T  => Open all the tests (units, functionals and integration)
 U  => Open a unit test file
 V  => Open the view directory
 
-Align
------
-
-Needs Shortcut
+Align...
+--------
+ALT+SHIFT+A => Align Selected text in columns by a given separator.
 
 Multi Edit
 ----------

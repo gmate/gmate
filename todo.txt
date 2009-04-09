@@ -1,0 +1,29 @@
+TODO
+----
+
+MultiEdit
+---------
+When Press Ctrl+Z the first cursor position backs one character
+
+Align
+-----
+Add a keybinding
+Save last separator used
+More efficience when align text with sepparator occurence into a quoted string
+
+Regex Search
+------------
+Add a Keybinding
+
+General
+------------------------
+ => Test the Regex Search and Replace Plugin
+ => Test Gedit Markdown Syntax Highlight
+ => Test Gedit New from Template Plugin
+ => Test Gedit Language reference plugin
+ => Test Gedit Lastdocs plugin
+ => Test Html Tidy plugin
+ => Test Rst Tools plugin
+ => Test Elastic Tabstops Plugin
+ => Create a configuration per language to configure spaces and tabs
+

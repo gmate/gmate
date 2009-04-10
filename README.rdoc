@@ -154,23 +154,35 @@ NOTE: In order to use Go to File feature you need to choose just one of: <tt>Ged
 * Zenburnesque (Converted from Textmate)
 
 
-=== Language Improvements
+=== Language Improvements and Mime Types
 
 * ruby_on_rails.lang gtksourceview2 ruby language improvements for Ruby on Rails
-* rhtml language registration
-* basic yml languate recognition
+* rhtml Syntax Highlight
+* basic yml Syntax Highlight
+* haml Syntax Highlight
+* reStructuredText Syntax Highlight
+* Markdown Syntax Highlight
+* cucumber Syntax Highlight
+* sass Syntax Highlight
+* Groovy and gsp Support (Included bundle created by Aaron Eischeid)
+
+
+=== Tags Definitions
+* Groovy Tags (Included bundle created by Aaron Eischeid)
 
 
 === Code snippets
 
 ==== I need help to create a good snippet base, for now current snippets I got from some place, and most are outdated.
 
-in addition you can edit your /etc/mime.types file and add
+in addition if your syntax not works properly just with install process you can edit your /etc/mime.types file and add
 following lines next to other "text/x-????" entries:
 
   text/x-ruby-source                              rhtml html.erb erb
   text/x-eruby                                    rjs
   text/x-yaml                                     yml
+
+  ... Same for other mime types and extensions
 
 
 More info : http://blog.siverti.com.br/gmate

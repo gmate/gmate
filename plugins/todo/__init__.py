@@ -56,6 +56,7 @@ def debug(text, level=1):
                 print "[%s] %s" % (DEBUG_TITLE, text)
         except:
             print "[%s] debug error" % DEBUG_TITLE
+
 # TODO: Create a Configuragion dialog
 class TodoPlugin(gedit.Plugin):
     def __init__(self):
@@ -181,6 +182,7 @@ class TodoWindowHelper:
             self.todo_window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
             self.todo_window.resize(700,510)
             self.todo_window.connect('delete_event', self.on_todo_close)
+            self.todo_window.connect("key-release-event", self.on_window_key)
             self.todo_window.set_destroy_with_parent(True)
             self.todo_window.add(self._browser)
             self.todo_window.show_all()
@@ -197,6 +199,10 @@ class TodoWindowHelper:
     def on_todo_close(self, *args):
         self.todo_window.hide()
         return True
+
+    def on_window_key(self, widget, event):
+        if event.keyval == gtk.keysyms.Escape:
+            self.todo_window.hide()
 
     def on_navigation_request(self, page, frame, request):
         file_uri = None
@@ -236,3 +242,4 @@ class TodoWindowHelper:
 
     def get_data(self, name):
         return self.window.get_active_tab().get_view().get_data(name)
+

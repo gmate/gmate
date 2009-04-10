@@ -34,6 +34,7 @@ class TextToolsPlugin(gedit.Plugin):
                   <menuitem action="LowerLine"/>
                   <menuitem action="SelectEnclosed"/>
                   <menuitem action="SelectWord"/>
+                  <menuitem action="SelectWordSpecial"/>
                 </menu>
               </placeholder>
             </menu>
@@ -45,6 +46,7 @@ class TextToolsPlugin(gedit.Plugin):
 
     def __init__(self):
         gedit.Plugin.__init__(self)
+        self.__select_word_special = False
 
     def activate(self, window):
         actions = [
@@ -54,7 +56,8 @@ class TextToolsPlugin(gedit.Plugin):
             ('RaiseLine',           None, 'Move Line Up',       '<Alt>Up',           'Transpose the current line with the line above it',             self.raise_line),
             ('LowerLine',           None, 'Move Line Down',     '<Alt>Down',         'Transpose the current line with the line below it',             self.lower_line),
             ('SelectEnclosed',      None, 'Select Enclosed Text','<Alt><Control>9',  'Select the content between enclose chars, quotes or tags',      self.select_enclosed),
-            ('SelectWord',          None, 'Select Word',        '<Alt>W',            'Select the word located under cursor',                          self.select_word)
+            ('SelectWord',          None, 'Select Word',        '<Alt>W',            'Select the word located under cursor',                          self.select_word),
+            ('SelectWordSpecial',   None, 'Select Word Special','<Alt><Shift>W',     'Select the word located under cursor ignoring any delimiter',   self.select_word_special)
         ]
         windowdata = dict()
         window.set_data("TextToolsPluginWindowDataKey", windowdata)
@@ -135,8 +138,8 @@ class TextToolsPlugin(gedit.Plugin):
 
     def select_enclosed(self, action, window):
         """Select Characters enclosed by quotes or braces"""
-        starting_chars = ["`",'"', "'", "[", "(", "{", "<", ">"]
-        ending_chars   = ["`",'"', "'", "]", ")", "}", ">", "<"]
+        starting_chars = ["`",'"', "'", "[", "(", "{", "<", ">", "/"]
+        ending_chars   = ["`",'"', "'", "]", ")", "}", ">", "<", "/"]
         beg_iter = None
         end_iter = None
         char_match = None
@@ -154,11 +157,19 @@ class TextToolsPlugin(gedit.Plugin):
                 break
         doc.select_range(beg_iter, end_iter)
 
+    def select_word_special(self, action, window):
+        self.__select_word_special = True
+        self.select_word(action, window)
+        self.__select_word_special = False
+
     def select_word(self, action, window):
         """Select Characters enclosed by quotes or braces"""
         beg_iter = None
         end_iter = None
-        word_delimiter_chars = [" ","\n", '"', "'", "[", "(", "{", "]", ")", "}", ":", ";", "`"]
+        if self.__select_word_special:
+            word_delimiter_chars = [" ","\n"]
+        else:
+            word_delimiter_chars = [" ","\n", '"', "'", "[", "(", "{", "]", ")", "}", ":", ";", "`", "="]
         char_match = None
         doc = window.get_active_document()
         itr = doc.get_iter_at_mark(doc.get_insert())
@@ -167,9 +178,16 @@ class TextToolsPlugin(gedit.Plugin):
                 itr.forward_char()
                 beg_iter = itr.copy()
                 break
+        if beg_iter == None:
+            beg_iter = itr.copy()
+
         while itr.forward_char():
             if itr.get_char() in word_delimiter_chars:
                 end_iter = itr.copy()
                 break
-        doc.select_range(beg_iter, end_iter)
+        if end_iter == None:
+            end_iter = itr.copy()
+
+        if beg_iter and end_iter:
+            doc.select_range(beg_iter, end_iter)
 

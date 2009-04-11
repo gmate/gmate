@@ -2,7 +2,8 @@
 <!--
  Copyright (C) 2009 Leandro Silva (http://leandrosilva.com.br)
 
- This file was generated based on Slate theme by Alexandre da Silva.
+ This file was generated based on Slate theme created by Alexandre da Silva
+ with tm2gtksw2 tool (http://github.com/lexrupy/tm2gtksw2).
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
@@ -22,7 +23,7 @@
 
 <style-scheme id="codezone" _name="CodeZone" version="1.0">
   <author>Leandro Silva</author>
-  <_description>GMate Theme - Customized based on Slate (by Alexandre da Silva)</_description>
+  <_description>The CodeZone Theme</_description>
 
   <!-- Global Settings -->
   <style name="selection"         background="#708b99"/>
@@ -66,8 +67,6 @@
   <style name="def:net-address-in-comment" foreground="#fb9a4b"/>
   <style name="def:preprocessor" foreground="#ffaa00" bold="true"/>
   <style name="def:specials" foreground="#efe900"/>
-  <!--style name="def:reserved"  background="#C80000" foreground="#F0EA20"/>
-  <style name="def:operator"/-->
   <style name="def:underlined" underline="true"/>
   <style name="def:function" foreground="#ffffff"/>
 
@@ -134,6 +133,5 @@
   <style name="xml:namespace" foreground="#ff3a83" bold="true"/>
   <style name="xml:entity" foreground="#fb9a4b"/>
   <style name="html:script" foreground="#efe900"/>
-
 </style-scheme>
 

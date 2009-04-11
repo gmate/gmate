@@ -72,6 +72,7 @@ NOTE: In order to use Go to File feature you need to choose just one of: <tt>Ged
 * choco (Converted from Textmate)
 * Classic Modified (Mac classic)
 * Cobalt [Was removed, now is included by default in Gedit]
+* CodeZone (New!)
 * Cool Glow (Converted from Textmate)
 * Daltonism (Converted from Textmate)
 * Darkmacs

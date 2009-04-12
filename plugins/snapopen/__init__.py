@@ -1,4 +1,5 @@
-#VERSION 1.1.4
+# VERSION 1.1.5
+# Updated by Alexandre da Silva for GMate Project (http://blog.siverti.com.br/gmate)
 
 import gedit, gtk, gtk.glade
 import gconf
@@ -16,7 +17,7 @@ ui_str="""<ui>
 <menubar name="MenuBar">
     <menu name="SearchMenu" action="Search">
         <placeholder name="SearchOps_7">
-            <menuitem name="SnapOpen" action="SnapOpenAction"/>
+            <menuitem name="GoToFile" action="GoToFileAction"/>
         </placeholder>
     </menu>
 </menubar>
@@ -25,7 +26,7 @@ ui_str="""<ui>
 
 # essential interface
 class SnapOpenPluginInstance:
-    def __init__( self, plugin, window ):
+    def __init__(self, plugin, window):
         self._window = window
         self._plugin = plugin
         if pre216_version:
@@ -38,51 +39,49 @@ class SnapOpenPluginInstance:
         self._init_glade()
         self._insert_menu()
 
-    def deactivate( self ):
+    def deactivate(self):
         self._remove_menu()
         self._action_group = None
         self._window = None
         self._plugin = None
         self._liststore = None;
 
-    def update_ui( self ):
+    def update_ui(self):
         return
 
     # MENU STUFF
-    def _insert_menu( self ):
+    def _insert_menu(self):
         manager = self._window.get_ui_manager()
-        self._action_group = gtk.ActionGroup( "SnapOpenPluginActions" )
-        snapopen_menu_action = gtk.Action( name="SnapOpenMenuAction", label="Snap", tooltip="Snap tools", stock_id=None )
-        self._action_group.add_action( snapopen_menu_action )
-        snapopen_action = gtk.Action( name="SnapOpenAction", label="Go to File...\t", tooltip="Go to a file with regex search", stock_id=gtk.STOCK_JUMP_TO )
-        snapopen_action.connect( "activate", lambda a: self.on_snapopen_action() )
-        self._action_group.add_action_with_accel( snapopen_action, "<Ctrl><Alt>O" )
-        manager.insert_action_group( self._action_group, 0 )
-        self._ui_id = manager.new_merge_id()
-        manager.add_ui_from_string( ui_str )
-        manager.ensure_update()
+        actions = [
+            ('GoToFileAction', gtk.STOCK_JUMP_TO, _('Go to File...'), '<Ctrl><Alt>O', _("Go to a file with regex search"), self.on_snapopen_action)
+        ]
+        self._action_group = gtk.ActionGroup("SnapOpenPluginActions")
+        self._action_group.add_actions(actions, self._window)
 
-    def _remove_menu( self ):
+        manager.insert_action_group(self._action_group, -1)
+        manager.add_ui_from_string(ui_str)
+        self._ui_id = manager.new_merge_id()
+
+    def _remove_menu(self):
         manager = self._window.get_ui_manager()
-        manager.remove_ui( self._ui_id )
-        manager.remove_action_group( self._action_group )
-        manager.ensure_update()
+        manager.remove_ui(self._ui_id)
+        manager.remove_action_group(self._action_group)
 
     # UI DIALOGUES
-    def _init_glade( self ):
-        self._snapopen_glade = gtk.glade.XML( os.path.dirname( __file__ ) + "/snapopen.glade" )
+    def _init_glade(self):
+        self._snapopen_glade = gtk.glade.XML(os.path.dirname(__file__) + "/snapopen.glade")
         #setup window
-        self._snapopen_window = self._snapopen_glade.get_widget( "SnapOpenWindow" )
+        self._snapopen_window = self._snapopen_glade.get_widget("SnapOpenWindow")
         self._snapopen_window.connect("key-release-event", self.on_window_key)
         self._snapopen_window.set_transient_for(self._window)
         #setup buttons
-        self._snapopen_glade.get_widget( "ok_button" ).connect( "clicked", self.open_selected_item )
-        self._snapopen_glade.get_widget( "cancel_button" ).connect( "clicked", lambda a: self._snapopen_window.hide())
+        self._snapopen_glade.get_widget("ok_button").connect("clicked", self.open_selected_item)
+        self._snapopen_glade.get_widget("cancel_button").connect("clicked", lambda a: self._snapopen_window.hide())
         #setup entry field
-        self._glade_entry_name = self._snapopen_glade.get_widget( "entry_name" )
+        self._glade_entry_name = self._snapopen_glade.get_widget("entry_name")
         self._glade_entry_name.connect("key-release-event", self.on_pattern_entry)
         #setup list field
-        self._hit_list = self._snapopen_glade.get_widget( "hit_list" )
+        self._hit_list = self._snapopen_glade.get_widget("hit_list")
         self._hit_list.connect("select-cursor-row", self.on_select_from_list)
         self._hit_list.connect("button_press_event", self.on_list_mouse)
         self._liststore = gtk.ListStore(str, str, str)
@@ -96,19 +95,19 @@ class SnapOpenPluginInstance:
         self._hit_list.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
     #mouse event on list
-    def on_list_mouse( self, widget, event ):
+    def on_list_mouse(self, widget, event):
         if event.type == gtk.gdk._2BUTTON_PRESS:
-            self.open_selected_item( event )
+            self.open_selected_item(event)
 
     #key selects from list (passthrough 3 args)
     def on_select_from_list(self, widget, event):
         self.open_selected_item(event)
 
     #keyboard event on entry field
-    def on_pattern_entry( self, widget, event ):
+    def on_pattern_entry(self, widget, event):
         oldtitle = self._snapopen_window.get_title().replace(" * too many hits", "")
         if event.keyval == gtk.keysyms.Return:
-            self.open_selected_item( event )
+            self.open_selected_item(event)
             return
         pattern = self._glade_entry_name.get_text()
         pattern = pattern.replace(" ","*")
@@ -164,7 +163,7 @@ class SnapOpenPluginInstance:
 
 
     #on menuitem activation (incl. shortcut)
-    def on_snapopen_action( self ):
+    def on_snapopen_action(self, *args):
         fbroot = self.get_filebrowser_root()
         if fbroot != "" and fbroot is not None:
             self._rootdir = fbroot
@@ -181,7 +180,7 @@ class SnapOpenPluginInstance:
         self._glade_entry_name.grab_focus()
 
     #on any keyboard event in main window
-    def on_window_key( self, widget, event ):
+    def on_window_key(self, widget, event):
         if event.keyval == gtk.keysyms.Escape:
             self._snapopen_window.hide()
 
@@ -189,11 +188,11 @@ class SnapOpenPluginInstance:
         selected.append(model.get_value(iter, 2))
 
     #open file in selection and hide window
-    def open_selected_item( self, event ):
+    def open_selected_item(self, event):
         selected = []
         self._hit_list.get_selection().selected_foreach(self.foreach, selected)
         for selected_file in	selected:
-            self._open_file ( selected_file )
+            self._open_file (selected_file)
         self._snapopen_window.hide()
 
     #gedit < 2.16 version (get_tab_from_uri)
@@ -205,15 +204,15 @@ class SnapOpenPluginInstance:
             return None
 
     #opens (or switches to) the given file
-    def _open_file( self, filename ):
+    def _open_file(self, filename):
         uri = self._rootdir + "/" + filename
         if pre216_version:
             tab = self.old_get_tab_from_uri(self._window, uri)
         else:
             tab = self._window.get_tab_from_uri(uri)
         if tab == None:
-            tab = self._window.create_tab_from_uri( uri, self._encoding, 0, False, False )
-        self._window.set_active_tab( tab )
+            tab = self._window.create_tab_from_uri(uri, self._encoding, 0, False, False)
+        self._window.set_active_tab(tab)
 
     # EDDT integration
     def get_eddt_root(self):
@@ -249,25 +248,25 @@ class SnapOpenPluginInstance:
             return val.get_string()
 
 # STANDARD PLUMMING
-class SnapOpenPlugin( gedit.Plugin ):
+class SnapOpenPlugin(gedit.Plugin):
     DATA_TAG = "SnapOpenPluginInstance"
 
-    def __init__( self ):
-        gedit.Plugin.__init__( self )
+    def __init__(self):
+        gedit.Plugin.__init__(self)
 
-    def _get_instance( self, window ):
-        return window.get_data( self.DATA_TAG )
+    def _get_instance(self, window):
+        return window.get_data(self.DATA_TAG)
 
-    def _set_instance( self, window, instance ):
-        window.set_data( self.DATA_TAG, instance )
+    def _set_instance(self, window, instance):
+        window.set_data(self.DATA_TAG, instance)
 
-    def activate( self, window ):
-        self._set_instance( window, SnapOpenPluginInstance( self, window ) )
+    def activate(self, window):
+        self._set_instance(window, SnapOpenPluginInstance(self, window))
 
-    def deactivate( self, window ):
-        self._get_instance( window ).deactivate()
-        self._set_instance( window, None )
+    def deactivate(self, window):
+        self._get_instance(window).deactivate()
+        self._set_instance(window, None)
 
-    def update_ui( self, window ):
-        self._get_instance( window ).update_ui()
+    def update_ui(self, window):
+        self._get_instance(window).update_ui()
 

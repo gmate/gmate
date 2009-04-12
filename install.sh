@@ -6,6 +6,9 @@
 sudo cp mime/rails.xml /usr/share/mime/packages
 # Copy language definitions
 sudo cp lang-specs/*.lang /usr/share/gtksourceview-2.0/language-specs/
+# Copy Tags
+sudo cp tags/*.tags.gz /usr/share/gedit-2/plugins/taglist/
+
 # Update mime type database
 sudo update-mime-database /usr/share/mime
 
@@ -34,3 +37,4 @@ then
   mkdir -p ~/.gnome2/gedit/styles
 fi
 cp styles/* ~/.gnome2/gedit/styles
+

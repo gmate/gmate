@@ -379,3 +379,4 @@ class CompletionPlugin(gedit.Plugin):
         for doc in window.get_documents():
             self._all_words.pop(doc, None)
             self._favorite_words.pop(doc, None)
+

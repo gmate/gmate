@@ -1,0 +1,20 @@
+<snippets language="reStructuredText">
+<snippet>
+    <text>`${1:LinkName}`_ .. _$1: </text>
+    <tag>`</tag>
+    <description>Link</description>
+<accelerator /></snippet>
+<snippet>
+    <text>* $1
+* $2
+${3:lst}</text>
+    <tag>lst</tag>
+    <description>Unordered list</description>
+<accelerator /></snippet>
+<snippet>
+    <text>*$GEDIT_SELECTED_TEXT*</text>
+    <tag>em</tag>
+    <description>Emphasized text</description>
+    <accelerator>&lt;Control&gt;e</accelerator>
+</snippet>
+</snippets>

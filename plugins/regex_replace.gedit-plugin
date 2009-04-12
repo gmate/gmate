@@ -1,0 +1,8 @@
+[Gedit Plugin]
+Loader=python
+Module=regex_replace
+IAge=2
+Name=Regex Search and Replace
+Description=Text search and replace using regular expressions.
+Authors=Daniel d'Andrada T. de Carvalho <daniel.carvalho@indt.org.br>, Ben Fisher halfhourhacks.blogspot.com
+Copyright=GPL

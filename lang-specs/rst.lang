@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language _name="reStructuredText" version="1.0" _section="Markup" mimetypes="text/restructured">
+
+	<pattern-item _name="Emphasis" style="Preprocessor">
+		<regex>(\*[^*\n]*\*)</regex>
+	</pattern-item>
+	
+	<pattern-item _name="Strong Emphasis" style="Data Type">
+		<regex>(\*\*[^*\n]*\*\*)</regex>
+	</pattern-item>
+
+	<pattern-item _name="Link" style="String">
+		<regex>`[^`]*`_</regex>
+	</pattern-item>
+	
+	<pattern-item _name="WikiLink" style="Link">
+		<regex>\[\[[^\n]+\]\]</regex>
+	</pattern-item>
+	
+	<pattern-item _name="List item" style="Keyword">
+		<regex>(^ *\*[ \t]+)|(^ *[0-9]+\.[ \t]+)</regex>
+	</pattern-item>
+	
+	<pattern-item _name="Line" style="Data Type">
+		<regex>^[ \t]*[-=]+[ \t]*$</regex>
+	</pattern-item>
+	
+	<pattern-item _name="Automatic link" style="String" end-at-line-end = "TRUE">
+		<regex>(&lt;[A-Za-z._0-9]+@[A-Za-z0-9]+.[A-Za-z]+&gt;)|(&lt;[a-z]+://[^ \n]+&gt;)</regex>
+	</pattern-item>
+
+	<block-comment _name = "Code block" style= "Comment">
+	    <start-regex>::\n\n    </start-regex>
+	    <end-regex>\n\n</end-regex>
+	</block-comment>
+	
+	<pattern-item _name="Inline Code" style="Comment">
+		<regex>``[^``]*``</regex>
+	</pattern-item>
+
+	<string _name="Directive" style="Comment">
+	    <start-regex>^\.\. </start-regex>
+	    <end-regex>$</end-regex>
+	</string>
+
+
+</language>

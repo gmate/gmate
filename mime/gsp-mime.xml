@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info"> 
+	<mime-type type="text/x-gsp">
+		<sub-class-of type="text/html"/>
+		<comment>Grails GSP File</comment>
+		<glob pattern="*.gsp"/>
+	</mime-type>
+</mime-info>

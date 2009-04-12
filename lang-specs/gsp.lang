@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="gsp" _name="GSP" version="2.0" _section="Markup">
+    <metadata>
+      <property name="mimetypes">text/x-gsp</property>
+      <property name="globs">*.gsp</property>
+      <property name="block-comment-start">%{--</property>
+      <property name="block-comment-end">--}%</property>
+    </metadata>
+ 
+    <styles>
+        <style id="comment" _name="Comment" map-to="xml:comment"/>
+        <style id="tag" _name="Tag" map-to="xml:element-name"/>
+        <style id="attrib-name" _name="Attribute Name" map-to="xml:attribute-name"/>
+        <style id="attrib-value" _name="Attribute Value" map-to="xml:attribute-value"/>
+        <style id="dtd" _name="DTD" map-to="xml:doctype"/>
+        <style id="error" _name="Error" map-to="xml:error"/>
+    </styles>
+ 
+    <default-regex-options case-sensitive="false"/>
+ 
+    <definitions>
+        <!-- Html comments don't work on g tags -->
+        <context id="comment" style-ref="comment">
+            <start>%{--</start>
+            <end>--}%</end>
+            <include>
+                <context ref="def:in-comment"/>
+            </include>
+        </context>
+ 
+        <context id="dtd" style-ref="dtd">
+            <start>&lt;!</start>
+            <end>&gt;</end>
+        </context>
+ 
+        <!-- This is a placeholder context intended to be <replace>d
+             in languages like php that need to embedd contexts inside
+             html tags and attributes.
+        -->
+        <context id="embedded-lang-hook">
+            <start>\%{def:never-match}</start>
+            <end></end>
+        </context>
+ 
+        <context id="generic-tag">
+            <include>
+ 
+                <!-- Attribute in the form: name="value" -->
+                <context id="attrib-quoted" style-ref="attrib-name">
+                    <start extended="true">
+                        [A-Za-z0-9:_-]+ # attribute name
+                        \s*=\s*         # "="
+                        (\")            # string beginning
+                    </start>
+                    <end>\"</end>
+                    <include>
+                        <context sub-pattern="1" where="start" style-ref="attrib-value"/>
+                        <context sub-pattern="0" where="end" style-ref="attrib-value"/>
+                        <context id="string" extend-parent="false" end-at-line-end="true" style-ref="attrib-value">
+                            <start>\%{def:always-match}</start>
+                            <include>
+                                <context ref="xml:entity"/>
+                                <context ref="xml:character-reference"/>
+                                <context ref="embedded-lang-hook"/>
+                            </include>
+                        </context>
+                    </include>
+                </context>
+ 
+                <!-- Attribute in the form: name=value -->
+                <context id="attrib-unquoted" style-ref="attrib-value">
+                    <start extended="true">
+                        [a-z0-9:_-]+ # attribute name
+                        \s*=\s*      # "="
+                    </start>
+                    <end>(?=&gt;|\s)</end>
+                    <include>
+                        <context sub-pattern="0" where="start" style-ref="attrib-name"/>
+                        <context ref="xml:entity"/>
+                        <context ref="xml:character-reference"/>
+                    </include>
+                </context>
+ 
+                <!-- Attribute in the form: name -->
+                <context id="attrib-no-value" style-ref="attrib-name">
+                    <match extended="true">
+                        [a-z0-9:_-]+  # attribute name
+                    </match>
+                </context>
+ 
+                <context ref="embedded-lang-hook"/>
+ 
+            </include>
+        </context>
+ 
+        <context id="script">
+            <start>&lt;\s*script\%]</start>
+            <end>&lt;\s*/\s*script\s*&gt;</end>
+ 
+            <include>
+                <context sub-pattern="0" where="start" style-ref="tag"/>
+                <context sub-pattern="0" where="end" style-ref="tag"/>
+                <context ref="generic-tag"/>
+                <context id="js-code" extend-parent="false">
+                    <start>&gt;</start>
+                    <include>
+                        <context sub-pattern="0" where="start" style-ref="tag"/>
+                        <context ref="js:js"/>
+                    </include>
+                </context>
+            </include>
+        </context>
+ 
+        <context id="tag">
+            <start>&lt;\s*/?\s*[a-z0-9_-]+</start>
+            <end>/?\s*&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="tag"/>
+                <context sub-pattern="0" where="end" style-ref="tag"/>
+                <context ref="generic-tag"/>
+            </include>
+        </context>
+ 
+	<context id="gtag">
+		<start>&lt;g:\s*/?\s*[a-z0-9_-]+</start>
+                <end>/?\s*&gt;</end>
+            	<include>
+                	<context sub-pattern="0" where="start" style-ref="tag"/>
+                	<context sub-pattern="0" where="end" style-ref="tag"/>
+                	<context ref="generic-tag"/>
+		</include>
+	</context>
+ 
+        <context id="gsp">
+            <include>
+                <context ref="xml:doctype"/>
+                <context ref="xml:entity"/>
+                <context ref="xml:character-reference"/>
+                <context ref="xml:cdata"/>
+                <context ref="comment"/>
+                <context ref="dtd"/>
+                <context ref="script"/>
+                <context ref="tag"/>
+                <context ref="gtag"/>
+            </include>
+        </context>
+ 
+    </definitions>
+</language>

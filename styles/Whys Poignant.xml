@@ -25,7 +25,76 @@
   <author>tm2gtksw2(Alexandre da Silva)</author>
   <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
 
-  <style name="bracket-match"  background="#fffedb" bold="true"/><style name="bracket-mismatch"  background="#fffedb" underline="true"/><style name="css:at-rules" foreground="#761b48" bold="true"/><style name="css:color" foreground="#000000"/><style name="css:keyword" foreground="#9d3266"/><style name="current-line"  background="#fffedb"/><style name="cursor" foreground="#340019"/><style name="def:base-n-integer" foreground="#2a9a66"/><style name="def:boolean" foreground="#4f1900" bold="true"/><style name="def:builtin" foreground="#4f1900" bold="true"/><style name="def:character" foreground="#000000"/><style name="def:comment" foreground="#555555"/><style name="def:complex" foreground="#2a9a66"/><style name="def:decimal" foreground="#2a9a66"/><style name="def:doc-comment" foreground="#555555"/><style name="def:doc-comment-element" foreground="#555555"/><style name="def:floating-point" foreground="#2a9a66"/><style name="def:identifier" foreground="#2d669a"/><style name="def:keyword" foreground="#761b48" bold="true"/><style name="def:note" foreground="#555555"/><style name="def:number" foreground="#2a9a66"/><style name="def:operator" foreground="#761b48" bold="true"/><style name="def:preprocessor" foreground="#761b48" bold="true"/><style name="def:reserved" foreground="#761b48" bold="true"/><style name="def:shebang" foreground="#555555"/><style name="def:special-char" foreground="#000000"/><style name="def:special-constant" foreground="#4f1900" bold="true"/><style name="def:statement" foreground="#761b48" bold="true"/><style name="def:string" foreground="#2a9a66" background="#e8f5f5"/><style name="draw-spaces" foreground="#ff98ca"/><style name="html:dtd" foreground="#2a9a66" background="#e8f5f5"/><style name="html:tag" foreground="#761b48" bold="true"/><style name="line-numbers" foreground="#2d669a" background="#fffedb"/><style name="php:string" foreground="#2a9a66" background="#e8f5f5"/><style name="python:builtin-constant" foreground="#761b48" bold="true"/><style name="python:module-handler" foreground="#761b48" bold="true"/><style name="python:special-variable" foreground="#761b48" bold="true"/><style name="ruby:attribute-definition" foreground="#4f1900" bold="true"/><style name="ruby:builtin" foreground="#4f1900" bold="true"/><style name="ruby:class-variable" foreground="#2d669a"/><style name="ruby:constant" foreground="#4f1900" bold="true"/><style name="ruby:instance-variable" foreground="#2d669a"/><style name="ruby:module-handler" foreground="#761b48" bold="true"/><style name="ruby:predefined-variable" foreground="#4f1900" bold="true"/><style name="ruby:regex" foreground="#443355" background="#e8f1f5"/><style name="ruby:special-variable" foreground="#761b48" bold="true"/><style name="ruby:symbol" foreground="#000000"/><style name="rubyonrails:attribute-definition" foreground="#4f1900" bold="true"/><style name="rubyonrails:builtin" foreground="#4f1900" bold="true"/><style name="rubyonrails:class-definition" foreground="#4f1900" bold="true"/><style name="rubyonrails:class-variable" foreground="#2d669a"/><style name="rubyonrails:complex-interpolation" foreground="#000000"/><style name="rubyonrails:constant" foreground="#4f1900" bold="true"/><style name="rubyonrails:instance-variable" foreground="#2d669a"/><style name="rubyonrails:module-handler" foreground="#761b48" bold="true"/><style name="rubyonrails:predefined-variable" foreground="#4f1900" bold="true"/><style name="rubyonrails:rails" foreground="#4f1900" bold="true"/><style name="rubyonrails:regex" foreground="#443355" background="#e8f1f5"/><style name="rubyonrails:simple-interpolation" foreground="#000000"/><style name="rubyonrails:special-variable" foreground="#761b48" bold="true"/><style name="rubyonrails:symbol" foreground="#000000"/><style name="search-match"  background="#fffedb" bold="true" underline="true"/><style name="selection" foreground="#2d669a" background="#c3daeb"/><style name="text" foreground="#2d669a" background="#fffef9"/><style name="xml:attribute-name" foreground="#4f1900" bold="true"/><style name="xml:doctype" foreground="#9d3266"/><style name="xml:element-name" foreground="#761b48" bold="true"/><style name="xml:namespace" foreground="#761b48" bold="true"/><style name="xml:tag" foreground="#761b48" bold="true"/>
+  <style name="bracket-match"  background="#fffedb" bold="true"/>
+  <style name="bracket-mismatch"  background="#fffedb" underline="true"/>
+  <style name="css:at-rules" foreground="#761b48" bold="true"/>
+  <style name="css:color" foreground="#000000"/>
+  <style name="css:keyword" foreground="#9d3266"/>
+  <style name="current-line"  background="#fffedb"/>
+  <style name="cursor" foreground="#340019"/>
+  <style name="def:base-n-integer" foreground="#2a9a66"/>
+  <style name="def:boolean" foreground="#4f1900" bold="true"/>
+  <style name="def:builtin" foreground="#4f1900" bold="true"/>
+  <style name="def:character" foreground="#000000"/>
+  <style name="def:comment" foreground="#555555"/>
+  <style name="def:complex" foreground="#2a9a66"/>
+  <style name="def:decimal" foreground="#2a9a66"/>
+  <style name="def:doc-comment" foreground="#555555"/>
+  <style name="def:doc-comment-element" foreground="#555555"/>
+  <style name="def:floating-point" foreground="#2a9a66"/>
+  <style name="def:identifier" foreground="#2d669a"/>
+  <style name="def:keyword" foreground="#761b48" bold="true"/>
+  <style name="def:note" foreground="#555555"/>
+  <style name="def:number" foreground="#2a9a66"/>
+  <style name="def:operator" foreground="#761b48" bold="true"/>
+  <style name="def:preprocessor" foreground="#761b48" bold="true"/>
+  <style name="def:reserved" foreground="#761b48" bold="true"/>
+  <style name="def:shebang" foreground="#555555"/>
+  <style name="def:special-char" foreground="#000000"/>
+  <style name="def:special-constant" foreground="#4f1900" bold="true"/>
+  <style name="def:statement" foreground="#761b48" bold="true"/>
+  <style name="def:string" foreground="#2a9a66" background="#e8f5f5"/>
+  <style name="draw-spaces" foreground="#ff98ca"/>
+  <style name="html:dtd" foreground="#2a9a66" background="#e8f5f5"/>
+  <style name="html:tag" foreground="#761b48" bold="true"/>
+  <style name="line-numbers" foreground="#2d669a" background="#fffedb"/>
+  <style name="php:string" foreground="#2a9a66" background="#e8f5f5"/>
+  <style name="python:builtin-constant" foreground="#761b48" bold="true"/>
+  <style name="python:module-handler" foreground="#761b48" bold="true"/>
+  <style name="python:special-variable" foreground="#761b48" bold="true"/>
+  <style name="ruby:attribute-definition" foreground="#4f1900" bold="true"/>
+  <style name="ruby:builtin" foreground="#4f1900" bold="true"/>
+  <style name="ruby:class-variable" foreground="#2d669a"/>
+  <style name="ruby:constant" foreground="#4f1900" bold="true"/>
+  <style name="ruby:instance-variable" foreground="#2d669a"/>
+  <style name="ruby:module-handler" foreground="#761b48" bold="true"/>
+  <style name="ruby:predefined-variable" foreground="#4f1900" bold="true"/>
+  <style name="ruby:regex" foreground="#443355" background="#e8f1f5"/>
+  <style name="ruby:special-variable" foreground="#761b48" bold="true"/>
+  <style name="ruby:symbol" foreground="#000000"/>
+  <style name="rubyonrails:attribute-definition" foreground="#4f1900" bold="true"/>
+  <style name="rubyonrails:builtin" foreground="#4f1900" bold="true"/>
+  <style name="rubyonrails:class-definition" foreground="#4f1900" bold="true"/>
+  <style name="rubyonrails:class-variable" foreground="#2d669a"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#000000"/>
+  <style name="rubyonrails:constant" foreground="#4f1900" bold="true"/>
+  <style name="rubyonrails:instance-variable" foreground="#2d669a"/>
+  <style name="rubyonrails:module-handler" foreground="#761b48" bold="true"/>
+  <style name="rubyonrails:predefined-variable" foreground="#4f1900" bold="true"/>
+  <style name="rubyonrails:rails" foreground="#4f1900" bold="true"/>
+  <style name="rubyonrails:regex" foreground="#443355" background="#e8f1f5"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#000000"/>
+  <style name="rubyonrails:special-variable" foreground="#761b48" bold="true"/>
+  <style name="rubyonrails:symbol" foreground="#000000"/>
+  <style name="search-match"  background="#fffedb" bold="true" underline="true"/>
+  <style name="selection" foreground="#2d669a" background="#c3daeb"/>
+  <style name="text" foreground="#2d669a" background="#fffef9"/>
+  <style name="xml:attribute-name" foreground="#4f1900" bold="true"/>
+  <style name="xml:doctype" foreground="#9d3266"/>
+  <style name="xml:element-name" foreground="#761b48" bold="true"/>
+  <style name="xml:namespace" foreground="#761b48" bold="true"/>
+  <style name="xml:tag" foreground="#761b48" bold="true"/>
+  
 
 </style-scheme>
 

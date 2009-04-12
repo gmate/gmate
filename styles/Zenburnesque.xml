@@ -25,7 +25,54 @@
   <author>tm2gtksw2(Alexandre da Silva)</author>
   <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
 
-  <style name="bracket-match"  background="#4e4940" bold="true"/><style name="bracket-mismatch"  background="#4e4940" underline="true"/><style name="css:at-rules" foreground="#ffffa0"/><style name="current-line"  background="#4e4940"/><style name="cursor" foreground="#ffff66"/><style name="def:base-n-integer" foreground="#22c0ff"/><style name="def:character" foreground="#ff2020"/><style name="def:comment" foreground="#709070" italic="true"/><style name="def:complex" foreground="#22c0ff"/><style name="def:decimal"  underline="true"/><style name="def:doc-comment" foreground="#709070" italic="true"/><style name="def:doc-comment-element" foreground="#709070" italic="true"/><style name="def:floating-point"  underline="true"/><style name="def:function" foreground="#ffcc66" bold="true"/><style name="def:keyword" foreground="#ffffa0"/><style name="def:note" foreground="#709070" italic="true"/><style name="def:number" foreground="#22c0ff"/><style name="def:operator" foreground="#ffffa0"/><style name="def:preprocessor" foreground="#ffffa0"/><style name="def:reserved" foreground="#ffffa0"/><style name="def:shebang" foreground="#709070" italic="true"/><style name="def:statement" foreground="#ffffa0"/><style name="def:string" foreground="#ff2020"/><style name="draw-spaces" foreground="#a8a8a8"/><style name="html:dtd" foreground="#ff2020"/><style name="line-numbers" foreground="#dedede" background="#4e4940"/><style name="php:string" foreground="#ff2020"/><style name="python:builtin-constant" foreground="#ffffa0"/><style name="python:builtin-function" foreground="#ffcc66" bold="true"/><style name="python:module-handler" foreground="#ffffa0"/><style name="python:special-variable" foreground="#ffffa0"/><style name="ruby:attribute-definition" foreground="#ffffa0"/><style name="ruby:global-variable" foreground="#ffcc66" bold="true"/><style name="ruby:module-handler" foreground="#ffffa0"/><style name="ruby:regex" foreground="#ff2020"/><style name="ruby:special-variable" foreground="#ffffa0"/><style name="rubyonrails:attribute-definition" foreground="#ffffa0"/><style name="rubyonrails:class-definition" foreground="#f09040"/><style name="rubyonrails:complex-interpolation" foreground="#ff2020"/><style name="rubyonrails:global-variable" foreground="#ffcc66" bold="true"/><style name="rubyonrails:module-handler" foreground="#ffffa0"/><style name="rubyonrails:regex" foreground="#ff2020"/><style name="rubyonrails:simple-interpolation" foreground="#ff2020"/><style name="rubyonrails:special-variable" foreground="#ffffa0"/><style name="search-match"  background="#4e4940" bold="true" underline="true"/><style name="selection" foreground="#dedede" background="#a0a0c0"/><style name="text" foreground="#dedede" background="#404040"/>
+  <style name="bracket-match"  background="#4e4940" bold="true"/>
+  <style name="bracket-mismatch"  background="#4e4940" underline="true"/>
+  <style name="css:at-rules" foreground="#ffffa0"/>
+  <style name="current-line"  background="#4e4940"/>
+  <style name="cursor" foreground="#ffff66"/>
+  <style name="def:base-n-integer" foreground="#22c0ff"/>
+  <style name="def:character" foreground="#ff2020"/>
+  <style name="def:comment" foreground="#709070" italic="true"/>
+  <style name="def:complex" foreground="#22c0ff"/>
+  <style name="def:decimal"  underline="true"/>
+  <style name="def:doc-comment" foreground="#709070" italic="true"/>
+  <style name="def:doc-comment-element" foreground="#709070" italic="true"/>
+  <style name="def:floating-point"  underline="true"/>
+  <style name="def:function" foreground="#ffcc66" bold="true"/>
+  <style name="def:keyword" foreground="#ffffa0"/>
+  <style name="def:note" foreground="#709070" italic="true"/>
+  <style name="def:number" foreground="#22c0ff"/>
+  <style name="def:operator" foreground="#ffffa0"/>
+  <style name="def:preprocessor" foreground="#ffffa0"/>
+  <style name="def:reserved" foreground="#ffffa0"/>
+  <style name="def:shebang" foreground="#709070" italic="true"/>
+  <style name="def:statement" foreground="#ffffa0"/>
+  <style name="def:string" foreground="#ff2020"/>
+  <style name="draw-spaces" foreground="#a8a8a8"/>
+  <style name="html:dtd" foreground="#ff2020"/>
+  <style name="line-numbers" foreground="#dedede" background="#4e4940"/>
+  <style name="php:string" foreground="#ff2020"/>
+  <style name="python:builtin-constant" foreground="#ffffa0"/>
+  <style name="python:builtin-function" foreground="#ffcc66" bold="true"/>
+  <style name="python:module-handler" foreground="#ffffa0"/>
+  <style name="python:special-variable" foreground="#ffffa0"/>
+  <style name="ruby:attribute-definition" foreground="#ffffa0"/>
+  <style name="ruby:global-variable" foreground="#ffcc66" bold="true"/>
+  <style name="ruby:module-handler" foreground="#ffffa0"/>
+  <style name="ruby:regex" foreground="#ff2020"/>
+  <style name="ruby:special-variable" foreground="#ffffa0"/>
+  <style name="rubyonrails:attribute-definition" foreground="#ffffa0"/>
+  <style name="rubyonrails:class-definition" foreground="#f09040"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#ff2020"/>
+  <style name="rubyonrails:global-variable" foreground="#ffcc66" bold="true"/>
+  <style name="rubyonrails:module-handler" foreground="#ffffa0"/>
+  <style name="rubyonrails:regex" foreground="#ff2020"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#ff2020"/>
+  <style name="rubyonrails:special-variable" foreground="#ffffa0"/>
+  <style name="search-match"  background="#4e4940" bold="true" underline="true"/>
+  <style name="selection" foreground="#dedede" background="#a0a0c0"/>
+  <style name="text" foreground="#dedede" background="#404040"/>
+  
 
 </style-scheme>
 

@@ -25,7 +25,35 @@
   <author>tm2gtksw2(Alexandre da Silva)</author>
   <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
 
-  <style name="bracket-match"  background="#a8a8a8" bold="true"/><style name="bracket-mismatch"  background="#a8a8a8" underline="true"/><style name="current-line"  background="#a8a8a8"/><style name="cursor" foreground="#6d4496"/><style name="def:character" foreground="#5d9629"/><style name="def:comment" foreground="#a8a8a8"/><style name="def:doc-comment" foreground="#a8a8a8"/><style name="def:doc-comment-element" foreground="#a8a8a8"/><style name="def:note" foreground="#a8a8a8"/><style name="def:shebang" foreground="#a8a8a8"/><style name="def:string" foreground="#5d9629"/><style name="draw-spaces" foreground="#bfbfbf"/><style name="html:dtd" foreground="#5d9629"/><style name="html:tag" foreground="#4678bc"/><style name="line-numbers" foreground="#474747" background="#a8a8a8"/><style name="php:string" foreground="#5d9629"/><style name="ruby:regex" foreground="#5d9629"/><style name="rubyonrails:complex-interpolation" foreground="#5d9629"/><style name="rubyonrails:regex" foreground="#5d9629"/><style name="rubyonrails:simple-interpolation" foreground="#5d9629"/><style name="search-match"  background="#a8a8a8" bold="true" underline="true"/><style name="selection" foreground="#474747" background="#d3d3d3"/><style name="text" foreground="#474747" background="#ffffff"/><style name="xml:attribute-name" foreground="#b84610"/><style name="xml:doctype" foreground="#474747"/><style name="xml:element-name" foreground="#4678bc"/><style name="xml:namespace" foreground="#4678bc"/><style name="xml:tag" foreground="#4678bc"/>
+  <style name="bracket-match"  background="#a8a8a8" bold="true"/>
+  <style name="bracket-mismatch"  background="#a8a8a8" underline="true"/>
+  <style name="current-line"  background="#a8a8a8"/>
+  <style name="cursor" foreground="#6d4496"/>
+  <style name="def:character" foreground="#5d9629"/>
+  <style name="def:comment" foreground="#a8a8a8"/>
+  <style name="def:doc-comment" foreground="#a8a8a8"/>
+  <style name="def:doc-comment-element" foreground="#a8a8a8"/>
+  <style name="def:note" foreground="#a8a8a8"/>
+  <style name="def:shebang" foreground="#a8a8a8"/>
+  <style name="def:string" foreground="#5d9629"/>
+  <style name="draw-spaces" foreground="#bfbfbf"/>
+  <style name="html:dtd" foreground="#5d9629"/>
+  <style name="html:tag" foreground="#4678bc"/>
+  <style name="line-numbers" foreground="#474747" background="#a8a8a8"/>
+  <style name="php:string" foreground="#5d9629"/>
+  <style name="ruby:regex" foreground="#5d9629"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#5d9629"/>
+  <style name="rubyonrails:regex" foreground="#5d9629"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#5d9629"/>
+  <style name="search-match"  background="#a8a8a8" bold="true" underline="true"/>
+  <style name="selection" foreground="#474747" background="#d3d3d3"/>
+  <style name="text" foreground="#474747" background="#ffffff"/>
+  <style name="xml:attribute-name" foreground="#b84610"/>
+  <style name="xml:doctype" foreground="#474747"/>
+  <style name="xml:element-name" foreground="#4678bc"/>
+  <style name="xml:namespace" foreground="#4678bc"/>
+  <style name="xml:tag" foreground="#4678bc"/>
+  
 
 </style-scheme>
 

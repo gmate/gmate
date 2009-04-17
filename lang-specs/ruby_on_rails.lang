@@ -389,10 +389,39 @@
       <match>\b[A-Z][A-Z0-9_]*\b</match>
     </context>
 
-    <!-- TODO: Ignore when foloowed by a dot "Class.something" -->
+    <!-- TODO: Ignore when foloowed by a dot "Class.something" >
     <context id="class-definition" style-ref="class-definition">
       <match>(?&lt;!&lt;)(&lt;\s*)?(::)?\b[A-Z][A-Za-z0-9_]*\b</match>
+    </context -->
+
+    <!-- New class-definition and module-definition tests -->
+    <context id="class-keyword" style-ref="keyword">
+      <match>class\s</match>
     </context>
+
+    <context id="class-name" style-ref="class-name" extend-parent="true">
+      <match>(?&lt;=class)\s(?&lt;!&lt;)\b[A-Z][A-Za-z0-9_:]*\b</match>
+    </context>
+
+    <context id="class-inherit" style-ref="class-inherit">
+      <match>&lt;\s*(::)?\b[A-Z][A-Za-z0-9_:]*\b</match>
+    </context>
+
+    <context id="class-definition" style-ref="class-definition" end-at-line-end="true">
+      <start>(?&lt;=class)\s</start>
+      <end>\\n|;</end>
+      <include>
+        <context ref="class-keyword"/>
+        <context ref="class-name"/>
+        <context ref="class-inherit"/>
+      </include>
+    </context>
+
+    <context id="module-definitions" style-ref="module-definition">
+      <match>(?&lt;=module)(\s*)?(::)?\b[A-Z][A-Za-z0-9_:]*\b</match>
+    </context>
+
+    <!-- END New class-definition and module-definition tests -->
 
     <context id="nil-value" style-ref="nil-value">
       <keyword>NIL</keyword>
@@ -446,6 +475,34 @@
          folowed or not by !,?,=. Need more acurrate posibilities -->
     <context id="function-definition" style-ref="function-definition">
       <match>(?&lt;=def)\s*(self\.)?\b[A-Za-z0-9_]*\b(\?|!|=)?</match>
+    </context>
+
+    <context id="block-parameters" style-ref="block-parameter">
+      <start>(?&lt;=do|\{)(\s*)?\|</start>
+      <end>\|</end>
+      <include>
+        <context ref="class-variables"/>
+        <context ref="instance-variables"/>
+        <context ref="global-variables"/>
+        <context ref="keywords"/>
+        <context ref="builtins"/>
+        <context ref="symbols"/>
+        <context ref="symbols-single-quoted"/>
+        <context ref="symbols-double-quoted"/>
+        <context ref="nil-value"/>
+        <context ref="boolean"/>
+        <context ref="constants"/>
+        <context ref="double-quoted-string"/>
+        <context ref="single-quoted-string"/>
+        <context ref="float"/>
+        <context ref="decimal"/>
+        <context ref="hex"/>
+        <context ref="octal"/>
+        <context ref="binary"/>
+        <context ref="numeric-literal"/>
+        <context ref="regex-simple"/>
+        <!-- context ref="operator"/ -->
+      </include>
     </context>
 
     <!-- in double quotes and backticks
@@ -899,7 +956,13 @@
         <context ref="nil-value"/>
         <context ref="boolean"/>
         <context ref="constants"/>
+        <!-- context ref="class-definition"/ -->
+        <!-- New class and module definition tests -->
+        <context ref="module-definitions"/>
         <context ref="class-definition"/>
+        <context ref="class-inherit"/>
+        <context ref="class-name"/>
+        <!-- End New class and module definition tests -->
         <context ref="float"/>
         <context ref="decimal"/>
         <context ref="hex"/>
@@ -910,6 +973,7 @@
         <context ref="regex-alt-form2"/>
         <context ref="regex-simple"/>
         <context ref="function-definition"/>
+        <context ref="block-parameters"/>
         <context ref="simple-interpolation"/>
         <context ref="complex-interpolation"/>
         <context ref="operator"/>

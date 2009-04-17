@@ -52,7 +52,7 @@
   <style name="def:special-char" foreground="#8aa6c1"/>
   <style name="def:special-constant" foreground="#8aa6c1"/>
   <style name="def:statement" foreground="#f8bb00"/>
-  <style name="def:string" foreground="#e2ce00"/>
+  <style name="def:string" foreground="#1dc116"/>
   <style name="diff:added-line" foreground="#ffffff" background="#6db04e"/>
   <style name="diff:changed-line" foreground="#ffffff" background="#968c44"/>
   <style name="diff:location" foreground="#ffffff" background="#344668"/>
@@ -61,6 +61,10 @@
   <style name="html:dtd" foreground="#1dc116"/>
   <style name="js:function" foreground="#b43d3d"/>
   <style name="line-numbers" foreground="#ffffff" background="#253e5a"/>
+  <style name="perl:include-statement" foreground="#f8bb00"/>
+  <style name="perl:line-directive" foreground="#8aa6c1"/>
+  <style name="perl:special-variable" foreground="#f8bb00"/>
+  <style name="perl:type" foreground="#8aa6c1"/>
   <style name="php:string" foreground="#1dc116"/>
   <style name="python:builtin-constant" foreground="#f8bb00"/>
   <style name="python:builtin-function" foreground="#8aa6c1"/>
@@ -68,6 +72,7 @@
   <style name="python:module-handler" foreground="#f8bb00"/>
   <style name="python:special-variable" foreground="#f8bb00"/>
   <style name="ruby:attribute-definition" foreground="#f8bb00"/>
+  <style name="ruby:constant" foreground="#8aa6c1"/>
   <style name="ruby:module-handler" foreground="#f8bb00"/>
   <style name="ruby:predefined-variable" foreground="#8aa6c1"/>
   <style name="ruby:regex" foreground="#ca4344"/>
@@ -75,6 +80,7 @@
   <style name="ruby:symbol" foreground="#b53b3c"/>
   <style name="rubyonrails:attribute-definition" foreground="#f8bb00"/>
   <style name="rubyonrails:complex-interpolation" foreground="#080808" background="#cacaca"/>
+  <style name="rubyonrails:constant" foreground="#8aa6c1"/>
   <style name="rubyonrails:module-handler" foreground="#f8bb00"/>
   <style name="rubyonrails:predefined-variable" foreground="#8aa6c1"/>
   <style name="rubyonrails:rails" foreground="#ffffff" background="#213042"/>

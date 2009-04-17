@@ -45,14 +45,14 @@
   <style name="def:floating-point" foreground="#000cff"/>
   <style name="def:function" foreground="#ffcf7b"/>
   <style name="def:identifier" foreground="#fb3708"/>
-  <style name="def:keyword" foreground="#ff0000"/>
+  <style name="def:keyword" foreground="#8106fc"/>
   <style name="def:note" foreground="#2e3655"/>
   <style name="def:number" foreground="#000cff"/>
   <style name="def:operator" foreground="#8106fc"/>
   <style name="def:preprocessor" foreground="#d1c9c9"/>
   <style name="def:reserved" foreground="#8106fc"/>
   <style name="def:shebang" foreground="#2e3655"/>
-  <style name="def:special-char" foreground="#9d1d71"/>
+  <style name="def:special-char" foreground="#d1c9c9"/>
   <style name="def:special-constant" foreground="#9a5977"/>
   <style name="def:statement" foreground="#8106fc"/>
   <style name="def:string" foreground="#00c8ff"/>
@@ -60,6 +60,10 @@
   <style name="html:dtd" foreground="#00c8ff"/>
   <style name="js:function" foreground="#d3c8d4"/>
   <style name="line-numbers" foreground="#cfd1d1" background="#080d12"/>
+  <style name="perl:builtin" foreground="#ffcf7b"/>
+  <style name="perl:include-statement" foreground="#8106fc"/>
+  <style name="perl:special-variable" foreground="#9a5977"/>
+  <style name="perl:variable" foreground="#fb3708"/>
   <style name="php:string" foreground="#00c8ff"/>
   <style name="python:builtin-constant" foreground="#8106fc"/>
   <style name="python:builtin-function" foreground="#ffcf7b"/>

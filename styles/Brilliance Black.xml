@@ -50,7 +50,7 @@
   <style name="def:operator" foreground="#0000ce"/>
   <style name="def:preprocessor" foreground="#00fff8"/>
   <style name="def:shebang" foreground="#4c4c4c" italic="true"/>
-  <style name="def:special-char" foreground="#86ff00"/>
+  <style name="def:special-char" foreground="#00fff8"/>
   <style name="def:special-constant" foreground="#07ff00"/>
   <style name="def:string" foreground="#fff800" background="#17240a"/>
   <style name="def:type" foreground="#ff0000" background="#250a0a"/>
@@ -61,6 +61,10 @@
   <style name="html:tag" foreground="#565656"/>
   <style name="js:function" foreground="#603f80" background="#1d1724"/>
   <style name="line-numbers" foreground="#eeeeee" background="#0a0a24"/>
+  <style name="perl:builtin" foreground="#ff0086"/>
+  <style name="perl:include-statement" foreground="#f800ff"/>
+  <style name="perl:special-variable" foreground="#00fff8"/>
+  <style name="perl:variable" foreground="#00ff79" background="#0a2423"/>
   <style name="python:builtin-function" foreground="#ff0086"/>
   <style name="ruby:attribute-definition" foreground="#00fff8"/>
   <style name="ruby:builtin" foreground="#00fff8"/>

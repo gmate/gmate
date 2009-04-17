@@ -43,14 +43,14 @@
   <style name="def:floating-point" foreground="#69b200" bold="true"/>
   <style name="def:function" foreground="#ffffff" background="#69b200" bold="true"/>
   <style name="def:identifier" foreground="#308095" bold="true"/>
-  <style name="def:keyword" foreground="#999999" background="#f4f4f4" bold="true"/>
+  <style name="def:keyword" foreground="#000000" background="#fefcfd" bold="true"/>
   <style name="def:note" foreground="#b35eed" background="#f7f7f7" italic="true"/>
   <style name="def:number" foreground="#69b200" bold="true"/>
   <style name="def:operator" foreground="#000000" background="#fefcfd" bold="true"/>
   <style name="def:preprocessor" foreground="#69b200" background="#ecf4e2"/>
   <style name="def:reserved" foreground="#000000" background="#fefcfd" bold="true"/>
   <style name="def:shebang" foreground="#b35eed" background="#f7f7f7" italic="true"/>
-  <style name="def:special-char" foreground="#1c7a1f" background="#f4f8ee"/>
+  <style name="def:special-char" foreground="#69b200" background="#ecf4e2"/>
   <style name="def:special-constant" foreground="#1c7a1f" bold="true"/>
   <style name="def:statement" foreground="#000000" background="#fefcfd" bold="true"/>
   <style name="def:string" foreground="#69b200" background="#fffef8"/>
@@ -59,6 +59,10 @@
   <style name="html:tag" foreground="#39a0ba" background="#eaf5f7"/>
   <style name="js:function" foreground="#d42755" background="#fdf8f9"/>
   <style name="line-numbers" foreground="#333333" background="#ffffed"/>
+  <style name="perl:builtin" foreground="#ffffff" background="#69b200" bold="true"/>
+  <style name="perl:include-statement" foreground="#000000" background="#fefcfd" bold="true"/>
+  <style name="perl:special-variable" foreground="#1c7a1f" bold="true"/>
+  <style name="perl:variable" foreground="#308095" bold="true"/>
   <style name="php:string" foreground="#69b200" background="#fffef8"/>
   <style name="python:builtin-constant" foreground="#000000" background="#fefcfd" bold="true"/>
   <style name="python:builtin-function" foreground="#ffffff" background="#69b200" bold="true"/>

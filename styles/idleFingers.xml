@@ -55,12 +55,18 @@
   <style name="def:special-char" foreground="#6c99bb"/>
   <style name="def:special-constant" foreground="#6c99bb"/>
   <style name="def:statement" foreground="#cc7833"/>
-  <style name="def:string" foreground="#cccc33"/>
+  <style name="def:string" foreground="#a5c261"/>
   <style name="draw-spaces" foreground="#404040"/>
   <style name="html:dtd" foreground="#a5c261"/>
   <style name="html:tag" foreground="#ffe5bb"/>
   <style name="js:function" foreground="#b83426"/>
   <style name="line-numbers" foreground="#ffffff" background="#353637"/>
+  <style name="perl:builtin" foreground="#ffc66d"/>
+  <style name="perl:include-statement" foreground="#cc7833"/>
+  <style name="perl:line-directive" foreground="#6c99bb"/>
+  <style name="perl:special-variable" foreground="#cc7833"/>
+  <style name="perl:type" foreground="#6c99bb"/>
+  <style name="perl:variable" foreground="#b7dff8"/>
   <style name="php:string" foreground="#a5c261"/>
   <style name="python:builtin-constant" foreground="#cc7833"/>
   <style name="python:builtin-function" foreground="#6c99bb"/>

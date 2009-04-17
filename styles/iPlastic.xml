@@ -45,7 +45,7 @@
   <style name="def:error" foreground="#ff0000" background="#ebadab"/>
   <style name="def:floating-point" foreground="#0066ff"/>
   <style name="def:function" foreground="#ff8000"/>
-  <style name="def:keyword"  bold="true"/>
+  <style name="def:keyword" foreground="#0000ff"/>
   <style name="def:note" foreground="#0066ff" italic="true"/>
   <style name="def:number" foreground="#0066ff"/>
   <style name="def:operator" foreground="#0000ff"/>
@@ -62,6 +62,11 @@
   <style name="html:tag" foreground="#0033cc"/>
   <style name="js:function" foreground="#3333ff" bold="true"/>
   <style name="line-numbers" foreground="#000000" background="#d5d5d5"/>
+  <style name="perl:builtin" foreground="#ff8000"/>
+  <style name="perl:include-statement" foreground="#0000ff"/>
+  <style name="perl:line-directive" foreground="#6782d3"/>
+  <style name="perl:special-variable" foreground="#9700cc"/>
+  <style name="perl:type" foreground="#6782d3"/>
   <style name="php:string" foreground="#009933"/>
   <style name="python:builtin-constant" foreground="#0000ff"/>
   <style name="python:builtin-function" foreground="#ff8000"/>
@@ -69,6 +74,7 @@
   <style name="python:module-handler" foreground="#0000ff"/>
   <style name="python:special-variable" foreground="#0000ff"/>
   <style name="ruby:attribute-definition" foreground="#0000ff"/>
+  <style name="ruby:constant" foreground="#6782d3"/>
   <style name="ruby:global-variable" foreground="#ff8000"/>
   <style name="ruby:module-handler" foreground="#0000ff"/>
   <style name="ruby:predefined-variable" foreground="#9700cc"/>
@@ -78,6 +84,7 @@
   <style name="rubyonrails:attribute-definition" foreground="#0000ff"/>
   <style name="rubyonrails:class-definition"  bold="true" underline="true"/>
   <style name="rubyonrails:complex-interpolation" foreground="#6782d3"/>
+  <style name="rubyonrails:constant" foreground="#6782d3"/>
   <style name="rubyonrails:global-variable" foreground="#ff8000"/>
   <style name="rubyonrails:module-handler" foreground="#0000ff"/>
   <style name="rubyonrails:predefined-variable" foreground="#9700cc"/>

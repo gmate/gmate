@@ -63,6 +63,12 @@
   <style name="html:tag" foreground="#2d439b"/>
   <style name="js:function" foreground="#010e83"/>
   <style name="line-numbers" foreground="#000000" background="#efefef"/>
+  <style name="perl:builtin" foreground="#820095"/>
+  <style name="perl:include-statement" foreground="#006a08"/>
+  <style name="perl:line-directive" foreground="#a62b29"/>
+  <style name="perl:special-variable" foreground="#a62b29"/>
+  <style name="perl:type" foreground="#a62b29"/>
+  <style name="perl:variable" foreground="#7e3700"/>
   <style name="php:string" foreground="#0e8d90"/>
   <style name="python:builtin-constant" foreground="#006a08"/>
   <style name="python:builtin-function" foreground="#820095"/>

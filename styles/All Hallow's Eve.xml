@@ -53,12 +53,16 @@
   <style name="def:special-char" foreground="#3387cc"/>
   <style name="def:special-constant" foreground="#3387cc"/>
   <style name="def:statement" foreground="#cc7833"/>
-  <style name="def:string" foreground="#cccc33"/>
+  <style name="def:string" foreground="#66cc33"/>
   <style name="draw-spaces" foreground="#404040"/>
   <style name="html:dtd" foreground="#66cc33"/>
   <style name="html:tag"  underline="true"/>
   <style name="js:function" foreground="#c83730"/>
   <style name="line-numbers" foreground="#ffffff" background="#333300"/>
+  <style name="perl:include-statement" foreground="#cc7833"/>
+  <style name="perl:line-directive" foreground="#3387cc"/>
+  <style name="perl:special-variable" foreground="#cc7833"/>
+  <style name="perl:type" foreground="#3387cc"/>
   <style name="php:string" foreground="#66cc33"/>
   <style name="python:builtin-constant" foreground="#cc7833"/>
   <style name="python:builtin-function" foreground="#3387cc"/>
@@ -66,6 +70,7 @@
   <style name="python:module-handler" foreground="#cc7833"/>
   <style name="python:special-variable" foreground="#cc7833"/>
   <style name="ruby:attribute-definition" foreground="#cc7833"/>
+  <style name="ruby:constant" foreground="#3387cc"/>
   <style name="ruby:module-handler" foreground="#cc7833"/>
   <style name="ruby:predefined-variable" foreground="#3387cc"/>
   <style name="ruby:regex" foreground="#cccc33"/>
@@ -74,6 +79,7 @@
   <style name="rubyonrails:attribute-definition" foreground="#cc7833"/>
   <style name="rubyonrails:class-definition"  underline="true"/>
   <style name="rubyonrails:complex-interpolation" foreground="#000000" background="#cccc33"/>
+  <style name="rubyonrails:constant" foreground="#3387cc"/>
   <style name="rubyonrails:module-handler" foreground="#cc7833"/>
   <style name="rubyonrails:predefined-variable" foreground="#3387cc"/>
   <style name="rubyonrails:rails" foreground="#ffffff" background="#000000"/>

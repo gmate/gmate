@@ -64,6 +64,12 @@
   <style name="html:tag" foreground="#1c02ff"/>
   <style name="js:function" foreground="#3c4c72" bold="true"/>
   <style name="line-numbers" foreground="#000000" background="#ededed"/>
+  <style name="perl:builtin" foreground="#0000a2" bold="true"/>
+  <style name="perl:include-statement" foreground="#0c450d" bold="true"/>
+  <style name="perl:line-directive" foreground="#c5060b" italic="true"/>
+  <style name="perl:special-variable" foreground="#585cf6" italic="true"/>
+  <style name="perl:type" foreground="#c5060b" italic="true"/>
+  <style name="perl:variable" foreground="#0206ff" italic="true"/>
   <style name="php:string" foreground="#d80800"/>
   <style name="python:builtin-constant" foreground="#0100b6" bold="true"/>
   <style name="python:builtin-function" foreground="#0000a2" bold="true"/>
@@ -73,7 +79,7 @@
   <style name="ruby:attribute-definition" foreground="#0100b6" bold="true"/>
   <style name="ruby:builtin" foreground="#0206ff" italic="true"/>
   <style name="ruby:class-variable" foreground="#0206ff" italic="true"/>
-  <style name="ruby:constant" foreground="#0206ff" italic="true"/>
+  <style name="ruby:constant" foreground="#c5060b" italic="true"/>
   <style name="ruby:global-variable" foreground="#0000a2" bold="true"/>
   <style name="ruby:instance-variable" foreground="#0206ff" italic="true"/>
   <style name="ruby:module-handler" foreground="#0100b6" bold="true"/>
@@ -86,7 +92,7 @@
   <style name="rubyonrails:class-definition"  italic="true"/>
   <style name="rubyonrails:class-variable" foreground="#0206ff" italic="true"/>
   <style name="rubyonrails:complex-interpolation" foreground="#26b31a"/>
-  <style name="rubyonrails:constant" foreground="#0206ff" italic="true"/>
+  <style name="rubyonrails:constant" foreground="#c5060b" italic="true"/>
   <style name="rubyonrails:global-variable" foreground="#0000a2" bold="true"/>
   <style name="rubyonrails:instance-variable" foreground="#0206ff" italic="true"/>
   <style name="rubyonrails:module-handler" foreground="#0100b6" bold="true"/>

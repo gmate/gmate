@@ -37,7 +37,7 @@
   <style name="def:error" foreground="#ffffff" background="#990000"/>
   <style name="def:function" foreground="#81cef9"/>
   <style name="def:identifier" foreground="#00ffff"/>
-  <style name="def:keyword" foreground="#94fe9a"/>
+  <style name="def:keyword" foreground="#00ffff"/>
   <style name="def:note" foreground="#ff7d27"/>
   <style name="def:operator" foreground="#00ffff"/>
   <style name="def:preprocessor" foreground="#00ffff"/>
@@ -49,6 +49,10 @@
   <style name="html:dtd" foreground="#ff9e7b"/>
   <style name="html:tag" foreground="#9ccff4"/>
   <style name="line-numbers" foreground="#d3d3d3" background="#140027"/>
+  <style name="perl:builtin" foreground="#81cef9"/>
+  <style name="perl:include-statement" foreground="#00ffff"/>
+  <style name="perl:special-variable" foreground="#00ffff"/>
+  <style name="perl:variable" foreground="#00ffff"/>
   <style name="php:string" foreground="#ff9e7b"/>
   <style name="python:builtin-constant" foreground="#00ffff"/>
   <style name="python:builtin-function" foreground="#81cef9"/>

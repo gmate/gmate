@@ -43,7 +43,7 @@
   <style name="def:floating-point" foreground="#5ce638"/>
   <style name="def:function" foreground="#ffaa3e"/>
   <style name="def:identifier" foreground="#ffffff"/>
-  <style name="def:keyword" foreground="#ffffff"/>
+  <style name="def:keyword" foreground="#5ba1cf"/>
   <style name="def:note" foreground="#646763"/>
   <style name="def:number" foreground="#5ce638"/>
   <style name="def:operator" foreground="#5ba1cf"/>
@@ -58,6 +58,10 @@
   <style name="html:dtd" foreground="#5ce638"/>
   <style name="html:tag" foreground="#ffffff"/>
   <style name="line-numbers" foreground="#b9bdb6" background="#0f1415"/>
+  <style name="perl:builtin" foreground="#ffaa3e"/>
+  <style name="perl:include-statement" foreground="#5ba1cf"/>
+  <style name="perl:special-variable" foreground="#5ce638"/>
+  <style name="perl:variable" foreground="#ffffff"/>
   <style name="php:string" foreground="#5ce638"/>
   <style name="python:builtin-constant" foreground="#5ba1cf"/>
   <style name="python:builtin-function" foreground="#ffaa3e"/>

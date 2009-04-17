@@ -44,7 +44,7 @@
   <style name="def:floating-point" foreground="#367c1b"/>
   <style name="def:function" foreground="#aaaaaa"/>
   <style name="def:identifier" foreground="#aaaaaa"/>
-  <style name="def:keyword" foreground="#3185b9"/>
+  <style name="def:keyword" foreground="#d01d33"/>
   <style name="def:note" foreground="#a28075"/>
   <style name="def:number" foreground="#367c1b"/>
   <style name="def:operator" foreground="#d01d33"/>
@@ -59,6 +59,12 @@
   <style name="html:dtd" foreground="#60f400"/>
   <style name="js:function" foreground="#cbc3b1"/>
   <style name="line-numbers" foreground="#ffffff" background="#1b1b00"/>
+  <style name="perl:builtin" foreground="#aaaaaa"/>
+  <style name="perl:include-statement" foreground="#d01d33"/>
+  <style name="perl:line-directive" foreground="#367c1b"/>
+  <style name="perl:special-variable" foreground="#d01d33"/>
+  <style name="perl:type" foreground="#367c1b"/>
+  <style name="perl:variable" foreground="#aaaaaa"/>
   <style name="php:string" foreground="#60f400"/>
   <style name="python:builtin-constant" foreground="#d01d33"/>
   <style name="python:builtin-function" foreground="#aaaaaa"/>
@@ -68,7 +74,7 @@
   <style name="ruby:attribute-definition" foreground="#d01d33"/>
   <style name="ruby:builtin" foreground="#aaaaaa"/>
   <style name="ruby:class-variable" foreground="#aaaaaa"/>
-  <style name="ruby:constant" foreground="#aaaaaa"/>
+  <style name="ruby:constant" foreground="#367c1b"/>
   <style name="ruby:global-variable" foreground="#aaaaaa"/>
   <style name="ruby:instance-variable" foreground="#aaaaaa"/>
   <style name="ruby:module-handler" foreground="#d01d33"/>
@@ -81,7 +87,7 @@
   <style name="rubyonrails:class-definition"  underline="true"/>
   <style name="rubyonrails:class-variable" foreground="#aaaaaa"/>
   <style name="rubyonrails:complex-interpolation" foreground="#367c1b"/>
-  <style name="rubyonrails:constant" foreground="#aaaaaa"/>
+  <style name="rubyonrails:constant" foreground="#367c1b"/>
   <style name="rubyonrails:global-variable" foreground="#aaaaaa"/>
   <style name="rubyonrails:instance-variable" foreground="#aaaaaa"/>
   <style name="rubyonrails:module-handler" foreground="#d01d33"/>

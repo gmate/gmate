@@ -50,6 +50,8 @@
   <style name="draw-spaces" foreground="#ffc600"/>
   <style name="html:dtd" foreground="#fffccf"/>
   <style name="line-numbers" foreground="#dbfef8" background="#4d6969"/>
+  <style name="perl:include-statement"  bold="true"/>
+  <style name="perl:special-variable"  bold="true"/>
   <style name="php:string" foreground="#fffccf"/>
   <style name="python:builtin-constant"  bold="true"/>
   <style name="python:module-handler"  bold="true"/>

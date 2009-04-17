@@ -63,6 +63,10 @@
   <style name="html:dtd" foreground="#8ec65f"/>
   <style name="html:tag" foreground="#fc803a"/>
   <style name="line-numbers" foreground="#e6e1dc" background="#333435"/>
+  <style name="perl:include-statement" foreground="#fc803a"/>
+  <style name="perl:line-directive" foreground="#68c1d8"/>
+  <style name="perl:special-variable" foreground="#e1c582"/>
+  <style name="perl:type" foreground="#68c1d8"/>
   <style name="php:string" foreground="#8ec65f"/>
   <style name="python:builtin-constant" foreground="#fc803a"/>
   <style name="python:builtin-function" foreground="#68c1d8"/>
@@ -70,6 +74,7 @@
   <style name="python:module-handler" foreground="#fc803a"/>
   <style name="python:special-variable" foreground="#fc803a"/>
   <style name="ruby:attribute-definition" foreground="#fc803a"/>
+  <style name="ruby:constant" foreground="#68c1d8"/>
   <style name="ruby:module-handler" foreground="#fc803a"/>
   <style name="ruby:predefined-variable" foreground="#e1c582"/>
   <style name="ruby:regex" foreground="#8ec65f"/>
@@ -77,6 +82,7 @@
   <style name="ruby:symbol" foreground="#68c1d8"/>
   <style name="rubyonrails:attribute-definition" foreground="#fc803a"/>
   <style name="rubyonrails:complex-interpolation" foreground="#b3e5b4"/>
+  <style name="rubyonrails:constant" foreground="#68c1d8"/>
   <style name="rubyonrails:module-handler" foreground="#fc803a"/>
   <style name="rubyonrails:predefined-variable" foreground="#e1c582"/>
   <style name="rubyonrails:regex" foreground="#8ec65f"/>

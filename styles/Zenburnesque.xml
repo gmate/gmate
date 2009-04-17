@@ -51,6 +51,9 @@
   <style name="draw-spaces" foreground="#a8a8a8"/>
   <style name="html:dtd" foreground="#ff2020"/>
   <style name="line-numbers" foreground="#dedede" background="#4e4940"/>
+  <style name="perl:builtin" foreground="#ffcc66" bold="true"/>
+  <style name="perl:include-statement" foreground="#ffffa0"/>
+  <style name="perl:special-variable" foreground="#ffffa0"/>
   <style name="php:string" foreground="#ff2020"/>
   <style name="python:builtin-constant" foreground="#ffffa0"/>
   <style name="python:builtin-function" foreground="#ffcc66" bold="true"/>

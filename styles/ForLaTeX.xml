@@ -42,7 +42,7 @@
   <style name="def:preprocessor" foreground="#ff0000"/>
   <style name="def:reserved" foreground="#999999"/>
   <style name="def:shebang" foreground="#66ff66" italic="true"/>
-  <style name="def:special-char" foreground="#ffff00"/>
+  <style name="def:special-char" foreground="#ff0000"/>
   <style name="def:statement" foreground="#999999"/>
   <style name="def:string" foreground="#ff66ff"/>
   <style name="def:type" foreground="#ffffff"/>
@@ -50,6 +50,8 @@
   <style name="html:dtd" foreground="#ff66ff"/>
   <style name="js:function" foreground="#ffcc66"/>
   <style name="line-numbers" foreground="#66ccff" background="#7f7f7f"/>
+  <style name="perl:include-statement" foreground="#999999"/>
+  <style name="perl:special-variable" foreground="#999999"/>
   <style name="php:string" foreground="#ff66ff"/>
   <style name="python:builtin-constant" foreground="#999999"/>
   <style name="python:module-handler" foreground="#999999"/>

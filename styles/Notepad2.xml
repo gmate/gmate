@@ -58,6 +58,10 @@
   <style name="html:tag" foreground="#0000af"/>
   <style name="js:function" foreground="#800080"/>
   <style name="line-numbers" foreground="#000000" background="#ffe6c2"/>
+  <style name="perl:builtin" foreground="#000000"/>
+  <style name="perl:include-statement" foreground="#800080"/>
+  <style name="perl:special-variable"  bold="true"/>
+  <style name="perl:variable" foreground="#000080" italic="true"/>
   <style name="php:string" foreground="#008000"/>
   <style name="python:builtin-constant" foreground="#800080"/>
   <style name="python:builtin-function" foreground="#000000"/>

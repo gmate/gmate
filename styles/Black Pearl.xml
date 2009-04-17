@@ -54,7 +54,7 @@
   <style name="def:special-char" foreground="#ff2837" bold="true"/>
   <style name="def:special-constant" foreground="#8aa6c1"/>
   <style name="def:statement" foreground="#8aa6c1"/>
-  <style name="def:string" foreground="#e2ce00"/>
+  <style name="def:string" foreground="#cc66ff"/>
   <style name="diff:added-line"  background="#253b22"/>
   <style name="diff:changed-line"  background="#4a410d"/>
   <style name="diff:location"  background="#0e2231" italic="true"/>
@@ -63,6 +63,10 @@
   <style name="html:dtd" foreground="#cc66ff"/>
   <style name="html:tag" foreground="#ffffff" bold="true"/>
   <style name="line-numbers" foreground="#ffffff" background="#0d0d0d"/>
+  <style name="perl:include-statement" foreground="#8aa6c1"/>
+  <style name="perl:line-directive" foreground="#8aa6c1"/>
+  <style name="perl:special-variable" foreground="#8aa6c1"/>
+  <style name="perl:type" foreground="#8aa6c1"/>
   <style name="php:string" foreground="#cc66ff"/>
   <style name="python:builtin-constant" foreground="#8aa6c1"/>
   <style name="python:builtin-function" foreground="#8aa6c1"/>
@@ -70,6 +74,7 @@
   <style name="python:module-handler" foreground="#8aa6c1"/>
   <style name="python:special-variable" foreground="#8aa6c1"/>
   <style name="ruby:attribute-definition" foreground="#8aa6c1"/>
+  <style name="ruby:constant" foreground="#8aa6c1"/>
   <style name="ruby:module-handler" foreground="#8aa6c1"/>
   <style name="ruby:predefined-variable" foreground="#8aa6c1"/>
   <style name="ruby:regex" foreground="#ca4344"/>
@@ -77,6 +82,7 @@
   <style name="ruby:symbol" foreground="#80d500"/>
   <style name="rubyonrails:attribute-definition" foreground="#8aa6c1"/>
   <style name="rubyonrails:complex-interpolation" foreground="#ff7819" background="#e9cc46"/>
+  <style name="rubyonrails:constant" foreground="#8aa6c1"/>
   <style name="rubyonrails:module-handler" foreground="#8aa6c1"/>
   <style name="rubyonrails:predefined-variable" foreground="#8aa6c1"/>
   <style name="rubyonrails:rails" foreground="#ffffff" background="#000000"/>

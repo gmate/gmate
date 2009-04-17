@@ -39,7 +39,7 @@
   <style name="def:doc-comment-element" foreground="#406040"/>
   <style name="def:floating-point" foreground="#0080a0"/>
   <style name="def:function" foreground="#800000"/>
-  <style name="def:keyword" foreground="#008080"/>
+  <style name="def:keyword" foreground="#2060a0"/>
   <style name="def:note" foreground="#406040"/>
   <style name="def:number" foreground="#0080a0"/>
   <style name="def:operator" foreground="#2060a0"/>
@@ -51,6 +51,9 @@
   <style name="draw-spaces" foreground="#bfbfbf"/>
   <style name="html:dtd" foreground="#c03030"/>
   <style name="line-numbers" foreground="#000000" background="#cdcdcd"/>
+  <style name="perl:builtin" foreground="#800000"/>
+  <style name="perl:include-statement" foreground="#2060a0"/>
+  <style name="perl:special-variable" foreground="#2060a0"/>
   <style name="php:string" foreground="#c03030"/>
   <style name="python:builtin-constant" foreground="#2060a0"/>
   <style name="python:builtin-function" foreground="#800000"/>

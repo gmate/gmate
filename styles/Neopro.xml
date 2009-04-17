@@ -45,14 +45,14 @@
   <style name="def:floating-point" foreground="#fbff96" background="#000000"/>
   <style name="def:function" foreground="#a9f83b" background="#2e4411" bold="true"/>
   <style name="def:identifier" foreground="#ff244e"/>
-  <style name="def:keyword" foreground="#ff00b2" background="#28001c" bold="true"/>
+  <style name="def:keyword" foreground="#80a6ff" background="#1b2935" bold="true"/>
   <style name="def:note" foreground="#cfd1d1" background="#232424"/>
   <style name="def:number" foreground="#fbff96" background="#000000"/>
   <style name="def:operator" foreground="#80a6ff" background="#1b2935" bold="true"/>
   <style name="def:preprocessor" foreground="#ff9c00" bold="true"/>
   <style name="def:reserved" foreground="#80a6ff" background="#1b2935" bold="true"/>
   <style name="def:shebang" foreground="#cfd1d1" background="#232424"/>
-  <style name="def:special-char" foreground="#70eeff" background="#0a2930"/>
+  <style name="def:special-char" foreground="#ff9c00" bold="true"/>
   <style name="def:special-constant" foreground="#2184ff"/>
   <style name="def:statement" foreground="#80a6ff" background="#1b2935" bold="true"/>
   <style name="def:string" foreground="#aae0ff" background="#031d28"/>
@@ -62,6 +62,10 @@
   <style name="html:tag" foreground="#ff00f9" background="#000000"/>
   <style name="js:function" foreground="#ae8bf7" background="#352a4b" bold="true"/>
   <style name="line-numbers" foreground="#ffffff" background="#1d1e30"/>
+  <style name="perl:builtin" foreground="#a9f83b" background="#2e4411" bold="true"/>
+  <style name="perl:include-statement" foreground="#80a6ff" background="#1b2935" bold="true"/>
+  <style name="perl:special-variable" foreground="#2184ff"/>
+  <style name="perl:variable" foreground="#ff244e"/>
   <style name="php:string" foreground="#aae0ff" background="#031d28"/>
   <style name="python:builtin-constant" foreground="#80a6ff" background="#1b2935" bold="true"/>
   <style name="python:builtin-function" foreground="#a9f83b" background="#2e4411" bold="true"/>

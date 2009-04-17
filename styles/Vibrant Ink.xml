@@ -32,22 +32,22 @@
   <style name="css:keyword" foreground="#999966"/>
   <style name="current-line"  background="#333300"/>
   <style name="cursor" foreground="#ffffff"/>
-  <style name="def:base-n-integer" foreground="#339999"/>
+  <style name="def:base-n-integer" foreground="#ccff33"/>
   <style name="def:boolean" foreground="#339999"/>
   <style name="def:builtin" foreground="#339999"/>
   <style name="def:character" foreground="#66ff00"/>
   <style name="def:comment" foreground="#9933cc"/>
-  <style name="def:complex" foreground="#339999"/>
+  <style name="def:complex" foreground="#ccff33"/>
   <style name="def:constant" foreground="#339999"/>
-  <style name="def:decimal" foreground="#339999"/>
+  <style name="def:decimal" foreground="#ccff33"/>
   <style name="def:doc-comment" foreground="#9933cc"/>
   <style name="def:doc-comment-element" foreground="#9933cc"/>
-  <style name="def:floating-point" foreground="#339999"/>
+  <style name="def:floating-point" foreground="#ccff33"/>
   <style name="def:function" foreground="#ffcc00"/>
   <style name="def:identifier" foreground="#ffffff"/>
   <style name="def:keyword" foreground="#ff6600"/>
   <style name="def:note" foreground="#9933cc"/>
-  <style name="def:number" foreground="#339999"/>
+  <style name="def:number" foreground="#ccff33"/>
   <style name="def:operator" foreground="#ff6600"/>
   <style name="def:preprocessor" foreground="#ff6600"/>
   <style name="def:reserved" foreground="#ff6600"/>
@@ -55,10 +55,16 @@
   <style name="def:special-char" foreground="#339999"/>
   <style name="def:special-constant" foreground="#339999"/>
   <style name="def:statement" foreground="#ff6600"/>
-  <style name="def:string" foreground="#cccc33"/>
+  <style name="def:string" foreground="#66ff00"/>
   <style name="draw-spaces" foreground="#404040"/>
   <style name="html:dtd" foreground="#66ff00"/>
   <style name="line-numbers" foreground="#ffffff" background="#333300"/>
+  <style name="perl:builtin" foreground="#ffcc00"/>
+  <style name="perl:include-statement" foreground="#ff6600"/>
+  <style name="perl:line-directive" foreground="#339999"/>
+  <style name="perl:special-variable" foreground="#ff6600"/>
+  <style name="perl:type" foreground="#339999"/>
+  <style name="perl:variable" foreground="#ffffff"/>
   <style name="php:string" foreground="#66ff00"/>
   <style name="python:builtin-constant" foreground="#ff6600"/>
   <style name="python:builtin-function" foreground="#ffcc00"/>

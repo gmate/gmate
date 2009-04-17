@@ -50,6 +50,9 @@
   <style name="html:dtd" foreground="#00d8ff"/>
   <style name="html:tag"  bold="true" underline="true"/>
   <style name="line-numbers" foreground="#ffffff" background="#07181f"/>
+  <style name="perl:builtin"  bold="true" underline="true"/>
+  <style name="perl:special-variable" foreground="#e62286" bold="true"/>
+  <style name="perl:variable" foreground="#e62286" bold="true"/>
   <style name="php:string" foreground="#00d8ff"/>
   <style name="python:builtin-function"  bold="true" underline="true"/>
   <style name="ruby:attribute-definition" foreground="#e62286" bold="true"/>

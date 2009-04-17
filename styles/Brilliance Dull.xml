@@ -52,7 +52,7 @@
   <style name="def:preprocessor" foreground="#56a5a4"/>
   <style name="def:reserved" foreground="#a459a5"/>
   <style name="def:shebang" foreground="#333333"/>
-  <style name="def:special-char" foreground="#80a659"/>
+  <style name="def:special-char" foreground="#56a5a4"/>
   <style name="def:special-constant" foreground="#59a559"/>
   <style name="def:statement" foreground="#a459a5"/>
   <style name="def:string" foreground="#a6a458" background="#111d04"/>
@@ -63,6 +63,10 @@
   <style name="draw-spaces" foreground="#191919"/>
   <style name="html:tag" foreground="#505050"/>
   <style name="line-numbers" foreground="#cdcdcd" background="#040411"/>
+  <style name="perl:builtin" foreground="#a75980"/>
+  <style name="perl:include-statement" foreground="#a459a5"/>
+  <style name="perl:special-variable" foreground="#56a5a4"/>
+  <style name="perl:variable" foreground="#5e6b6b"/>
   <style name="python:builtin-constant" foreground="#a459a5"/>
   <style name="python:builtin-function" foreground="#a75980"/>
   <style name="python:module-handler" foreground="#a459a5"/>

@@ -48,6 +48,9 @@
   <style name="html:dtd" foreground="#ff0000" bold="true"/>
   <style name="html:tag" foreground="#00ff00"/>
   <style name="line-numbers" foreground="#ffffff" background="#4e58b1"/>
+  <style name="perl:builtin" foreground="#00ff00"/>
+  <style name="perl:include-statement" foreground="#ff6fcf"/>
+  <style name="perl:special-variable" foreground="#ff6fcf"/>
   <style name="php:string" foreground="#ff0000" bold="true"/>
   <style name="python:builtin-constant" foreground="#ff6fcf"/>
   <style name="python:builtin-function" foreground="#00ff00"/>

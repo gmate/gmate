@@ -52,7 +52,7 @@
   <style name="def:preprocessor" foreground="#fbde2d"/>
   <style name="def:reserved" foreground="#fbde2d"/>
   <style name="def:shebang" foreground="#aeaeae"/>
-  <style name="def:special-char" foreground="#d8fa3c"/>
+  <style name="def:special-char" foreground="#8da6ce"/>
   <style name="def:special-constant" foreground="#d8fa3c"/>
   <style name="def:statement" foreground="#fbde2d"/>
   <style name="def:string" foreground="#61ce3c"/>
@@ -62,6 +62,11 @@
   <style name="html:tag" foreground="#ff6400"/>
   <style name="js:function" foreground="#8da6ce"/>
   <style name="line-numbers" foreground="#f8f8f8" background="#1a1e2e"/>
+  <style name="perl:builtin" foreground="#ff6400"/>
+  <style name="perl:include-statement" foreground="#fbde2d"/>
+  <style name="perl:line-directive" foreground="#d8fa3c"/>
+  <style name="perl:special-variable" foreground="#fbde2d"/>
+  <style name="perl:type" foreground="#d8fa3c"/>
   <style name="php:string" foreground="#61ce3c"/>
   <style name="python:builtin-constant" foreground="#fbde2d"/>
   <style name="python:builtin-function" foreground="#d8fa3c"/>
@@ -69,6 +74,7 @@
   <style name="python:module-handler" foreground="#fbde2d"/>
   <style name="python:special-variable" foreground="#fbde2d"/>
   <style name="ruby:attribute-definition" foreground="#fbde2d"/>
+  <style name="ruby:constant" foreground="#d8fa3c"/>
   <style name="ruby:global-variable" foreground="#ff6400"/>
   <style name="ruby:module-handler" foreground="#fbde2d"/>
   <style name="ruby:predefined-variable" foreground="#d8fa3c"/>
@@ -78,6 +84,7 @@
   <style name="rubyonrails:attribute-definition" foreground="#fbde2d"/>
   <style name="rubyonrails:class-definition" foreground="#ff6400"/>
   <style name="rubyonrails:complex-interpolation" foreground="#d8fa3c"/>
+  <style name="rubyonrails:constant" foreground="#d8fa3c"/>
   <style name="rubyonrails:global-variable" foreground="#ff6400"/>
   <style name="rubyonrails:module-handler" foreground="#fbde2d"/>
   <style name="rubyonrails:predefined-variable" foreground="#d8fa3c"/>

@@ -58,6 +58,9 @@
   <style name="html:dtd" foreground="#2a9a66" background="#e8f5f5"/>
   <style name="html:tag" foreground="#761b48" bold="true"/>
   <style name="line-numbers" foreground="#2d669a" background="#fffedb"/>
+  <style name="perl:include-statement" foreground="#761b48" bold="true"/>
+  <style name="perl:special-variable" foreground="#4f1900" bold="true"/>
+  <style name="perl:variable" foreground="#2d669a"/>
   <style name="php:string" foreground="#2a9a66" background="#e8f5f5"/>
   <style name="python:builtin-constant" foreground="#761b48" bold="true"/>
   <style name="python:module-handler" foreground="#761b48" bold="true"/>

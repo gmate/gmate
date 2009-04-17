@@ -92,14 +92,17 @@
   <style name="ruby:special-variable" foreground="#b3935c"/>
   <style name="ruby:symbol" foreground="#da5659"/>
   <style name="rubyonrails:attribute-definition" foreground="#b3935c"/>
+  <style name="rubyonrails:block-parameter" foreground="#7989a6"/>
   <style name="rubyonrails:builtin" foreground="#7989a6"/>
-  <style name="rubyonrails:class-definition" foreground="#6d4c2f"/>
+  <style name="rubyonrails:class-inherit" foreground="#9b5c2e" italic="true"/>
+  <style name="rubyonrails:class-name" foreground="#6d4c2f"/>
   <style name="rubyonrails:class-variable" foreground="#7989a6"/>
   <style name="rubyonrails:complex-interpolation" foreground="#daefa3"/>
   <style name="rubyonrails:constant" foreground="#da5659"/>
   <style name="rubyonrails:global-variable" foreground="#6d4c2f"/>
   <style name="rubyonrails:instance-variable" foreground="#7989a6"/>
   <style name="rubyonrails:module-handler" foreground="#b3935c"/>
+  <style name="rubyonrails:module-name" foreground="#6d4c2f"/>
   <style name="rubyonrails:predefined-variable" foreground="#da5659"/>
   <style name="rubyonrails:rails" foreground="#7989a6"/>
   <style name="rubyonrails:regex" foreground="#e9c062"/>

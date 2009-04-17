@@ -78,6 +78,7 @@
   <style name="ruby:regex" foreground="#999999"/>
   <style name="ruby:special-variable" foreground="#a080ff"/>
   <style name="rubyonrails:attribute-definition" foreground="#a080ff"/>
+  <style name="rubyonrails:block-parameter" foreground="#80b0b0"/>
   <style name="rubyonrails:builtin" foreground="#008080"/>
   <style name="rubyonrails:class-variable" foreground="#008080"/>
   <style name="rubyonrails:complex-interpolation" foreground="#666666"/>

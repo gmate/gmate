@@ -55,7 +55,9 @@
   <style name="perl:special-variable" foreground="#557474"/>
   <style name="php:string" foreground="#d7d7d7"/>
   <style name="ruby:predefined-variable" foreground="#557474"/>
-  <style name="rubyonrails:class-definition" foreground="#867e63"/>
+  <style name="rubyonrails:class-inherit" foreground="#867e63"/>
+  <style name="rubyonrails:class-name" foreground="#867e63"/>
+  <style name="rubyonrails:module-name" foreground="#867e63"/>
   <style name="rubyonrails:predefined-variable" foreground="#557474"/>
   <style name="rubyonrails:rails" foreground="#cacaca"/>
   <style name="search-match"  background="#0f0f0f" bold="true" underline="true"/>

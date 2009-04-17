@@ -84,6 +84,7 @@
   <style name="ruby:special-variable" foreground="#b43d3d"/>
   <style name="ruby:symbol" foreground="#f7e741"/>
   <style name="rubyonrails:attribute-definition" foreground="#b43d3d"/>
+  <style name="rubyonrails:block-parameter" foreground="#8aa6c1"/>
   <style name="rubyonrails:builtin" foreground="#8aa6c1"/>
   <style name="rubyonrails:class-variable" foreground="#8aa6c1"/>
   <style name="rubyonrails:complex-interpolation" foreground="#f7e741"/>

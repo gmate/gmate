@@ -64,6 +64,7 @@
   <style name="ruby:regex" foreground="#00d8ff"/>
   <style name="ruby:symbol" foreground="#00d8ff"/>
   <style name="rubyonrails:attribute-definition" foreground="#e62286" bold="true"/>
+  <style name="rubyonrails:block-parameter" foreground="#e62286" bold="true"/>
   <style name="rubyonrails:builtin" foreground="#e62286" bold="true"/>
   <style name="rubyonrails:class-variable" foreground="#e62286" bold="true"/>
   <style name="rubyonrails:complex-interpolation" foreground="#00d8ff"/>

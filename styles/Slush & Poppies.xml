@@ -68,6 +68,7 @@
   <style name="rubyonrails:complex-interpolation" foreground="#c03030"/>
   <style name="rubyonrails:global-variable" foreground="#800000"/>
   <style name="rubyonrails:module-handler" foreground="#2060a0"/>
+  <style name="rubyonrails:module-name" foreground="#0080ff"/>
   <style name="rubyonrails:regex" foreground="#c03030"/>
   <style name="rubyonrails:simple-interpolation" foreground="#c03030"/>
   <style name="rubyonrails:special-variable" foreground="#2060a0"/>

@@ -62,9 +62,12 @@
   <style name="ruby:special-variable" foreground="#999999"/>
   <style name="ruby:symbol" foreground="#ffff00"/>
   <style name="rubyonrails:attribute-definition" foreground="#999999"/>
-  <style name="rubyonrails:class-definition" foreground="#ffffff"/>
+  <style name="rubyonrails:block-parameter" foreground="#ff0080"/>
+  <style name="rubyonrails:class-inherit" foreground="#ffffff"/>
+  <style name="rubyonrails:class-name" foreground="#ffffff"/>
   <style name="rubyonrails:complex-interpolation" foreground="#ffff00"/>
   <style name="rubyonrails:module-handler" foreground="#999999"/>
+  <style name="rubyonrails:module-name" foreground="#ffffff"/>
   <style name="rubyonrails:regex" foreground="#ff66ff"/>
   <style name="rubyonrails:simple-interpolation" foreground="#ffff00"/>
   <style name="rubyonrails:special-variable" foreground="#999999"/>

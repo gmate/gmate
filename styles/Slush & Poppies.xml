@@ -50,6 +50,7 @@
   <style name="def:string" foreground="#c03030"/>
   <style name="draw-spaces" foreground="#bfbfbf"/>
   <style name="html:dtd" foreground="#c03030"/>
+  <style name="html:tag" foreground="#800000"/>
   <style name="line-numbers" foreground="#000000" background="#cdcdcd"/>
   <style name="perl:builtin" foreground="#800000"/>
   <style name="perl:include-statement" foreground="#2060a0"/>
@@ -75,6 +76,7 @@
   <style name="search-match"  background="#cdcdcd" bold="true" underline="true"/>
   <style name="selection" foreground="#000000" background="#b0b0ff"/>
   <style name="text" foreground="#000000" background="#f1f1f1"/>
+  <style name="xml:tag" foreground="#800000"/>
   
 
 </style-scheme>

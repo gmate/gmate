@@ -58,6 +58,7 @@
   <style name="def:string" foreground="#00c8ff"/>
   <style name="draw-spaces" foreground="#adadad"/>
   <style name="html:dtd" foreground="#00c8ff"/>
+  <style name="html:tag" foreground="#ffcf7b"/>
   <style name="js:function" foreground="#d3c8d4"/>
   <style name="line-numbers" foreground="#cfd1d1" background="#080d12"/>
   <style name="perl:builtin" foreground="#ffcf7b"/>
@@ -100,6 +101,7 @@
   <style name="selection" foreground="#cfd1d1" background="#b6d5ff"/>
   <style name="text" foreground="#cfd1d1" background="#000000"/>
   <style name="xml:attribute-name" foreground="#d1cece"/>
+  <style name="xml:tag" foreground="#ffcf7b"/>
   
 
 </style-scheme>

@@ -52,6 +52,7 @@
   <style name="def:type" foreground="#a535ae"/>
   <style name="draw-spaces" foreground="#bfbfbf"/>
   <style name="html:dtd" foreground="#00a33f"/>
+  <style name="html:tag" foreground="#21439c"/>
   <style name="js:function" foreground="#a535ae"/>
   <style name="line-numbers" foreground="#000000" background="#ededed"/>
   <style name="perl:builtin" foreground="#21439c"/>
@@ -82,6 +83,7 @@
   <style name="search-match"  background="#ededed" bold="true" underline="true"/>
   <style name="selection" foreground="#000000" background="#bad6fd"/>
   <style name="text" foreground="#000000" background="#ffffff"/>
+  <style name="xml:tag" foreground="#21439c"/>
   
 
 </style-scheme>

@@ -59,7 +59,7 @@
   <style name="def:type" foreground="#ffa995"/>
   <style name="draw-spaces" foreground="#ff38ff"/>
   <style name="html:dtd" foreground="#ffffff" background="#ab7878"/>
-  <style name="html:tag" foreground="#0000ff" bold="true"/>
+  <style name="html:tag" foreground="#ffa995"/>
   <style name="js:function" foreground="#e5b3ff"/>
   <style name="line-numbers" foreground="#000000" background="#8b8b8b"/>
   <style name="perl:builtin" foreground="#ffa995"/>
@@ -106,7 +106,7 @@
   <style name="xml:attribute-name" foreground="#3a68a3" italic="true"/>
   <style name="xml:element-name" foreground="#0000ff" bold="true"/>
   <style name="xml:namespace" foreground="#0000ff" bold="true"/>
-  <style name="xml:tag" foreground="#0000ff" bold="true"/>
+  <style name="xml:tag" foreground="#ffa995"/>
   
 
 </style-scheme>

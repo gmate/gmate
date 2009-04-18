@@ -391,11 +391,11 @@
     </context>
 
     <context id="constants" style-ref="constant">
-      <match>[A-Z][A-Za-z0-9_]\w*</match>
+      <match>\b[A-Z][A-Za-z0-9_]\w*\b</match>
     </context>
 
     <context id="support-constants" style-ref="def:builtin">
-      <match>[A-Z][A-Za-z0-9_]\w*\.</match>
+      <match>\b[A-Z][A-Za-z0-9_]\w*\b\.</match>
     </context>
 
      <context id="class-name" style-ref="class-name"><match/></context>

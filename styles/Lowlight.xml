@@ -35,7 +35,7 @@
   <style name="cursor" foreground="#595959"/>
   <style name="def:base-n-integer" foreground="#e66c29"/>
   <style name="def:boolean" foreground="#e66c29"/>
-  <style name="def:builtin" foreground="#e66c29"/>
+  <style name="def:builtin" foreground="#2f8996"/>
   <style name="def:character" foreground="#a57c5c"/>
   <style name="def:comment" foreground="#3c5636" background="#1c1f1b" italic="true"/>
   <style name="def:complex" foreground="#e66c29"/>
@@ -93,7 +93,7 @@
   <style name="ruby:symbol" foreground="#e66c29"/>
   <style name="rubyonrails:attribute-definition" foreground="#8f8d17"/>
   <style name="rubyonrails:block-parameter" foreground="#77acb0" bold="true"/>
-  <style name="rubyonrails:builtin" foreground="#77acb0" bold="true"/>
+  <style name="rubyonrails:builtin" foreground="#2f8996"/>
   <style name="rubyonrails:class-inherit" foreground="#9b5c2e" bold="true" italic="true"/>
   <style name="rubyonrails:class-name" foreground="#2eb43b"/>
   <style name="rubyonrails:class-variable" foreground="#77acb0" bold="true"/>

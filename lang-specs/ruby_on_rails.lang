@@ -45,8 +45,6 @@
     <style id="builtin"               _name="Builtin"               map-to="def:type"/>
     <style id="constant"              _name="Constant"              map-to="def:type"/>
     <style id="symbol"                _name="Symbol"                map-to="def:string"/>
-    <style id="function-definition"   _name="Function Definition"   map-to="def:function"/>
-    <style id="class-definition"      _name="Class Definition"      map-to="def:identifier"/>
     <style id="operators"             _name="Operators"             map-to="def:keyword"/>
     <style id="instance-variable"     _name="Instance Variable"     map-to="def:identifier"/>
     <style id="global-variable"       _name="Global Variable"       map-to="def:identifier"/>
@@ -59,6 +57,13 @@
     <style id="here-doc"              _name="Heredoc"               map-to="def:string" />
     <style id="here-doc-bound"        _name="Heredoc Bound"         map-to="def:string"/>
     <style id="regex"                 _name="Regular Expression"    map-to="def:identifier"/>
+    <style id="class-definition"      _name="Class Definition"      map-to="def:identifier"/>
+    <style id="function-definition"   _name="Function Definition"   map-to="def:function"/>
+    <style id="class-name"            _name="Ruby Class Name"       map-to="def:identifier"/>
+    <style id="class-inherit"         _name="Ruby Inherited Class"  map-to="def:identifier"/>
+    <style id="module-name"           _name="Ruby Inherited Class"  map-to="def:identifier"/>
+    <style id="block-parameter"       _name="Parameters in blocks"  map-to="def:identifier"/>
+
     <style id="rails"                 _name="Rails constants"       map-to="def:identifier"/>
   </styles>
 
@@ -98,6 +103,7 @@
 
     <context id="module-handlers" style-ref="module-handler">
       <keyword>require</keyword>
+      <keyword>gem</keyword>
       <keyword>include</keyword>
       <keyword>load</keyword>
       <keyword>extend</keyword>
@@ -384,44 +390,45 @@
       <match>\$[1-9][0-9]*</match>
     </context>
 
-    <!--TODO: Need no ovewrite other styles -->
     <context id="constants" style-ref="constant">
-      <match>\b[A-Z][A-Z0-9_]*\b</match>
+      <match>[A-Z][A-Za-z0-9_]\w*</match>
     </context>
 
-    <!-- TODO: Ignore when foloowed by a dot "Class.something" >
-    <context id="class-definition" style-ref="class-definition">
-      <match>(?&lt;!&lt;)(&lt;\s*)?(::)?\b[A-Z][A-Za-z0-9_]*\b</match>
-    </context -->
-
-    <!-- New class-definition and module-definition tests -->
-    <context id="class-keyword" style-ref="keyword">
-      <match>class\s</match>
+    <context id="support-constants" style-ref="def:builtin">
+      <match>[A-Z][A-Za-z0-9_]\w*\.</match>
     </context>
 
-    <context id="class-name" style-ref="class-name" extend-parent="true">
-      <match>(?&lt;=class)\s(?&lt;!&lt;)\b[A-Z][A-Za-z0-9_:]*\b</match>
+     <context id="class-name" style-ref="class-name"><match/></context>
+    <context id="class-inherit" style-ref="class-inherit"><match/></context>
+
+    <context id="class-definition">
+        <match>^\s*(class)\s+(\b[A-Za-z_:]*\b)(\s+(&lt;)\s+(\b[A-Za-z_:]*\b))?</match>
+        <include>
+            <context sub-pattern="1" style-ref="keyword"/>
+            <context sub-pattern="2" style-ref="class-name"/>
+            <context sub-pattern="4" style-ref="operators"/>
+            <context sub-pattern="5" style-ref="class-inherit"/>
+        </include>
     </context>
 
-    <context id="class-inherit" style-ref="class-inherit">
-      <match>&lt;\s*(::)?\b[A-Z][A-Za-z0-9_:]*\b</match>
+    <context id="module-name" style-ref="module-name"><match/></context>
+
+    <context id="module-definition">
+        <match>^\s*(module)\s+(\b[A-Za-z_:]*\b)</match>
+        <include>
+            <context sub-pattern="1" style-ref="keyword"/>
+            <context sub-pattern="2" style-ref="module-name"/>
+        </include>
     </context>
 
-    <context id="class-definition" style-ref="class-definition" end-at-line-end="true">
-      <start>(?&lt;=class)\s</start>
-      <end>\\n|;</end>
-      <include>
-        <context ref="class-keyword"/>
-        <context ref="class-name"/>
-        <context ref="class-inherit"/>
-      </include>
+    <context id="function-definition">
+        <match>(?=def\b)(def)\s+([A-Za-z_]\w*\.)?([A-Za-z_]\w*[\?!=]?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?)</match>
+        <include>
+            <context sub-pattern="1" style-ref="keyword"/>
+            <context sub-pattern="2" style-ref="function-definition"/>
+            <context sub-pattern="3" style-ref="function-definition"/>
+        </include>
     </context>
-
-    <context id="module-definitions" style-ref="module-definition">
-      <match>(?&lt;=module)(\s*)?(::)?\b[A-Z][A-Za-z0-9_:]*\b</match>
-    </context>
-
-    <!-- END New class-definition and module-definition tests -->
 
     <context id="nil-value" style-ref="nil-value">
       <keyword>NIL</keyword>
@@ -431,7 +438,6 @@
     <context id="operator" style-ref="operators">
       <match>&lt;=&gt;|(?&lt;!%)=(?!&gt;)|~|&lt;|&amp;|(?&lt;!=)&gt;|\*|/|\+|-|\||!</match>
     </context>
-    <!-- (\+|\||\|\||-|!|&gt;|&lt;|\*|/|&amp;|&amp;&amp;)?  (?&lt;!&lt;|%)-->
 
     <context id="boolean" style-ref="boolean">
       <keyword>FALSE</keyword>
@@ -469,12 +475,6 @@
 
     <context id="numeric-literal" style-ref="numeric-literal">
       <match>(?&lt;![\w\.])\?((\\[MC]-){1,2}|\\?)\S</match>
-    </context>
-
-    <!-- definition/Function def folowed by a function name
-         folowed or not by !,?,=. Need more acurrate posibilities -->
-    <context id="function-definition" style-ref="function-definition">
-      <match>(?&lt;=def)\s*(self\.)?\b[A-Za-z0-9_]*\b(\?|!|=)?</match>
     </context>
 
     <context id="block-parameters" style-ref="block-parameter">
@@ -940,6 +940,10 @@
         <context ref="string-array-simple5"/>
         <context ref="backtick-quoted-string"/>
         <context ref="attribute-definitions"/>
+        <context ref="class-definition"/>
+        <context ref="module-definition"/>
+        <context ref="function-definition"/>
+        <context ref="block-parameters"/>
         <context ref="definitions"/>
         <context ref="module-handlers"/>
         <context ref="keywords"/>
@@ -955,14 +959,8 @@
         <context ref="regexp-variables"/>
         <context ref="nil-value"/>
         <context ref="boolean"/>
+        <context ref="support-constants"/>
         <context ref="constants"/>
-        <!-- context ref="class-definition"/ -->
-        <!-- New class and module definition tests -->
-        <context ref="module-definitions"/>
-        <context ref="class-definition"/>
-        <context ref="class-inherit"/>
-        <context ref="class-name"/>
-        <!-- End New class and module definition tests -->
         <context ref="float"/>
         <context ref="decimal"/>
         <context ref="hex"/>
@@ -972,8 +970,6 @@
         <context ref="regex-alt-form"/>
         <context ref="regex-alt-form2"/>
         <context ref="regex-simple"/>
-        <context ref="function-definition"/>
-        <context ref="block-parameters"/>
         <context ref="simple-interpolation"/>
         <context ref="complex-interpolation"/>
         <context ref="operator"/>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
+
+ This file was generated from a textmate theme named Choco
+ with tm2gtksw2 tool. (Alexandre da Silva)
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+-->
+
+<style-scheme id="gmate" _name="Gmate" version="1.0">
+  <author>Alexandre da Silva</author>
+  <_description>GMate Theme</_description>
+
+  <style name="bracket-match"  background="#6a0000" foreground="#ffffff" bold="true"/>
+  <style name="bracket-mismatch"  background="#000000" foreground="#ffff00" underline="true"/>
+  <style name="current-line"  background="#211612"/>
+  <style name="cursor" foreground="#a7a7a7"/>
+  <style name="search-match"  background="#211612" bold="true" underline="true"/>
+  <style name="selection" foreground="#c3be98" background="#646467"/>
+  <style name="text" foreground="#e7c7c5" background="#1b0003"/>
+  <style name="draw-spaces" foreground="#534b48"/>
+  <style name="line-numbers" foreground="#ffffff" background="#2b0005"/>
+
+  <style name="def:base-n-integer" foreground="#0091ff"/>
+  <style name="def:boolean" foreground="#da5659"/>
+  <style name="def:builtin" foreground="#a8799c"/>
+  <style name="def:character" foreground="#7ca563"/>
+  <style name="def:comment" foreground="#747474" italic="true"/>
+  <style name="def:complex" foreground="#0091ff"/>
+  <style name="def:constant" foreground="#da5659"/>
+  <style name="def:decimal" foreground="#0091ff"/>
+  <style name="def:doc-comment" foreground="#679d47" background="#172013" italic="true"/>
+  <style name="def:doc-comment-element" foreground="#679d47" background="#172013" italic="true"/>
+  <style name="def:error" foreground="#f8f8f8" background="#462543"/>
+  <style name="def:floating-point" foreground="#0091ff"/>
+  <style name="def:function" foreground="#d1ff00"/>
+  <style name="def:identifier" foreground="#c18cff"/>
+  <style name="def:keyword" foreground="#ff1f00"/>
+  <style name="def:note" foreground="#939d47" italic="true"/>
+  <style name="def:number" foreground="#0091ff"/>
+  <style name="def:operator" foreground="#ac6d00"/>
+  <style name="def:preprocessor" foreground="#d77261"/>
+  <style name="def:reserved" foreground="#b3935c"/>
+  <style name="def:shebang" foreground="#679d47" background="#172013" italic="true"/>
+  <style name="def:special-char" foreground="#ddf2a4"/>
+  <style name="def:special-constant" foreground="#ff6c70"/>
+  <style name="def:statement" foreground="#b35e5c"/>
+  <style name="def:string" foreground="#68c132"/>
+  <style name="def:type" foreground="#ff1f00"/>
+
+  <style name="c:preprocessor" foreground="#8996a8"/>
+  <style name="css:at-rules" foreground="#b3935c"/>
+  <style name="css:color" foreground="#da5659"/>
+  <style name="css:keyword" foreground="#af977b"/>
+
+  <style name="diff:added-line" foreground="#f8f8f8" background="#253b22"/>
+  <style name="diff:changed-line" foreground="#f8f8f8" background="#4a410d"/>
+  <style name="diff:location" foreground="#f8f8f8" background="#0e2231" italic="true"/>
+  <style name="diff:removed-line" foreground="#f8f8f8" background="#420e09"/>
+
+  <style name="js:function" foreground="#c29863"/>
+  <style name="perl:builtin" foreground="#6d4c2f"/>
+  <style name="perl:include-statement" foreground="#b3935c"/>
+  <style name="perl:line-directive" foreground="#da5659"/>
+  <style name="perl:special-variable" foreground="#b3935c"/>
+  <style name="perl:type" foreground="#da5659"/>
+  <style name="perl:variable" foreground="#7989a6"/>
+  <style name="php:string" foreground="#7ca563"/>
+
+  <style name="python:builtin-constant" foreground="#b3935c"/>
+
+  <style name="python:builtin-function" foreground="#da5659"/>
+  <style name="python:builtin-object" foreground="#da5659"/>
+  <style name="python:module-handler" foreground="#b3935c"/>
+  <style name="python:special-variable" foreground="#b3935c"/>
+
+  <style name="rubyonrails:attribute-definition" foreground="#ff00d0"/>
+  <style name="rubyonrails:block-parameter" foreground="#2a67d6"/>
+  <style name="rubyonrails:builtin" foreground="#dd36b2"/>
+  <style name="rubyonrails:class-inherit" foreground="#ab00ff" italic="true" underline="true"/>
+  <style name="rubyonrails:class-name" foreground="#ffffff"/>
+  <style name="rubyonrails:class-variable" foreground="#7989a6"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#daefa3"/>
+  <style name="rubyonrails:constant" foreground="#ff7e81"/>
+  <style name="rubyonrails:global-variable" foreground="#c18cff"/>
+  <style name="rubyonrails:instance-variable" foreground="#c18cff"/>
+  <style name="rubyonrails:module-handler" foreground="#ff3840"/>
+  <style name="rubyonrails:module-name" foreground="#36deff" italic="true"/>
+  <style name="rubyonrails:predefined-variable" foreground="#ffe300"/>
+  <style name="rubyonrails:rails" foreground="#ff006d"/>
+  <style name="rubyonrails:regex" foreground="#ffba1d"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#68a568"/>
+  <style name="rubyonrails:special-variable" foreground="#68a568"/>
+  <style name="rubyonrails:symbol" foreground="#ff5d00"/>
+
+  <style name="xml:attribute-name" foreground="#6d4c2f"/>
+  <style name="xml:doctype" foreground="#494949"/>
+  <style name="xml:element-name" foreground="#6d4c2f"/>
+  <style name="xml:namespace" foreground="#6d4c2f"/>
+  <style name="xml:tag" foreground="#ff1f00"/>
+
+  <style name="html:dtd" foreground="#7ca563"/>
+  <style name="html:tag" foreground="#ff1f00"/>
+
+</style-scheme>
+

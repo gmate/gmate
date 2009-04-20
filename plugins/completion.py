@@ -243,7 +243,7 @@ class CompletionPlugin(gedit.Plugin):
             return self._terminate_completion()
         if event.state & gtk.gdk.MOD1_MASK:
             return self._terminate_completion()
-        if (event.keyval == gtk.keysyms.Tab) and self._remains:
+        if (event.keyval == gtk.keysyms.Return) and self._remains:
             return not self._complete_current()
         completion_window = self._completion_windows[window]
         if (event.keyval == gtk.keysyms.Up) and self._remains:

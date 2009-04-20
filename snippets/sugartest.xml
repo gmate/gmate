@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="js">
+  <snippet>
+    <tag>st</tag>
+    <description>SugarTest default structure</description>
+    <text><![CDATA[
+     SugarTest("${1:basename}")
+      .context("${2:description}")
+        .before(function(${3:data}) {
+            ${4:action}
+          })
+         .should("${5:do this}", function() {
+          this.${6:assertion}
+          ${7}
+          })
+        ${0}
+      .end()
+     .run();
+    ]]></text>
+  </snippet>
+    <snippet>
+    <tag>stc</tag>
+    <description>SugarTest context</description>
+    <text><![CDATA[ .context("${1:description}")
+  .should("${2:do this}", function() {
+    this.${3:assertion}
+      ${4}
+    })
+  ${0}
+.end()]]></text>
+  </snippet>
+
+   <snippet>
+    <tag>sts</tag>
+    <description>SugarTest should</description>
+    <text><![CDATA[.should("${1:do this}", function() {
+  this.${2:assertion}
+    ${3}
+  })
+${0}
+    ]]></text>
+  </snippet>
+
+   <snippet>
+    <tag>stb</tag>
+    <description>SugarTest before</description>
+    <text><![CDATA[.before(function(${1:data}) {
+    ${3}
+  })
+${0}]]></text>
+  </snippet>
+
+
+<snippet>
+    <tag>sta</tag>
+    <description>SugarTest after</description>
+    <text><![CDATA[.after(function() {
+    ${3}
+  })
+${0}]]></text>
+  </snippet>
+
+</snippets>

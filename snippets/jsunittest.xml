@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="js">
+  <snippet>
+    <tag>sim</tag>
+    <description>Event.simulate</description>
+    <text><![CDATA[Event.simulate(${1:'${2:element}'}, '${3:event}');]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>simh</tag>
+    <description>Event.simulateHtml</description>
+    <text><![CDATA[Event.simulateHtml(${1:'${2:element}'}, '${3:blur|change|error|focus|load|reset|select|submit|unload}');]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>simm</tag>
+    <description>Event.simulateMouse</description>
+    <text><![CDATA[Event.simulateMouse(${1:'${2:element}'}, '${3:click|dblclick|mousedown|mousemove|mouseout|mouseover|mouseup}');]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>runner</tag>
+    <description>Runner</description>
+    <text><![CDATA[new Test.Unit.Runner({
+  setup: function() { with(this) {
+  }},
+
+  teardown: function() { with(this) {
+  }},
+
+  test$0
+
+}, {testLog: "${2:testlog${1:-div-id}}"});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>as</tag>
+    <description>assert</description>
+    <text><![CDATA[assert(${1:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asb</tag>
+    <description>assert bloc</description>
+    <text><![CDATA[assertBlock('${1:message}'}, function() {
+  $0
+  return true;
+});]]></text>
+  </snippet>
+
+
+  <snippet>
+    <tag>asd</tag>
+    <description>assert difference</description>
+    <text><![CDATA[assertDifference('${1:expr}', function() {
+  $0
+}${5:, ${4:1}});]]></text>
+  </snippet>
+
+
+  <snippet>
+    <tag>asem</tag>
+    <description>assertElementMatch</description>
+    <text><![CDATA[assertElementsMatch(${1:elements}, ${2:expr});]]></text>
+  </snippet>
+
+    <snippet>
+    <tag>asem</tag>
+    <description>assertElementsMatch</description>
+    <text><![CDATA[assertElementsMatch(${1:elements}, ${2:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asee</tag>
+    <description>assertEnumEqual</description>
+    <text><![CDATA[assertEnumEqual(${1:expected}, ${2:actual}${3:, '${4:Enum should be equal}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asene</tag>
+    <description>assertEnumNotEqual</description>
+    <text><![CDATA[assertEnumNotEqual(${1:expected}, ${2:actual}${3:, '${4:Enum should be not equal}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>ase</tag>
+    <description>assertEqual</description>
+    <text><![CDATA[assertEqual(${1:expected}, ${2:actual});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>ash</tag>
+    <description>assertHidden</description>
+    <text><![CDATA[assertHidden(${1:element}${3:, '${4:Should be hidden}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asi</tag>
+    <description>assertIdentical</description>
+    <text><![CDATA[assertIdentical(${1:expected}, ${2:actual}${3:, '${4:Should be identitical}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asio</tag>
+    <description>assertInstanceOf</description>
+    <text><![CDATA[assertInstanceOf(${1:expected}, ${2:actual}${3:, '${4:Should be instance}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asm</tag>
+    <description>assertMatch</description>
+    <text><![CDATA[assertMatch(${1:expected}, ${2:actual});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnd</tag>
+    <description>assertNoDifference</description>
+    <text><![CDATA[assertNoDifference('${1:expr}', function() {
+  $0
+});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnm</tag>
+    <description>assertNoMatch</description>
+    <text><![CDATA[assertNoMatch(${1:expected}, ${2:actual}${3:, '${4:Should be no match}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asne</tag>
+    <description>assertNotEqual</description>
+    <text><![CDATA[assertNotEqual(${1:expected}, ${2:actual});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnhc</tag>
+    <description>assertNotHasClass</description>
+    <text><![CDATA[assertNotHasClass(${1:element}, '${2:class}');]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asni</tag>
+    <description>assertNotIdentical</description>
+    <text><![CDATA[assertNotIdentical(${1:expected}, ${2:actual}${3:, '${4:Should not be identitical}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnio</tag>
+    <description>assertNotInstanceOf</description>
+    <text><![CDATA[assertNotInstanceOf(${1:expected}, ${2:actual}${3:, '${4:Should not be instance}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnn</tag>
+    <description>assertNotNull</description>
+    <text><![CDATA[assertNotNull(${1:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnnou</tag>
+    <description>assertNotNullOrUndefined</description>
+    <text><![CDATA[assertNotNullOrUndefined(${1:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnu</tag>
+    <description>assertNotUndefined</description>
+    <text><![CDATA[assertNotUndefined(${1:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnv</tag>
+    <description>assertNotVisible</description>
+    <text><![CDATA[assertNotVisible(${1:element}${2:, '${3:Should not be visible}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnr</tag>
+    <description>assertRaise nothing</description>
+    <text><![CDATA[assertRaise('${1:exceptionName}', ${2:method}${3:, '${4:Should raise nothing}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asn</tag>
+    <description>assertNull</description>
+    <text><![CDATA[assertNull(${1:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asnou</tag>
+    <description>assertNullOrUndefined</description>
+    <text><![CDATA[assertNullOrUndefined(${1:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asr</tag>
+    <description>assertRaise</description>
+    <text><![CDATA[assertRaise('${1:exceptionName}', ${2:method}${3:, '${4:Should raise}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asrt</tag>
+    <description>assertRespondsTo</description>
+    <text><![CDATA[assertRespondsTo('${1:method}', ${2:obj}${3:, '${4:Should respond to}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asru</tag>
+    <description>assertUndefined</description>
+    <text><![CDATA[assertUndefined(${1:expr});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>asv</tag>
+    <description>assertVisible</description>
+    <text><![CDATA[assertVisible(${1:element}${2:, '${3:Should be visible}'});]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>bmf</tag>
+    <description>benchmark with function</description>
+    <text><![CDATA[benchmark(function() {
+  $1
+}, ${2:1000}, '${1/^([a-zA-Z_.]+).*/$1/}');]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>bm</tag>
+    <description>benchmark</description>
+    <text><![CDATA[benchmark(${1:operation}, ${2:1000}, '${3:Operation}');]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>fail</tag>
+    <description>fail</description>
+    <text><![CDATA[fail("${1:message}");]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>info</tag>
+    <description>info</description>
+    <text><![CDATA[info("${1:message}");]]></text>
+  </snippet>
+
+  <snippet>
+    <tag>wait</tag>
+    <description>wait</description>
+    <text><![CDATA[wait("${1:message}");]]></text>
+  </snippet>
+
+
+</snippets>

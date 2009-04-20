@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<snippets language="ruby">
+<snippets language="rubyonrails">
   <snippet>
     <text><![CDATA[assert_contains(${1:collection}, ${2:/${3:x}/}${4:, "${5:extra_msg}"})]]></text>
     <description>assert_contains</description>
@@ -247,3 +247,4 @@ end]]></text>
     <tag>shstft</tag>
   </snippet>
 </snippets>
+

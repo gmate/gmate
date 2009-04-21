@@ -28,6 +28,12 @@ indent_key_str     = "%s_indent_regex"
 unindent_key_str   = "%s_unindent_regex"
 keystrokes_key_str = "%s_unindent_keystrokes"
 
+# Trailsave Plugin Config
+crop_spaces_eol_key_str        = "%s_crop_spaces_eol"
+insert_newline_eof_key_str     = "%s_insert_newline_eof"
+remove_blank_lines_eol_key_str = "%s_remove_blank_lines_eol"
+
+
 default_tab_size_key   = "/apps/gedit-2/preferences/editor/tabs/tabs_size"
 default_use_spaces_key = "/apps/gedit-2/preferences/editor/tabs/insert_spaces"
 
@@ -132,6 +138,31 @@ def get_tab_size(lang):
             t_size = default_indent_config[tab_size_key]
     return t_size or DEFAULT_TAB_SIZE
 
+
+# TrailSave Plugin -------------------------------------------------------------
+
+def get_trail_config(lang, key_str):
+    config_key = key_str % lang
+    config_data = config_client.get(os.path.join(gconf_base_uri, config_key))
+    if config_data == None:
+        config_val = True
+    else:
+        config_val = config_data.get_bool()
+    return config_val
+
+
+def get_crop_spaces_eol(lang):
+    return get_trail_config(lang, crop_spaces_eol_key_str)
+
+
+def get_insert_newline_eof(lang):
+    return get_trail_config(lang, insert_newline_eof_key_str)
+
+
+def get_remove_blanklines_eof(lang):
+    return get_trail_config(lang, remove_blank_lines_eol_key_str)
+
+# ------------------------------------------------------------------------------
 
 class SmartIndentPlugin(gedit.Plugin):
     handler_ids = []
@@ -249,6 +280,20 @@ class ConfigurationWindowHelper:
         self.edt_unindent_keystrokes = glade_xml.get_widget('edt_unindent_keystrokes')
         self.edt_unindent_keystrokes.set_text(get_unindent_keystrokes(self.lang_id) or '')
 
+        # TrailsSave Options
+        crop_spaces = get_crop_spaces_eol(self.lang_id)
+        insert_newline = get_insert_newline_eof(self.lang_id)
+        remove_blanklines = get_remove_blanklines_eof(self.lang_id)
+
+        self.cbx_crop_spaces_on_eol = glade_xml.get_widget('cbx_crop_spaces_on_eol')
+        self.cbx_crop_spaces_on_eol.set_active(crop_spaces)
+
+        self.cbx_insert_newline_at_eof = glade_xml.get_widget('cbx_insert_newline_at_eof')
+        self.cbx_insert_newline_at_eof.set_active(insert_newline)
+
+        self.cbx_remove_blank_lines_at_eof = glade_xml.get_widget('cbx_remove_blank_lines_at_eof')
+        self.cbx_remove_blank_lines_at_eof.set_active(remove_blanklines)
+
 
     def close_dialog(self):
         self.dialog.destroy()
@@ -281,17 +326,32 @@ class ConfigurationWindowHelper:
         unindent_regex = self.edt_unindent_regex.get_text()
         unindent_keystrokes = self.edt_unindent_keystrokes.get_text()
 
+        #TrailSave Plugin
+        crop_spaces = self.cbx_crop_spaces_on_eol.get_active()
+        insert_newline = self.cbx_insert_newline_at_eof.get_active()
+        remove_blanklines = self.cbx_remove_blank_lines_at_eof.get_active()
+
         size_key = size_key_str % self.lang_id
         space_key = space_key_str % self.lang_id
         indent_key = indent_key_str % self.lang_id
         unindent_key = unindent_key_str % self.lang_id
         keystrokes_key = keystrokes_key_str % self.lang_id
 
+        # TrailSave Plugin
+        crop_spaces_key = crop_spaces_eol_key_str % self.lang_id
+        insert_newline_key = insert_newline_eof_key_str % self.lang_id
+        remove_blanklines_key = remove_blank_lines_eol_key_str % self.lang_id
+
         config_client.set_int(os.path.join(gconf_base_uri,size_key), size)
         config_client.set_bool(os.path.join(gconf_base_uri,space_key), use_spaces)
         config_client.set_string(os.path.join(gconf_base_uri,indent_key), indent_regex)
         config_client.set_string(os.path.join(gconf_base_uri,unindent_key), unindent_regex)
         config_client.set_string(os.path.join(gconf_base_uri,keystrokes_key), unindent_keystrokes)
+
+        # TrailSave Plugin
+        config_client.set_bool(os.path.join(gconf_base_uri, crop_spaces_key), crop_spaces)
+        config_client.set_bool(os.path.join(gconf_base_uri, insert_newline_key), insert_newline)
+        config_client.set_bool(os.path.join(gconf_base_uri, remove_blanklines_key), remove_blanklines)
 
         view.set_insert_spaces_instead_of_tabs(use_spaces)
         view.set_tab_width(size)

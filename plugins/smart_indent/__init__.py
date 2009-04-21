@@ -19,8 +19,8 @@ gconf_base_uri = u"/apps/gedit-2/plugins/smart_indent"
 config_client = gconf.client_get_default()
 config_client.add_dir(gconf_base_uri, gconf.CLIENT_PRELOAD_NONE)
 
-size_key_str       = "%s_tab_size"
-space_key_str      = "%s_use_space"
+tab_size_key_str   = "%s_tab_size"
+use_spaces_key_str = "%s_use_spaces"
 indent_key_str     = "%s_indent_regex"
 unindent_key_str   = "%s_unindent_regex"
 keystrokes_key_str = "%s_unindent_keystrokes"
@@ -61,10 +61,14 @@ default_indent_config = {
     "ruby_unindent_regex"               : r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$',
     "ruby_unindent_keystrokes"          : 'edfn',
 
+    "rubyonrails_tab_size"              : 2,
+    "rubyonrails_use_spaces"            : True,
     "rubyonrails_indent_regex"          : r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+',
     "rubyonrails_unindent_regex"        : r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$',
     "rubyonrails_unindent_keystrokes"   : 'edfn',
 
+    "python_tab_size"                   : 4,
+    "python_use_spaces"                 : True,
     "python_indent_regex"               : r'\s*[^#]{3,}:\s*(#.*)?',
     "python_unindent_regex"             : r'^\s*(else|elif\s.*|except(\s.*)?|finally)\s*:',
     "python_unindent_keystrokes"        : ':',
@@ -78,8 +82,23 @@ default_indent_config = {
     "php_unindent_keystrokes"           : ':'
 }
 
+def get_tab_size_from_config(lang):
+    tab_size_key = tab_size_key_str % lang
+    r_tab_size = config_client.get_int(os.path.join(gconf_base_uri, tab_size_key))
+    if r_tab_size == None or r_tab_size == 0:
+        if default_indent_config.has_key(tab_size_key):
+            r_tab_size = default_indent_config[tab_size_key]
+    return r_tab_size or ''
 
-def get_indent_regex(lang):
+def get_use_spaces_from_config(lang):
+    use_spaces_key = use_spaces_key_str % lang
+    r_use_spaces = config_client.get_bool(os.path.join(gconf_base_uri, use_spaces_key))
+    if r_use_spaces == None or not r_use_spaces:
+        if default_indent_config.has_key(use_spaces_key):
+            r_use_spaces = default_indent_config[use_spaces_key]
+    return r_use_spaces or ''
+
+def get_indent_regex_from_config(lang):
     indent_key = indent_key_str % lang
     r_indent = config_client.get_string(os.path.join(gconf_base_uri, indent_key))
     if r_indent == None:
@@ -87,7 +106,7 @@ def get_indent_regex(lang):
             r_indent = default_indent_config[indent_key]
     return r_indent or ''
 
-def get_unindent_regex(lang):
+def get_unindent_regex_from_config(lang):
     unindent_key = unindent_key_str % lang
     r_unindent = config_client.get_string(os.path.join(gconf_base_uri, unindent_key))
     if r_unindent == None:
@@ -95,7 +114,7 @@ def get_unindent_regex(lang):
             r_unindent = default_indent_config[unindent_key]
     return r_unindent or ''
 
-def get_unindent_keystrokes(lang):
+def get_unindent_keystrokes_from_config(lang):
     keystrokes_key = keystrokes_key_str % lang
     u_keystrokes = config_client.get_string(os.path.join(gconf_base_uri, keystrokes_key))
     if u_keystrokes == None:
@@ -194,26 +213,26 @@ class ConfigurationWindowHelper:
             lang_name = _(u'Plain Text')
             self.lang_id = 'plain_text'
 
-        space = view.get_insert_spaces_instead_of_tabs()
-        size = view.get_tab_width()
+        use_spaces = view.get_insert_spaces_instead_of_tabs()
+        tab_size = view.get_tab_width()
 
         self.lbl_language = glade_xml.get_widget('lbl_language')
         self.lbl_language.set_markup("Language: <b>%s</b>" % lang_name)
 
         self.edt_size = glade_xml.get_widget('edt_size')
-        self.edt_size.set_value(size)
+        self.edt_size.set_value(get_tab_size_from_config(self.lang_id) or tab_size)
 
         self.cbx_use_spaces = glade_xml.get_widget('cbx_use_spaces')
-        self.cbx_use_spaces.set_active(space)
+        self.cbx_use_spaces.set_active(get_use_spaces_from_config(self.lang_id) or use_spaces)
 
         self.edt_indent_regex = glade_xml.get_widget('edt_indent_regex')
-        self.edt_indent_regex.set_text(get_indent_regex(self.lang_id) or '')
+        self.edt_indent_regex.set_text(get_indent_regex_from_config(self.lang_id) or '')
 
         self.edt_unindent_regex = glade_xml.get_widget('edt_unindent_regex')
-        self.edt_unindent_regex.set_text(get_unindent_regex(self.lang_id) or '')
+        self.edt_unindent_regex.set_text(get_unindent_regex_from_config(self.lang_id) or '')
 
         self.edt_unindent_keystrokes = glade_xml.get_widget('edt_unindent_keystrokes')
-        self.edt_unindent_keystrokes.set_text(get_unindent_keystrokes(self.lang_id) or '')
+        self.edt_unindent_keystrokes.set_text(get_unindent_keystrokes_from_config(self.lang_id) or '')
 
 
     def close_dialog(self):
@@ -243,20 +262,21 @@ class ConfigurationWindowHelper:
         unindent_regex = self.edt_unindent_regex.get_text()
         unindent_keystrokes = self.edt_unindent_keystrokes.get_text()
 
-        size_key = size_key_str % self.lang_id
-        space_key = space_key_str % self.lang_id
+        tab_size_key = tab_size_key_str % self.lang_id
+        use_spaces_key = use_spaces_key_str % self.lang_id
         indent_key = indent_key_str % self.lang_id
         unindent_key = unindent_key_str % self.lang_id
         keystrokes_key = keystrokes_key_str % self.lang_id
 
-        config_client.set_int(os.path.join(gconf_base_uri,size_key), size)
-        config_client.set_bool(os.path.join(gconf_base_uri,space_key), use_spaces)
+        config_client.set_int(os.path.join(gconf_base_uri,tab_size_key), size)
+        config_client.set_bool(os.path.join(gconf_base_uri,use_spaces_key), use_spaces)
         config_client.set_string(os.path.join(gconf_base_uri,indent_key), indent_regex)
         config_client.set_string(os.path.join(gconf_base_uri,unindent_key), unindent_regex)
         config_client.set_string(os.path.join(gconf_base_uri,keystrokes_key), unindent_keystrokes)
 
-        view.set_insert_spaces_instead_of_tabs(use_spaces)
-        view.set_tab_width(size)
+#		It's already being done in SmartIndent set_language method
+#        view.set_insert_spaces_instead_of_tabs(use_spaces)
+#        view.set_tab_width(size)
         if getattr(view, 'smart_indent_instance', False):
             view.smart_indent_instance.set_language(self.lang_id, view)
 
@@ -279,9 +299,9 @@ class SmartIndent:
 
     def set_indent_config(self, lang):
         self.clear_variables()
-        r_indent = get_indent_regex(lang)
-        r_unindent = get_unindent_regex(lang)
-        u_keystrokes = get_unindent_keystrokes(lang)
+        r_indent = get_indent_regex_from_config(lang)
+        r_unindent = get_unindent_regex_from_config(lang)
+        u_keystrokes = get_unindent_keystrokes_from_config(lang)
         if r_indent:
             self.re_indent_next = re.compile(r_indent)
         if r_unindent:
@@ -295,21 +315,10 @@ class SmartIndent:
             return False
 
     def set_language(self, lang, view):
-        self.__not_available = False
-        # Defaults
-        tab_size = 4
-        use_tabs = False
-        size_key = size_key_str % lang
-        space_key = space_key_str % lang
-        _tab_size = config_client.get_int(os.path.join(gconf_base_uri,size_key))
-        _use_spaces = config_client.get_bool(os.path.join(gconf_base_uri,space_key))
-        if _tab_size:
-            tab_size = _tab_size
-        if _use_spaces != None:
-            use_spaces = _use_spaces
-
         self.__not_available = not self.set_indent_config(lang)
-
+        # Defaults
+        tab_size = get_tab_size_from_config(lang) or 4
+        use_spaces = get_use_spaces_from_config(lang) or True
         # Set the buffer tab configuration
         view.set_tab_width(tab_size)
         view.set_insert_spaces_instead_of_tabs(use_spaces)

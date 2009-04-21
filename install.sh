@@ -7,6 +7,10 @@ sudo cp mime/rails.xml /usr/share/mime/packages
 # Copy language definitions
 sudo cp lang-specs/*.lang /usr/share/gtksourceview-2.0/language-specs/
 # Copy Tags
+if [ ! -d /usr/share/gedit-2/plugins/taglist/ ]
+then
+  sudo mkdir -p /usr/share/gedit-2/plugins/taglist/
+fi
 sudo cp tags/*.tags.gz /usr/share/gedit-2/plugins/taglist/
 
 # Update mime type database

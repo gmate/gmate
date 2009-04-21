@@ -1335,7 +1335,7 @@ end]]></text>
     <description>Redirect To Path</description>
   </snippet>
   <snippet>
-    <text><![CDATA[it "deveria ${1:test}" do
+    <text><![CDATA[it "${1:test}" do
 	$0
 end]]></text>
     <tag>it</tag>
@@ -1578,4 +1578,3 @@ end]]></text>
     <description>default_scope</description>
   </snippet>
 </snippets>
-

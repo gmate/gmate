@@ -120,7 +120,7 @@ end]]></text>
     <tag>eachwithindex</tag>
   </snippet>
   <snippet id=":">
-    <text><![CDATA[:${1:key} => ${2:"value"}${3:, }]]></text>
+    <text><![CDATA[:${1:key} => ${2:"value"}]]></text>
     <description>hash pair</description>
     <tag>:</tag>
   </snippet>
@@ -1578,3 +1578,4 @@ end]]></text>
     <description>default_scope</description>
   </snippet>
 </snippets>
+

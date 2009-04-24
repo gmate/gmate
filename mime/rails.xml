@@ -18,6 +18,14 @@
     <glob pattern="Rakefile"/>
   </mime-type>
   <mime-type type="application/x-ruby">
+    <comment>Capistrano Deployment File</comment>
+    <glob pattern="Capfile"/>
+  </mime-type>
+  <mime-type type="application/x-ruby">
+    <comment>Rackup File</comment>
+    <glob pattern="*.ru"/>
+  </mime-type>
+  <mime-type type="application/x-ruby">
     <comment>Ruby Rake Task</comment>
     <glob pattern="*.rake"/>
   </mime-type>

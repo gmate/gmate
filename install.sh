@@ -42,11 +42,21 @@ then
 fi
 cp styles/* ~/.gnome2/gedit/styles
 
-echo -n "Do you want to activate default plugin set? [y,N]:"
+echo -n "Do you want to activate default plugin and configuration set? [y,N]:"
 read answer
 case "$answer" in
     [yY])
-        `gconftool-2 --set /apps/gedit-2/plugins/teste -t list --list-type=str [smart_indent,text_tools,trailsave,rails_extract_partial,snapopen,rubyonrailsloader,quickhighlightmode,gemini,completion,align,spell,time,pythonconsole,indent,snippets,docinfo,modelines,filebrowser]`
+        `gconftool-2 --set /apps/gedit-2/plugins/teste -t list --list-type=str [smart_indent,text_tools,trailsave,rails_extract_partial,snapopen,rubyonrailsloader,quickhighlightmode,gemini,completion,align,spell,codecomment,time,pythonconsole,drawspaces,indent,snippets,smartspaces,docinfo,modelines,colorpicker,filebrowser]`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/auto_indent/auto_indent -t bool true`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/bracket_matching/bracket_matching -t bool true`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/current_line/highlight_current_line -t bool true`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/cursor_position/restore_cursor_position -t bool true`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/line_numbers/display_line_numbers -t bool true`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/right_margin/display_right_margin -t bool true`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/right_margin/right_margin_position -t int 80`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/colors/scheme -t str twilight`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/tabs/insert_spaces -t bool true`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/tabs/tabs_size -t int 4`
         echo "Configuration set."
         ;;
         *)

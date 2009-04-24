@@ -42,3 +42,15 @@ then
 fi
 cp styles/* ~/.gnome2/gedit/styles
 
+echo -n "Do you want to activate default plugin set? [y,N]:"
+read answer
+case "$answer" in
+    [yY])
+        `gconftool-2 --set /apps/gedit-2/plugins/teste -t list --list-type=str [smart_indent,text_tools,trailsave,rails_extract_partial,snapopen,rubyonrailsloader,quickhighlightmode,gemini,completion,align,spell,time,pythonconsole,indent,snippets,docinfo,modelines,filebrowser]`
+        echo "Configuration set."
+        ;;
+        *)
+        echo "No config performed."
+        ;;
+esac
+

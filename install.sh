@@ -42,6 +42,7 @@ then
 fi
 cp styles/* ~/.gnome2/gedit/styles
 
+# Ask for Python-Webkit package
 sudo apt-get install python-webkitgtk
 
 echo -n "Do you want to activate default plugin and configuration set? [y,N]:"

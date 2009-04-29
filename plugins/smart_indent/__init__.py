@@ -174,6 +174,24 @@ class SmartIndentPlugin(gedit.Plugin):
 
     def activate(self, window):
         view = window.get_active_view()
+
+        # Do statusbar stuff only if gedit version is bellow 2.25
+        self.do_setup_statusbar_stuff = gedit.version < (2,25,0)
+        self.DATA_TAG = 'LanguageStatusFrameWidget'
+        if self.do_setup_statusbar_stuff:
+            self.statusbar = window.get_statusbar()
+            self.frame = self.statusbar.get_data(self.DATA_TAG)
+            if self.frame == None:
+                self.status_label = gtk.Label('')
+                self.frame = gtk.Frame()
+                self.status_label.set_alignment(0, 0)
+                self.status_label.show()
+                self.frame.add(self.status_label)
+                self.frame.show()
+                self.statusbar.pack_end(self.frame, False, False)
+                self.statusbar.set_data(self.DATA_TAG, self.frame)
+            self.set_status(view)
+
         self.instances[window] = ConfigurationWindowHelper(self, window)
 
         actions = [
@@ -186,7 +204,6 @@ class SmartIndentPlugin(gedit.Plugin):
         self.manager = window.get_ui_manager()
         self.manager.insert_action_group(action_group, -1)
         self.manager.add_ui_from_string(user_interface)
-
         self.setup_smart_indent(view, 'plain_text')
 
 
@@ -197,20 +214,44 @@ class SmartIndentPlugin(gedit.Plugin):
 
         self.instances[window].deactivate()
 
+        if self.do_setup_statusbar_stuff:
+            self.status_label.set_text('')
+
 
     def run_dialog(self, action, window):
         self.instances[window].configuration_dialog()
 
 
+    def set_status(self, view):
+        if self.do_setup_statusbar_stuff:
+            if view:
+                space = view.get_insert_spaces_instead_of_tabs()
+                if space:
+                    label_str = '(%s - %s Spaces)'
+                else:
+                    label_str = '(%s - Tabsize %s)'
+                size  = view.get_tab_width()
+                language = view.get_buffer().get_language()
+                if language:
+                    lang = language.get_name()
+                else:
+                    lang = "Plain Text"
+                label = label_str % (str(lang), str(size))
+            else:
+                label=""
+            self.status_label.set_text(label)
+
+
     def update_ui(self, window):
         view = window.get_active_view()
+        self.set_status(view)
         lang = 'plain_text'
         if view:
             buf = view.get_buffer()
             language = buf.get_language()
             if language:
                 lang = language.get_id()
-        self.setup_smart_indent(view, lang)
+            self.setup_smart_indent(view, lang)
 
 
     def setup_smart_indent(self, view, lang):

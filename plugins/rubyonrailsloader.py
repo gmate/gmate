@@ -91,3 +91,4 @@ class RubyOnRailsLoader(gedit.Plugin):
 
     def get_data(self, name):
         return self.window.get_active_tab().get_view().get_data(name)
+

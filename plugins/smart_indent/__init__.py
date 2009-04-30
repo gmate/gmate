@@ -227,9 +227,9 @@ class SmartIndentPlugin(gedit.Plugin):
             if view:
                 space = view.get_insert_spaces_instead_of_tabs()
                 if space:
-                    label_str = '(%s - %s Spaces)'
+                    label_str = '%s - %s Spaces'
                 else:
-                    label_str = '(%s - Tabsize %s)'
+                    label_str = '%s - Tabsize %s'
                 size  = view.get_tab_width()
                 language = view.get_buffer().get_language()
                 if language:
@@ -396,6 +396,8 @@ class ConfigurationWindowHelper:
 
         view.set_insert_spaces_instead_of_tabs(use_spaces)
         view.set_tab_width(size)
+        self.plugin.set_status(view)
+
         if getattr(view, 'smart_indent_instance', False):
             view.smart_indent_instance.set_language(self.lang_id, view)
 

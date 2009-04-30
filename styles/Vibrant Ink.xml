@@ -30,7 +30,7 @@
   <style name="css:at-rules" foreground="#ff6600"/>
   <style name="css:color" foreground="#ffffff"/>
   <style name="css:keyword" foreground="#999966"/>
-  <style name="current-line"  background="#1f1f00"/>
+  <style name="current-line"  background="#101211"/>
   <style name="cursor" foreground="#ffffff"/>
   <style name="def:base-n-integer" foreground="#ccff33"/>
   <style name="def:boolean" foreground="#339999"/>

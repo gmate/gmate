@@ -69,14 +69,14 @@ default_indent_config = {
     "ruby_indent_regex"                 : r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+',
     "ruby_unindent_regex"               : r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$',
     "ruby_unindent_keystrokes"          : 'edfn',
-    "ruby_use_spaces"                   : True,
-    "ruby_tab_width"                    : 2,
+    "ruby_use_space"                    : True,
+    "ruby_tab_size"                     : 2,
 
     "rubyonrails_indent_regex"          : r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+',
     "rubyonrails_unindent_regex"        : r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$',
     "rubyonrails_unindent_keystrokes"   : 'edfn',
-    "rubyonrails_use_spaces"            : True,
-    "rubyonrails_tab_width"             : 2,
+    "rubyonrails_use_space"             : True,
+    "rubyonrails_tab_size"              : 2,
 
     "python_indent_regex"               : r'\s*[^#]{3,}:\s*(#.*)?',
     "python_unindent_regex"             : r'^\s*(else|elif\s.*|except(\s.*)?|finally)\s*:',
@@ -85,8 +85,26 @@ default_indent_config = {
     "javascript_indent_regex"           : r'\s*(((if|while)\s*\(|else\s*|else\s+if\s*\(|for\s*\(.*\))[^{;]*)',
     "javascript_unindent_regex"         : r'^.*(default:\s*|case.*:.*)$',
     "javascript_unindent_keystrokes"    : ':',
-    "javascript_use_spaces"             : True,
-    "javascript_tab_width"              : 2,
+    "javascript_use_space"              : True,
+    "javascript_tab_size"               : 2,
+
+    "rhtml_indent_regex"                : r'',
+    "rhtml_unindent_regex"              : r'',
+    "rhtml_unindent_keystrokes"         : '',
+    "rhtml_use_space"                   : True,
+    "rhtml_tab_size"                    : 2,
+
+    "xml_indent_regex"                  : r'',
+    "xml_unindent_regex"                : r'',
+    "xml_unindent_keystrokes"           : '',
+    "xml_use_space"                     : True,
+    "xml_tab_size"                      : 2,
+
+    "html_indent_regex"                 : r'',
+    "html_unindent_regex"               : r'',
+    "html_unindent_keystrokes"          : '',
+    "html_use_space"                    : True,
+    "html_tab_size"                     : 2,
 
     "php_indent_regex"                  : r'\s*(((if|while|else\s*(if)?|for(each)?|switch|declare)\s*\(.*\)[^{:;]*)|(do\s*[^\({:;]*))',
     "php_unindent_regex"                : r'^.*(default:\s*|case.*:.*)$',
@@ -96,46 +114,56 @@ default_indent_config = {
 
 def get_indent_regex(lang):
     indent_key = indent_key_str % lang
-    r_indent = config_client.get_string(os.path.join(gconf_base_uri, indent_key))
+    r_indent = config_client.get(os.path.join(gconf_base_uri, indent_key))
     if r_indent == None:
         if default_indent_config.has_key(indent_key):
             r_indent = default_indent_config[indent_key]
+    else:
+        r_indent = r_indent.get_string()
     return r_indent or ''
 
 
 def get_unindent_regex(lang):
     unindent_key = unindent_key_str % lang
-    r_unindent = config_client.get_string(os.path.join(gconf_base_uri, unindent_key))
+    r_unindent = config_client.get(os.path.join(gconf_base_uri, unindent_key))
     if r_unindent == None:
         if default_indent_config.has_key(unindent_key):
             r_unindent = default_indent_config[unindent_key]
+    else:
+        r_unindent = r_unindent.get_string()
     return r_unindent or ''
 
 
 def get_unindent_keystrokes(lang):
     keystrokes_key = keystrokes_key_str % lang
-    u_keystrokes = config_client.get_string(os.path.join(gconf_base_uri, keystrokes_key))
+    u_keystrokes = config_client.get(os.path.join(gconf_base_uri, keystrokes_key))
     if u_keystrokes == None:
         if default_indent_config.has_key(keystrokes_key):
             u_keystrokes = default_indent_config[keystrokes_key]
+    else:
+        u_keystrokes = u_keystrokes.get_string()
     return u_keystrokes or ''
 
 
 def get_use_spaces(lang):
     use_spaces_key = space_key_str % lang
-    u_spaces = config_client.get_bool(os.path.join(gconf_base_uri,use_spaces_key))
+    u_spaces = config_client.get(os.path.join(gconf_base_uri,use_spaces_key))
     if u_spaces == None:
         if default_indent_config.has_key(use_spaces_key):
             u_spaces = default_indent_config[use_spaces_key]
+    else:
+        u_spaces = u_spaces.get_bool()
     return u_spaces or DEFAULT_USE_SPACES
 
 
 def get_tab_size(lang):
     tab_size_key = size_key_str % lang
-    t_size = config_client.get_int(os.path.join(gconf_base_uri, tab_size_key))
+    t_size = config_client.get(os.path.join(gconf_base_uri, tab_size_key))
     if t_size == None:
         if default_indent_config.has_key(tab_size_key):
             t_size = default_indent_config[tab_size_key]
+    else:
+        t_size = t_size.get_int()
     return t_size or DEFAULT_TAB_SIZE
 
 

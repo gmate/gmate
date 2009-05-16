@@ -59,17 +59,17 @@ class SaveWithoutTrailingSpacePlugin(gedit.Plugin):
     def on_document_saving(self, doc, *args):
         """Strip trailing spaces in document."""
 
-        cursor = doc.get_iter_at_mark(doc.get_insert())
-        line = cursor.get_line()
-        offset = cursor.get_line_offset()
-        doc.begin_user_action()
+#        cursor = doc.get_iter_at_mark(doc.get_insert())
+#        line = cursor.get_line()
+#        offset = cursor.get_line_offset()
+#        doc.begin_user_action()
         self.strip_trailing_spaces_on_lines(doc)
         self.strip_trailing_blank_lines(doc)
-        doc.end_user_action()
-        try:
-            doc.go_to_line(line)
-        except:
-            pass
+#        doc.end_user_action()
+#        try:
+#            doc.go_to_line(line)
+#        except:
+#            pass
         return
 
 

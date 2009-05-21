@@ -242,9 +242,8 @@ end]]></text>
     <tag>shrw</tag>
   </snippet>
   <snippet>
-    <text><![CDATA[shuold_set_the_flash_to ${1:value}]]></text>
+    <text><![CDATA[should_set_the_flash_to ${1:value}]]></text>
     <description>should_set_the_flash_to</description>
     <tag>shstft</tag>
   </snippet>
 </snippets>
-

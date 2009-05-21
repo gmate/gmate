@@ -15,6 +15,9 @@ import os
 
 GLADE_FILE = os.path.join(os.path.dirname(__file__), "dialog.glade")
 
+DEFAULT_USE_SPACES = True
+DEFAULT_TAB_SIZE   = 4
+
 gconf_base_uri = u"/apps/gedit-2/plugins/smart_indent"
 config_client = gconf.client_get_default()
 config_client.add_dir(gconf_base_uri, gconf.CLIENT_PRELOAD_NONE)
@@ -24,6 +27,12 @@ space_key_str      = "%s_use_space"
 indent_key_str     = "%s_indent_regex"
 unindent_key_str   = "%s_unindent_regex"
 keystrokes_key_str = "%s_unindent_keystrokes"
+
+# Trailsave Plugin Config
+crop_spaces_eol_key_str        = "%s_crop_spaces_eol"
+insert_newline_eof_key_str     = "%s_insert_newline_eof"
+remove_blank_lines_eol_key_str = "%s_remove_blank_lines_eol"
+
 
 default_tab_size_key   = "/apps/gedit-2/preferences/editor/tabs/tabs_size"
 default_use_spaces_key = "/apps/gedit-2/preferences/editor/tabs/insert_spaces"
@@ -60,10 +69,14 @@ default_indent_config = {
     "ruby_indent_regex"                 : r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+',
     "ruby_unindent_regex"               : r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$',
     "ruby_unindent_keystrokes"          : 'edfn',
+    "ruby_use_spaces"                   : True,
+    "ruby_tab_width"                    : 2,
 
     "rubyonrails_indent_regex"          : r'[^#]*\s+\bdo\b(\s*|(\s+\|.+\|\s*))|\s*(\bif\b\s+.*|\belsif\b.*|\belse\b.*|\bdo\b(\s*|\s+.*)|\bcase\b\s+.*|\bwhen\b\s+.*|\bwhile\b\s+.*|\bfor\b\s+.*|\buntil\b\s+.*|\bloop\b\s+.*|\bdef\b\s+.*|\bclass\b\s+.*|\bmodule\b\s+.*|\bbegin\b.*|\bunless\b\s+.*|\brescue\b.*|\bensure\b.*)+',
     "rubyonrails_unindent_regex"        : r'^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$',
     "rubyonrails_unindent_keystrokes"   : 'edfn',
+    "rubyonrails_use_spaces"            : True,
+    "rubyonrails_tab_width"             : 2,
 
     "python_indent_regex"               : r'\s*[^#]{3,}:\s*(#.*)?',
     "python_unindent_regex"             : r'^\s*(else|elif\s.*|except(\s.*)?|finally)\s*:',
@@ -72,6 +85,8 @@ default_indent_config = {
     "javascript_indent_regex"           : r'\s*(((if|while)\s*\(|else\s*|else\s+if\s*\(|for\s*\(.*\))[^{;]*)',
     "javascript_unindent_regex"         : r'^.*(default:\s*|case.*:.*)$',
     "javascript_unindent_keystrokes"    : ':',
+    "javascript_use_spaces"             : True,
+    "javascript_tab_width"              : 2,
 
     "php_indent_regex"                  : r'\s*(((if|while|else\s*(if)?|for(each)?|switch|declare)\s*\(.*\)[^{:;]*)|(do\s*[^\({:;]*))',
     "php_unindent_regex"                : r'^.*(default:\s*|case.*:.*)$',
@@ -87,6 +102,7 @@ def get_indent_regex(lang):
             r_indent = default_indent_config[indent_key]
     return r_indent or ''
 
+
 def get_unindent_regex(lang):
     unindent_key = unindent_key_str % lang
     r_unindent = config_client.get_string(os.path.join(gconf_base_uri, unindent_key))
@@ -94,6 +110,7 @@ def get_unindent_regex(lang):
         if default_indent_config.has_key(unindent_key):
             r_unindent = default_indent_config[unindent_key]
     return r_unindent or ''
+
 
 def get_unindent_keystrokes(lang):
     keystrokes_key = keystrokes_key_str % lang
@@ -104,6 +121,49 @@ def get_unindent_keystrokes(lang):
     return u_keystrokes or ''
 
 
+def get_use_spaces(lang):
+    use_spaces_key = space_key_str % lang
+    u_spaces = config_client.get_bool(os.path.join(gconf_base_uri,use_spaces_key))
+    if u_spaces == None:
+        if default_indent_config.has_key(use_spaces_key):
+            u_spaces = default_indent_config[use_spaces_key]
+    return u_spaces or DEFAULT_USE_SPACES
+
+
+def get_tab_size(lang):
+    tab_size_key = size_key_str % lang
+    t_size = config_client.get_int(os.path.join(gconf_base_uri, tab_size_key))
+    if t_size == None:
+        if default_indent_config.has_key(tab_size_key):
+            t_size = default_indent_config[tab_size_key]
+    return t_size or DEFAULT_TAB_SIZE
+
+
+# TrailSave Plugin -------------------------------------------------------------
+
+def get_trail_config(lang, key_str):
+    config_key = key_str % lang
+    config_data = config_client.get(os.path.join(gconf_base_uri, config_key))
+    if config_data == None:
+        config_val = True
+    else:
+        config_val = config_data.get_bool()
+    return config_val
+
+
+def get_crop_spaces_eol(lang):
+    return get_trail_config(lang, crop_spaces_eol_key_str)
+
+
+def get_insert_newline_eof(lang):
+    return get_trail_config(lang, insert_newline_eof_key_str)
+
+
+def get_remove_blanklines_eof(lang):
+    return get_trail_config(lang, remove_blank_lines_eol_key_str)
+
+# ------------------------------------------------------------------------------
+
 class SmartIndentPlugin(gedit.Plugin):
     handler_ids = []
 
@@ -111,8 +171,27 @@ class SmartIndentPlugin(gedit.Plugin):
         gedit.Plugin.__init__(self)
         self.instances = {}
 
+
     def activate(self, window):
         view = window.get_active_view()
+
+        # Do statusbar stuff only if gedit version is bellow 2.25
+        self.do_setup_statusbar_stuff = gedit.version < (2,25,0)
+        self.DATA_TAG = 'LanguageStatusFrameWidget'
+        if self.do_setup_statusbar_stuff:
+            self.statusbar = window.get_statusbar()
+            self.frame = self.statusbar.get_data(self.DATA_TAG)
+            if self.frame == None:
+                self.status_label = gtk.Label('')
+                self.frame = gtk.Frame()
+                self.status_label.set_alignment(0, 0)
+                self.status_label.show()
+                self.frame.add(self.status_label)
+                self.frame.show()
+                self.statusbar.pack_end(self.frame, False, False)
+                self.statusbar.set_data(self.DATA_TAG, self.frame)
+            self.set_status(view)
+
         self.instances[window] = ConfigurationWindowHelper(self, window)
 
         actions = [
@@ -125,8 +204,8 @@ class SmartIndentPlugin(gedit.Plugin):
         self.manager = window.get_ui_manager()
         self.manager.insert_action_group(action_group, -1)
         self.manager.add_ui_from_string(user_interface)
-
         self.setup_smart_indent(view, 'plain_text')
+
 
     def deactivate(self, window):
         for (handler_id, view) in self.handler_ids:
@@ -135,18 +214,45 @@ class SmartIndentPlugin(gedit.Plugin):
 
         self.instances[window].deactivate()
 
+        if self.do_setup_statusbar_stuff:
+            self.status_label.set_text('')
+
+
     def run_dialog(self, action, window):
         self.instances[window].configuration_dialog()
 
+
+    def set_status(self, view):
+        if self.do_setup_statusbar_stuff:
+            if view:
+                space = view.get_insert_spaces_instead_of_tabs()
+                if space:
+                    label_str = '%s - %s Spaces'
+                else:
+                    label_str = '%s - Tabsize %s'
+                size  = view.get_tab_width()
+                language = view.get_buffer().get_language()
+                if language:
+                    lang = language.get_name()
+                else:
+                    lang = "Plain Text"
+                label = label_str % (str(lang), str(size))
+            else:
+                label=""
+            self.status_label.set_text(label)
+
+
     def update_ui(self, window):
         view = window.get_active_view()
+        self.set_status(view)
         lang = 'plain_text'
         if view:
             buf = view.get_buffer()
             language = buf.get_language()
             if language:
                 lang = language.get_id()
-        self.setup_smart_indent(view, lang)
+            self.setup_smart_indent(view, lang)
+
 
     def setup_smart_indent(self, view, lang):
         # Configure a "per-view" instance
@@ -164,6 +270,7 @@ class ConfigurationWindowHelper:
         self.window = window
         self.plugin = plugin
         self.dialog = None
+
 
     def configuration_dialog(self):
         glade_xml = gtk.glade.XML(GLADE_FILE)
@@ -185,6 +292,8 @@ class ConfigurationWindowHelper:
         # Get data from current document, not from configuration, because user
         # may want to save current options
         view = self.window.get_active_view()
+        space   = view.get_insert_spaces_instead_of_tabs()
+        size    = view.get_tab_width()
 
         self.language = view.get_buffer().get_language()
         if self.language:
@@ -193,9 +302,6 @@ class ConfigurationWindowHelper:
         else:
             lang_name = _(u'Plain Text')
             self.lang_id = 'plain_text'
-
-        space = view.get_insert_spaces_instead_of_tabs()
-        size = view.get_tab_width()
 
         self.lbl_language = glade_xml.get_widget('lbl_language')
         self.lbl_language.set_markup("Language: <b>%s</b>" % lang_name)
@@ -215,6 +321,20 @@ class ConfigurationWindowHelper:
         self.edt_unindent_keystrokes = glade_xml.get_widget('edt_unindent_keystrokes')
         self.edt_unindent_keystrokes.set_text(get_unindent_keystrokes(self.lang_id) or '')
 
+        # TrailsSave Options
+        crop_spaces = get_crop_spaces_eol(self.lang_id)
+        insert_newline = get_insert_newline_eof(self.lang_id)
+        remove_blanklines = get_remove_blanklines_eof(self.lang_id)
+
+        self.cbx_crop_spaces_on_eol = glade_xml.get_widget('cbx_crop_spaces_on_eol')
+        self.cbx_crop_spaces_on_eol.set_active(crop_spaces)
+
+        self.cbx_insert_newline_at_eof = glade_xml.get_widget('cbx_insert_newline_at_eof')
+        self.cbx_insert_newline_at_eof.set_active(insert_newline)
+
+        self.cbx_remove_blank_lines_at_eof = glade_xml.get_widget('cbx_remove_blank_lines_at_eof')
+        self.cbx_remove_blank_lines_at_eof.set_active(remove_blanklines)
+
 
     def close_dialog(self):
         self.dialog.destroy()
@@ -222,15 +342,19 @@ class ConfigurationWindowHelper:
         self.size_picker = None
         self.use_spaces_check = None
 
+
     def on_close(self, *args):
         self.close_dialog()
+
 
     def on_cancel(self, *args):
         self.close_dialog()
 
+
     def deactivate(self):
         self.window = None
         self.plugin = None
+
 
     def on_apply(self, *args):
         view = self.window.get_active_view()
@@ -243,11 +367,21 @@ class ConfigurationWindowHelper:
         unindent_regex = self.edt_unindent_regex.get_text()
         unindent_keystrokes = self.edt_unindent_keystrokes.get_text()
 
+        #TrailSave Plugin
+        crop_spaces = self.cbx_crop_spaces_on_eol.get_active()
+        insert_newline = self.cbx_insert_newline_at_eof.get_active()
+        remove_blanklines = self.cbx_remove_blank_lines_at_eof.get_active()
+
         size_key = size_key_str % self.lang_id
         space_key = space_key_str % self.lang_id
         indent_key = indent_key_str % self.lang_id
         unindent_key = unindent_key_str % self.lang_id
         keystrokes_key = keystrokes_key_str % self.lang_id
+
+        # TrailSave Plugin
+        crop_spaces_key = crop_spaces_eol_key_str % self.lang_id
+        insert_newline_key = insert_newline_eof_key_str % self.lang_id
+        remove_blanklines_key = remove_blank_lines_eol_key_str % self.lang_id
 
         config_client.set_int(os.path.join(gconf_base_uri,size_key), size)
         config_client.set_bool(os.path.join(gconf_base_uri,space_key), use_spaces)
@@ -255,8 +389,15 @@ class ConfigurationWindowHelper:
         config_client.set_string(os.path.join(gconf_base_uri,unindent_key), unindent_regex)
         config_client.set_string(os.path.join(gconf_base_uri,keystrokes_key), unindent_keystrokes)
 
+        # TrailSave Plugin
+        config_client.set_bool(os.path.join(gconf_base_uri, crop_spaces_key), crop_spaces)
+        config_client.set_bool(os.path.join(gconf_base_uri, insert_newline_key), insert_newline)
+        config_client.set_bool(os.path.join(gconf_base_uri, remove_blanklines_key), remove_blanklines)
+
         view.set_insert_spaces_instead_of_tabs(use_spaces)
         view.set_tab_width(size)
+        self.plugin.set_status(view)
+
         if getattr(view, 'smart_indent_instance', False):
             view.smart_indent_instance.set_language(self.lang_id, view)
 
@@ -272,10 +413,12 @@ class SmartIndent:
         self.clear_variables()
         return
 
+
     def clear_variables(self):
         self.re_indent_next      = None
         self.re_unindent_curr    = None
         self.unindent_keystrokes = None
+
 
     def set_indent_config(self, lang):
         self.clear_variables()
@@ -294,26 +437,15 @@ class SmartIndent:
         else:
             return False
 
+
     def set_language(self, lang, view):
-        self.__not_available = False
-        # Defaults
-        tab_size = 4
-        use_tabs = False
-        size_key = size_key_str % lang
-        space_key = space_key_str % lang
-        _tab_size = config_client.get_int(os.path.join(gconf_base_uri,size_key))
-        _use_spaces = config_client.get_bool(os.path.join(gconf_base_uri,space_key))
-        if _tab_size:
-            tab_size = _tab_size
-        if _use_spaces != None:
-            use_spaces = _use_spaces
-
         self.__not_available = not self.set_indent_config(lang)
-
+        tab_size    = get_tab_size(lang)
+        use_spaces  = get_use_spaces(lang)
         # Set the buffer tab configuration
         view.set_tab_width(tab_size)
         view.set_insert_spaces_instead_of_tabs(use_spaces)
-        # Update in configuration
+        # Update global configuration
         config_client.set_int(default_tab_size_key, tab_size)
         config_client.set_bool(default_use_spaces_key, use_spaces)
 
@@ -324,11 +456,13 @@ class SmartIndent:
         if self.__line_no != self.__line_unindented:
             self.__line_unindented = -1
 
+
     def __get_current_line(self, view, buf):
         cursor_iter = buf.get_iter_at_mark(buf.get_insert())
         line_start_iter = cursor_iter.copy()
         view.backward_display_line_start(line_start_iter)
         return buf.get_text(line_start_iter, cursor_iter)
+
 
     def key_press_handler(self, view, event):
         buf = view.get_buffer()

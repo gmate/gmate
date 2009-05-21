@@ -120,7 +120,7 @@ end]]></text>
     <tag>eachwithindex</tag>
   </snippet>
   <snippet id=":">
-    <text><![CDATA[:${1:key} => ${2:"value"}${3:, }]]></text>
+    <text><![CDATA[:${1:key} => ${2:"value"}]]></text>
     <description>hash pair</description>
     <tag>:</tag>
   </snippet>
@@ -1226,16 +1226,6 @@ end]]></text>
     <description>validates_format_of</description>
   </snippet>
   <snippet>
-    <text><![CDATA[before_filter :${1:action} $0]]></text>
-    <tag>bf</tag>
-    <description>before_filter :action</description>
-  </snippet>
-  <snippet>
-    <text><![CDATA[before_filter :${1:authorize}, :except => :${2:login} $0]]></text>
-    <tag>bfe</tag>
-    <description>before_filter :action, :except =&gt; :action</description>
-  </snippet>
-  <snippet>
     <text><![CDATA[page[:${1:dom_id}].insert_html :${2:bottom}, '${3:text}' $0]]></text>
     <tag>insert</tag>
     <description>page.insert_html :bottom, 'dom_id', 'text'</description>
@@ -1345,7 +1335,7 @@ end]]></text>
     <description>Redirect To Path</description>
   </snippet>
   <snippet>
-    <text><![CDATA[it "deveria ${1:test}" do
+    <text><![CDATA[it "${1:test}" do
 	$0
 end]]></text>
     <tag>it</tag>
@@ -1359,42 +1349,74 @@ end]]></text>
     <description>Rspec describe</description>
   </snippet>
   <snippet>
-    <text><![CDATA[before_save :${0:method}]]></text>
+    <text><![CDATA[before_save :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>bs</tag>
     <description>before_save</description>
   </snippet>
   <snippet>
-    <text><![CDATA[before_update :${0:method}]]></text>
+    <text><![CDATA[before_update :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>bu</tag>
     <description>before_update</description>
   </snippet>
   <snippet>
-    <text><![CDATA[before_create :${0:method}]]></text>
+    <text><![CDATA[before_create :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>bc</tag>
     <description>before_create</description>
   </snippet>
   <snippet>
-    <text><![CDATA[after_save :${0:method}]]></text>
+    <text><![CDATA[after_save :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>as</tag>
     <description>after_save</description>
   </snippet>
   <snippet>
-    <text><![CDATA[after_update :${0:method}]]></text>
+    <text><![CDATA[after_update :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>au</tag>
     <description>after_update</description>
   </snippet>
   <snippet>
-    <text><![CDATA[after_create :${0:method}]]></text>
+    <text><![CDATA[after_create :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>ac</tag>
     <description>after_create</description>
   </snippet>
   <snippet>
-    <text><![CDATA[after_destroy :${0:method}]]></text>
+    <text><![CDATA[after_destroy :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>ad</tag>
     <description>after_destroy</description>
   </snippet>
   <snippet>
-    <text><![CDATA[before_destroy :${0:method}]]></text>
+    <text><![CDATA[before_destroy :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
     <tag>bd</tag>
     <description>before_destroy</description>
   </snippet>
@@ -1425,6 +1447,135 @@ end]]></text>
     <tag>l</tag>
     <description>hash pointer</description>
     <accelerator><![CDATA[<Shift><Alt>l]]></accelerator>
+  </snippet>
+  <snippet>
+    <text><![CDATA[alias_method_chain :${1:target}, :${2:feature}]]></text>
+    <tag>amc</tag>
+    <description>alias_method_chain</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>bf</tag>
+    <description>before_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>af</tag>
+    <description>after_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[around_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>arf</tag>
+    <description>around_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[skip_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>sf</tag>
+    <description>skip_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[skip_before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>sbf</tag>
+    <description>skip_before_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[skip_after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>saf</tag>
+    <description>skip_after_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[prepend_after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>paf</tag>
+    <description>prepend_after_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[append_after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>aaf</tag>
+    <description>append_after_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[prepend_before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>pbf</tag>
+    <description>prepend_before_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[append_before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>abf</tag>
+    <description>append_before_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[prepend_around_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>parf</tag>
+    <description>prepend_around_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[append_around_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
+    <tag>aarf</tag>
+    <description>append_around_filter</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_validation :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>av</tag>
+    <description>after_validation</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_validation_on_create :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>avc</tag>
+    <description>after_validation_on_create</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after_validation_on_update :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>avu</tag>
+    <description>after_validation_on_update</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_validation :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>bv</tag>
+    <description>before_validation</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_validation_on_create :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>bvc</tag>
+    <description>before_validation_on_create</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before_validation_on_update :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>bvu</tag>
+    <description>before_validation_on_update</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[named_scope :${1:name}, :conditions => { :${2:field} => ${3:condition} }, :order => "${4:field}"$0]]></text>
+    <tag>ns</tag>
+    <description>named_scope</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[default_scope :${1:name}, :conditions => { :${2:field} => ${3:condition} }, :order => "${4:field}"$0]]></text>
+    <tag>ds</tag>
+    <description>default_scope</description>
   </snippet>
 </snippets>
 

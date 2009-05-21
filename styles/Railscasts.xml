@@ -80,6 +80,7 @@
   <style name="python:special-variable" foreground="#cc7833"/>
   <style name="ruby:attribute-definition" foreground="#da4939"/>
   <style name="ruby:builtin" foreground="#da4939"/>
+  <style name="ruby:support-constant" foreground="#da4939"/>
   <style name="ruby:class-variable" foreground="#d0d0ff"/>
   <style name="ruby:constant" foreground="#da4939"/>
   <style name="ruby:global-variable" foreground="#ffc66d"/>
@@ -91,6 +92,7 @@
   <style name="ruby:symbol" foreground="#6d9cbe"/>
   <style name="rubyonrails:attribute-definition" foreground="#da4939"/>
   <style name="rubyonrails:builtin" foreground="#da4939"/>
+  <style name="rubyonrails:support-constant" foreground="#da4939"/>
   <style name="rubyonrails:class-inherit" foreground="#ffffff"/>
   <style name="rubyonrails:class-name" foreground="#ffffff"/>
   <style name="rubyonrails:class-variable" foreground="#d0d0ff"/>
@@ -114,7 +116,7 @@
   <style name="xml:element-name" foreground="#e8bf6a"/>
   <style name="xml:namespace" foreground="#e8bf6a"/>
   <style name="xml:tag" foreground="#e8bf6a"/>
-  
+
 
 </style-scheme>
 

@@ -57,6 +57,10 @@
   <style name="def:special-constant" foreground="#de8e30" bold="true"/>
   <style name="def:statement" foreground="#a1a1ff"/>
   <style name="def:string" foreground="#ad9361"/>
+  <style name="diff:added-line" foreground="#f8f8f8" background="#369828"/>
+  <style name="diff:changed-line" foreground="#f8f8f8" background="#DBC338"/>
+  <style name="diff:location" foreground="#f8f8f8" background="#135E97" italic="true"/>
+  <style name="diff:removed-line" foreground="#f8f8f8" background="#D5392A"/>
   <style name="draw-spaces" foreground="#4f4d4d"/>
   <style name="html:dtd"  italic="true"/>
   <style name="js:function" foreground="#a1a1ff"/>
@@ -100,7 +104,7 @@
   <style name="selection" foreground="#dadada" background="#4a3b4e"/>
   <style name="text" foreground="#dadada" background="#211e1e"/>
   <style name="xml:doctype" foreground="#888888"/>
-  
+
 
 </style-scheme>
 

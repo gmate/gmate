@@ -61,6 +61,12 @@ class RubyOnRailsLoader(gedit.Plugin):
                 if self.get_in_rails(uri):
                     lang = gedit.get_language_manager().get_language('rubyonrails')
                     doc.set_language(lang)
+                    # Uggly workarroud to call update_ui
+                    view = gedit.tab_get_from_document(doc).get_view()
+                    editable = view.get_editable()
+                    view.set_editable(not editable)
+                    view.set_editable(editable)
+
 
 
     def get_in_rails(self, uri):

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language id="tpl" _name="TPL" version="2.0" _section="Scripts">
+<language id="tpl" _name="Django Template Language" version="2.0" _section="Markup">
   <metadata>
     <property name="mimetypes">text/tpl;</property>
     <property name="globs">*.tpl;*.html;</property>
@@ -141,13 +141,19 @@
     </context>
 
     <context id="keywords" style-ref="keyword">
-        <keyword>block</keyword>    
+        <keyword>block</keyword>
+        <keyword>endblock</keyword>
         <keyword>capture</keyword>
         <keyword>config_load</keyword>
+        <keyword>for</keyword>
         <keyword>foreach</keyword>
         <keyword>foreachelse</keyword>
+        <keyword>endfor</keyword>
         <keyword>if</keyword>
         <keyword>elseif</keyword>
+        <keyword>endif</keyword>
+        <keyword>ifequal</keyword>
+        <keyword>endifequal</keyword>
         <keyword>else</keyword>
         <keyword>include</keyword>
         <keyword>include_php</keyword>
@@ -192,6 +198,8 @@
         <keyword>count_paragraphs</keyword>
         <keyword>count_sentences</keyword>
         <keyword>count_words</keyword>
+        <keyword>date</keyword>
+        <keyword>safe</keyword>
         <keyword>date_format</keyword>
         <keyword>default</keyword>
         <keyword>escape</keyword>
@@ -285,3 +293,4 @@
 
   </definitions>
 </language>
+

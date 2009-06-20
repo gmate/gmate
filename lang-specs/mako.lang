@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Authors: Joost de Mes <joost.demes@surfnet.nl>
+ Copyright (C) 2007 Nobody
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<language id="mako" _name="Mako" version="2.0" _section="Scripts">
+	<metadata>
+		<property name="mimetypes">application/mako;text/mako</property>
+		<property name="globs">*.mako</property>
+	</metadata>
+
+	<styles>
+		<style id="mako-close-control" _name="Mako control loop close" map-to="def:keyword"/>
+		<style id="mako-function"      _name="Mako Function"           map-to="def:keyword"/>
+	</styles>
+
+	<definitions>
+		<define-regex id="makofunctionname">(page|include|def|namespace|inherit|call|doc|text)</define-regex>
+
+		<context id="mako-close-control" style-ref="mako-close-control">
+			<keyword>endif</keyword>
+			<keyword>endfor</keyword>
+			<keyword>endwhile</keyword>
+		</context>
+
+		<context id="embedded-python-block-ltgt" end-at-line-end="false">
+			<start>^&lt;%$</start>
+			<end>^%&gt;$</end>
+			<include>
+				<context sub-pattern="0" where="start" style-ref="mako-function"/>
+				<context sub-pattern="0" where="end" style-ref="mako-function"/>
+				<context ref="python:python"/>
+			</include>
+		</context>
+
+		<context id="embedded-python-block-perc" end-at-line-end="true">
+			<start>^[\s]*%[\s]+</start>
+			<include>
+				<context sub-pattern="0" where="start" style-ref="mako-function"/>
+				<context ref="python:python"/>
+				<context ref="mako-close-control"/>
+			</include>
+		</context>
+
+		<context id="embedded-python-block-str" end-at-line-end="false">
+			<start>\${</start>
+			<end>}</end>
+			<include>
+				<context sub-pattern="0" where="start" style-ref="mako-function"/>
+				<context sub-pattern="0" where="end" style-ref="mako-function"/>
+				<context ref="python:python"/>
+			</include>
+		</context>
+
+		<context id="mako-function-start-tag">
+			<start>&lt;%\%{makofunctionname}(?!/)</start>
+			<end>/?&gt;</end>
+			<include>
+				<context sub-pattern="0" where="start" style-ref="mako-function"/>
+				<context sub-pattern="0" where="end" style-ref="mako-function"/>
+				<context ref="xml:entity"/>
+				<context ref="xml:character-reference"/>
+				<context ref="xml:unallowed-chars"/>
+				<context ref="xml:namespace"/>
+				<context ref="xml:element-name"/>
+				<context ref="xml:attribute-name"/>
+				<context ref="xml:attribute-value"/>
+				<context style-ref="xml:error" extend-parent="false">
+					<match>\S</match>
+				</context>
+			</include>
+		</context>
+
+		<context id="mako-function-end-tag">
+			<start>&lt;/%\%{makofunctionname}</start>
+			<end>&gt;</end>
+			<include>
+				<context sub-pattern="0" where="start" style-ref="mako-function"/>
+				<context sub-pattern="0" where="end" style-ref="mako-function"/>
+				<context ref="xml:entity"/>
+				<context ref="xml:character-reference"/>
+				<context ref="xml:unallowed-chars"/>
+				<context ref="xml:namespace"/>
+				<context ref="xml:element-name"/>
+				<context style-ref="xml:error" extend-parent="false">
+					<match>\S</match>
+				</context>
+			</include>
+		</context>
+
+
+		<context id="mako-block">
+			<include>
+				<context ref="embedded-python-block-ltgt"/>
+				<context ref="embedded-python-block-perc"/>
+				<context ref="embedded-python-block-str"/>
+				<context ref="mako-function-start-tag" />
+				<context ref="mako-function-end-tag" />
+			</include>
+		</context>
+
+		<replace id="html:embedded-lang-hook" ref="mako-block"/>
+
+		<context id="mako">
+			<include>
+				<context ref="html:html"/>
+				<context ref="mako-block"/>
+			</include>
+		</context>
+	</definitions>
+</language>

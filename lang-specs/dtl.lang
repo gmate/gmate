@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="tpl" _name="TPL" version="2.0" _section="Scripts">
+  <metadata>
+    <property name="mimetypes">text/tpl;</property>
+    <property name="globs">*.tpl;*.html;</property>
+    <property name="line-comment-start">#</property>
+    <property name="block-comment-start">/*</property>
+    <property name="block-comment-end">*/</property>
+  </metadata>
+
+  <styles>
+    <style id="embedded"         _name="Comment" map-to="def:template"/>
+    <style id="comment"         _name="Comment" map-to="def:comment"/>
+    <style id="error"           _name="Error" map-to="def:error"/>
+    <style id="variable"        _name="Variable" map-to="def:identifier"/>
+    <style id="escape"          _name="Escaped Character" map-to="def:special-char"/>
+    <style id="string"          _name="String" map-to="def:string"/>
+    <style id="here-doc"        _name="Heredoc" map-to="def:string"/>
+    <style id="here-doc-bound"  _name="Heredoc Bound" map-to="def:keyword"/>
+    <style id="keyword"         _name="Keyword" map-to="def:keyword"/>
+    <style id="operator"        _name="Operator" map-to="def:operator"/>
+    <style id="filters"         _name="Null Value" map-to="def:boolean"/>
+    <style id="boolean"         _name="Boolean value" map-to="def:boolean"/>
+    <style id="floating-point"  _name="Floating point number" map-to="def:floating-point"/>
+    <style id="decimal"         _name="Decimal number" map-to="def:decimal"/>
+    <style id="octal"           _name="Octal number" map-to="def:base-n-integer"/>
+    <style id="hexadecimal"     _name="Hexadecimal number" map-to="def:base-n-integer"/>
+  </styles>
+
+  <definitions>
+
+
+    <!-- Html comments are more permissive than xml comments -->
+    <context id="comment" style-ref="comment">
+        <start>&lt;!--</start>
+        <end>--\s*&gt;</end>
+        <include>
+            <context ref="def:in-comment"/>
+        </include>
+    </context>
+
+    <context id="bash-line-comment" style-ref="comment" end-at-line-end="true" extend-parent="false">
+      <start>#</start>
+      <end>#</end>
+      <include>
+        <context ref="def:in-line-comment"/>
+      </include>
+    </context>
+
+    <context id="cpp-line-comment" style-ref="comment" end-at-line-end="true" extend-parent="false">
+      <start>//</start>
+      <include>
+        <context ref="def:in-line-comment"/>
+      </include>
+    </context>
+
+    <context id="c-block-comment" style-ref="comment">
+      <start>\*</start>
+      <end>\*</end>
+      <include>
+        <context ref="def:in-line-comment"/>
+      </include>
+    </context>
+
+    <context id="close-comment-outside-comment" style-ref="error">
+      <match>\*/(?!\*)</match>
+    </context>
+
+    <context id="escape" style-ref="escape">
+      <match>\\((\\|"|n|t|\$|r)|[0-7]{1,3}|x[0-9a-fA-F]{1,2})</match>
+    </context>
+
+    <context id="variable" style-ref="variable">
+      <match>[$]+[a-zA-Z_][a-zA-Z0-9_]*</match>
+    </context>
+
+    <context id="array-operators" style-ref="variable">
+      <match>(\[|\])</match>
+    </context>
+
+    <context id="string-var">
+      <include>
+        <context ref="variable"/>
+        <context id="curly-var" style-ref="variable" >
+          <start>{(?=\$)</start>
+          <end>}</end>
+          <include>
+            <context ref="string-var"/>
+          </include>
+        </context>
+        <context id="backwards-curly-var" style-ref="variable">
+          <start>\${</start>
+          <end>}</end>
+          <include>
+            <context ref="string-var"/>
+          </include>
+        </context>
+      </include>
+    </context>
+
+    <context id="double-quoted-string" style-ref="string">
+      <start>"</start>
+      <end>"</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="string-var"/>
+        <context ref="def:line-continue"/>
+      </include>
+    </context>
+
+    <context id="single-quoted-string" style-ref="string">
+      <start>'</start>
+      <end>'</end>
+      <include>
+        <context style-ref="def:special-char">
+          <match>\\['\\]</match>
+        </context>
+        <context ref="def:line-continue"/>
+      </include>
+    </context>
+
+    <context id="backtick-string" style-ref="string" extend-parent="false">
+      <start>`</start>
+      <end>`</end>
+      <include>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+      </include>
+    </context>
+
+    <context id="here-doc-string" style-ref="here-doc" extend-parent="true">
+      <start>(&lt;&lt;&lt;)\s?([a-zA-Z_][a-zA-Z0-9_]*)</start>
+      <end>^(\%{2@start});?$</end>
+      <include>
+        <context sub-pattern="0" where="start" style-ref="here-doc-bound"/>
+        <context sub-pattern="1" where="end" style-ref="here-doc-bound"/>
+        <context ref="escape"/>
+        <context ref="string-var"/>
+        <context ref="def:line-continue"/>
+      </include>
+    </context>
+
+    <context id="keywords" style-ref="keyword">
+        <keyword>block</keyword>    
+        <keyword>capture</keyword>
+        <keyword>config_load</keyword>
+        <keyword>foreach</keyword>
+        <keyword>foreachelse</keyword>
+        <keyword>if</keyword>
+        <keyword>elseif</keyword>
+        <keyword>else</keyword>
+        <keyword>include</keyword>
+        <keyword>include_php</keyword>
+        <keyword>insert</keyword>
+        <keyword>ldelim</keyword>
+        <keyword>rdelim</keyword>
+        <keyword>literal</keyword>
+        <keyword>php</keyword>
+        <keyword>section</keyword>
+        <keyword>sectionelse</keyword>
+        <keyword>strip</keyword>
+        <keyword>assign</keyword>
+        <keyword>counter</keyword>
+        <keyword>cycle</keyword>
+        <keyword>debug</keyword>
+        <keyword>eval</keyword>
+        <keyword>fetch</keyword>
+        <keyword>html_checkboxes</keyword>
+        <keyword>html_image</keyword>
+        <keyword>html_options</keyword>
+        <keyword>html_radios</keyword>
+        <keyword>html_select_date</keyword>
+        <keyword>html_select_time</keyword>
+        <keyword>html_table</keyword>
+        <keyword>mailto</keyword>
+        <keyword>math</keyword>
+        <keyword>popup</keyword>
+        <keyword>popup_init</keyword>
+        <keyword>textformat</keyword>
+    </context>
+
+    <context id="operators" style-ref="operator" extend-parent="false">
+      <match>[-.~^@,;:/%|\=\+\*\!\?&amp;&lt;&gt;()]</match>
+    </context>
+
+
+    <context id="filters" style-ref="filters">
+      <prefix>(?i)\b</prefix> <!-- case insensitive -->
+        <keyword>capitalize</keyword>
+        <keyword>cat</keyword>
+        <keyword>count_characters</keyword>
+        <keyword>count_paragraphs</keyword>
+        <keyword>count_sentences</keyword>
+        <keyword>count_words</keyword>
+        <keyword>date_format</keyword>
+        <keyword>default</keyword>
+        <keyword>escape</keyword>
+        <keyword>indent</keyword>
+        <keyword>lower</keyword>
+        <keyword>nl2br</keyword>
+        <keyword>regex_replace</keyword>
+        <keyword>replace</keyword>
+        <keyword>spacify</keyword>
+        <keyword>string_format</keyword>
+        <keyword>strip</keyword>
+        <keyword>strip_tags</keyword>
+        <keyword>truncate</keyword>
+        <keyword>upper</keyword>
+        <keyword>wordwrap</keyword>
+    </context>
+
+    <context id="boolean" style-ref="boolean">
+      <prefix>(?i)\b</prefix> <!-- case insensitive -->
+      <keyword>false</keyword>
+      <keyword>true</keyword>
+    </context>
+
+    <context id="float" style-ref="floating-point">
+      <match extended="true">
+        (?&lt;![\w\.])
+        ([0-9]+[Ee][+-]?[0-9]+ |
+         ([0-9]*\.[0-9]+ | [0-9]+\.[0-9]*)([Ee][+-]?[0-9]+)?)
+        (?![\w\.])
+      </match>
+    </context>
+
+    <context id="decimal-number" style-ref="decimal">
+      <match extended="true">
+        (?&lt;![\w\.])
+        [+-]?([1-9][0-9]*|0)
+        (?![\w\.])
+      </match>
+    </context>
+
+    <context id="octal-number" style-ref="octal">
+      <match extended="true">
+        (?&lt;![\w\.])
+        [+-]?0[0-7]+
+        (?![\w\.])
+      </match>
+    </context>
+
+    <context id="hexadecimal-number" style-ref="hexadecimal">
+      <match extended="true">
+        (?&lt;![\w\.])
+        [+-]?0x[0-9a-fA-F]+
+        (?![\w\.])
+      </match>
+    </context>
+
+    <context id="tpl-block" style-ref="embedded" end-at-line-end="true">
+      <start>&#123;(&#123;|&#35;|&#37;)(/?)</start>
+      <end>(&#125;|&#35;|&#37;)&#125;</end>
+      <include>
+        <context sub-pattern="0" where="start" style-ref="boolean"/>
+        <context sub-pattern="0" where="end" style-ref="boolean"/>
+        <context ref="cpp-line-comment"/>
+        <context ref="bash-line-comment"/>
+        <context ref="c-block-comment"/>
+        <context ref="double-quoted-string"/>
+        <context ref="single-quoted-string"/>
+        <context ref="backtick-string"/>
+        <context ref="here-doc-string"/>
+        <context ref="variable"/>
+        <context ref="array-operators"/>
+        <context ref="keywords"/>
+        <context ref="operators"/>
+        <context ref="filters"/>
+        <context ref="boolean"/>
+        <context ref="float"/>
+        <context ref="decimal-number"/>
+        <context ref="octal-number"/>
+        <context ref="hexadecimal-number"/>
+      </include>
+    </context>
+
+    <replace id="html:embedded-lang-hook" ref="tpl-block"/>
+
+    <context id="tpl">
+      <include>
+        <context ref="tpl-block"/>
+        <context ref="html:html"/>
+      </include>
+    </context>
+
+  </definitions>
+</language>

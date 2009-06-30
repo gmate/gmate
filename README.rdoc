@@ -188,6 +188,10 @@ following lines next to other "text/x-????" entries:
 
 More info : http://blog.siverti.com.br/gmate
 
+If you have issues with one of the plugins included in Gmate or have suggestions
+please fill an issue in http://github.com/lexrupy/gmate/issues
+
+
 NOTE: refer to each plugin source code and readme file to get information
 about specific plugin licencing and copyright
 

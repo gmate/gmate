@@ -175,7 +175,7 @@ class AlignPlugin(gedit.Plugin):
         uim = window.get_ui_manager()
         uim.remove_ui(self.ui_id)
         uim.remove_action_group(self.action_group)
-        uim.ensure_update()
+        # uim.ensure_update()
 
         self.action_group = None
         self.ui_id = None

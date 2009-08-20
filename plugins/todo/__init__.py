@@ -29,9 +29,10 @@ import pygtk
 import webkit
 import re
 
+from todo import parse_directory
+
 DEBUG_NAME = 'TODO_DEBUG'
 DEBUG_TITLE = 'todo'
-TMP_FILE = '/tmp/_todo_%s_todo.html' %  os.environ['USER']
 
 ui_str = """
 <ui>
@@ -164,13 +165,7 @@ class TodoWindowHelper:
         debug("title: %s" % title)
         debug("root: %s" % root)
 
-        # build script path
-        todo_script = os.path.join(os.path.dirname(__file__), "todo.py")
-
-        debug("script: %s" % todo_script)
-
-        # call the script
-        os.system('python %s "%s"' % (todo_script, root))
+        html_str = parse_directory(root)
 
         if self.todo_window:
             self.todo_window.show()
@@ -188,13 +183,7 @@ class TodoWindowHelper:
             self.todo_window.show_all()
 
         self.todo_window.set_title(title)
-        f = open(TMP_FILE)
-        html_str = ''
-        for l in f.readlines():
-            html_str += l
         self._browser.load_string(html_str, "text/html", "utf-8", "about:")
-        # remove the temporary file after load to avoid any security issue
-        os.unlink(TMP_FILE)
 
     def on_todo_close(self, *args):
         self.todo_window.hide()

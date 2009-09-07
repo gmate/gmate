@@ -50,8 +50,12 @@ NOTE: Some commands will expect you enter your sudo password
 * Trailsave - Remove trailing spaces before save a document
 * Word Completion - Word completion plugin
 * Gedit Go To File - Yet Another Go to File plugin Just Like SnapOpen and GeditOpenFiles also based in Textmate Go to file.
+* Multi Edit - Check it out at author's page http://jon-walsh.com/journal/multi-edit/
 
-NOTE: In order to use Go to File feature you need to choose just one of: <tt>GeditGoToFile</tt>, <tt>SnapOpen</tt> or <tt>GeditOpenFiles</tt>
+NOTES:
+    In order to use Go to File feature you need to choose just one of: <tt>GeditGoToFile</tt>, <tt>SnapOpen</tt> or <tt>GeditOpenFiles</tt>
+    Multi Edit plugin is not enabled by default Gmate instalation.
+
 
 === Themes/Styles
 
@@ -158,7 +162,7 @@ NOTE: In order to use Go to File feature you need to choose just one of: <tt>Ged
 === Language Improvements and Mime Types
 
 * ruby_on_rails.lang gtksourceview2 ruby language improvements for Ruby on Rails
-* rhtml Syntax Highlight
+* rhtml/erb Syntax Highlight
 * basic yml Syntax Highlight
 * haml Syntax Highlight
 * reStructuredText Syntax Highlight

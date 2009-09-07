@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=multi_edit
+IAge=2
+Name=Multi-edit
+Description=Allows you to simultaneously edit multiple parts of a document while typing. [v. 1.2.1]
+Authors=Jonathan Walsh <jon-walsh.com>
+Copyright=Copyright (c) 2009 Jonathan Walsh
+Website=http://jon-walsh.com/journal/multi-edit/

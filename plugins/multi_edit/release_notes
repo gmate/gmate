@@ -1,0 +1,57 @@
+Current version: 1.2.1
+
+Todo:
+    Selection support
+    Translation support (and translations)
+    Mouse drag (add marks)
+    Look into event duplication (rather than action duplication) [branch]
+
+Releases:
+    1.2.1:
+        Fixed: Escape key no longer prints the unicode escape char
+    
+    1.2:
+        Added: One-time auto-increment option
+        Changed: Cleaned up config dialog
+        Changed: Default shortcuts changed and no longer configurable
+        Changed: Replaced EOL marks with smart mark placement
+        Fixed: Config window bug (again)
+        Fixed: Mouse pos bug (private window)
+    
+    1.1:
+        Added: Vertical mark placement configuration
+        Added: Shortcut shift support for non-printable keys
+        Changed: Event handlers changed to gain priority over other plugins (mutually beneficial)
+        Changed: Moved version info to a seperate file
+        Changed: Replaced hard-coded keyvals with keysyms
+        Changed: Improved vertical cursor movement
+        Fixed: Redraw bug (massive speed improvement)
+        Fixed: Current selection not deselected upon entering multi-edit mode
+        Fixed: Multi-edit mode not exiting during text selection or cursor movement
+    
+    1.0.2:
+        Fixed: Config window bug (affects only some systems, possibly due to gtk version)
+    
+    1.0.1:
+        Fixed: Vertical column nav bug
+    
+    1.0:
+        Added: Support for unicode (removed ascii check)
+        Added: Support for non-US keyboards
+        Added: Configurable shortcuts
+        Added: Auto-indent support
+        Added: Level marks option
+        Changed: Auto-increment function redone
+        Changed: Improved tab(character) support
+        Fixed: Document not scrolling with cursor (during text modifications)
+        Fixed: Ctrl+A not exiting multi-edit mode
+        Fixed: Shortcut detection (caps lock problem)
+        Fixed: Multi-edit mode vertical nav (tab support)
+    
+    0.9.1:
+        Changed: Ctrl+Space shortcut changed to Ctrl+`
+        Fixed: Ctrl+*arrow* bug fixed
+    
+    0.9:
+        Note: Initial public release
+

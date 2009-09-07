@@ -181,7 +181,7 @@ following lines next to other "text/x-????" entries:
 
   text/x-ruby-source                              rhtml html.erb erb
   text/x-eruby                                    rjs
-  text/x-yaml                                     yml
+  text/x-yaml                                     yml yaml
 
   ... Same for other mime types and extensions
 

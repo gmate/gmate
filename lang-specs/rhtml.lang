@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language id="rhtml" _name="RHTML" version="2.0" _section="Markup">
+<language id="rhtml" _name="RHTML/ERB" version="2.0" _section="Markup">
   <metadata>
     <property name="mimetypes">text/rhtml</property>
     <property name="globs">*.rhtml;*.html.erb;*.erb</property>

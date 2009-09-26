@@ -28,6 +28,7 @@ import os
 import pygtk
 import webkit
 import re
+import urllib
 
 from todo import parse_directory
 
@@ -126,7 +127,8 @@ class TodoWindowHelper:
             title = "TODO List (current directory)"
             root = os.path.dirname(__file__)
 
-        return (root.replace("file://", ""), title)
+        rt_path = urllib.unquote(root.replace("file://", ""))
+        return (rt_path, title)
 
     # taken from snapopen plugin
     def get_filebrowser_root(self):

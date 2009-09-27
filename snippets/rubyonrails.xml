@@ -1335,18 +1335,18 @@ end]]></text>
     <description>Redirect To Path</description>
   </snippet>
   <snippet>
-    <text><![CDATA[it "${1:test}" do
+    <text><![CDATA[it '${1:test}' do
 	$0
 end]]></text>
     <tag>it</tag>
-    <description>Rspec It</description>
+    <description>rspec: It</description>
   </snippet>
   <snippet>
-    <text><![CDATA[describe "${1:description}" do
+    <text><![CDATA[describe '${1:description}' do
 	$0
 end]]></text>
-    <tag>desc</tag>
-    <description>Rspec describe</description>
+    <tag>describe</tag>
+    <description>rspec: describe</description>
   </snippet>
   <snippet>
     <text><![CDATA[before_save :${1:method}
@@ -1422,7 +1422,7 @@ end]]></text>
   </snippet>
   <snippet>
     <text><![CDATA[test '$1' do
- $0
+  $0
 end]]></text>
     <tag>test</tag>
     <description>test</description>
@@ -1775,5 +1775,57 @@ end]]></text>
     <tag>snstf</tag>
     <description>remarkable_rails: should_not_set_the_flash</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[context '${1:description}' do
+	$0
+end]]></text>
+    <tag>context</tag>
+    <description>rspec: context</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before(:each) do
+  $0
+end]]></text>
+    <tag>before</tag>
+    <description>rspec: before</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[before(:all) do
+  $0
+end]]></text>
+    <tag>beforea</tag>
+    <description>rspec: before all</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after(:each) do
+  $0
+end]]></text>
+    <tag>after</tag>
+    <description>rspec: after</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[after(:all) do
+  $0
+end]]></text>
+    <tag>aftera</tag>
+    <description>rspec: after all</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[describe '${1:description}' do
+	before(:each) do
+		$0
+	end
+end]]></text>
+    <tag>describeb</tag>
+    <description>rspec: describe with before</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[context '${1:description}' do
+	before(:each) do
+  	$0
+	end
+end]]></text>
+    <tag>contextb</tag>
+    <description>rspec: context with before</description>
+  </snippet>
 </snippets>
-

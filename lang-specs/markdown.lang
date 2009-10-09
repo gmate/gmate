@@ -23,7 +23,7 @@ MA 02110-1301, USA.
 <language id="markdown" _name="Markdown" version="2.0" _section="Markup">
 	<metadata>
 		<property name="mimetypes">text/x-markdown</property>
-		<property name="globs">*.mdtxt</property>
+		<property name="globs">*.mdtxt;*.md;*.markdown</property>
 		<property name="block-comment-start">&lt;!--</property>
 		<property name="block-comment-end">--&gt;</property>
 	</metadata>

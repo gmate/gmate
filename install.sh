@@ -1,6 +1,6 @@
 #!/bin/sh
 # Kill all runing instances if exists
-#killall gedit
+# killall gedit
 
 # Register rails-related mime types
 sudo cp mime/rails.xml /usr/share/mime/packages

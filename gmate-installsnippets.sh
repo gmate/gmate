@@ -9,4 +9,6 @@ if [ ! -d $HOME/.gnome2/gedit/snippets ]
 then
   mkdir -p ~/.gnome2/gedit/snippets
 fi
-cp snippets/* ~/.gnome2/gedit/snippets/
+
+cp /usr/share/gedit-2/gmate/snippets/* $HOME/.gnome2/gedit/snippets/
+

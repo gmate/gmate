@@ -1,2 +1,4 @@
 #!/bin/sh
 
+ln -nfs /usr/share/gedit-2/gmate/gmate-installsnippets.sh /usr/local/bin/gmate-installsnippets
+

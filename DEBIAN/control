@@ -1,10 +1,10 @@
 Package: gedit-gmate
-Version: 0.9.1-ubuntu2
+Version: 0.9.2-ubuntu1
 Architecture: all
 Maintainer: Alexandre da Silva
-Installed-Size: 1680
+Installed-Size: 2072
 Priority: optional
-Depends: python-pyinotify, python-webkitgtk
+Depends: python-pyinotify, python-webkit
 Section: gnome
 Description: Gedit Gmate Plugins pack
  This package contains a collection of plugins and gtksourceview improvements to

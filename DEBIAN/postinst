@@ -2,6 +2,8 @@
 # Create links to executable files
 ln -nfs /usr/share/gedit-2/gmate/gmate-installsnippets.sh /usr/local/bin/gmate-installsnippets
 ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/local/bin/gmate
+ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/local/bin/mate
+ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/local/bin/e
 echo ""
 echo "********************************************************************************"
 echo "* To activate gmate included code snippets, please run gmate-installsnippets   *"

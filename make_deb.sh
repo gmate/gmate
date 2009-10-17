@@ -22,6 +22,8 @@ cp -r ./styles/* ./build/tmp/gedit-gmate/usr/share/gtksourceview-2.0/styles/
 # Copy documentation
 mkdir -p ./build/tmp/gedit-gmate/usr/share/gedit-2/gmate/doc
 cp README.rdoc ./build/tmp/gedit-gmate/usr/share/gedit-2/gmate/doc/
+# Copy the command line helper
+cp gmate.py ./build/tmp/gedit-gmate/usr/share/gedit-2/gmate/
 # Make the deb package
 dpkg-deb -b ./build/tmp/gedit-gmate ./build
 # Remove temporary directory

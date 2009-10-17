@@ -1,0 +1,8 @@
+[Gedit Plugin]
+Loader=python
+Module=tabswitch
+IAge=2
+Name=TabSwitch
+Description=Allows to ctrl+tab-switch between documents
+Authors=Elia Sarti
+Copyright=Copyright © 2009 Elia Sarti

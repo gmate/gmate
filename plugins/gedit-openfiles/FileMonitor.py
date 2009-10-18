@@ -11,12 +11,12 @@ import stat
 import re
 import urllib
 from Logger import log
+
 from pyinotify import WatchManager, Notifier, ThreadedNotifier, \
-EventsCodes, ProcessEvent
+EventsCodes, ProcessEvent, IN_DELETE, IN_CREATE, IN_MOVED_FROM, IN_MOVED_TO
 from threading import Thread
 
-EVENT_MASK = EventsCodes.IN_DELETE | EventsCodes.IN_CREATE | \
-EventsCodes.IN_MOVED_TO | EventsCodes.IN_MOVED_FROM # watched events
+EVENT_MASK = IN_DELETE | IN_CREATE | IN_MOVED_TO | IN_MOVED_FROM # watched events
 
 
 class FileMonitor(object):
@@ -135,7 +135,7 @@ class WalkDirectoryThread(Thread):
                     # Check to see if it is a dir
                     if not os.path.isdir(os.path.join(path, name)):
                         self._file_monitor.add_file(path, name)
-        print "***** Total files %s *****" % (self._file_monitor._file_count, )
+        #print "***** Total files %s *****" % (self._file_monitor._file_count, )
 
     def _walk_file_system(self, root):
         """
@@ -244,3 +244,4 @@ if __name__ == '__main__':
     from DBWrapper import DBWrapper
     db = DBWrapper()
     file_mon = FileMonitor(db, ".")
+

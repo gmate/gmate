@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <snippets language="js">
-  <snippet>
+  <snippet id="st">
     <tag>st</tag>
     <description>SugarTest default structure</description>
     <text><![CDATA[
@@ -18,7 +18,7 @@
      .run();
     ]]></text>
   </snippet>
-    <snippet>
+    <snippet id="stc">
     <tag>stc</tag>
     <description>SugarTest context</description>
     <text><![CDATA[ .context("${1:description}")
@@ -30,7 +30,7 @@
 .end()]]></text>
   </snippet>
 
-   <snippet>
+   <snippet id="sts">
     <tag>sts</tag>
     <description>SugarTest should</description>
     <text><![CDATA[.should("${1:do this}", function() {
@@ -41,7 +41,7 @@ ${0}
     ]]></text>
   </snippet>
 
-   <snippet>
+   <snippet id="stb">
     <tag>stb</tag>
     <description>SugarTest before</description>
     <text><![CDATA[.before(function(${1:data}) {
@@ -51,7 +51,7 @@ ${0}]]></text>
   </snippet>
 
 
-<snippet>
+<snippet id="sta">
     <tag>sta</tag>
     <description>SugarTest after</description>
     <text><![CDATA[.after(function() {

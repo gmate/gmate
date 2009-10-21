@@ -163,146 +163,146 @@ end]]></text>
     <description>when</description>
     <tag>when</tag>
   </snippet>
-  <snippet>
+  <snippet id="all">
     <tag>all</tag>
     <description>all? { |e| .. }</description>
     <text><![CDATA[all? { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="am">
     <tag>am</tag>
     <description>alias_method ...</description>
     <text><![CDATA[alias_method :${1:new_name}, :${2:old_name}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="any">
     <tag>any</tag>
     <description>any? { |e| .. }</description>
     <text><![CDATA[any? { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="app">
     <tag>app</tag>
     <description>application_code { .. }</description>
     <text><![CDATA[if __FILE__ == $$PROGRAM_NAME
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Array">
     <tag>Array</tag>
     <description>Array.new(10) { |i| .. }</description>
     <text><![CDATA[Array.new(${1:10}) { |${2:i}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="art">
     <tag>art</tag>
     <description>assert_redirected_to</description>
     <text><![CDATA[assert_redirected_to :action => "${1:index}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="assert">
     <tag>assert</tag>
     <description>assert(..)</description>
     <text><![CDATA[assert(${1:test}, "${2:message}")]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ase">
     <tag>ase</tag>
     <description>assert_equal(..)</description>
     <text><![CDATA[assert_equal(${1:expected}, ${2:actual})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asid">
     <tag>asid</tag>
     <description>assert_in_delta(..)</description>
     <text><![CDATA[assert_in_delta(${1:expected_float}, ${2:actual_float}, ${3:20})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asio">
     <tag>asio</tag>
     <description>assert_instance_of(..)</description>
     <text><![CDATA[assert_instance_of(${1:ExpectedClass}, ${2:actual_instance})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asko">
     <tag>asko</tag>
     <description>assert_kind_of(..)</description>
     <text><![CDATA[assert_kind_of(${1:ExpectedKind}, ${2:actual_instance})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asm">
     <tag>asm</tag>
     <description>assert_match(..)</description>
     <text><![CDATA[assert_match(/${1:expected_pattern}/, ${2:actual_string})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asn">
     <tag>asn</tag>
     <description>assert_nil(..)</description>
     <text><![CDATA[assert_nil(${1:instance})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asne">
     <tag>asne</tag>
     <description>assert_not_equal(..)</description>
     <text><![CDATA[assert_not_equal(${1:unexpected}, ${2:actual})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asnm">
     <tag>asnm</tag>
     <description>assert_no_match(..)</description>
     <text><![CDATA[assert_no_match(/${1:unexpected_pattern}/, ${2:actual_string})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asnn">
     <tag>asnn</tag>
     <description>assert_not_nil(..)</description>
     <text><![CDATA[assert_not_nil(${1:instance})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asnr">
     <tag>asnr</tag>
     <description>assert_nothing_raised(..) { .. }</description>
     <text><![CDATA[assert_nothing_raised(${1:Exception}) { ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asns">
     <tag>asns</tag>
     <description>assert_not_same(..)</description>
     <text><![CDATA[assert_not_same(${1:unexpected}, ${2:actual})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asnt">
     <tag>asnt</tag>
     <description>assert_nothing_thrown { .. }</description>
     <text><![CDATA[assert_nothing_thrown { ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="aso">
     <tag>aso</tag>
     <description>assert_operator(..)</description>
     <text><![CDATA[assert_operator(${1:left}, :${2:operator}, ${3:right})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asr">
     <tag>asr</tag>
     <description>assert_raise(..) { .. }</description>
     <text><![CDATA[assert_raise(${1:Exception}) { ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asre">
     <tag>asre</tag>
     <description>assert_response</description>
     <text><![CDATA[assert_response :${1:success}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="asrt">
     <tag>asrt</tag>
     <description>assert_respond_to(..)</description>
     <text><![CDATA[assert_respond_to(${1:object}, :${2:method})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ass">
     <tag>ass</tag>
     <description>assert_same(..)</description>
     <text><![CDATA[assert_same(${1:expected}, ${2:actual})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ass">
     <tag>ass</tag>
     <description>assert_send(..)</description>
     <text><![CDATA[assert_send([${1:object}, :${2:message}, ${3:args}])]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ast">
     <tag>ast</tag>
     <description>assert_throws(..) { .. }</description>
     <text><![CDATA[assert_throws(:${1:expected}) { ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rdoc">
     <tag>rdoc</tag>
     <description>New Block</description>
     <text><![CDATA[=begin rdoc
 	${0}
 =end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="bm">
     <tag>bm</tag>
     <description>Benchmark.bmbm(..) do .. end</description>
     <text><![CDATA[TESTS = ${1:10_000}
@@ -310,17 +310,17 @@ Benchmark.bmbm(${2:10}) do |results|
   ${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="bt">
     <tag>bt</tag>
     <description>belongs_to</description>
     <text><![CDATA[belongs_to :${1:object}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="cl">
     <tag>cl</tag>
     <description>classify { |e| .. }</description>
     <text><![CDATA[classify { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="cla">
     <tag>cla</tag>
     <description>class .. &lt; DelegateClass .. initialize .. end</description>
     <text><![CDATA[class ${1:ClassName} < DelegateClass(${2:ParentClass})
@@ -333,7 +333,7 @@ end]]></text>
 
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="cla">
     <tag>cla</tag>
     <description>class .. &lt; ParentClass .. initialize .. end</description>
     <text><![CDATA[class ${1:ClassName} < ${2:ParentClass}
@@ -344,7 +344,7 @@ end]]></text>
 
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="cla">
     <tag>cla</tag>
     <description>class .. &lt; Struct .. initialize .. end</description>
     <text><![CDATA[class ${1:ClassName} < Struct.new(:${2:attr_names})
@@ -357,7 +357,7 @@ end]]></text>
 
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="cla">
     <tag>cla</tag>
     <description>class .. initialize .. end</description>
     <text><![CDATA[class ${1:ClassName}
@@ -368,14 +368,14 @@ end]]></text>
 
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="cla">
     <tag>cla</tag>
     <description>class &lt;&lt; self .. end</description>
     <text><![CDATA[class << ${1:self}
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="cla">
     <tag>cla</tag>
     <description>class BlankSlate .. initialize .. end</description>
     <text><![CDATA[class ${1:BlankSlate}
@@ -394,17 +394,17 @@ end]]></text>
 
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="clafn">
     <tag>clafn</tag>
     <description>class_from_name()</description>
     <text><![CDATA[split("::").inject(Object) { |par, const| par.const_get(const) }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="col">
     <tag>col</tag>
     <description>collect { |e| .. }</description>
     <text><![CDATA[collect { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Comp">
     <tag>Comp</tag>
     <description>include Comparable ..</description>
     <text><![CDATA[include Comparable
@@ -413,122 +413,122 @@ def <=>(other)
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="dee">
     <tag>dee</tag>
     <description>deep_copy(..)</description>
     <text><![CDATA[Marshal.load(Marshal.dump(${1:obj_to_copy}))]]></text>
   </snippet>
-  <snippet>
+  <snippet id="defd">
     <tag>defd</tag>
     <description>def_delegator ..</description>
     <text><![CDATA[def_delegator :${1:del_obj}, :${2:del_meth}, :${3:new_name}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="defds">
     <tag>defds</tag>
     <description>def_delegators ..</description>
     <text><![CDATA[def_delegators :${1:del_obj}, :${2:del_methods}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="defs">
     <tag>defs</tag>
     <description>def self .. end</description>
     <text><![CDATA[def self.${1:class_method_name}
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="deft">
     <tag>deft</tag>
     <description>def test_ .. end</description>
     <text><![CDATA[def test_${1:case_name}
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="deli">
     <tag>deli</tag>
     <description>delete_if { |e| .. }</description>
     <text><![CDATA[delete_if { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="det">
     <tag>det</tag>
     <description>detect { |e| .. }</description>
     <text><![CDATA[detect { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Dir">
     <tag>Dir</tag>
     <description>Dir.glob("..") { |file| .. }</description>
     <text><![CDATA[Dir.glob(${1:glob}) { |${2:file}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="dow">
     <tag>dow</tag>
     <description>downto(0) { |n| .. }</description>
     <text><![CDATA[downto(${1}) { |${2:n}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ea">
     <tag>ea</tag>
     <description>each { |e| .. }</description>
     <text><![CDATA[each { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eab">
     <tag>eab</tag>
     <description>each_byte { |byte| .. }</description>
     <text><![CDATA[each_byte { |${1:byte}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eac">
     <tag>eac</tag>
     <description>each_char { |chr| .. }</description>
     <text><![CDATA[each_char { |${1:chr}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eac">
     <tag>eac</tag>
     <description>each_cons(..) { |group| .. }</description>
     <text><![CDATA[each_cons(${1:2}) { |${2:group}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eachwithindex">
     <tag>eachwithindex</tag>
     <description>each_with_index</description>
     <text><![CDATA[each_with_index { |${1:element}, ${2:idx}| ${1}.${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eai">
     <tag>eai</tag>
     <description>each_index { |i| .. }</description>
     <text><![CDATA[each_index { |${1:i}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eal">
     <tag>eal</tag>
     <description>each_line { |line| .. }</description>
     <text><![CDATA[each_line${1:1} { |${2:line}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eap">
     <tag>eap</tag>
     <description>each_pair { |name, val| .. }</description>
     <text><![CDATA[each_pair { |${1:name}, ${2:val}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eas">
     <tag>eas</tag>
     <description>each_slice(..) { |group| .. }</description>
     <text><![CDATA[each_slice(${1:2}) { |${2:group}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eav">
     <tag>eav</tag>
     <description>each_value { |val| .. }</description>
     <text><![CDATA[each_value { |${1:val}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eawi">
     <tag>eawi</tag>
     <description>each_with_index { |e, i| .. }</description>
     <text><![CDATA[each_with_index { |${1:e}, ${2:i}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="elsif">
     <tag>elsif</tag>
     <description>elsif ...</description>
     <text><![CDATA[elsif ${1:condition}
 	${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="EmbeddedCode">
     <tag>EmbeddedCode</tag>
     <description>Embedded Code — #{…}</description>
     <text><![CDATA[#{${1:paste}}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Enum">
     <tag>Enum</tag>
     <description>include Enumerable ..</description>
     <text><![CDATA[include Enumerable
@@ -537,180 +537,180 @@ def each(&block)
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fet">
     <tag>fet</tag>
     <description>fetch(name) { |key| .. }</description>
     <text><![CDATA[fetch(${1:name}) { |${2:key}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fil">
     <tag>fil</tag>
     <description>fill(range) { |i| .. }</description>
     <text><![CDATA[fill(${1:range}) { |${2:i}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="File">
     <tag>File</tag>
     <description>File.foreach ("..") { |line| .. }</description>
     <text><![CDATA[File.foreach(${1:file}) { |${2:line}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fin">
     <tag>fin</tag>
     <description>find { |e| .. }</description>
     <text><![CDATA[find { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fina">
     <tag>fina</tag>
     <description>find_all { |e| .. }</description>
     <text><![CDATA[find_all { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fl">
     <tag>fl</tag>
     <description>flunk(..)</description>
     <text><![CDATA[flunk("${1:message}")]]></text>
   </snippet>
-  <snippet>
+  <snippet id="flao">
     <tag>flao</tag>
     <description>flatten_once()</description>
     <text><![CDATA[inject(Array.new) { |${1:arr}, ${2:a}| ${1}.push(*${a}) }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="f">
     <tag>f</tag>
     <description>flash[…]</description>
     <text><![CDATA[flash[:${1:notice}] = "${2:Successfully}"${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Forw">
     <tag>Forw</tag>
     <description>extend Forwardable</description>
     <text><![CDATA[extend Forwardable]]></text>
   </snippet>
-  <snippet>
+  <snippet id="gre">
     <tag>gre</tag>
     <description>grep(/pattern/) { |match| .. }</description>
     <text><![CDATA[grep(${1:pattern}) { |${2:match}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="gsu">
     <tag>gsu</tag>
     <description>gsub(/../) { |match| .. }</description>
     <text><![CDATA[gsub(/${1:pattern}/) { |${2:match}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="hbtm">
     <tag>hbtm</tag>
     <description>has_and_belongs_to_many</description>
     <text><![CDATA[has_and_belongs_to_many :${1:object}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Hash">
     <tag>Hash</tag>
     <description>Hash.new { |hash, key| hash[key] = .. }</description>
     <text><![CDATA[Hash.new { |${1:hash}, ${2:key}| ${1}[${2}] = ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="hm">
     <tag>hm</tag>
     <description>has_many</description>
     <text><![CDATA[has_many :${1:objects}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ho">
     <tag>ho</tag>
     <description>has_one</description>
     <text><![CDATA[has_one :${1:object}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="inj">
     <tag>inj</tag>
     <description>inject(init) { |mem, var| .. }</description>
     <text><![CDATA[inject(${1:init}) { |${2:mem}, ${3:var}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="lam">
     <tag>lam</tag>
     <description>lambda { |args| .. }</description>
     <text><![CDATA[lambda { |${1:args}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="log">
     <tag>log</tag>
     <description>logger.debug</description>
     <text><![CDATA[logger.debug "${1:message}"${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="log">
     <tag>log</tag>
     <description>logger.error</description>
     <text><![CDATA[logger.error "${1:message}"${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="log">
     <tag>log</tag>
     <description>logger.fatal</description>
     <text><![CDATA[logger.fatal "${1:message}"${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="log">
     <tag>log</tag>
     <description>logger.info</description>
     <text><![CDATA[logger.info "${1:message}"${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="log">
     <tag>log</tag>
     <description>logger.warn</description>
     <text><![CDATA[logger.warn "${1:message}"${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="map">
     <tag>map</tag>
     <description>map { |e| .. }</description>
     <text><![CDATA[map { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mapwi">
     <tag>mapwi</tag>
     <description>map_with_index { |e, i| .. }</description>
     <text><![CDATA[enum_with_index.map { |${1:e}, ${2:i}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="max">
     <tag>max</tag>
     <description>max { |a, b| .. }</description>
     <text><![CDATA[max { |a, b| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mccc">
     <tag>mccc</tag>
     <description>Create Several Columns</description>
     <text><![CDATA[t.column :${1:title}, :${2:string}
 mccc${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mcol">
     <tag>mcol</tag>
     <description>Add Column</description>
     <text><![CDATA[add_column :${1:table}, :${2:column}, :${3:string}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mcol">
     <tag>mcol</tag>
     <description>Create Column in Table</description>
     <text><![CDATA[t.column :${1:title}, :${2:string} ${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mcol">
     <tag>mcol</tag>
     <description>Remove Column</description>
     <text><![CDATA[remove_column :${1:table}, :${2:column}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mcol">
     <tag>mcol</tag>
     <description>Rename Column</description>
     <text><![CDATA[rename_column :${1:column}, :${2:new_column}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Md">
     <tag>Md</tag>
     <description>Marshal.dump(.., file)</description>
     <text><![CDATA[File.open(${1:dump}, "w") { |${2:file}| Marshal.dump(${3:obj}, ${2}) }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="min">
     <tag>min</tag>
     <description>min { |a, b| .. }</description>
     <text><![CDATA[min { |a, b| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Ml">
     <tag>Ml</tag>
     <description>Marshal.load(obj)</description>
     <text><![CDATA[File.open(${1:dump}) { |${2:file}| Marshal.load(${2}) }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mm">
     <tag>mm</tag>
     <description>def method_missing .. end</description>
     <text><![CDATA[def method_missing(meth, *args, &block)
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mod">
     <tag>mod</tag>
     <description>module .. ClassMethods .. end</description>
     <text><![CDATA[module ${1:ModuleName}
@@ -728,14 +728,14 @@ end]]></text>
 	end
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mod">
     <tag>mod</tag>
     <description>module .. end</description>
     <text><![CDATA[module ${1:ModuleName}
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mod">
     <tag>mod</tag>
     <description>module .. module_function .. end</description>
     <text><![CDATA[module ${1:ModuleName}
@@ -744,35 +744,35 @@ end]]></text>
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mtab">
     <tag>mtab</tag>
     <description>Create Table</description>
     <text><![CDATA[create_table :${1:table} do |t|
     ${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mtab">
     <tag>mtab</tag>
     <description>Drop / Create Table</description>
     <text><![CDATA[drop_table :${1:table}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mtab">
     <tag>mtab</tag>
     <description>Drop Table</description>
     <text><![CDATA[drop_table :${1:table}
 ${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mtab">
     <tag>mtab</tag>
     <description>Rename Table</description>
     <text><![CDATA[rename_table :${1:table}, :${2:new_name}${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ope">
     <tag>ope</tag>
     <description>open("path/or/url", "w") { |io| .. }</description>
     <text><![CDATA[open(${1:pipe}) { |${2:io}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="opt">
     <tag>opt</tag>
     <description>option(..)</description>
     <text><![CDATA[opts.on( "-${1:o}", "--${2:option}"${1},
@@ -780,7 +780,7 @@ ${0}]]></text>
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="optp">
     <tag>optp</tag>
     <description>option_parse { .. }</description>
     <text><![CDATA[require "optparse"
@@ -813,254 +813,254 @@ ARGV.options do |opts|
 end
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="par">
     <tag>par</tag>
     <description>partition { |e| .. }</description>
     <text><![CDATA[partition { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="p">
     <tag>p</tag>
     <description>params[…]</description>
     <text><![CDATA[params[:${1:id}]]]></text>
   </snippet>
-  <snippet>
+  <snippet id="patfh">
     <tag>patfh</tag>
     <description>path_from_here( .. )</description>
     <text><![CDATA[File.join(File.dirname(__FILE__), *%w[${1:here}])]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Pn">
     <tag>Pn</tag>
     <description>PStore.new( .. )</description>
     <text><![CDATA[PStore.new(${1:file_name})]]></text>
   </snippet>
-  <snippet>
+  <snippet id="r">
     <tag>r</tag>
     <description>attr_reader ..</description>
     <text><![CDATA[attr_reader :${1:attr_names}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ra">
     <tag>ra</tag>
     <description>render (action)</description>
     <text><![CDATA[render :action => "${1:action}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ral">
     <tag>ral</tag>
     <description>render (action, layout)</description>
     <text><![CDATA[render :action => "${1:action}", :layout => "${2:layoutname}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ran">
     <tag>ran</tag>
     <description>randomize()</description>
     <text><![CDATA[sort_by { rand }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rb">
     <tag>rb</tag>
     <description>#!/usr/local/bin/ruby -w"</description>
     <text><![CDATA[#!/usr/bin/env ruby -w
 
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rcea">
     <tag>rcea</tag>
     <description>render_component (action)</description>
     <text><![CDATA[render_component :action => "${1:index}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rcec">
     <tag>rcec</tag>
     <description>render_component (controller)</description>
     <text><![CDATA[render_component :controller => "${1:items}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rceca">
     <tag>rceca</tag>
     <description>render_component (controller, action)</description>
     <text><![CDATA[render_component :controller => "${1:items}", :action => "${2:index}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rdb">
     <tag>rdb</tag>
     <description>RAILS_DEFAULT_LOGGER.debug</description>
     <text><![CDATA[RAILS_DEFAULT_LOGGER.debug "${1:message}"${0}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rea">
     <tag>rea</tag>
     <description>redirect_to (action)</description>
     <text><![CDATA[redirect_to :action => "${1:index}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="reai">
     <tag>reai</tag>
     <description>redirect_to (action, id)</description>
     <text><![CDATA[redirect_to :action => "${1:show}", :id => ${2:item}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rec">
     <tag>rec</tag>
     <description>redirect_to (controller)</description>
     <text><![CDATA[redirect_to :controller => "${1:items}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="reca">
     <tag>reca</tag>
     <description>redirect_to (controller, action)</description>
     <text><![CDATA[redirect_to :controller => "${1:items}", :action => "${2:list}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="recai">
     <tag>recai</tag>
     <description>redirect_to (controller, action, id)</description>
     <text><![CDATA[redirect_to :controller => "${1:items}", :action => "${2:show}", :id => ${3:item}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rej">
     <tag>rej</tag>
     <description>reject { |e| .. }</description>
     <text><![CDATA[reject { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="reject">
     <tag>reject</tag>
     <description>reject element</description>
     <text><![CDATA[reject { |${1:element}| ${2:element}.${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rep">
     <tag>rep</tag>
     <description>results.report(..) { .. }</description>
     <text><![CDATA[results.report("${1:name}:") { TESTS.times { ${0} } }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="req">
     <tag>req</tag>
     <description>require ".."</description>
     <text><![CDATA[require "${0}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="reve">
     <tag>reve</tag>
     <description>reverse_each { |e| .. }</description>
     <text><![CDATA[reverse_each { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rf">
     <tag>rf</tag>
     <description>render (file)</description>
     <text><![CDATA[render :file => "${1:filepath}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rfu">
     <tag>rfu</tag>
     <description>render (file, use_full_path)</description>
     <text><![CDATA[render :file => "${1:filepath}", :use_full_path => ${2:false}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ri">
     <tag>ri</tag>
     <description>render (inline)</description>
     <text><![CDATA[render :inline => "${1:hello}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ril">
     <tag>ril</tag>
     <description>render (inline, locals)</description>
     <text><![CDATA[render :inline => "${1:hello}", :locals => { ${2:name} => "${3:value}"${4} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rit">
     <tag>rit</tag>
     <description>render (inline, type)</description>
     <text><![CDATA[render :inline => "${1:hello}", :type => ${2:rxml}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rl">
     <tag>rl</tag>
     <description>render (layout)</description>
     <text><![CDATA[render :layout => "${1:layoutname}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rn">
     <tag>rn</tag>
     <description>render (nothing)</description>
     <text><![CDATA[render :nothing => ${true}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rns">
     <tag>rns</tag>
     <description>render (nothing, status)</description>
     <text><![CDATA[render :nothing => ${1:true}, :status => ${2:401}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rp">
     <tag>rp</tag>
     <description>render (partial)</description>
     <text><![CDATA[render :partial => "${1:item}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rpc">
     <tag>rpc</tag>
     <description>render (partial, collection)</description>
     <text><![CDATA[render :partial => "${1:item}", :collection => ${2:items}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rpl">
     <tag>rpl</tag>
     <description>render (partial, locals)</description>
     <text><![CDATA[render :partial => "${1:item}", :locals => { :${2:name} => "${3:value}"${4} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rpo">
     <tag>rpo</tag>
     <description>render (partial, object)</description>
     <text><![CDATA[render :partial => "${1:item}", :object => ${2:object}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rps">
     <tag>rps</tag>
     <description>render (partial, status)</description>
     <text><![CDATA[render :partial => "${1:item}", :status => ${2:500}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rt">
     <tag>rt</tag>
     <description>render (text)</description>
     <text><![CDATA[render :text => "${1:render}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rtl">
     <tag>rtl</tag>
     <description>render (text, layout)</description>
     <text><![CDATA[render :text => "${1:render}", :layout => "${2:layoutname}"]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rtlt">
     <tag>rtlt</tag>
     <description>render (text, layout =&gt; true)</description>
     <text><![CDATA[render :text => "${1:render}", :layout => ${2:true}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rts">
     <tag>rts</tag>
     <description>render (text, status)</description>
     <text><![CDATA[render :text => "${1:render}", :status => ${2:401}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="rw">
     <tag>rw</tag>
     <description>attr_accessor ..</description>
     <text><![CDATA[attr_accessor :${1:attr_names}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="sca">
     <tag>sca</tag>
     <description>scan(/../) { |match| .. }</description>
     <text><![CDATA[scan(/${1:pattern}/) { |${2:match}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="sel">
     <tag>sel</tag>
     <description>select { |e| .. }</description>
     <text><![CDATA[select { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="session">
     <tag>session</tag>
     <description>session[…]</description>
     <text><![CDATA[session[:${1:User}]]]></text>
   </snippet>
-  <snippet>
+  <snippet id="sin">
     <tag>sin</tag>
     <description>singleton_class()</description>
     <text><![CDATA[class << self; self end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="sor">
     <tag>sor</tag>
     <description>sort { |a, b| .. }</description>
     <text><![CDATA[sort { |a, b| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="sorb">
     <tag>sorb</tag>
     <description>sort_by { |e| .. }</description>
     <text><![CDATA[sort_by { |${1:e}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ste">
     <tag>ste</tag>
     <description>step(2) { |e| .. }</description>
     <text><![CDATA[step(${1:2}) { |${2:n}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="sub">
     <tag>sub</tag>
     <description>sub(/../) { |match| .. }</description>
     <text><![CDATA[sub(/${1:pattern}/) { |${2:match}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="tc">
     <tag>tc</tag>
     <description>class .. &lt; Test::Unit::TestCase .. end</description>
     <text><![CDATA[require "test/unit"
@@ -1073,17 +1073,17 @@ class Test${1:amp} < Test::Unit::TestCase
 	end
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="tim">
     <tag>tim</tag>
     <description>times { |n| .. }</description>
     <text><![CDATA[times { |${1:n}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="tra">
     <tag>tra</tag>
     <description>transaction( .. ) { .. }</description>
     <text><![CDATA[transaction${1} { ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ts">
     <tag>ts</tag>
     <description>require "tc_.." ..</description>
     <text><![CDATA[require "test/unit"
@@ -1092,26 +1092,26 @@ require "tc_${1:test_case_file}"
 require "tc_${2:test_case_file}"
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="uni">
     <tag>uni</tag>
     <description>unix_filter { .. }</description>
     <text><![CDATA[ARGF.each_line${1} do |${2:line}|
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="until">
     <tag>until</tag>
     <description>until ... end</description>
     <text><![CDATA[until ${1:condition}
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="upt">
     <tag>upt</tag>
     <description>upto(1.0/0.0) { |n| .. }"</description>
     <text><![CDATA[upto(${1}) { |${2:n}|${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="usai">
     <tag>usai</tag>
     <description>usage_if()</description>
     <text><![CDATA[if ARGV.${1}
@@ -1119,7 +1119,7 @@ end]]></text>
   exit
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="usau">
     <tag>usau</tag>
     <description>usage_unless()</description>
     <text><![CDATA[unless ARGV.${1}
@@ -1127,96 +1127,96 @@ end]]></text>
   exit
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="va">
     <tag>va</tag>
     <description>validates_associated</description>
     <text><![CDATA[validates_associated :${1:attribute}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="vc">
     <tag>vc</tag>
     <description>validates_confirmation_of</description>
     <text><![CDATA[validates_confirmation_of :${1:attribute}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ve">
     <tag>ve</tag>
     <description>validates_exclusion_of</description>
     <text><![CDATA[validates_exclusion_of :${1:attribute}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="verify">
     <tag>verify</tag>
     <description>verify — redirect</description>
     <text><![CDATA[verify :only => [:${1}], :session => :user, :params => :id, :redirect_to => {:action => '${2:index}'}
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="verify">
     <tag>verify</tag>
     <description>verify — render</description>
     <text><![CDATA[verify :only => [:${1}], :method => :post, :render => {:status => 500, :text => "use HTTP-POST"}
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="vl">
     <tag>vl</tag>
     <description>validates_length_of</description>
     <text><![CDATA[validates_length_of :${1:attribute}, :within => ${2:20}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="vp">
     <tag>vp</tag>
     <description>validates_presence_of</description>
     <text><![CDATA[validates_presence_of :${1:attribute}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="vpif">
     <tag>vpif</tag>
     <description>validates_presence_of if</description>
     <text><![CDATA[validates_presence_of :${1:attribute}, :if => proc { |obj| ${2:condition} }}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="vu">
     <tag>vu</tag>
     <description>validates_uniqueness_of</description>
     <text><![CDATA[validates_uniqueness_of :${1:attribute}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="w">
     <tag>w</tag>
     <description>attr_writer ..</description>
     <text><![CDATA[attr_writer :${1:attr_names}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="while">
     <tag>while</tag>
     <description>while ... end</description>
     <text><![CDATA[while ${1:condition}
 	${0}
 end]]></text>
   </snippet>
-  <snippet>
+  <snippet id="y">
     <tag>y</tag>
     <description>:yields:</description>
     <text><![CDATA[ :yields: ${1:arguments}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Yd">
     <tag>Yd</tag>
     <description>YAML.dump(.., file)</description>
     <text><![CDATA[File.open(${1:yaml}, "w") { |${2:file}| YAML.dump(${3:obj}, ${2}) }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="Yl">
     <tag>Yl</tag>
     <description>YAML.load(file)</description>
     <text><![CDATA[File.open(${1:yaml}) { |${2}| YAML.load(${2}) }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="zip">
     <tag>zip</tag>
     <description>zip(enums) { |row| .. }</description>
     <text><![CDATA[zip(${1:enums}) { |${2:row}| ${0} }]]></text>
   </snippet>
-  <snippet>
+  <snippet id="act">
     <text><![CDATA[:action => '$0']]></text>
     <tag>act</tag>
     <description>:action</description>
   </snippet>
-  <snippet>
+  <snippet id="vn">
     <text><![CDATA[validates_numericality_of :${1:price}, :${2:only_integer} => ${3:true}]]></text>
     <tag>vn</tag>
     <description>validates_numericality_of</description>
   </snippet>
-  <snippet>
+  <snippet id="vf">
     <text><![CDATA[validates_format_of :${1:image_url},
                     :${2:with}    => $3%r{\.(gif|jpg|png)$}i,
                     :${4:message} => "${5:must be a URL for a GIF, JPG, or PNG image}" $0
@@ -1225,130 +1225,130 @@ end]]></text>
     <tag>vf</tag>
     <description>validates_format_of</description>
   </snippet>
-  <snippet>
+  <snippet id="insert">
     <text><![CDATA[page[:${1:dom_id}].insert_html :${2:bottom}, '${3:text}' $0]]></text>
     <tag>insert</tag>
     <description>page.insert_html :bottom, 'dom_id', 'text'</description>
   </snippet>
-  <snippet>
+  <snippet id="insert">
     <text><![CDATA[page.insert_html :${1:bottom}, ${2:dom_id}
 								 							 :partial => '${3:partial}',
 															 :object => @${4:object} $0]]></text>
     <tag>insert</tag>
     <description>page.insert_html :bottom, 'dom_id', :partial =&gt; 'partial', :object =&gt; @object</description>
   </snippet>
-  <snippet>
+  <snippet id="replace">
     <text><![CDATA[page[:${1:dom_id}].replace_html '${2:text}' $0]]></text>
     <tag>replace</tag>
     <description>page.replace_html 'dom_id', "text</description>
   </snippet>
-  <snippet>
+  <snippet id="replace">
     <text><![CDATA[page[:${1:dom_id}].replace_html :partial => '${2:partial}', :object => @${3:object} $0]]></text>
     <tag>replace</tag>
     <description>page.replace_html 'dom_id, :partial =&gt; 'partial', :object =&gt; @object</description>
   </snippet>
-  <snippet>
+  <snippet id="remove">
     <text><![CDATA[page[:${1:dom_id}].remove $0]]></text>
     <tag>remove</tag>
     <description>page.remove 'dom_id'</description>
   </snippet>
-  <snippet>
+  <snippet id="hide">
     <text><![CDATA[page[:${1:dom_id}].hide $0]]></text>
     <tag>hide</tag>
     <description>page.hide 'dom_id'</description>
   </snippet>
-  <snippet>
+  <snippet id="show">
     <text><![CDATA[page[:${1:dom_id}].show $0]]></text>
     <tag>show</tag>
     <description>page.show 'dom_id</description>
   </snippet>
-  <snippet>
+  <snippet id="tog">
     <text><![CDATA[page[:${1:some-element}].toggle $0]]></text>
     <tag>tog</tag>
     <description>page.toggle 'dom_id'</description>
   </snippet>
-  <snippet>
+  <snippet id="alert">
     <text><![CDATA[page.alert '${1:Hello world}' $0]]></text>
     <tag>alert</tag>
     <description>page.alert 'message'</description>
   </snippet>
-  <snippet>
+  <snippet id="redirect">
     <text><![CDATA[page.redirect_to :controller => '${1:controller}', :action => '${2:action}', :id => @${3:object} $0]]></text>
     <tag>redirect</tag>
     <description>page.redirect_to :controller =&gt; 'controller', :action =&gt; 'action', :id =&gt; @object</description>
   </snippet>
-  <snippet>
+  <snippet id="call">
     <text><![CDATA[page.call ${1:function}, ${2:param1}, ${3:param2} $0]]></text>
     <tag>call</tag>
     <description>page.call function, param1, param2</description>
   </snippet>
-  <snippet>
+  <snippet id="assign">
     <text><![CDATA[page[:${1:dom_id}].assign ${2:value} $0]]></text>
     <tag>assign</tag>
     <description>page.assign "dom_id", value</description>
   </snippet>
-  <snippet>
+  <snippet id="raw">
     <text><![CDATA[page << "${1:alert('hello world);}"]]></text>
     <tag>raw</tag>
     <description>page &lt;&lt; "alert('hello world);</description>
   </snippet>
-  <snippet>
+  <snippet id="delay">
     <text><![CDATA[page.delay(${1:5}) do
 	$0
 end]]></text>
     <tag>delay</tag>
     <description>page.delay(time)</description>
   </snippet>
-  <snippet>
+  <snippet id="visual">
     <text><![CDATA[page[:${1:dom_id}].visual_effect :${2:highlight} $0]]></text>
     <tag>visual</tag>
     <description>page.visual_effect :effect, 'dom_id'</description>
   </snippet>
-  <snippet>
+  <snippet id="visual">
     <text><![CDATA[page[:${1:dom_id}].visual_effect :${2:highlight}, :duration => ${3:2} $0]]></text>
     <tag>visual</tag>
     <description>page.visual_effect :effect, 'dom_id', :duration =&gt; 2</description>
   </snippet>
-  <snippet>
+  <snippet id="sort">
     <text><![CDATA[page.sortable '${1:my_list}', :url => { :action => '${2:order}' } $0]]></text>
     <tag>sort</tag>
     <description>page.sortable 'my_list', :url =&gt; { :action =&gt; 'order' }</description>
   </snippet>
-  <snippet>
+  <snippet id="drag">
     <text><![CDATA[page.dragable '${1:my_image}', :revert => ${2:true} $0]]></text>
     <tag>drag</tag>
     <description>page.dragable 'my_image', :revert =&gt; true</description>
   </snippet>
-  <snippet>
+  <snippet id="drop">
     <text><![CDATA[page.drop_recieving '${1:my_cart}', :url => { :controller => '${2:cart}', :action => '${3:add}' } $0]]></text>
     <tag>drop</tag>
     <description>page.drop_recieving 'my_cart', :url =&gt; { :controller =&gt; 'cart', :action =&gt; 'add' }</description>
   </snippet>
-  <snippet override="ruby-:">
+  <snippet id="k" override="ruby-:">
     <text><![CDATA[:${1:key} => $0]]></text>
     <tag>k</tag>
     <description>hash pair</description>
   </snippet>
-  <snippet>
+  <snippet id="rd">
     <text><![CDATA[redirect_to ${1:path}]]></text>
     <tag>rd</tag>
     <description>Redirect To Path</description>
   </snippet>
-  <snippet>
+  <snippet id="it">
     <text><![CDATA[it '${1:test}' do
 	$0
 end]]></text>
     <tag>it</tag>
     <description>rspec: It</description>
   </snippet>
-  <snippet>
+  <snippet id="describe">
     <text><![CDATA[describe '${1:description}' do
 	$0
 end]]></text>
     <tag>describe</tag>
     <description>rspec: describe</description>
   </snippet>
-  <snippet>
+  <snippet id="bs">
     <text><![CDATA[before_save :${1:method}
 
 def ${1:method}
@@ -1357,7 +1357,7 @@ end]]></text>
     <tag>bs</tag>
     <description>before_save</description>
   </snippet>
-  <snippet>
+  <snippet id="bu">
     <text><![CDATA[before_update :${1:method}
 
 def ${1:method}
@@ -1366,7 +1366,7 @@ end]]></text>
     <tag>bu</tag>
     <description>before_update</description>
   </snippet>
-  <snippet>
+  <snippet id="bc">
     <text><![CDATA[before_create :${1:method}
 
 def ${1:method}
@@ -1375,7 +1375,7 @@ end]]></text>
     <tag>bc</tag>
     <description>before_create</description>
   </snippet>
-  <snippet>
+  <snippet id="as">
     <text><![CDATA[after_save :${1:method}
 
 def ${1:method}
@@ -1384,7 +1384,7 @@ end]]></text>
     <tag>as</tag>
     <description>after_save</description>
   </snippet>
-  <snippet>
+  <snippet id="au">
     <text><![CDATA[after_update :${1:method}
 
 def ${1:method}
@@ -1393,7 +1393,7 @@ end]]></text>
     <tag>au</tag>
     <description>after_update</description>
   </snippet>
-  <snippet>
+  <snippet id="ac">
     <text><![CDATA[after_create :${1:method}
 
 def ${1:method}
@@ -1402,7 +1402,7 @@ end]]></text>
     <tag>ac</tag>
     <description>after_create</description>
   </snippet>
-  <snippet>
+  <snippet id="ad">
     <text><![CDATA[after_destroy :${1:method}
 
 def ${1:method}
@@ -1411,7 +1411,7 @@ end]]></text>
     <tag>ad</tag>
     <description>after_destroy</description>
   </snippet>
-  <snippet>
+  <snippet id="bd">
     <text><![CDATA[before_destroy :${1:method}
 
 def ${1:method}
@@ -1420,100 +1420,100 @@ end]]></text>
     <tag>bd</tag>
     <description>before_destroy</description>
   </snippet>
-  <snippet>
+  <snippet id="test">
     <text><![CDATA[test '$1' do
   $0
 end]]></text>
     <tag>test</tag>
     <description>test</description>
   </snippet>
-  <snippet>
+  <snippet id="vi">
     <text><![CDATA[validates_inclusion_of :${1:attribute}, :${2:in} => ${3:range}]]></text>
     <tag>vi</tag>
     <description>validates_inclusion_of</description>
   </snippet>
-  <snippet>
+  <snippet id="hashmarker">
     <text><![CDATA[# => $1]]></text>
     <tag>#</tag>
     <description>Add a # =&gt; Marker</description>
   </snippet>
-  <snippet>
+  <snippet id="hashpair">
     <text><![CDATA[:${1:key} => "${2:value}"]]></text>
     <accelerator><![CDATA[<Shift><Control>l]]></accelerator>
     <description>Hash Pair :key =&gt; "value"</description>
   </snippet>
-  <snippet override="ruby-hashpointer">
+  <snippet id="gmate-hashpointer" override="ruby-hashpointer">
     <text><![CDATA[ => ]]></text>
     <tag>l</tag>
     <description>hash pointer</description>
     <accelerator><![CDATA[<Shift><Alt>l]]></accelerator>
   </snippet>
-  <snippet>
+  <snippet id="amc">
     <text><![CDATA[alias_method_chain :${1:target}, :${2:feature}]]></text>
     <tag>amc</tag>
     <description>alias_method_chain</description>
   </snippet>
-  <snippet>
+  <snippet id="bf">
     <text><![CDATA[before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>bf</tag>
     <description>before_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="af">
     <text><![CDATA[after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>af</tag>
     <description>after_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="arf">
     <text><![CDATA[around_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>arf</tag>
     <description>around_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="sf">
     <text><![CDATA[skip_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>sf</tag>
     <description>skip_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="sbf">
     <text><![CDATA[skip_before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>sbf</tag>
     <description>skip_before_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="saf">
     <text><![CDATA[skip_after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>saf</tag>
     <description>skip_after_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="paf">
     <text><![CDATA[prepend_after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>paf</tag>
     <description>prepend_after_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="aaf">
     <text><![CDATA[append_after_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>aaf</tag>
     <description>append_after_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="pbf">
     <text><![CDATA[prepend_before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>pbf</tag>
     <description>prepend_before_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="abf">
     <text><![CDATA[append_before_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>abf</tag>
     <description>append_before_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="parf">
     <text><![CDATA[prepend_around_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>parf</tag>
     <description>prepend_around_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="aarf">
     <text><![CDATA[append_around_filter :${1:action}, :${2:except|only} => [:${3:actions}] $0]]></text>
     <tag>aarf</tag>
     <description>append_around_filter</description>
   </snippet>
-  <snippet>
+  <snippet id="av">
     <text><![CDATA[after_validation :${1:method}
 
 def ${1:method}
@@ -1522,7 +1522,7 @@ end]]></text>
     <tag>av</tag>
     <description>after_validation</description>
   </snippet>
-  <snippet>
+  <snippet id="avc">
     <text><![CDATA[after_validation_on_create :${1:method}
 
 def ${1:method}
@@ -1531,7 +1531,7 @@ end]]></text>
     <tag>avc</tag>
     <description>after_validation_on_create</description>
   </snippet>
-  <snippet>
+  <snippet id="avu">
     <text><![CDATA[after_validation_on_update :${1:method}
 
 def ${1:method}
@@ -1540,7 +1540,7 @@ end]]></text>
     <tag>avu</tag>
     <description>after_validation_on_update</description>
   </snippet>
-  <snippet>
+  <snippet id="bv">
     <text><![CDATA[before_validation :${1:method}
 
 def ${1:method}
@@ -1549,7 +1549,7 @@ end]]></text>
     <tag>bv</tag>
     <description>before_validation</description>
   </snippet>
-  <snippet>
+  <snippet id="bvc">
     <text><![CDATA[before_validation_on_create :${1:method}
 
 def ${1:method}
@@ -1558,7 +1558,7 @@ end]]></text>
     <tag>bvc</tag>
     <description>before_validation_on_create</description>
   </snippet>
-  <snippet>
+  <snippet id="bvu">
     <text><![CDATA[before_validation_on_update :${1:method}
 
 def ${1:method}
@@ -1567,107 +1567,107 @@ end]]></text>
     <tag>bvu</tag>
     <description>before_validation_on_update</description>
   </snippet>
-  <snippet>
+  <snippet id="ns">
     <text><![CDATA[named_scope :${1:name}, :conditions => { :${2:field} => ${3:condition} }, :order => "${4:field}"$0]]></text>
     <tag>ns</tag>
     <description>named_scope</description>
   </snippet>
-  <snippet>
+  <snippet id="ds">
     <text><![CDATA[default_scope :${1:name}, :conditions => { :${2:field} => ${3:condition} }, :order => "${4:field}"$0]]></text>
     <tag>ds</tag>
     <description>default_scope</description>
   </snippet>
-  <snippet>
+  <snippet id="svp">
     <text><![CDATA[should_validate_presence_of :${1:attribute}]]></text>
     <tag>svp</tag>
     <description>remarkable_ar: should_validate_presence_of</description>
   </snippet>
-  <snippet>
+  <snippet id="sbt">
     <text><![CDATA[should_belong_to :${1:association}]]></text>
     <tag>sbt</tag>
     <description>remarkable_ar: should_belong_to</description>
   </snippet>
-  <snippet>
+  <snippet id="shm">
     <text><![CDATA[should_have_many :${1:association}]]></text>
     <tag>shm</tag>
     <description>remarkable_ar: should_have_many</description>
   </snippet>
-  <snippet>
+  <snippet id="sho">
     <text><![CDATA[should_have_one :${1:association}]]></text>
     <tag>sho</tag>
     <description>remarkable_ar: should_have_one</description>
   </snippet>
-  <snippet>
+  <snippet id="shabtm">
     <text><![CDATA[should_have_and_belong_to_many :${1:association}]]></text>
     <tag>shabtm</tag>
     <description>remarkable_ar: should_have_and_belong_to_many</description>
   </snippet>
-  <snippet>
+  <snippet id="shc">
     <text><![CDATA[should_have_column :${1:column}, :type => ${2:type}]]></text>
     <tag>shc</tag>
     <description>remarkable_ar: should_have_column</description>
   </snippet>
-  <snippet>
+  <snippet id="shi">
     <text><![CDATA[should_have_index :${1:index_name}, :unique => :${2:true}]]></text>
     <tag>shi</tag>
     <description>remarkable_ar: should_have_index</description>
   </snippet>
-  <snippet>
+  <snippet id="shns">
     <text><![CDATA[should_have_named_scope :${1:scope}, :conditions => { :${2:column} => ${3:value} }, :order => '${4:order}'$0]]></text>
     <tag>shns</tag>
     <description>remarkable_ar: should_have_named_scope</description>
   </snippet>
-  <snippet>
+  <snippet id="shs">
     <text><![CDATA[should_have_scope :${1:scope}, :conditions => { :${2:column} => ${3:value} }, :order => '${4:order}'$0]]></text>
     <tag>shs</tag>
     <description>remarkable_ar: should_have_scope</description>
   </snippet>
-  <snippet>
+  <snippet id="shra">
     <text><![CDATA[should_have_readonly_attributes :${1:attribute}]]></text>
     <tag>shra</tag>
     <description>remarkable_ar: should_have_readonly_attributes</description>
   </snippet>
-  <snippet>
+  <snippet id="svc">
     <text><![CDATA[should_validate_confirmation_of :${1:attribute}]]></text>
     <tag>svc</tag>
     <description>remarkable_ar: should_validate_confirmation_of</description>
   </snippet>
-  <snippet>
+  <snippet id="sve">
     <text><![CDATA[should_validate_exclusion_of :${1:attribute}, :in => ${2:array|range}]]></text>
     <tag>sve</tag>
     <description>remarkable_ar: should_validate_exclusion_of</description>
   </snippet>
-  <snippet>
+  <snippet id="svi">
     <text><![CDATA[should_validate_inclusion_of :${1:attribute}, :in => ${2:array|range}]]></text>
     <tag>svi</tag>
     <description>remarkable_ar: should_validate_inclusion_of</description>
   </snippet>
-  <snippet>
+  <snippet id="svl">
     <text><![CDATA[should_validate_length_of :${1:attribute}, :${2:minimum|maximum|is|in|within} => ${3:value}]]></text>
     <tag>svl</tag>
     <description>remarkable_ar: should_validate_length_of</description>
   </snippet>
-  <snippet>
+  <snippet id="svn">
     <text><![CDATA[should_validate_numericality_of :${1:attribute}, :${2:only_integer|odd|even|...} => ${3:value}]]></text>
     <tag>svn</tag>
     <description>remarkable_ar: should_validate_numericality_of</description>
   </snippet>
-  <snippet>
+  <snippet id="svu">
     <text><![CDATA[should_validate_uniqueness_of :${1:attribute}, :scope => :${2:scoped_by}, :case_sensitive => ${3:true|false}]]></text>
     <tag>svu</tag>
     <description>remarkable_ar: should_validate_uniqueness_of</description>
   </snippet>
-  <snippet>
+  <snippet id="sav">
     <text><![CDATA[should_allow_values_for :${1:attribute}, :${2:value1}, :${3:value2}, :${4:valueN}]]></text>
     <tag>sav</tag>
     <description>remarkable_ar: should_allow_values_for</description>
   </snippet>
-  <snippet>
+  <snippet id="sama">
     <text><![CDATA[should_allow_mass_assignment_of :${1:attr1}, :${2:attr2}, :${3:attrN}]]></text>
     <tag>sama</tag>
     <description>remarkable_ar: should_allow_mass_assignment_of</description>
   </snippet>
-  <snippet>
+  <snippet id="sana">
     <text><![CDATA[should_accept_nested_attributes_for :${1:association},
 																		:allow_destroy => ${2:true|false},
 																		:reject => { :${3:attr} => ${4:value} },
@@ -1675,142 +1675,142 @@ end]]></text>
     <tag>sana</tag>
     <description>remarkable_ar: should_accept_nested_attributes_for</description>
   </snippet>
-  <snippet>
+  <snippet id="snama">
     <text><![CDATA[should_not_allow_mass_assignment_of :${1:attr1}, :${2:attr2}, :${3:attrN}]]></text>
     <tag>snama</tag>
     <description>remarkable_ar: should_not_allow_mass_assignment_of</description>
   </snippet>
-  <snippet>
+  <snippet id="snav">
     <text><![CDATA[should_not_allow_values_for :${1:attribute}, :${2:value1}, :${3:value2}, :${4:valueN}]]></text>
     <tag>snav</tag>
     <description>remarkable_ar: should_not_allow_values_for</description>
   </snippet>
-  <snippet>
+  <snippet id="sat">
     <text><![CDATA[should_assign_to :${1:instance_var_name}, :with => ${2:variable}, :with_kind_of => ${3:type}]]></text>
     <tag>sat</tag>
     <description>remarkable_rails: should_assign_to</description>
   </snippet>
-  <snippet>
+  <snippet id="expects">
     <text><![CDATA[expects :${1:method}, :on => ${2:object}, :with => ${3:params}, :returns => ${4:return|mock}]]></text>
     <tag>expects</tag>
     <description>remarkable_rails: expects</description>
   </snippet>
-  <snippet>
+  <snippet id="sfp">
     <text><![CDATA[should_filter_params :${1:param1}, :${2:param2}]]></text>
     <tag>sfp</tag>
     <description>remarkable_rails: should_filter_params</description>
   </snippet>
-  <snippet>
+  <snippet id="mm">
     <text><![CDATA[mock_models :${1:model}, :as => '${2:class}']]></text>
     <tag>mm</tag>
     <description>remarkable_rails: mock_models</description>
   </snippet>
-  <snippet>
+  <snippet id="params">
     <text><![CDATA[params :${1:param} => ${2:value}]]></text>
     <tag>params</tag>
     <description>remarkable_rails: params</description>
   </snippet>
-  <snippet>
+  <snippet id="srt">
     <text><![CDATA[should_redirect_to { ${1:url} }]]></text>
     <tag>srt</tag>
     <description>remarkable_rails: should_redirect_to</description>
   </snippet>
-  <snippet>
+  <snippet id="srta">
     <text><![CDATA[should_redirect_to :action => '${1:index}']]></text>
     <tag>srta</tag>
     <description>remarkable_rails: should_redirect_to action</description>
   </snippet>
-  <snippet>
+  <snippet id="srt">
     <text><![CDATA[should_render_template '${1:index}']]></text>
     <tag>srt</tag>
     <description>remarkable_rails: should_render_template</description>
   </snippet>
-  <snippet>
+  <snippet id="srwl">
     <text><![CDATA[should_render_with_layout '${1:layout}']]></text>
     <tag>srwl</tag>
     <description>remarkable_rails: should_render_with_layout</description>
   </snippet>
-  <snippet>
+  <snippet id="srwol">
     <text><![CDATA[should_render_without_layout '${1:layout}']]></text>
     <tag>srwol</tag>
     <description>remarkable_rails: should_render_without_layout</description>
   </snippet>
-  <snippet>
+  <snippet id="srw">
     <text><![CDATA[should_respond_with :${1:success|redirect|404}, :content_type => ${2:Mime::XML}]]></text>
     <tag>srw</tag>
     <description>remarkable_rails: should_respond_with</description>
   </snippet>
-  <snippet>
+  <snippet id="srwb">
     <text><![CDATA[should_respond_with_body '${1:text_body|str_or_regex}']]></text>
     <tag>srwb</tag>
     <description>remarkable_rails: should_respond_with_body</description>
   </snippet>
-  <snippet>
+  <snippet id="srwct">
     <text><![CDATA[should_respond_with_content_type ${1:content_type}]]></text>
     <tag>srwct</tag>
     <description>remarkable_rails: should_respond_with_content_type</description>
   </snippet>
-  <snippet>
+  <snippet id="sr">
     <text><![CDATA[should_route :${1:get|post|put|delete}, '${2:url}', :action => '${3:index|new|edit..}', :id => 1]]></text>
     <tag>sr</tag>
     <description>remarkable_rails: should_route</description>
   </snippet>
-  <snippet>
+  <snippet id="ssc">
     <text><![CDATA[should_set_cookies :${1:cookie}, :to => ${2:value|proc}]]></text>
     <tag>ssc</tag>
     <description>remarkable_rails: should_set_cookies</description>
   </snippet>
-  <snippet>
+  <snippet id="snsc">
     <text><![CDATA[should_not_set_cookies :${1:cookie}, :to => ${2:value|proc}]]></text>
     <tag>snsc</tag>
     <description>remarkable_rails: should_not_set_cookies</description>
   </snippet>
-  <snippet>
+  <snippet id="sstf">
     <text><![CDATA[should_set_the_flash :${1:notice|error}, :to => ${2:string|regex|proc}]]></text>
     <tag>sstf</tag>
     <description>remarkable_rails: should_set_the_flash</description>
   </snippet>
-  <snippet>
+  <snippet id="snstf">
     <text><![CDATA[should_not_set_the_flash :${1:notice|error}, :to => ${2:string|regex|proc}]]></text>
     <tag>snstf</tag>
     <description>remarkable_rails: should_not_set_the_flash</description>
   </snippet>
-  <snippet>
+  <snippet id="context">
     <text><![CDATA[context '${1:description}' do
 	$0
 end]]></text>
     <tag>context</tag>
     <description>rspec: context</description>
   </snippet>
-  <snippet>
+  <snippet id="before">
     <text><![CDATA[before(:each) do
   $0
 end]]></text>
     <tag>before</tag>
     <description>rspec: before</description>
   </snippet>
-  <snippet>
+  <snippet id="beforea">
     <text><![CDATA[before(:all) do
   $0
 end]]></text>
     <tag>beforea</tag>
     <description>rspec: before all</description>
   </snippet>
-  <snippet>
+  <snippet id="after">
     <text><![CDATA[after(:each) do
   $0
 end]]></text>
     <tag>after</tag>
     <description>rspec: after</description>
   </snippet>
-  <snippet>
+  <snippet id="aftera">
     <text><![CDATA[after(:all) do
   $0
 end]]></text>
     <tag>aftera</tag>
     <description>rspec: after all</description>
   </snippet>
-  <snippet>
+  <snippet id="describeb">
     <text><![CDATA[describe '${1:description}' do
 	before(:each) do
 		$0
@@ -1819,7 +1819,7 @@ end]]></text>
     <tag>describeb</tag>
     <description>rspec: describe with before</description>
   </snippet>
-  <snippet>
+  <snippet id="contextb">
     <text><![CDATA[context '${1:description}' do
 	before(:each) do
   	$0

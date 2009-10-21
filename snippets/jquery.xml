@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <snippets language="js">
-  <snippet>
+  <snippet id="plugin">
     <tag></tag>
     <description>plugin</description>
     <text><![CDATA[;(function(\$) {
@@ -35,17 +35,17 @@ ${2:// ${3:What does the $1 plugin do?}}
 })(jQuery);
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="trigger">
     <tag>trigger</tag>
     <description>trigger</description>
     <text><![CDATA[.trigger('${1:event name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="wrap">
     <tag>wrap</tag>
     <description>wrapAll</description>
     <text><![CDATA[.wrapAll('${1:<div class="extra-wrapper"></div>}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fadeOut">
     <tag>fadeOut</tag>
     <description>fadeOut (with callback)</description>
     <text><![CDATA[.fadeOut(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, function() {
@@ -53,57 +53,57 @@ ${2:// ${3:What does the $1 plugin do?}}
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="slideToggle">
     <tag>slideToggle</tag>
     <description>slideToggle</description>
     <text><![CDATA[.slideToggle(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="slice">
     <tag>slice</tag>
     <description>slice</description>
     <text><![CDATA[.slice(${1:start}${2/(.+)/(?1:, :)/}${2:end})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="animate">
     <tag>animate</tag>
     <description>animate</description>
     <text><![CDATA[.animate({${1:${2:param1}: ${3:value1}${4:, ${5:param2}: ${6:value2}}}}, ${7:speed})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="width">
     <tag>width</tag>
     <description>width</description>
     <text><![CDATA[.width(${1:integer})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="find">
     <tag>find</tag>
     <description>find</description>
     <text><![CDATA[.find('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="data">
     <tag>data</tag>
     <description>data</description>
     <text><![CDATA[.data('${1:data}'${2/(.+)/(?1:, :)/}${2/(^[0-9]+$)|.+/(?1::')/}${2:value}${2/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ajaxSuccess">
     <tag>ajaxSuccess</tag>
     <description>ajaxSuccess</description>
     <text><![CDATA[.ajaxSuccess(function() {
 	${1:// executes whenever an AJAX request completes successfully}
 });$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$merge">
     <tag>$merge</tag>
     <description>$.merge</description>
     <text><![CDATA[\$.merge(${1:array1}, ${2:array2});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="map">
     <tag>map</tag>
     <description>map (function)</description>
     <text><![CDATA[.map(function() {
   ${1:return ${2:something};}
 })]]></text>
   </snippet>
-  <snippet>
+  <snippet id="toggle">
     <tag>toggle</tag>
     <description>toggle (event)</description>
     <text><![CDATA[.toggle(function() {
@@ -113,19 +113,19 @@ $0]]></text>
 });
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="resize">
     <tag>resize</tag>
     <description>resize</description>
     <text><![CDATA[.resize(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="first">
     <tag></tag>
     <description>:first</description>
     <text><![CDATA[:first]]></text>
   </snippet>
-  <snippet>
+  <snippet id="slideUp">
     <tag>slideUp</tag>
     <description>slideUp (with callback)</description>
     <text><![CDATA[.slideUp(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, function() {
@@ -133,67 +133,67 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$boxModel">
     <tag>$boxModel</tag>
     <description>$.boxModel</description>
     <text><![CDATA[\$.boxModel]]></text>
   </snippet>
-  <snippet>
+  <snippet id="unbind">
     <tag>unbind</tag>
     <description>unbind</description>
     <text><![CDATA[.unbind('${1:event name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="prev">
     <tag>prev</tag>
     <description>prev</description>
     <text><![CDATA[.prev(${1/(.+)/(?1:':)/}${1:selector expression}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="filter">
     <tag>filter</tag>
     <description>closest</description>
     <text><![CDATA[.filter('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="nth-last-child(n)">
     <tag></tag>
     <description>:nth-last-child(n)</description>
     <text><![CDATA[:nth-last-child(${1:n})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="get">
     <tag>get</tag>
     <description>get</description>
     <text><![CDATA[.get(${1:element index})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="scroll">
     <tag>scroll</tag>
     <description>scroll</description>
     <text><![CDATA[.scroll(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="html">
     <tag>html</tag>
     <description>html</description>
     <text><![CDATA[.html(${1/(.+)/(?1:':)/}${1:Some text <b>and bold!</b>}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="visible">
     <tag></tag>
     <description>:visible</description>
     <text><![CDATA[:visible
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="trigger">
     <tag>trigger</tag>
     <description>triggerHandler</description>
     <text><![CDATA[.triggerHandler('${1:event name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mouseout">
     <tag>mouseout</tag>
     <description>mouseout</description>
     <text><![CDATA[.mouseout(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$getScript">
     <tag>$getScript</tag>
     <description>$.getScript</description>
     <text><![CDATA[\$.getScript('${1:somescript.js}'${3/(.+)/(?1:, function\(\){
@@ -201,49 +201,49 @@ $0]]></text>
 }:)/});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$map">
     <tag>$map</tag>
     <description>$.map</description>
     <text><![CDATA[\$.map(${1:array}, function(${2:item}${3:, ${4:index}}) {
   ${5:return ${6:something};}
 });]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fadeTo">
     <tag>fadeTo</tag>
     <description>fadeTo</description>
     <text><![CDATA[.fadeTo(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, ${2:0.5})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="andSelf">
     <tag>andSelf</tag>
     <description>andSelf</description>
     <text><![CDATA[.andSelf()$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fadeIn">
     <tag>fadeIn</tag>
     <description>fadeIn</description>
     <text><![CDATA[.fadeIn(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="only-child">
     <tag></tag>
     <description>:only-child</description>
     <text><![CDATA[:only-child]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$browser">
     <tag>$browser</tag>
     <description>$.browser</description>
     <text><![CDATA[\$.browser.${1:safari/opera/msie/mozilla}]]></text>
   </snippet>
-  <snippet>
+  <snippet id="attr">
     <tag>attr</tag>
     <description>attr</description>
     <text><![CDATA[.attr('${1:attribute}'${2/(.+)/(?1:, :)/}${2/(^[0-9]+$)|.+/(?1::')/}${2:value}${2/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="is">
     <tag>is</tag>
     <description>is</description>
     <text><![CDATA[.is('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ajaxStart">
     <tag>ajaxStart</tag>
     <description>ajaxStart</description>
     <text><![CDATA[\$.ajaxStart(function() {
@@ -251,41 +251,41 @@ $0]]></text>
 });
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="select">
     <tag>select</tag>
     <description>select</description>
     <text><![CDATA[.select(function() {
 	${0:// Act on the event}
 });]]></text>
   </snippet>
-  <snippet>
+  <snippet id="root">
     <tag></tag>
     <description>:root</description>
     <text><![CDATA[:root]]></text>
   </snippet>
-  <snippet>
+  <snippet id="filter">
     <tag>filter</tag>
     <description>filter (function)</description>
     <text><![CDATA[.filter(function() {
   ${1:return ${2:something};}
 })]]></text>
   </snippet>
-  <snippet>
+  <snippet id="first-of-type">
     <tag></tag>
     <description>:first-of-type</description>
     <text><![CDATA[:first-of-type]]></text>
   </snippet>
-  <snippet>
+  <snippet id="end">
     <tag>end</tag>
     <description>end</description>
     <text><![CDATA[.end()$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="not(s)">
     <tag></tag>
     <description>:not(s)</description>
     <text><![CDATA[:not(${1:s})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fadeTo">
     <tag>fadeTo</tag>
     <description>fadeTo (with callback)</description>
     <text><![CDATA[.fadeTo(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, ${2:0.5}, function() {
@@ -293,7 +293,7 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$ajaxSetup">
     <tag>$ajaxSetup</tag>
     <description>$.ajaxSetup</description>
     <text><![CDATA[\$.ajaxSetup({
@@ -310,46 +310,46 @@ ${3/(.+)/(?1:  dataType\: ":)/}${3:xml/html/script/json}${3/(.+)/(?1:",
 :)/}});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="focus">
     <tag>focus</tag>
     <description>focus</description>
     <text><![CDATA[.focus(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="one">
     <tag>one</tag>
     <description>one</description>
     <text><![CDATA[.one('${1:event name}', function(${2:event}) {
 	${0:// Act on the event once}
 });]]></text>
   </snippet>
-  <snippet>
+  <snippet id="children">
     <tag>children</tag>
     <description>children</description>
     <text><![CDATA[.children(${1/(.+)/(?1:':)/}${1:selector expression}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="append">
     <tag>append</tag>
     <description>append</description>
     <text><![CDATA[.append('${1:Some text <b>and bold!</b>}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="show">
     <tag>show</tag>
     <description>show</description>
     <text><![CDATA[.show(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="prependTo">
     <tag>prependTo</tag>
     <description>prependTo</description>
     <text><![CDATA[.prependTo('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="attr">
     <tag>attr</tag>
     <description>attr (map)</description>
     <text><![CDATA[.attr({'${1:attribute1}'${2/(.+)/(?1:\: :)/}${2/(^[0-9]+$)|.+/(?1::')/}${2:value1}${2/(^[0-9]+$)|.+/(?1::')/}, '${3:attribute2}'${4/(.+)/(?1:\: :)/}${4/(^[0-9]+$)|.+/(?1::')/}${4:value2}${4/(^[0-9]+$)|.+/(?1::')/}})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="load">
     <tag>load</tag>
     <description>load (AHAH)</description>
     <text><![CDATA[.load('${1:/path/to/file.htm}'${2/(.+)/(?1:,{
@@ -359,36 +359,36 @@ $0]]></text>
 }:)/});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="nth-child(n)">
     <tag></tag>
     <description>:nth-child(n)</description>
     <text><![CDATA[:nth-child(${1:n})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="blur">
     <tag>blur</tag>
     <description>blur</description>
     <text><![CDATA[.blur(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="nth-of-type(n)">
     <tag></tag>
     <description>:nth-of-type(n)</description>
     <text><![CDATA[:nth-of-type(${1:n})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="last">
     <tag></tag>
     <description>:last</description>
     <text><![CDATA[:last]]></text>
   </snippet>
-  <snippet>
+  <snippet id="bind">
     <tag>bind</tag>
     <description>bind</description>
     <text><![CDATA[.bind('${1:event name}', function(${2:event}) {
 	${0:// Act on the event}
 });]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ready">
     <tag></tag>
     <description>document ready</description>
     <text><![CDATA[\$(document).ready(function() {
@@ -396,51 +396,51 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="slideUp">
     <tag>slideUp</tag>
     <description>slideUp</description>
     <text><![CDATA[.slideUp(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="size">
     <tag>size</tag>
     <description>size</description>
     <text><![CDATA[.size()$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="prepend">
     <tag>prepend</tag>
     <description>prepend</description>
     <text><![CDATA[.prepend('${1:Some text <b>and bold!</b>}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="error">
     <tag>error</tag>
     <description>error</description>
     <text><![CDATA[.error(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="animate">
     <tag>animate</tag>
     <description>animate (with callback)</description>
     <text><![CDATA[.animate({${2:param1}: ${3:value1}${4:, ${5:param2}: ${6:value2}}}, ${7:speed}, function() {
   ${0:// stuff to do after animation is complete}
 })]]></text>
   </snippet>
-  <snippet>
+  <snippet id="first-child">
     <tag></tag>
     <description>:first-child</description>
     <text><![CDATA[:first-child]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$browser">
     <tag>$browser</tag>
     <description>$.browser.version</description>
     <text><![CDATA[\$.browser.version]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fadeOut">
     <tag>fadeOut</tag>
     <description>fadeOut</description>
     <text><![CDATA[.fadeOut(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="hover">
     <tag>hover</tag>
     <description>hover</description>
     <text><![CDATA[.hover(function() {
@@ -449,22 +449,22 @@ $0]]></text>
 	${2:// Stuff to do when the mouse leaves the element;}
 });$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="slideDown">
     <tag>slideDown</tag>
     <description>slideDown</description>
     <text><![CDATA[.slideDown(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="css">
     <tag>css</tag>
     <description>css (map)</description>
     <text><![CDATA[.css({${1:attribute1}: '${2:value1}', ${3:attribute2}: '${4:value2}'})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="text">
     <tag>text</tag>
     <description>text</description>
     <text><![CDATA[.text(${1:'some text'})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="slideDown">
     <tag>slideDown</tag>
     <description>slideDown (with callback)</description>
     <text><![CDATA[.slideDown(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, function() {
@@ -472,7 +472,7 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="show">
     <tag>show</tag>
     <description>show (with callback)</description>
     <text><![CDATA[.show(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, function() {
@@ -480,7 +480,7 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="hide">
     <tag>hide</tag>
     <description>hide (with callback)</description>
     <text><![CDATA[.hide(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, function() {
@@ -488,120 +488,120 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="live">
     <tag>live</tag>
     <description>live</description>
     <text><![CDATA[.live('${1:event name}', function(${2:event}) {
 	${0:// Act on the event}
 });]]></text>
   </snippet>
-  <snippet>
+  <snippet id="click">
     <tag>click</tag>
     <description>click</description>
     <text><![CDATA[.click(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="removeClass">
     <tag>removeClass</tag>
     <description>removeClass</description>
     <text><![CDATA[.removeClass('${1:class name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mouseup">
     <tag>mouseup</tag>
     <description>mouseup</description>
     <text><![CDATA[.mouseup(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="disabled">
     <tag></tag>
     <description>:disabled</description>
     <text><![CDATA[:disabled]]></text>
   </snippet>
-  <snippet>
+  <snippet id="not">
     <tag>not</tag>
     <description>not</description>
     <text><![CDATA[.not('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="insertBefore">
     <tag>insertBefore</tag>
     <description>insertBefore</description>
     <text><![CDATA[.insertBefore('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="last-of-type">
     <tag></tag>
     <description>:last-of-type</description>
     <text><![CDATA[:last-of-type]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$unique">
     <tag>$unique</tag>
     <description>$.unique</description>
     <text><![CDATA[\$.unique(${1:elementArray});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="css">
     <tag>css</tag>
     <description>css</description>
     <text><![CDATA[.css('${1:property}'${2/(.+)/(?1:, :)/}${2/(^[0-9]+$)|.+/(?1::')/}${2:value}${2/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="clone">
     <tag></tag>
     <description>clone</description>
     <text><![CDATA[.clone()$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="each">
     <tag>each</tag>
     <description>each</description>
     <text><![CDATA[.each(function(index) {
 	${0:this.innerHTML = this + " is the element, " + index + " is the position";}
 });]]></text>
   </snippet>
-  <snippet>
+  <snippet id="even">
     <tag></tag>
     <description>:even</description>
     <text><![CDATA[:even]]></text>
   </snippet>
-  <snippet>
+  <snippet id="serializeArray">
     <tag>serializeArray</tag>
     <description>serializeArray</description>
     <text><![CDATA[.serializeArray()$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="dblclick">
     <tag>dblclick</tag>
     <description>dblclick</description>
     <text><![CDATA[.dblclick(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="die">
     <tag>die</tag>
     <description>die</description>
     <text><![CDATA[.die('${1:event name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="submit">
     <tag>submit</tag>
     <description>submit</description>
     <text><![CDATA[.submit(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="empty">
     <tag></tag>
     <description>:empty</description>
     <text><![CDATA[:empty]]></text>
   </snippet>
-  <snippet>
+  <snippet if="checked">
     <tag></tag>
     <description>:checked</description>
     <text><![CDATA[:checked]]></text>
   </snippet>
-  <snippet>
+  <snippet id="insertAfter">
     <tag>insertAfter</tag>
     <description>insertAfter</description>
     <text><![CDATA[.insertAfter('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$getJSON">
     <tag>$getJSON</tag>
     <description>$.getJSON</description>
     <text><![CDATA[\$.getJSON('${1:/path/to/file.cgi}'${2/(.+)/(?1:,{
@@ -611,27 +611,27 @@ $0]]></text>
 }:)/});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="removeAttr">
     <tag>removeAttr</tag>
     <description>removeAttr</description>
     <text><![CDATA[.removeAttr('${1:attribute name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="parents">
     <tag>parents</tag>
     <description>parents</description>
     <text><![CDATA[.parents(${1/(.+)/(?1:':)/}${1:selector expression}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="val">
     <tag>val</tag>
     <description>val</description>
     <text><![CDATA[.val(${1/(.+)/(?1:':)/}${1:text}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="parent">
     <tag>parent</tag>
     <description>parent</description>
     <text><![CDATA[.parent(${1/(.+)/(?1:':)/}${1:selector expression}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ajaxStop">
     <tag>ajaxStop</tag>
     <description>ajaxStop</description>
     <text><![CDATA[\$.ajaxStop(function() {
@@ -639,7 +639,7 @@ $0]]></text>
 });
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet if="ready">
     <tag></tag>
     <description>document ready (safe)</description>
     <text><![CDATA[jQuery(document).ready(function(\$) {
@@ -647,7 +647,7 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ajaxError">
     <tag>ajaxError</tag>
     <description>ajaxError</description>
     <text><![CDATA[.ajaxError(function(${1:request, settings}) {
@@ -655,43 +655,43 @@ $0]]></text>
 });
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$trim">
     <tag>$trim</tag>
     <description>$.trim</description>
     <text><![CDATA[\$.trim(${1:'${2:string}'})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="hasClass">
     <tag>hasClass</tag>
     <description>hasClass</description>
     <text><![CDATA[.hasClass('${1:className}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="closest">
     <tag>closest</tag>
     <description>filter</description>
     <text><![CDATA[.closest('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet if="$(this)">
     <tag></tag>
     <description>$(this)</description>
     <text><![CDATA[\$(this)$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="contains">
     <tag>contains</tag>
     <description>contains</description>
     <text><![CDATA[.contains('${1:text to find}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$extend">
     <tag>$extend</tag>
     <description>$.extend</description>
     <text><![CDATA[\$.extend(${1:target object}, ${2:object1});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="enabled">
     <tag></tag>
     <description>:enabled</description>
     <text><![CDATA[:enabled]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$post">
     <tag>$post</tag>
     <description>$.post</description>
     <text><![CDATA[\$.post('${1:/path/to/file.cgi}'${2/(.+)/(?1:,{
@@ -703,50 +703,50 @@ $0
 
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="gt">
     <tag></tag>
     <description>:gt(n)</description>
     <text><![CDATA[:gt(${1:n})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="next">
     <tag>next</tag>
     <description>next</description>
     <text><![CDATA[.next(${1/(.+)/(?1:':)/}${1:selector expression}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="odd">
     <tag></tag>
     <description>:odd</description>
     <text><![CDATA[:odd]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mousemove">
     <tag>mousemove</tag>
     <description>mousemove</description>
     <text><![CDATA[.mousemove(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="hidden">
     <tag></tag>
     <description>:hidden</description>
     <text><![CDATA[:hidden
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="lt">
     <tag></tag>
     <description>:lt(n)</description>
     <text><![CDATA[:lt(${1:n})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="wrap">
     <tag>wrap</tag>
     <description>wrapInner</description>
     <text><![CDATA[.wrapInner('${1:<div class="extra-wrapper"></div>}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="dom-element">
     <tag></tag>
     <description>$ (Select DOM Element)</description>
     <text><![CDATA[\$(${1/(.+)/(?1:':)/}${1:string/element/array/function/jQuery object/string, context}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$ajax">
     <tag>$ajax</tag>
     <description>$.ajax</description>
     <text><![CDATA[\$.ajax({
@@ -763,29 +763,29 @@ ${3/(.+)/(?1:  dataType\: ':)/}${3:xml/html/script/json}${3/(.+)/(?1:',
 :)/}});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="height">
     <tag>height</tag>
     <description>height</description>
     <text><![CDATA[.height(${1:integer})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$each">
     <tag>$each</tag>
     <description>$.each</description>
     <text><![CDATA[\$.each(${1:array/object}, function(${2:index}${3:, ${4:val}}) {
   ${0://iterate through array or object. val is used only for objects}
 });]]></text>
   </snippet>
-  <snippet>
+  <snippet id="contains">
     <tag></tag>
     <description>:contains('test')</description>
     <text><![CDATA[:contains('${1:test}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="before">
     <tag>before</tag>
     <description>before</description>
     <text><![CDATA[.before('${1:Some text <b>and bold!</b>}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="ajaxSend">
     <tag>ajaxSend</tag>
     <description>ajaxSend</description>
     <text><![CDATA[.ajaxSend(function(${1:request, settings}) {
@@ -793,27 +793,27 @@ $0]]></text>
 });
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="appendTo">
     <tag>appendTo</tag>
     <description>appendTo</description>
     <text><![CDATA[.appendTo('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="after">
     <tag>after</tag>
     <description>after</description>
     <text><![CDATA[.after('${1:Some text <b>and bold!</b>}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="add">
     <tag>add</tag>
     <description>add</description>
     <text><![CDATA[.add('${1:selector expression}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="siblings">
     <tag>siblings</tag>
     <description>siblings</description>
     <text><![CDATA[.siblings(${1/(.+)/(?1:':)/}${1:selector expression}${1/(.+)/(?1:':)/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="$get">
     <tag>$get</tag>
     <description>$.get</description>
     <text><![CDATA[\$.get('${1:/test/ajax-test.xml}'${2/(.+)/(?1:, function\(xml\){
@@ -821,67 +821,67 @@ $0]]></text>
 }:)/});
 $0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="only-of-type">
     <tag></tag>
     <description>:only-of-type</description>
     <text><![CDATA[:only-of-type]]></text>
   </snippet>
-  <snippet>
+  <snippet id="remove">
     <tag>remove</tag>
     <description>remove</description>
     <text><![CDATA[.remove()$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mousedown">
     <tag>mousedown</tag>
     <description>mousedown</description>
     <text><![CDATA[.mousedown(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="wrap">
     <tag>wrap</tag>
     <description>wrap</description>
     <text><![CDATA[.wrap('${1:<div class="extra-wrapper"></div>}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="reset">
     <tag>reset</tag>
     <description>reset</description>
     <text><![CDATA[.reset(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="parent">
     <tag></tag>
     <description>:parent</description>
     <text><![CDATA[:parent
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="addClass">
     <tag>addClass</tag>
     <description>addClass</description>
     <text><![CDATA[.addClass('${1:class name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="toggleClass">
     <tag>toggleClass</tag>
     <description>toggleClass</description>
     <text><![CDATA[.toggleClass('${1:class name}')$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="toggle">
     <tag>toggle</tag>
     <description>toggle (show/hide)</description>
     <text><![CDATA[.toggle(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="last-child">
     <tag></tag>
     <description>:last-child</description>
     <text><![CDATA[:last-child]]></text>
   </snippet>
-  <snippet>
+  <snippet id="serialize">
     <tag>serialize</tag>
     <description>serialize</description>
     <text><![CDATA[.serialize()$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="fadeIn">
     <tag>fadeIn</tag>
     <description>fadeIn (with callback)</description>
     <text><![CDATA[.fadeIn(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/}, function() {
@@ -889,31 +889,31 @@ $0]]></text>
 });
 ]]></text>
   </snippet>
-  <snippet>
+  <snippet id="load">
     <tag>load</tag>
     <description>load</description>
     <text><![CDATA[.load(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="change">
     <tag>change</tag>
     <description>change</description>
     <text><![CDATA[.change(${1:function() {
 	${0:// Act on the event}
 \}});]]></text>
   </snippet>
-  <snippet>
+  <snippet id="eq">
     <tag></tag>
     <description>:eq(n)</description>
     <text><![CDATA[:eq(${1:n})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="hide">
     <tag>hide</tag>
     <description>hide</description>
     <text><![CDATA[.hide(${1/(^[0-9]+$)|.+/(?1::')/}${1:slow/400/fast}${1/(^[0-9]+$)|.+/(?1::')/})$0]]></text>
   </snippet>
-  <snippet>
+  <snippet id="mouseover">
     <tag>mouseover</tag>
     <description>mouseover</description>
     <text><![CDATA[.mouseover(${1:function() {

@@ -1,61 +1,61 @@
 <?xml version='1.0' encoding='utf-8'?>
 <snippets language="rhtml">
-  <snippet>
+  <snippet id="conf">
     <text><![CDATA[:confirm => '${1:Are you sure?}'$0]]></text>
     <tag>conf</tag>
     <description>confirm</description>
   </snippet>
-  <snippet>
+  <snippet id="cai">
     <text><![CDATA[:controller => :${1:posts}, :action => :${2:show}, :id => ${3:post}]]></text>
     <tag>cai</tag>
     <description>controller action id</description>
   </snippet>
-  <snippet>
+  <snippet id="divc">
     <text><![CDATA[<div class="$1">
 	$0
 </div>]]></text>
     <tag>divc</tag>
     <description>div with class</description>
   </snippet>
-  <snippet>
+  <snippet id="divi">
     <text><![CDATA[<div id="$1">
 	$0
 </div>]]></text>
     <tag>divi</tag>
     <description>div with id</description>
   </snippet>
-  <snippet>
+  <snippet id="each">
     <text><![CDATA[<% ${1:@list}.each do |${2:item}| -%>
 	$0
 <% end -%>]]></text>
     <tag>each</tag>
     <description>each</description>
   </snippet>
-  <snippet>
+  <snippet id="end">
     <text><![CDATA[<% end -%>]]></text>
     <tag>end</tag>
     <description>end</description>
   </snippet>
-  <snippet>
+  <snippet id="emf">
     <text><![CDATA[<%= error_messages_for( :$1 ) %>$0]]></text>
     <tag>emf</tag>
     <description>error messages</description>
   </snippet>
-  <snippet>
+  <snippet id="formtag">
     <text><![CDATA[<% form_tag $1 do -%>
 	$0
 <% end -%>]]></text>
     <tag>formtag</tag>
     <description>form tag</description>
   </snippet>
-  <snippet>
+  <snippet id="if">
     <text><![CDATA[<% if ${1:logged_in?} -%>
 	$0
 <% end -%>]]></text>
     <tag>if</tag>
     <description>if</description>
   </snippet>
-  <snippet>
+  <snippet id="ife">
     <text><![CDATA[<% if ${1:logged_in?} -%>
 	$0
 <% else -%>
@@ -64,68 +64,68 @@
     <tag>ife</tag>
     <description>ife</description>
   </snippet>
-  <snippet>
+  <snippet id="img">
     <text><![CDATA[<%= image_tag '$1' %>$0]]></text>
     <tag>img</tag>
     <description>image</description>
   </snippet>
-  <snippet>
+  <snippet id="jit">
     <text><![CDATA[<%= javascript_include_tag ${1:defaults} %>$0]]></text>
     <tag>jit</tag>
     <description>include javascript</description>
   </snippet>
-  <snippet>
+  <snippet id="lbl">
     <text><![CDATA[<label>$0</label>]]></text>
     <tag>lbl</tag>
     <description>label</description>
   </snippet>
-  <snippet>
+  <snippet id="link-break">
     <text><![CDATA[<br/>
 $0]]></text>
     <description>line break</description>
     <accelerator><![CDATA[<Control>m]]></accelerator>
   </snippet>
-  <snippet>
+  <snippet id="lt">
     <text><![CDATA[<%= link_to '$1', $0 %>]]></text>
     <tag>lt</tag>
     <description>link</description>
   </snippet>
-  <snippet>
+  <snippet id="slt">
     <text><![CDATA[<%= stylesheet_link_tag '${1:style}' %>$0]]></text>
     <tag>slt</tag>
     <description>link stylesheet</description>
   </snippet>
-  <snippet>
+  <snippet id="ltr">
     <text><![CDATA[<%= link_to_remote '$1', :url => { $2 }$3 %>$0]]></text>
     <tag>ltr</tag>
     <description>link to remote</description>
   </snippet>
-  <snippet>
+  <snippet id="ltuc">
     <text><![CDATA[<%= link_to_unless_current '$1', $0 %>]]></text>
     <tag>ltuc</tag>
     <description>link unless current</description>
   </snippet>
-  <snippet>
+  <snippet id="li">
     <text><![CDATA[<li>$1</li>$0]]></text>
     <tag>li</tag>
     <description>list item</description>
   </snippet>
-  <snippet>
+  <snippet id="rp">
     <text><![CDATA[<%= render :partial => '${1:item}'$0 %>]]></text>
     <tag>rp</tag>
     <description>partial</description>
   </snippet>
-  <snippet>
+  <snippet id="pf">
     <text><![CDATA[<%= password_field :$1 %>$0]]></text>
     <tag>pf</tag>
     <description>password field</description>
   </snippet>
-  <snippet>
+  <snippet id="st">
     <text><![CDATA[<%= submit_tag '${1:save}' %>$0]]></text>
     <tag>st</tag>
     <description>submit</description>
   </snippet>
-  <snippet>
+  <snippet id="table">
     <text><![CDATA[<table class="$1">
 	<tr>
 		<th>$0</th>
@@ -134,26 +134,26 @@ $0]]></text>
     <tag>table</tag>
     <description>table</description>
   </snippet>
-  <snippet>
+  <snippet id="td">
     <text><![CDATA[<td>$0</td>]]></text>
     <tag>td</tag>
     <description>table cell</description>
   </snippet>
-  <snippet>
+  <snippet id="tr">
     <text><![CDATA[<tr>
 	$0
 </tr>]]></text>
     <tag>tr</tag>
     <description>table row</description>
   </snippet>
-  <snippet>
+  <snippet id="troe">
     <text><![CDATA[<tr class="<%= cycle( 'odd', 'even' ) %>">
 	$0
 </tr>]]></text>
     <tag>troe</tag>
     <description>table row odd-even</description>
   </snippet>
-  <snippet>
+  <snippet id="tag">
     <text><![CDATA[<${1:div}>
 	${2:$GEDIT_SELECTED_TEXT}
 </${1}>$0]]></text>
@@ -161,58 +161,58 @@ $0]]></text>
     <description>Tag</description>
     <accelerator><![CDATA[<Shift><Control><Alt>t]]></accelerator>
   </snippet>
-  <snippet>
+  <snippet id="tf">
     <text><![CDATA[<%= text_field :$1 %>$0]]></text>
     <tag>tf</tag>
     <description>text field</description>
   </snippet>
-  <snippet>
+  <snippet id="ul">
     <text><![CDATA[<ul class="${1:list}">
 	$0
 </ul>]]></text>
     <tag>ul</tag>
     <description>unordered list</description>
   </snippet>
-  <snippet>
+  <snippet id="p">
     <text><![CDATA[<p>${1:content}</p>$0]]></text>
     <tag>p</tag>
     <description>Paragraph</description>
   </snippet>
-  <snippet>
+  <snippet id="pe">
     <text><![CDATA[<%= ${1:command} %>$0]]></text>
     <tag>pe</tag>
     <description>Print erb</description>
   </snippet>
-  <snippet>
+  <snippet id="pr">
     <text><![CDATA[<% ${1:command} -%>$0]]></text>
     <tag>pr</tag>
     <description>Non Print Erb</description>
   </snippet>
-  <snippet>
+  <snippet id="tft">
     <text><![CDATA[<%= text_field_tag ${1:"method"}, ${2:value} %>$0]]></text>
     <tag>tft</tag>
     <description>Text Field Tag</description>
   </snippet>
-  <snippet>
+  <snippet id="forin">
     <text><![CDATA[<% for ${1:item} in ${2:itens} -%>
 	<%= $1.$0 %>
 <% end -%>]]></text>
     <tag>forin</tag>
     <description>For In</description>
   </snippet>
-  <snippet>
+  <snippet id="else">
     <text><![CDATA[<% else -%>]]></text>
     <tag>else</tag>
     <description>else</description>
   </snippet>
-  <snippet>
+  <snippet id="unless">
     <text><![CDATA[<% unless ${1:logged_in?} -%>
 	$0
 <% end -%>]]></text>
     <tag>unless</tag>
     <description>unless</description>
   </snippet>
-  <snippet>
+  <snippet id="unlesse">
     <text><![CDATA[<% unless ${1:logged_in?} -%>
 	$0
 <% else -%>
@@ -221,71 +221,71 @@ $0]]></text>
     <tag>unlesse</tag>
     <description>unlesse</description>
   </snippet>
-  <snippet>
+  <snippet id="th">
     <text><![CDATA[<th>$0</th>]]></text>
     <tag>th</tag>
     <description>table head</description>
   </snippet>
-  <snippet>
+  <snippet id="formfor">
     <text><![CDATA[<% form_for ${1:@object} do |${2:f}| -%>
 	$0
 <% end -%>]]></text>
     <tag>formfor</tag>
     <description>form for</description>
   </snippet>
-  <snippet>
+  <snippet id="div">
     <text><![CDATA[<div>${1:content}</div>$0]]></text>
     <tag>div</tag>
     <description>div</description>
   </snippet>
-  <snippet>
+  <snippet id="span">
     <text><![CDATA[<span>${1:content}</span>$0]]></text>
     <tag>span</tag>
     <description>span</description>
   </snippet>
-  <snippet>
+  <snippet id="h">
     <text><![CDATA[<h${2:1}>${1:content}</h$2>$0]]></text>
     <tag>h</tag>
     <description>header</description>
   </snippet>
-  <snippet>
+  <snippet id="cfd">
     <text><![CDATA[<% content_for :${1:place} do -%>
 	<%= ${2:output} %>
 <% end -%>]]></text>
     <tag>cfd</tag>
     <description>Content for block</description>
   </snippet>
-  <snippet>
+  <snippet id="cf">
     <text><![CDATA[<%= content_for :${1:place}, "${2:content}" %>]]></text>
     <tag>cf</tag>
     <description>Content for</description>
   </snippet>
-  <snippet>
+  <snippet id="ltf">
     <text><![CDATA[<%= link_to_function '${1:function}', ${2:javascript} %>$0]]></text>
     <tag>ltf</tag>
     <description>link to function</description>
   </snippet>
-  <snippet>
+  <snippet id="tagi">
     <text><![CDATA[<${1:span}>${2:$GEDIT_SELECTED_TEXT}</${1}>$0]]></text>
     <tag>tagi</tag>
     <description>Tag inline</description>
   </snippet>
-  <snippet>
+  <snippet id="t">
     <text><![CDATA[<%= t ${1:text} %>$0]]></text>
     <tag>t</tag>
     <description>translated text</description>
   </snippet>
-  <snippet>
+  <snippet id="l">
     <text><![CDATA[<%= l ${1:text} %>$0]]></text>
     <tag>l</tag>
     <description>localized text</description>
   </snippet>
-  <snippet>
+  <snippet id="r">
     <text><![CDATA[<%= render ${1:@object} %>$0]]></text>
     <tag>r</tag>
     <description>render</description>
   </snippet>
-  <snippet>
+  <snippet id="fs">
     <text><![CDATA[<% field_set_tag '${1:legend}' do -%>
   $0
 <% end -%>]]></text>

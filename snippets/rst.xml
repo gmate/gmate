@@ -1,17 +1,17 @@
 <snippets language="reStructuredText">
-<snippet>
+<snippet id="link">
     <text>`${1:LinkName}`_ .. _$1: </text>
     <tag>`</tag>
     <description>Link</description>
 <accelerator /></snippet>
-<snippet>
+<snippet id="lst">
     <text>* $1
 * $2
 ${3:lst}</text>
     <tag>lst</tag>
     <description>Unordered list</description>
 <accelerator /></snippet>
-<snippet>
+<snippet id="em">
     <text>*$GEDIT_SELECTED_TEXT*</text>
     <tag>em</tag>
     <description>Emphasized text</description>

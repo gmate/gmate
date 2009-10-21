@@ -20,64 +20,64 @@ Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA.
 -->
 <snippets language="markdown">
-  <snippet>
+  <snippet id="ref">
     <text><![CDATA[[${1:1}]: ${2:address}
 ]]></text>
     <tag>ref</tag>
     <description>Reference</description>
   </snippet>
-  <snippet>
+  <snippet id="lnk">
     <text><![CDATA[[${1:NewPage}][${2:1}] ]]></text>
     <tag>lnk</tag>
     <description>Link</description>
   </snippet>
-  <snippet>
+  <snippet id='link'>
     <text><![CDATA[[$GEDIT_SELECTED_TEXT][${1:id}]	]]></text>
     <description>Wrap selection in link w/ ref</description>
     <accelerator><![CDATA[<Control><Alt>l]]></accelerator>
   </snippet>
-  <snippet>
+  <snippet id="hd">
     <text><![CDATA[${1:Header}
 -----------]]></text>
     <tag>hd</tag>
     <description>Header Underlined II</description>
   </snippet>
-  <snippet>
+  <snippet id="img">
     <text><![CDATA[![${1:alt-text}](${2:URI})]]></text>
     <tag>img</tag>
     <description>Image</description>
   </snippet>
-  <snippet>
+  <snippet id="lst">
     <text><![CDATA[* $1
 * $2
 ${3:lst}]]></text>
     <tag>lst</tag>
     <description>Unordered list</description>
   </snippet>
-  <snippet>
+  <snippet id="Hd">
     <text><![CDATA[${1:Header}
 ===========
 ]]></text>
     <tag>Hd</tag>
     <description>Header Underlined I</description>
   </snippet>
-  <snippet>
+  <snippet id="hhd">
     <text><![CDATA[${1:#} ${2:title} $1
 ]]></text>
     <tag>hhd</tag>
     <description>Header Hashed</description>
   </snippet>
-  <snippet>
+  <snippet id="inline-link">
     <text><![CDATA[[$GEDIT_SELECTED_TEXT](${1:URL})]]></text>
     <description>Wrap selection in link inline</description>
     <accelerator><![CDATA[<Control><Alt>l]]></accelerator>
   </snippet>
-  <snippet>
+  <snippet id="lnki">
     <text><![CDATA[[${1:NewPage}](${2:URL}) ]]></text>
     <tag>lnki</tag>
     <description>Link inline</description>
   </snippet>
-  <snippet>
+  <snippet id="c">
     <text><![CDATA[\`$0\`]]></text>
     <tag>c</tag>
     <description>code en ligne</description>

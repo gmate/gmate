@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # Remove links created by postinst
 rm -rf /usr/bin/gmate

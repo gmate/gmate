@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 # Create links to executable files
 ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/gmate
 ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/mate

@@ -1,0 +1,30 @@
+gedit-gmate (0.9.6~aippa0) jaunty; urgency=low
+
+  * Add Switch Tab Plugin.
+  * Add gmate script, which can pass directory as the first param.
+  * Add postinst script to create links to gmate and gmate-installsnippets.
+  * Fix rst snippet.
+  * Update plugins to acomplish the new PyInotify.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Wed, 21 Oct 2009 00:35:00 +0400
+
+gedit-gmate (0.9.2~aippa0) jaunty; urgency=low
+
+  * Fix dependences to Karmic support.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Fri, 16 Oct 2009 21:51:08 +0400
+
+gedit-gmate (0.9.1~aippa1) jaunty; urgency=low
+
+  * Add more Markdown extensions.
+  * More suggar for rspec: before, after, context.
+  * Fixed problem when using a root path with urlescaped chars in todo list
+    plugin.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Fri, 09 Oct 2009 23:47:32 +0400
+
+gedit-gmate (0.9.1~aippa0) jaunty; urgency=low
+
+  * Initial release
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Sun, 14 Sep 2009 06:20:09 +0400

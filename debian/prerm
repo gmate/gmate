@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+# Remove links created by postinst
+rm -rf /usr/bin/gmate
+rm -rf /usr/bin/mate
+rm -rf /usr/bin/e
+
+#DEBHELPER#

@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+    
+build = $(CURDIR)/debian/gedit-gmate
+
+clean:
+	rm -f build
+    
+build:
+	touch build
+ 
+install:
+	dh_testdir
+	dh_testroot
+	dh_installdirs
+	dh_installdocs
+	
+	cp    lang-specs/*.lang $(build)/usr/share/gtksourceview-2.0/language-specs/
+	cp    mime/*            $(build)/usr/share/mime/packages/
+	cp -R plugins/*         $(build)/usr/lib/gedit-2/plugins/
+	cp -R styles/*          $(build)/usr/share/gtksourceview-2.0/styles/
+	cp -R snippets/*        $(build)/usr/share/gedit-2/plugins/snippets/
+	cp    gmate.py          $(build)/usr/share/gedit-2/gmate/
+
+binary-indep: install
+
+binary-arch: install
+	dh_installdocs
+	dh_installchangelogs
+	dh_installdeb
+	dh_compress
+	dh_gencontrol
+	dh_builddeb
+
+binary: binary-indep binary-arch

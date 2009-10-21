@@ -1,0 +1,57 @@
+This package was debianized by Andrey Sitnik <andrey@sitnik.ru> on
+Sun, 14 Sep 2009 06:20:09 +0400.
+
+It was downloaded from <http://github.com/lexrupy/gmate>
+
+Upstream Author(s):
+
+    Alexandre da Silva <lexrupy@gmail.com>
+    Ben Fisher
+    Christian Hergert <chris@dronelabs.com>
+    Daniel d'Andrada T. de Carvalho <daniel.carvalho@indt.org.br>
+    Elia Sarti
+    Eric Butler <eric@extremeboredom.net>
+    Eugene Khorev <eugene.khorev@gmail.com>
+    Frederic Back <fredericback@gmail.com>
+    Gary Haran <gary.haran@gmail.com>
+    Jonathan Walsh
+    Mads Buus Jensen <online@buus.net>
+    Mike Doty <mike@psyguygames.com>
+    Nando Vieira <fnando.vieira@gmail.com>
+    Osmo Salomaa <otsaloma@cc.hut.fi>
+    Tiago bastos <comechao@gmail.com>
+    Vince Wadhwani <vince@econify.com>
+    Vitaly Babiy <vbabiy86@gmail.com>
+
+Copyright:
+
+    Copyright (C) 2008 Alexandre da Silva
+    Copyright (C) 2008 Eric Butler
+    Copyright (C) 2008 Eugene Khorev
+    Copyright (C) 2009 Elia Sarti
+    Copyright (C) 2006 Frederic Back
+    Copyright (C) 2006 Gary Haran
+    Copyright (C) 2009 Jonathan Walsh
+    Copyright (C) 2008 Mads Buus Jensen
+    Copyright (C) 2007 Mike Doty
+    Copyright (C) 2007 Naneo Vieira
+    Copyright (C) 2006-2008 Osmo Salomaa
+    Copyright (C) 2008 Vitaly Babiy
+
+License:
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+The Debian packaging is copyright 2009, Andrey Sitnik <andrey@sitnik.ru> and
+is licensed under the LGPL, see `/usr/share/common-licenses/LGPL-3'.

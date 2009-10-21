@@ -9,3 +9,5 @@ echo "**************************************************************************
 echo "* To activate gmate included code snippets, please run gmate-installsnippets   *"
 echo "* with your user and without sudo.                                             *"
 echo "********************************************************************************"
+
+#DEBHELPER#

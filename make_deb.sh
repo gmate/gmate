@@ -1,4 +1,10 @@
 #!/bin/sh
+
+if [ ! -d ./build/ ]
+then
+  mkdir ./build/
+fi
+
 rm -rf ./build/tmp
 # Configure control folder and file
 mkdir -p ./build/tmp/gedit-gmate

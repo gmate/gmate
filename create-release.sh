@@ -21,7 +21,7 @@ rm -Rf .git
 rm -Rf build
 for file in `find . -name \*.gitignore`; do cp -R $file ./; done
 
-debuild -S
+debuild
 
 cd ..
 rm -R $dir

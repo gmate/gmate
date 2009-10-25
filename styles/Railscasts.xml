@@ -25,7 +25,7 @@
   <author>tm2gtksw2(Alexandre da Silva)</author>
   <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
 
-  <style name="bracket-match"  background="#3d3f40" bold="false"/>
+  <style name="bracket-match"  background="#3d3f40"/>
   <style name="bracket-mismatch"  background="#333435" underline="true"/>
   <style name="css:at-rules" foreground="#cc7833"/>
   <style name="css:color" foreground="#6d9cbe"/>

@@ -5,5 +5,7 @@ set -e
 ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/gmate
 ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/mate
 ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/e
+ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/g
 
 #DEBHELPER#
+

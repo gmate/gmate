@@ -5,5 +5,7 @@ set -e
 rm -rf /usr/bin/gmate
 rm -rf /usr/bin/mate
 rm -rf /usr/bin/e
+rm -rf /usr/bin/g
 
 #DEBHELPER#
+

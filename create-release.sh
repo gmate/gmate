@@ -7,11 +7,8 @@ dir=gedit-gmate-$version
 if [ -d build ]; then
     rm -R build
 fi
-mkdir build
-cd build
-
-mkdir $dir
-cd $dir
+mkdir -p build/$dir
+cd build/$dir
 
 for file in `ls -A ../../ | grep -v build`; do
     cp -R ../../$file ./
@@ -26,3 +23,4 @@ debuild
 cd ..
 rm -R $dir
 cd ..
+

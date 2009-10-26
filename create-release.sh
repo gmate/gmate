@@ -1,5 +1,5 @@
 #!/bin/sh
-# Build all files to upload to PPA.
+# Build all files to upload to PPA or .deb package (call with deb argument).
 
 version=`cat debian/control | grep ^Standards-Version: | awk '{print $2}'`
 dir=gedit-gmate-$version
@@ -18,13 +18,19 @@ rm -Rf .git
 rm -Rf build
 for file in `find . -name \*.gitignore`; do cp -R $file ./; done
 
-debuild
+if [ 'deb' = "$1" ]; then
+    debuild
+else
+    debuild -S
+fi
 
 cd ..
 rm -R $dir
 
-for file in `ls ./ | grep -v .deb`; do
-    rm $file
-done
+if [ 'deb' = "$1" ]; then
+    for file in `ls ./ | grep -v .deb`; do
+        rm $file
+    done
+fi
 
 cd ..

@@ -198,6 +198,8 @@ class TodoWindowHelper:
     def on_navigation_request(self, page, frame, request):
         file_uri = None
         uri = request.get_uri()
+        #if uri == 'about:':
+        #    return 0
         gp =  self.mt.search(uri)
         if gp:
             file_uri = 'file:///%s' % gp.group('file')
@@ -217,10 +219,12 @@ class TodoWindowHelper:
                 self.window.create_tab_from_uri(file_uri,
                             gedit.encoding_get_current(),
                             int(line_number), False, True)
+                self.todo_window.hide()
+                return 1
         else:
-            print "(%s) not found" % file_uri
-        self.todo_window.hide()
-        return 1
+            debug("(%s) not found" % file_uri)
+            #self.todo_window.hide()
+            return 0
 
     def update(self, text=None):
         pass

@@ -22,5 +22,9 @@ debuild
 
 cd ..
 rm -R $dir
-cd ..
 
+for file in `ls ./ | grep -v .deb`; do
+    rm $file
+done
+
+cd ..

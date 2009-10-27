@@ -10,7 +10,7 @@ import gconf
 import sys
 import urllib
 import os
-from optparse import OptionParser
+#from optparse import OptionParser
 
 # GConf directory for filebrowser
 base = '/apps/gedit-2/plugins/filebrowser/on_load'

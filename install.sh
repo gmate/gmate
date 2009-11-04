@@ -6,6 +6,9 @@
 sudo cp mime/rails.xml /usr/share/mime/packages
 # Copy language definitions
 sudo cp lang-specs/*.lang /usr/share/gtksourceview-2.0/language-specs/
+# Copy Gmate executable
+sudo mkdir -p /usr/share/gedit-2/gmate
+sudo cp gmate.py /usr/share/gedit-2/gmate/gmate.py
 # Copy Tags
 if [ ! -d /usr/share/gedit-2/plugins/taglist/ ]
 then
@@ -44,6 +47,10 @@ cp styles/* ~/.gnome2/gedit/styles
 
 # Ask for Python-Webkit package
 sudo apt-get install python-webkit
+
+# Execute debian postins script
+
+`sudo sh ./debian/postinst`
 
 echo -n "Do you want to activate default plugin and configuration set? [y,N]:"
 read answer

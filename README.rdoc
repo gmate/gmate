@@ -1,60 +1,64 @@
-= GMATE
+= GMate
 
-This package contains some Gedit improvements to make it more similar to TextMate.
-The package contain code snippets, plugins, and an automatic registration of rails-related files.
+This package contains some gedit improvements to make it more similar to TextMate.
+The package contain code snippets, plugins, and an automatic registration of
+rails-related files.
 
+== Install
 
-Now Todo-List plugin is a part of GMATE and does not depend of mozilla / gtkmozembed
-todo plugin now depends of python-webkitgtk package, this package was introduced on
-Ubuntu 8.10, and may or not disponible in other distros, if not you will need to downlolad
-and install manually. The Python Webkit Home is located on http://code.google.com/p/pywebkitgtk/
+=== Ubuntu Karmic
+1. Add Ubuntu on Rails PPA in System → Administration → Software Sources on
+   Third Party Software tab:
+   
+     ppa:ubuntu-on-rails/ppa
+   
+2. Install gedit-gmate package:
+   
+     $ sudo apt-get install gedit-gmate
 
-To install on a debian/ubuntu based distro just run in a terminal:
+=== Other Linux
+1. Install python-webkitgtk for Todo-List plugin.
+   See http://code.google.com/p/pywebkitgtk
+2. Install pyinotify for Gedit Open Files and SnapOpen plugins.
+3. Download gmate sources or clone git repository:
 
-  $ sudo apt-get install python-webkitgtk
+     $ git clone git://github.com/lexrupy/gmate.git
+     $ cd gmate
+  
+4. And run install script:
 
+     $ sh install.sh
+   
+   <b>Note:</b> Some commands will expect you enter your sudo password.
 
-I have changed the SnapOpen plugin by a new one called Gedit Open Files, it do the same work with the
-same shortcut, but have more options. this plugin requires pyinotify.
-
-To install on a debian/ubuntu based distro run in a terminal:
-
-  $ sudo apt-get install python-pyinotify
-
-
-To install gmate package run:
-
-  $ sh install.sh
-
-NOTE: Some commands will expect you enter your sudo password
-
-
-== Gmate package include:
+== Gmate package include
 
 === Plugins
 
-* Advanced Bookmarks - Highlight, remenber and toggle bookmarks in your files
-* Classbrowser - A Classbrowser (depends of ctags, I use exuberant-ctags)
-* Find in Files - Find a string in files (integrated with filebrowser)
-* Gedit Open File - Regex based file open (like textmate Go to file...)
-* Gedit Todo - Find Todo Marks in source files (integrated with filebrowser)
-* Gemini - Pair complete for quotes and braces
-* Quickhighligthmode - Fast change current highlight mode
-* Rails Extract Partial - Extract selected region of rhtml as a partial
-* Rails Hotcommands - Execute Rails Commands (such rake tasks)
-* Rails Hotkeys - Navigation in Rails Project Files
-* Regex Search Replace - Search and replace with regular expressions
-* Smart Indent - Smart Indentation regex based
-* Tabulation - Auto set tabs and spaces based on file type
-* Text Tools - Some text manipulation improvements (adapted from line tools)
-* Trailsave - Remove trailing spaces before save a document
-* Word Completion - Word completion plugin
-* Gedit Go To File - Yet Another Go to File plugin Just Like SnapOpen and GeditOpenFiles also based in Textmate Go to file.
-* Multi Edit - Check it out at author's page http://jon-walsh.com/journal/multi-edit/
+* Advanced Bookmarks – Highlight, remenber and toggle bookmarks in your files.
+* Classbrowser – A Classbrowser (depends of ctags, I use exuberant-ctags).
+* Find in Files – Find a string in files (integrated with filebrowser).
+* Gedit Open File – Regex based file open (like textmate Go to file…).
+* Gedit Todo – Find Todo Marks in source files (integrated with filebrowser).
+* Gemini – Pair complete for quotes and braces.
+* Quickhighligthmode – Fast change current highlight mode.
+* Rails Extract Partial – Extract selected region of rhtml as a partial.
+* Rails Hotcommands – Execute Rails Commands (such rake tasks).
+* Rails Hotkeys – Navigation in Rails Project Files.
+* Regex Search Replace – Search and replace with regular expressions.
+* Smart Indent – Smart Indentation regex based.
+* Tabulation – Auto set tabs and spaces based on file type.
+* Text Tools – Some text manipulation improvements (adapted from line tools).
+* Trailsave – Remove trailing spaces before save a document.
+* Word Completion – Word completion plugin.
+* Gedit Go To File – Yet Another Go to File plugin Just Like SnapOpen and
+  GeditOpenFiles also based in Textmate Go to file.
+* Multi Edit – Check it out at author's page
+  http://jon-walsh.com/journal/multi-edit
 
-NOTES:
-    In order to use Go to File feature you need to choose just one of: <tt>GeditGoToFile</tt>, <tt>SnapOpen</tt> or <tt>GeditOpenFiles</tt>
-    Multi Edit plugin is not enabled by default Gmate instalation.
+<b>Note:</b> In order to use Go to File feature you need to choose just one of:
+GeditGoToFile, SnapOpen or GeditOpenFiles. Multi Edit plugin is not enabled by
+default Gmate instalation.
 
 
 === Themes/Styles
@@ -161,14 +165,14 @@ NOTES:
 
 === Language Improvements and Mime Types
 
-* ruby_on_rails.lang gtksourceview2 ruby language improvements for Ruby on Rails
+* Ruby on Rails improvements
 * rhtml/erb Syntax Highlight
-* basic yml Syntax Highlight
-* haml Syntax Highlight
+* Basic YAML Syntax Highlight
+* HAML Syntax Highlight
 * reStructuredText Syntax Highlight
 * Markdown Syntax Highlight
-* cucumber Syntax Highlight
-* sass Syntax Highlight
+* Cucumber Syntax Highlight
+* SASS Syntax Highlight
 * Groovy and gsp Support (Included bundle created by Aaron Eischeid)
 
 
@@ -178,16 +182,19 @@ NOTES:
 
 === Code snippets
 
-==== I need help to create a good snippet base, for now current snippets I got from some place, and most are outdated.
+<b>I need help to create a good snippet base, for now current snippets I got from some place, and most are outdated.</b>
 
-in addition if your syntax not works properly just with install process you can edit your /etc/mime.types file and add
-following lines next to other "text/x-????" entries:
+== Notes
+
+In addition if your syntax not works properly just with install process you can
+edit your <tt>/etc/mime.types</tt> file and add following lines next to other
+“text/x-????” entries:
 
   text/x-ruby-source                              rhtml html.erb erb
   text/x-eruby                                    rjs
   text/x-yaml                                     yml yaml
 
-  ... Same for other mime types and extensions
+  … Same for other mime types and extensions
 
 
 More info : http://blog.siverti.com.br/gmate
@@ -196,6 +203,5 @@ If you have issues with one of the plugins included in Gmate or have suggestions
 please fill an issue in http://github.com/lexrupy/gmate/issues
 
 
-NOTE: refer to each plugin source code and readme file to get information
-about specific plugin licencing and copyright
-
+Refer to each plugin source code and readme file to get information about
+specific plugin licencing and copyright.

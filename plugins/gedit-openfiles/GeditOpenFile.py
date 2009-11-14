@@ -30,7 +30,7 @@ class GeditOpenFile(Plugin):
             self._file_monitor, self._config))
 
     def deactivate(self, window):
-        #self._get_instance(window).deactivate()
+#        self._get_instance(window).deactivate() # Longer supported in 2.28
         self._set_instance(window, None)
 
     def update_ui(self, window):

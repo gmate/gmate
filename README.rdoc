@@ -9,11 +9,11 @@ rails-related files.
 === Ubuntu Karmic
 1. Add Ubuntu on Rails PPA in System → Administration → Software Sources on
    Third Party Software tab:
-   
+
      ppa:ubuntu-on-rails/ppa
-   
+
 2. Install gedit-gmate package:
-   
+
      $ sudo apt-get install gedit-gmate
 
 === Other Linux
@@ -24,11 +24,11 @@ rails-related files.
 
      $ git clone git://github.com/lexrupy/gmate.git
      $ cd gmate
-  
+
 4. And run install script:
 
      $ sh install.sh
-   
+
    <b>Note:</b> Some commands will expect you enter your sudo password.
 
 == Gmate package include
@@ -130,6 +130,7 @@ default Gmate instalation.
 * PlasticCodeWrap (Converted from Textmate)
 * Plum Dump (Converted from Textmate)
 * Railscasts (Converted from Textmate)
+* Railscasts Improved
 * RDark (Converted from Textmate)
 * Ruby Blue (Converted from Textmate)
 * Rubycius
@@ -205,3 +206,4 @@ please fill an issue in http://github.com/lexrupy/gmate/issues
 
 Refer to each plugin source code and readme file to get information about
 specific plugin licencing and copyright.
+

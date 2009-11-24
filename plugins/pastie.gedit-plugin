@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=pastie
+IAge=2
+Name=Pastie
+Description=Pastie.org plugin for simple pasting.
+Authors=Arkadiusz Hiler <arek.l1@gmail.com>
+Copyright=Copyleft
+Website=http://hiler.pl/
+

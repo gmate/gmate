@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=zencoding
+IAge=2
+Name=Zen Coding
+Description=Zen HTML
+Authors=Stuart Langridge <sil@kryogenix.org>, Zen Coding team
+Copyright=Copyright Stuart Langridge <sil@kryogenix.org>, Zen Coding team
+Website=http://code.google.com/p/zen-coding
+

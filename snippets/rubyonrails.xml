@@ -617,6 +617,12 @@ end]]></text>
     <description>inject(init) { |mem, var| .. }</description>
     <text><![CDATA[inject(${1:init}) { |${2:mem}, ${3:var}| ${0} }]]></text>
   </snippet>
+  <snippet id="init">
+    <tag>init</tag>
+    <description>def initialize</description>
+    <text><![CDATA[def initialize${1:params}
+  ${0}
+end]]></text>
   <snippet id="lam">
     <tag>lam</tag>
     <description>lambda { |args| .. }</description>

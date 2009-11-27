@@ -623,6 +623,7 @@ end]]></text>
     <text><![CDATA[def initialize${1:params}
   ${0}
 end]]></text>
+  </snippet>
   <snippet id="lam">
     <tag>lam</tag>
     <description>lambda { |args| .. }</description>
@@ -1835,3 +1836,4 @@ end]]></text>
     <description>rspec: context with before</description>
   </snippet>
 </snippets>
+

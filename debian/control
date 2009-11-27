@@ -3,10 +3,10 @@ Section: gnome
 Priority: optional
 Maintainer: Andrey Sitnik <andrey@sitnik.ru>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 0.9.7~uorppa0
+Standards-Version: 0.9.8~uorppa0
 Homepage: http://blog.siverti.com.br/gmate/
 Vcs-Git: git://github.com/lexrupy/gmate.git
-Vcs-Browser: http://github.com/lexrupy/gmate/tree/master
+Vcs-Browser: http://github.com/lexrupy/gmate
 
 Package: gedit-gmate
 Architecture: any

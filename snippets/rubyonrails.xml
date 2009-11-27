@@ -1835,5 +1835,11 @@ end]]></text>
     <tag>contextb</tag>
     <description>rspec: context with before</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[Factory.define :${1:name} do |f|
+  f.${0}
+end]]></text>
+    <tag>factory</tag>
+    <description>Factory.define</description>
+  </snippet>
 </snippets>
-

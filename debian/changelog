@@ -1,3 +1,11 @@
+gedit-gmate (0.9.9~uorppa0) karmic; urgency=low
+
+  * Add Pastie plugin.
+  * Add an improved Railscasts theme (uses bold for some keywords).
+  * Add an extra option to FindInFiles plugin to filter log/bak files.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Mon, 30 Nov 2009 00:31:27 +0300
+
 gedit-gmate (0.9.8~uorppa0) karmic; urgency=low
 
   * Add Zen Coding plugin.

@@ -449,6 +449,13 @@ end]]></text>
     <description>has_one</description>
     <text><![CDATA[has_one :${1:object}]]></text>
   </snippet>
+  <snippet id="init">
+    <tag>init</tag>
+    <description>def initialize</description>
+    <text><![CDATA[def initialize${1:params}
+  ${0}
+end]]></text>
+  </snippet>
   <snippet id="inj">
     <tag>inj</tag>
     <description>inject(init) { |mem, var| .. }</description>

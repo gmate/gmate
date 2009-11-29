@@ -1,3 +1,10 @@
+gedit-gmate (0.9.8~uorppa0) karmic; urgency=low
+
+  * Add Zen Coding plugin.
+  * Add initializer and factory snippets to Ruby.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Fri, 27 Nov 2009 23:38:37 +0300
+
 gedit-gmate (0.9.7~aippa0) karmic; urgency=low
 
   * Merged with Andrey Sitnik branch
@@ -9,7 +16,6 @@ gedit-gmate (0.9.7~aippa0) karmic; urgency=low
   - Added 'g' shortcut to gmate editor
 
  -- Alexandre da Silva <lexrupy@gmail.com>  Wed, 21 Oct 2009 00:35:00 +0400
-
 
 gedit-gmate (0.9.6~aippa0) jaunty; urgency=low
 

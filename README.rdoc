@@ -53,8 +53,7 @@ rails-related files.
 * Word Completion – Word completion plugin.
 * Gedit Go To File – Yet Another Go to File plugin Just Like SnapOpen and
   GeditOpenFiles also based in Textmate Go to file.
-* Multi Edit – Check it out at author's page
-  http://jon-walsh.com/journal/multi-edit
+* Multi Edit – Check it out at author's page http://jon-walsh.com/journal/multi-edit
 * Pastie - Paste a selection of code or a source file to pastie.org directly from editor http://github.com/ivyl/gedit-pastie
 * Zen Coding – Zen HTML http://www.kryogenix.org/days/2009/09/21/zen-coding-for-gedit
 

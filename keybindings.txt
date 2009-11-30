@@ -86,6 +86,10 @@ CTRL+ALT+9    => Select text enclosed by Pairs Ex: ({"['<
 ALT+W         => Select Word
 ALT+SHIFT+W   => Select Word Special (Ignoring delimiters)
 
+Multi-edit
+----------
+CTRL+E => Add single mark
+
 Snap Open ( Go to File )
 ------------------------
 CTRL+ALT+O => Open file by regex search (Go to File Window)

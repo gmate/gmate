@@ -1019,6 +1019,7 @@
       <keyword>verify</keyword>
       <keyword>hide_action</keyword>
       <!-- Rails Keywords MISC -->
+      <keyword>accepts_nested_attributes_for</keyword>
       <keyword>acts_as_list</keyword>
       <keyword>acts_as_tree</keyword>
       <keyword>after_create</keyword>

@@ -1842,4 +1842,11 @@ end]]></text>
     <tag>factory</tag>
     <description>Factory.define</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[accepts_nested_attributes_for :${1:association},
+															:allow_destroy => ${2:true|false},
+															:reject_if => lambda { |attrs| attrs.values.all?(&:blank?) }]]></text>
+    <tag>ana</tag>
+    <description>accepts_nested_attributes_for</description>
+  </snippet>
 </snippets>

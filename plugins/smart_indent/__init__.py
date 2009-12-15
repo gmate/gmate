@@ -112,71 +112,35 @@ default_indent_config = {
 }
 
 
-def get_indent_regex(lang):
-    indent_key = indent_key_str % lang
-    r_indent = config_client.get(os.path.join(gconf_base_uri, indent_key))
-    if r_indent is None:
-        if default_indent_config.has_key(indent_key):
-            r_indent = default_indent_config[indent_key]
+def get_config(key, lang, setting_type, default, other_storage=None):
+    key = key % lang
+    value = config_client.get(os.path.join(gconf_base_uri, key))
+    if value is None:
+        if other_storage:
+            value = other_storage.get(key)
+            if value is None:
+                return default
+        else:
+            return default
     else:
-        r_indent = r_indent.get_string()
-    return r_indent or ''
+        value = getattr(value, 'get_%s' % setting_type)()
+    return value
+
+def get_indent_config(key, lang, setting_type, default):
+    return get_config(key, lang, setting_type, default, default_indent_config)
 
 
-def get_unindent_regex(lang):
-    unindent_key = unindent_key_str % lang
-    r_unindent = config_client.get(os.path.join(gconf_base_uri, unindent_key))
-    if r_unindent is None:
-        if default_indent_config.has_key(unindent_key):
-            r_unindent = default_indent_config[unindent_key]
-    else:
-        r_unindent = r_unindent.get_string()
-    return r_unindent or ''
-
-
-def get_unindent_keystrokes(lang):
-    keystrokes_key = keystrokes_key_str % lang
-    u_keystrokes = config_client.get(os.path.join(gconf_base_uri, keystrokes_key))
-    if u_keystrokes is None:
-        if default_indent_config.has_key(keystrokes_key):
-            u_keystrokes = default_indent_config[keystrokes_key]
-    else:
-        u_keystrokes = u_keystrokes.get_string()
-    return u_keystrokes or ''
-
-
-def get_use_spaces(lang):
-    use_spaces_key = space_key_str % lang
-    u_spaces = config_client.get(os.path.join(gconf_base_uri,use_spaces_key))
-    if u_spaces is None:
-        if default_indent_config.has_key(use_spaces_key):
-            u_spaces = default_indent_config[use_spaces_key]
-    else:
-        u_spaces = u_spaces.get_bool()
-    return u_spaces or DEFAULT_USE_SPACES
-
-
-def get_tab_size(lang):
-    tab_size_key = size_key_str % lang
-    t_size = config_client.get(os.path.join(gconf_base_uri, tab_size_key))
-    if t_size is None:
-        if default_indent_config.has_key(tab_size_key):
-            t_size = default_indent_config[tab_size_key]
-    else:
-        t_size = t_size.get_int()
-    return t_size or DEFAULT_TAB_SIZE
+get_indent_regex = lambda lang: get_indent_config(indent_key_str, lang, 'string', '')
+get_unindent_regex = lambda lang: get_indent_config(unindent_key_str, lang, 'string', '')
+get_unindent_keystrokes = lambda lang: get_indent_config(keystrokes_key_str, lang, 'string', '')
+get_use_spaces = lambda lang: get_indent_config(space_key_str, lang, 'bool', DEFAULT_USE_SPACES)
+get_tab_size = lambda lang: get_indent_config(size_key_str, lang, 'int', DEFAULT_TAB_SIZE)
 
 
 # TrailSave Plugin -------------------------------------------------------------
 
 def get_trail_config(lang, key_str):
-    config_key = key_str % lang
-    config_data = config_client.get(os.path.join(gconf_base_uri, config_key))
-    if config_data is None:
-        config_val = True
-    else:
-        config_val = config_data.get_bool()
-    return config_val
+    return get_config(key_str, lang, 'bool', True)
 
 
 def get_crop_spaces_eol(lang):

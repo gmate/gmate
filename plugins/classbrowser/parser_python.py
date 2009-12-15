@@ -192,7 +192,7 @@ class PythonFile(Token):
                     if token.indent in indentDictionary.keys():
                         p = indentDictionary[ token.indent ].parent
                     else: p = self
-                    if p == None: p = self # might happen with try blocks
+                    if p is None: p = self # might happen with try blocks
                     p.children.append(token)
                     token.parent = p
 

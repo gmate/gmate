@@ -114,7 +114,7 @@ class CTagsParser( ClassParserInterface ):
             else: tokenlist.append(tokens)
 
             # hack: remember the number of enums without parents for later grouping
-            if self.__get_type(tokens) == 'e' and self.__get_parent(tokens) == None:
+            if self.__get_type(tokens) == 'e' and self.__get_parent(tokens) is None:
                 enumcounter += 1
 
         # add tokens to the treestore---------------------------------------

@@ -85,7 +85,7 @@ class SaveWithoutTrailingSpacePlugin(gedit.Plugin):
 
     def get_language_id(self, doc):
         language = doc.get_language()
-        if language == None:
+        if language is None:
             return 'plain_text'
         return language.get_id()
 

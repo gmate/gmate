@@ -178,14 +178,14 @@ class TextToolsPlugin(gedit.Plugin):
                 itr.forward_char()
                 beg_iter = itr.copy()
                 break
-        if beg_iter == None:
+        if beg_iter is None:
             beg_iter = itr.copy()
 
         while itr.forward_char():
             if itr.get_char() in word_delimiter_chars:
                 end_iter = itr.copy()
                 break
-        if end_iter == None:
+        if end_iter is None:
             end_iter = itr.copy()
 
         if beg_iter and end_iter:

@@ -115,7 +115,7 @@ default_indent_config = {
 def get_indent_regex(lang):
     indent_key = indent_key_str % lang
     r_indent = config_client.get(os.path.join(gconf_base_uri, indent_key))
-    if r_indent == None:
+    if r_indent is None:
         if default_indent_config.has_key(indent_key):
             r_indent = default_indent_config[indent_key]
     else:
@@ -126,7 +126,7 @@ def get_indent_regex(lang):
 def get_unindent_regex(lang):
     unindent_key = unindent_key_str % lang
     r_unindent = config_client.get(os.path.join(gconf_base_uri, unindent_key))
-    if r_unindent == None:
+    if r_unindent is None:
         if default_indent_config.has_key(unindent_key):
             r_unindent = default_indent_config[unindent_key]
     else:
@@ -137,7 +137,7 @@ def get_unindent_regex(lang):
 def get_unindent_keystrokes(lang):
     keystrokes_key = keystrokes_key_str % lang
     u_keystrokes = config_client.get(os.path.join(gconf_base_uri, keystrokes_key))
-    if u_keystrokes == None:
+    if u_keystrokes is None:
         if default_indent_config.has_key(keystrokes_key):
             u_keystrokes = default_indent_config[keystrokes_key]
     else:
@@ -148,7 +148,7 @@ def get_unindent_keystrokes(lang):
 def get_use_spaces(lang):
     use_spaces_key = space_key_str % lang
     u_spaces = config_client.get(os.path.join(gconf_base_uri,use_spaces_key))
-    if u_spaces == None:
+    if u_spaces is None:
         if default_indent_config.has_key(use_spaces_key):
             u_spaces = default_indent_config[use_spaces_key]
     else:
@@ -159,7 +159,7 @@ def get_use_spaces(lang):
 def get_tab_size(lang):
     tab_size_key = size_key_str % lang
     t_size = config_client.get(os.path.join(gconf_base_uri, tab_size_key))
-    if t_size == None:
+    if t_size is None:
         if default_indent_config.has_key(tab_size_key):
             t_size = default_indent_config[tab_size_key]
     else:
@@ -172,7 +172,7 @@ def get_tab_size(lang):
 def get_trail_config(lang, key_str):
     config_key = key_str % lang
     config_data = config_client.get(os.path.join(gconf_base_uri, config_key))
-    if config_data == None:
+    if config_data is None:
         config_val = True
     else:
         config_val = config_data.get_bool()
@@ -209,7 +209,7 @@ class SmartIndentPlugin(gedit.Plugin):
         if self.do_setup_statusbar_stuff:
             self.statusbar = window.get_statusbar()
             self.frame = self.statusbar.get_data(self.DATA_TAG)
-            if self.frame == None:
+            if self.frame is None:
                 self.status_label = gtk.Label('')
                 self.frame = gtk.Frame()
                 self.status_label.set_alignment(0, 0)

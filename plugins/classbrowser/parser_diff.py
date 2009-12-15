@@ -59,7 +59,7 @@ class DiffParser(ClassParserInterface):
         current_file.uri = uri
         files.append(current_file)
 
-      elif current_file == None: continue
+      elif current_file is None: continue
 
       elif ln[0] == '@@' and ln[-1] == '@@':
         if changeset is not None:
@@ -209,7 +209,7 @@ class DiffParser(ClassParserInterface):
         current_file.uri = uri
         files.append(current_file)
 
-      elif current_file == None: continue
+      elif current_file is None: continue
 
       elif ln[0] == '@@' and ln[-1] == '@@':
         if changeset is not None:

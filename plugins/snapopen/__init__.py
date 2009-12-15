@@ -210,7 +210,7 @@ class SnapOpenPluginInstance:
             tab = self.old_get_tab_from_uri(self._window, uri)
         else:
             tab = self._window.get_tab_from_uri(uri)
-        if tab == None:
+        if tab is None:
             tab = self._window.create_tab_from_uri(uri, self._encoding, 0, False, False)
         self._window.set_active_tab(tab)
 

@@ -171,7 +171,7 @@ class GotoFileWindow(gtk.Window):
 			self._expander.get_label_widget().set_markup(model.get_value(iter, 1))
 	
 	def _onWalkResult(self, walker, dirname, dirs, files, text):
-		if text == None: text = ''
+		if text is None: text = ''
 		for file, score in self._plugin.filterFiles(text, files):
 			name = relevance.formatCommonSubstrings(file, text)
 			self._store.append((name, os.path.join(dirname, name), os.path.join(dirname, file), score))

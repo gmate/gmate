@@ -93,7 +93,7 @@ class GeditOpenFileGui(object):
         self._builder.get_object("config_refresh_button").connect("clicked", self._refresh_data)
 
         use_file_browser = self._config.get_value("USE_FILEBROWSER")
-        if use_file_browser == True or use_file_browser == None: # Defualt
+        if use_file_browser == True or use_file_browser is None: # Defualt
             self._open_root_hbox.set_sensitive(False)
         else:
             self._open_root_hbox.set_sensitive(True)

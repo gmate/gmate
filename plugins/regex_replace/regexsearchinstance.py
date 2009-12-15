@@ -174,7 +174,7 @@ class RegexSearchInstance:
     def search_document(self, start_iter = None, wrapped_around = False, button = 'search'):
         document = self._window.get_active_document()
 
-        if start_iter == None:
+        if start_iter is None:
             start_iter = document.get_iter_at_mark(document.get_insert())
 
         end_iter = document.get_end_iter()

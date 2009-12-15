@@ -110,7 +110,7 @@ class GotoFilePluigin(gedit.Plugin):
 	def openFile(self, path):
 		uri = urljoin('file://', path)
 		tab = self._geditWindow.get_tab_from_uri(uri)
-		if tab == None:
+		if tab is None:
 			tab = self._geditWindow.create_tab_from_uri(uri, gedit.encoding_get_current(), 0, False, False)
 		self._geditWindow.set_active_tab(tab)
 

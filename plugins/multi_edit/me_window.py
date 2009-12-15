@@ -237,14 +237,14 @@ class WindowInstance:
         if ctrl_on:
             # Add mark
             keyval, shift_req = self._plugin._sc_add_mark
-            if event.keyval == keyval and (shift_req == None or shift_req == shift_on):
+            if event.keyval == keyval and (shift_req is None or shift_req == shift_on):
                 self._add_remove_mark()
                 return True
             
             # Add marks vertically
             for sc in self._plugin._sc_mark_vert:
                 keyval, shift_req = self._plugin._sc_mark_vert[sc]
-                if event.keyval == keyval and (shift_req == None or shift_req == shift_on) \
+                if event.keyval == keyval and (shift_req is None or shift_req == shift_on) \
                    and (len(self._marks) != 0 or self._plugin._columns_always_avail):
                     # Recover vertical move mems, regardless if needed
                     # (since _vertical_cursor_nav() will handle it)
@@ -280,7 +280,7 @@ class WindowInstance:
                 
                 # Temp auto-increment
                 keyval, shift_req = self._plugin._sc_temp_incr
-                if event.keyval == keyval and (shift_req == None or shift_req == shift_on):
+                if event.keyval == keyval and (shift_req is None or shift_req == shift_on):
                     self._auto_incr_dialog()
                     return True
                 
@@ -292,14 +292,14 @@ class WindowInstance:
                 # Auto-increment
                 if event.keyval in self._plugin._sc_auto_incr:
                     entry = self._plugin._sc_auto_incr[event.keyval]
-                    if entry['shift_req'] == None or entry['shift_req'] == shift_on:
+                    if entry['shift_req'] is None or entry['shift_req'] == shift_on:
                         values = self._auto_increment(entry)
                         self._multi_edit('increment', values)
                         return True
                 
                 # Level marks
                 keyval, shift_req = self._plugin._sc_level_marks
-                if event.keyval == keyval and (shift_req == None or shift_req == shift_on):
+                if event.keyval == keyval and (shift_req is None or shift_req == shift_on):
                         self._multi_edit('level')
                         return True
                 

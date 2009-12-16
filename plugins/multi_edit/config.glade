@@ -128,7 +128,7 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">&lt;span weight=&quot;bold&quot;&gt;Keyboard&lt;/span&gt;
 
-&lt;span weight=&quot;bold&quot;&gt;Ctrl+E&lt;/span&gt;
+&lt;span weight=&quot;bold&quot;&gt;Ctrl+R&lt;/span&gt;
 &lt;span weight=&quot;bold&quot;&gt;Ctrl+Page[down/up]&lt;/span&gt;
 &lt;span weight=&quot;bold&quot;&gt;Ctrl+Shift+Page[down/up]&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>

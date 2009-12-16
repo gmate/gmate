@@ -88,7 +88,7 @@ ALT+SHIFT+W   => Select Word Special (Ignoring delimiters)
 
 Multi-edit
 ----------
-CTRL+E => Add single mark
+CTRL+R => Add single mark
 
 Snap Open ( Go to File )
 ------------------------

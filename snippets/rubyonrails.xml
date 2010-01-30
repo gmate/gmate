@@ -1849,4 +1849,9 @@ end]]></text>
     <tag>ana</tag>
     <description>accepts_nested_attributes_for</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[attr_accessible :${1:attr_names}]]></text>
+    <tag>aa</tag>
+    <description>attr_accessible</description>
+  </snippet>
 </snippets>

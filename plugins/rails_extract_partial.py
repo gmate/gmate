@@ -75,7 +75,7 @@ class ExtractPartialPlugin(gedit.Plugin):
         buf = view.get_buffer()
         language = buf.get_language()
         # Only RHTML
-        if language.get_id() != 'rhtml': return
+        if language.get_id() != 'rhtml' and language.get_id() != 'haml': return
         str_uri = doc.get_uri()
         if buf.get_has_selection():
             if str_uri:
@@ -99,7 +99,10 @@ class ExtractPartialPlugin(gedit.Plugin):
                         extension = self.__get_file_extension(doc_name)
                         itstart, itend = doc.get_selection_bounds()
                         partial_text = doc.get_slice(itstart, itend, True)
-                        partial_render = '<%%= render :partial => "%s" %%>' % partial_name
+                        if language.get_id() == 'haml':
+                            partial_render = '= render :partial => "%s"' % partial_name
+                        else:
+                            partial_render = '<%%= render :partial => "%s" %%>' % partial_name
                         doc.begin_user_action()
                         doc.delete(itstart, itend)
                         doc.insert_interactive(itstart, partial_render, True)
@@ -116,6 +119,9 @@ class ExtractPartialPlugin(gedit.Plugin):
         if ext == '.erb':
             name, ext = os.path.splitext(name)
             return "%s.erb" % ext
+        if ext == '.haml':
+            name, ext = os.path.splitext(name)
+            return "%s.haml" % ext
         return '.html.erb'
 
     def __dialog_key_press(self, widget, event, dialog):

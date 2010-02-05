@@ -1849,4 +1849,36 @@ end]]></text>
     <tag>ana</tag>
     <description>accepts_nested_attributes_for</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[attr_accessible :${1:attr_names}]]></text>
+    <tag>aa</tag>
+    <description>attr_accessible</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[validate_on_create :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>voc</tag>
+    <description>validate_on_create</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[validate_on_update :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>vou</tag>
+    <description>validate_on_update</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[validate :${1:method}
+
+def ${1:method}
+  $0
+end]]></text>
+    <tag>val</tag>
+    <description>validate</description>
+  </snippet>
 </snippets>

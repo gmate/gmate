@@ -1,0 +1,39 @@
+Gedit Find Open Plugin
+Copyright (C) 2010 Mario Zaizar <mariozaizar@gmail.com>
+
+DESCRIPTION
+
+This plugin makes it much more convenient open related source files. 
+Born from the original Snap Open plugin, and inspired by TextMate, 
+this plugin will use regular expressions to quickly find files as you type. 
+
+File browser integration: if the 'file browser' integration is enabled
+it will use the file browsers 'root' dir as top level dir when searching
+for files to open. if file browser is NOT used,  The files suggested are those 
+in or below the directory from where gedit was started. 
+
+You can select the file using keyboard arrows, and then hit enter to open that file.
+If the file is already open, Gedit will switch to the proper tab.
+Escape will close the dialog.
+
+HOW TO USE
+
+1) You can launch the window pressing: Ctrl + Alt + F, 
+   or selecting "Search" > "Go to File by content" menus.
+2) Write some sentence and find all files that contain it.
+3) Tip: You can use it with "Snap Open" plugin, and gets all the power! 
+   Searching files by file name and file contents :)
+
+THANKS
+
+Thanks a lot to original developers, they make this plugin possible:
+
+* Alexandre da Silva
+	<lexrupy@gmail.com> http://github.com/lexrupy/gmate
+	(gmate project maintainer)
+
+* Mads Buus Jensen
+	<online@buus.net> http://github.com/MadsBuus/gedit-snapopen-plugin
+	(SnapOpen creator)
+
+For more information, please visit: http://github.com/mariozaizar/gedit-findopen-plugin

@@ -1881,4 +1881,34 @@ end]]></text>
     <tag>val</tag>
     <description>validate</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[cattr_writer :${1:attr_names}]]></text>
+    <tag>cw</tag>
+    <description>cattr_writer</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[cattr_reader :${1:attr_names}]]></text>
+    <tag>cr</tag>
+    <description>cattr_reader</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[cattr_accessor :${1:attr_names}]]></text>
+    <tag>ca</tag>
+    <description>cattr_accessor</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[mattr_accessor :${1:attr_names}]]></text>
+    <tag>ma</tag>
+    <description>mattr_accessor</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[mattr_reader :${1:attr_names}]]></text>
+    <tag>mr</tag>
+    <description>mattr_reader</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[mattr_writer :${1:attr_names}]]></text>
+    <tag>mw</tag>
+    <description>mattr_writer</description>
+  </snippet>
 </snippets>

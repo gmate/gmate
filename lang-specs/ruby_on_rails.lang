@@ -1069,7 +1069,11 @@
       <keyword>alias_attribute</keyword>
       <keyword>delegate</keyword>
       <keyword>cattr_accessor</keyword>
+      <keyword>cattr_reader</keyword>
+      <keyword>cattr_writer</keyword>
       <keyword>mattr_accessor</keyword>
+      <keyword>mattr_reader</keyword>
+      <keyword>mattr_writer</keyword>
       <keyword>returning</keyword>
       <!-- plugins or tests -->
       <keyword>validates_cpf_of</keyword>

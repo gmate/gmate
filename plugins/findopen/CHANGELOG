@@ -1,0 +1,26 @@
+Gedit Find Open Plugin
+Copyright (C) 2010 Mario Zaizar <mariozaizar@gmail.com>
+
+CHANGELOG
+
+Version 1.2 (February 2010)
+* Change the ' ' and '*' to '.' (Grep use dot as concat symbol)
+* Small changes.
+
+Version 1.1 (January 2010)
+* Fix the project url from about dialog.
+
+Version 1.0 (January 2010)
+* Wrote the basic functionality. Now when you write a word the window will display all files that contain it. 
+* Create some basic files, like: CHANGELOG, INSTALL, README, VERSION. 
+* Upload sources to github repository.
+
+Version 0.5 (December 2009)
+* Added a simple filter to search process, now all image files (png, jpg, jpeg, gif, psd) are ignored; 
+  this improve a little the performance and avoid that gedit hangs when try to search into 
+  folders (like /myapp/public/galleries/), also you'll get less useless files listed as available.
+
+Version 0.2 (December 2009)
+* Fork the original sources of "Snap Open Plugin" from "gmate-gedit" project; learn the code and basic functionality. 
+* Think about what I really need, and the original plugins didn't provide me. 
+* Learn about python and bash trics.

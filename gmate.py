@@ -26,7 +26,7 @@ if len(sys.argv) > 1:
         url = "file://%s" % urllib.quote(path)
         config.set_string(os.path.join(base,'virtual_root'), url)
     else:
-        parameters += ' '+ path
+        parameters += ' "%s"' % path
     os.system('nohup gedit ' + parameters + ' > /dev/null 2>&1 &')
 else:
     os.system('nohup gedit > /dev/null 2>&1 &')

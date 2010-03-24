@@ -46,7 +46,9 @@ fi
 cp styles/* ~/.gnome2/gedit/styles
 
 # Ask for Python-Webkit package
-sudo apt-get install python-webkit
+if [ -f /etc/debian_version ]; then
+  sudo apt-get install python-webkit
+fi
 
 # Execute debian postins script
 

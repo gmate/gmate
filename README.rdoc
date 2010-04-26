@@ -6,7 +6,7 @@ rails-related files.
 
 == Install
 
-=== Ubuntu Karmic
+=== Ubuntu
 1. Add Ubuntu on Rails PPA in System → Administration → Software Sources on
    Third Party Software tab:
 

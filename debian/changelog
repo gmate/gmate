@@ -1,3 +1,12 @@
+gedit-gmate (0.9.10~uorppa0) lucid; urgency=low
+
+  * Add Find Open plugin.
+  * Rails extract partial can use HAML.
+  * New Rails snippets.
+  * GConf support.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Mon, 26 Apr 2010 12:59:48 +0400
+
 gedit-gmate (0.9.9~uorppa0) karmic; urgency=low
 
   * Add Pastie plugin.

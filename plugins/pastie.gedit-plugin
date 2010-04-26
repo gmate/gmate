@@ -4,6 +4,7 @@ Module=pastie
 IAge=2
 Name=Pastie
 Description=Pastie.org plugin for simple pasting.
+Description[ru]=Простая публикация кода в pastie.org
 Authors=Arkadiusz Hiler <arek.l1@gmail.com>
 Copyright=Copyleft
 Website=http://hiler.pl/

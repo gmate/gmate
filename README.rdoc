@@ -22,7 +22,7 @@ rails-related files.
 2. Install pyinotify for Gedit Open Files and SnapOpen plugins.
 3. Download gmate sources or clone git repository:
 
-     $ git clone git://github.com/lexrupy/gmate.git
+     $ git clone git://github.com/gmate/gmate.git
      $ cd gmate
 
 4. And run install script:
@@ -202,7 +202,7 @@ edit your <tt>/etc/mime.types</tt> file and add following lines next to other
 More info : http://blog.siverti.com.br/gmate
 
 If you have issues with one of the plugins included in Gmate or have suggestions
-please fill an issue in http://github.com/lexrupy/gmate/issues
+please fill an issue in http://github.com/gmate/gmate/issues
 
 
 Refer to each plugin source code and readme file to get information about

@@ -120,6 +120,7 @@ def process(tree, profile, level=0):
 	if level == 0:
 		# preformat tree
 		tree = zen_coding.run_filters(tree, profile, '_format')
+		zen_coding.max_tabstop = 0
 		
 	for item in tree.children:
 		if item.type == 'tag':
@@ -128,8 +129,10 @@ def process(tree, profile, level=0):
 			process_snippet(item, profile, level)
 	
 		# replace counters
-		item.start = zen_coding.replace_counter(item.start, item.counter)
-		item.end = zen_coding.replace_counter(item.end, item.counter)
+		item.start = zen_coding.unescape_text(zen_coding.replace_counter(item.start, item.counter))
+		item.end = zen_coding.unescape_text(zen_coding.replace_counter(item.end, item.counter))
+		zen_coding.upgrade_tabstops(item)
+		
 		process(item, profile, level + 1)
 		
 	return tree

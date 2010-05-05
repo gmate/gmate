@@ -60,6 +60,9 @@ default_profile = {
 basic_filters = 'html';
 "Filters that will be applied for unknown syntax"
 
+max_tabstop = 0
+"Maximum tabstop index for current session"
+
 def char_at(text, pos):
 	"""
 	Returns character at specified index of text.
@@ -962,16 +965,49 @@ def replace_counter(text, value):
 	value = str(value)
 	
 	def replace_func(tx, symbol, pos, match_num):
-		if tx[pos + 1] == '{':
+		if char_at(tx, pos + 1) == '{' or char_at(tx, pos + 1).isdigit():
 			# it's a variable, skip it
 			return False
 		
 		# replace sequense of $ symbols with padded number  
 		j = pos + 1
-		while tx[j] == '$' and char_at(tx, j + 1) != '{': j += 1
+		if j < len(text):
+			while tx[j] == '$' and char_at(tx, j + 1) != '{': j += 1
+		
 		return (tx[pos:j], value.zfill(j - pos))
 	
 	return replace_unescaped_symbol(text, symbol, replace_func)
+
+def upgrade_tabstops(node):
+	"""
+	Upgrades tabstops in zen node in order to prevent naming conflicts
+	@type node: ZenNode
+	@param offset: Tab index offset
+	@type offset: int
+	@returns Maximum tabstop index in element
+	"""
+	max_num = [0]
+	props = ('start', 'end', 'content')
+	
+	def _replace(m):
+		num = int(m.group(1) or m.group(2))
+		if num > max_num[0]: max_num[0] = num
+		return re.sub(r'\d+', str(num + max_tabstop), m.group(0), 1)
+	
+	for prop in props:
+		node.__setattr__(prop, re.sub(r'\$(\d+)|\$\{(\d+):[^\}]+\}', _replace, node.__getattribute__(prop)))
+		
+	globals()['max_tabstop'] += max_num[0]
+		
+	return max_num[0]
+
+def unescape_text(text):
+	"""
+	Unescapes special characters used in Zen Coding, like '$', '|', etc.
+	@type text: str
+	@return: str
+	"""
+	return re.sub(r'\\(.)', r'\1', text)
 
 def get_profile(name):
 	"""

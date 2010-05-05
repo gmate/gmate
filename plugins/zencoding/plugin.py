@@ -1,165 +1,110 @@
-#
 # @file plugin.py
 #
 # Connect Zen Coding to Gedit.
 #
 
-import gedit, gobject, string, gtk, re, zen_core
+import gedit, gobject, gtk
+
+from zen_editor import ZenEditor
+
+zencoding_ui_str = """
+<ui>
+  <menubar name="MenuBar">
+    <menu name="EditMenu" action="Edit">
+      <placeholder name="EditOps_5">
+        <menu action="ZenCodingMenuAction">
+          <menuitem name="ZenCodingExpand"  action="ZenCodingExpandAction"/>
+          <menuitem name="ZenCodingWrap"    action="ZenCodingWrapAction"/>
+          <separator/>
+          <menuitem name="ZenCodingInward"  action="ZenCodingInwardAction"/>
+          <menuitem name="ZenCodingOutward" action="ZenCodingOutwardAction"/>
+          <menuitem name="ZenCodingMerge"   action="ZenCodingMergeAction"/>
+          <separator/>
+          <menuitem name="ZenCodingPrev"    action="ZenCodingPrevAction"/>
+          <menuitem name="ZenCodingNext"    action="ZenCodingNextAction"/>
+          <separator/>
+          <menuitem name="ZenCodingSize"    action="ZenCodingSizeAction"/>
+          <separator/>
+          <menuitem name="ZenCodingRemove"  action="ZenCodingRemoveAction"/>
+          <menuitem name="ZenCodingSplit"   action="ZenCodingSplitAction"/>
+          <menuitem name="ZenCodingComment" action="ZenCodingCommentAction"/>
+        </menu>
+      </placeholder>
+    </menu>
+  </menubar>
+</ui>
+"""
 
 class ZenCodingPlugin(gedit.Plugin):
     """A Gedit plugin to implement Zen Coding's HTML and CSS shorthand expander."""
 
     def activate(self, window):
-        """Install the expansion feature upon activation."""
-
-        ui_manager = window.get_ui_manager()
-        action_group = gtk.ActionGroup("GeditZenCodingPluginActions")
-
-        # Create the GTK action to be used to connect the key combo
-        # to the Zen Coding expansion (i.e., the good stuff).
-        complete_action = gtk.Action(name="ZenCodingAction",
-                                     label="Expand Zen code",
-                                     tooltip="Expand Zen Code in document to raw HTML/CSS",
-                                     stock_id=gtk.STOCK_GO_FORWARD)
-
-        # Connect the newly created action with key combo
-        complete_action.connect("activate",
-                                lambda a: self.expand_zencode(window))
-        action_group.add_action_with_accel(complete_action, "<Shift><Ctrl>E")
-
-        ui_manager.insert_action_group(action_group, 0)
-
-        # @TODO: Figure out what these lines do
-        ui_merge_id = ui_manager.new_merge_id()
-        ui_manager.add_ui(ui_merge_id,
-                          "/MenuBar/EditMenu/EditOps_5",
-                          "ZenCoding",
-                          "ZenCodingAction",
-                          gtk.UI_MANAGER_MENUITEM, False)
-        ui_manager.__ui_data__ = (action_group, ui_merge_id)
+        actions = [
+          ('ZenCodingMenuAction',    None, 'Zen Coding',            None,            "Zen Coding framework",                                None),
+          ('ZenCodingExpandAction',  None, 'Expand Zen Code',       '<Ctrl>E',        "Expand Zen code to raw HTML/CSS",                     self.expand_abbreviation),
+          ('ZenCodingWrapAction',    None, 'Wrap with Zen Code...', '<Ctrl><Shift>E', "Wrap selection with HTML/CSS expanded from Zen code", self.wrap_with_abbreviation),
+          ('ZenCodingInwardAction',  None, 'Balance tag inward',    '<Ctrl><Alt>I',   "Select inner tag's content",                          self.match_pair_inward),
+          ('ZenCodingOutwardAction', None, 'Balance tag outward',   '<Ctrl><Alt>O',   "Select outer tag's content",                          self.match_pair_outward),
+          ('ZenCodingMergeAction',   None, 'Merge lines',           '<Ctrl><Alt>M',   "Merge all lines of the current selection",            self.merge_lines),
+          ('ZenCodingPrevAction',    None, 'Previous edit point',   '<Alt>Left',      "Place the cursor at the previous edit point",         self.prev_edit_point),
+          ('ZenCodingNextAction',    None, 'Next edit point',       '<Alt>Right',     "Place the cursor at the next edit point",             self.next_edit_point),
+          ('ZenCodingSizeAction',    None, 'Update image size',     '<Ctrl><Alt>S',   "Update image size tag from file",                     self.update_image_size),
+          ('ZenCodingRemoveAction',  None, 'Remove tag',            '<Ctrl><Alt>R',   "Remove a tag",                                        self.remove_tag),
+          ('ZenCodingSplitAction',   None, 'Split or join tag',     '<Ctrl><Alt>J',   "Toggle between single and double tag",                self.split_join_tag),
+          ('ZenCodingCommentAction', None, 'Toggle comment',        '<Ctrl><Alt>C',   "Toggle an XML or HTML comment",                       self.toggle_comment)
+        ]
+        windowdata = dict()
+        window.set_data("ZenCodingPluginDataKey", windowdata)
+        windowdata["action_group"] = gtk.ActionGroup("GeditZenCodingPluginActions")
+        windowdata["action_group"].add_actions(actions, window)
+        manager = window.get_ui_manager()
+        manager.insert_action_group(windowdata["action_group"], -1)
+        windowdata["ui_id"] = manager.add_ui_from_string(zencoding_ui_str)
+        window.set_data("ZenCodingPluginInfo", windowdata)
+        self.editor = ZenEditor()
 
     def deactivate(self, window):
-        """Get rid of the expansion feature upon deactivation"""
+        windowdata = window.get_data("ZenCodingPluginDataKey")
+        manager = window.get_ui_manager()
+        manager.remove_ui(windowdata["ui_id"])
+        manager.remove_action_group(windowdata["action_group"])
 
-        ui_manager = window.get_ui_manager()
-        (action_group, ui_merge_id) = ui_manager.__ui_data__
-
-        # Remove the UI data, action group, and UI itself from Gedit
-        del ui_manager.__ui_data__
-        ui_manager.remove_action_group(action_group)
-        ui_manager.remove_ui(ui_merge_id)
-
-
-    def expand_zencode(self, window):
-        """Take the shorthand code, expand it, and stick it back in the document."""
-
+    def update_ui(self, window):
         view = window.get_active_view()
-        buffer = view.get_buffer()
-        cursor_iter = buffer.get_iter_at_mark(buffer.get_insert())
-        statusbar = window.get_statusbar()
+        windowdata = window.get_data("ZenCodingPluginDataKey")
+        windowdata["action_group"].set_sensitive(bool(view and view.get_editable()))
 
-        # Grab the current line.
-        line = self.get_line(buffer, cursor_iter)
+    def expand_abbreviation(self, action, window):
+        self.editor.expand_abbreviation(window)
 
-        # Get shorthand from selection...
-        is_selection = False
-        if buffer.get_has_selection():
-            insert_iter = buffer.get_iter_at_mark(buffer.get_insert())
-            bound_iter = buffer.get_iter_at_mark(buffer.get_selection_bound())
-            before = buffer.get_text(bound_iter, insert_iter)
-            cursor_iter = (bound_iter if bound_iter.compare(insert_iter) == 1 else insert_iter).copy()
-            buffer.place_cursor(cursor_iter)
-            is_selection = True
+    def wrap_with_abbreviation(self, action, window):
+        self.editor.wrap_with_abbreviation(window)
 
-        # ... or from previous word
-        else:
-            before = self.get_shorthand(line)
-            if not before:
-                return
+    def match_pair_inward(self, action, window):
+        self.editor.match_pair_inward(window)
 
-        # Generate expanded code from the shorthand code based on the document's language.
-        lang = self.get_language(window)
-        if lang == 'CSS': lang = 'css'
-        elif lang == 'XSLT': lang = 'xsl'
-        else: lang = 'html'
-        after = zen_core.expand_abbreviation(before, lang, 'xhtml')
-        if not after:
-            if is_selection:
-                buffer.select_range(insert_iter, bound_iter)
-            return
+    def match_pair_outward(self, action, window):
+        self.editor.match_pair_outward(window)
 
-        # Indent the expanded code according to editor's preferences.
-        after = self.indent_code(line, after, window)
+    def merge_lines(self, action, window):
+        self.editor.merge_lines(window)
 
-        # Replace the shorthand code with the expanded code.
-        if self.replace_with_expanded(cursor_iter, buffer, before, after, window.get_active_document()):
-            statusbar.push(statusbar.get_context_id('ZenCodingPlugin'), 'Expanded shorthand code into the real stuff.')
-        else:
-            statusbar.push(statusbar.get_context_id('ZenCodingPlugin'), 'Code couldn\'t expand. Try checking your syntax for mistakes.')
+    def prev_edit_point(self, action, window):
+        self.editor.prev_edit_point(window)
 
-    def get_line(self, buffer, cursor_iter):
-        """Get the full line currently being edited."""
+    def next_edit_point(self, action, window):
+        self.editor.next_edit_point(window)
 
-        # Grab the first character in the line.
-        line_iter = cursor_iter.copy()
-        line_iter.set_line_offset(0)
+    def update_image_size(self, action, window):
+        self.editor.update_image_size(window)
 
-        # Grab the text from the start of the line to the cursor.
-        line = buffer.get_text(line_iter, cursor_iter)
+    def remove_tag(self, action, window):
+        self.editor.remove_tag(window)
 
-        return line
+    def split_join_tag(self, action, window):
+        self.editor.split_join_tag(window)
 
-    def indent_code(self, line, code, editor):
-        """Indent the code properly according to the editor's preferences."""
-
-        # Automatically indent the string and replace \t (tab) with the
-        # correct number of spaces.
-        code = zen_core.pad_string(code, re.match(r"\s*", line).group())
-        if editor.get_active_view().get_insert_spaces_instead_of_tabs():
-            code = code.replace("\t", " " * editor.get_active_view().get_tab_width())
-
-        return code
-
-    def get_language(self, editor):
-        """Get the language of the current document."""
-
-        lang = editor.get_active_document().get_language()
-        lang = lang and lang.get_name()
-
-        return lang
-
-    def get_shorthand(self, line):
-        """Grab the last word typed (i.e., the shorthand code)."""
-        return re.split('\s+', line)[-1]
-
-    def replace_with_expanded(self, cursor_iter, buffer, before, after, document):
-        """Replace the shorthand code with the expanded code."""
-
-        # Replace the original caret_placerholder with a nicer one
-        after = after.replace(zen_core.caret_placeholder, '[ ]')
-
-        # Save cursor's current location
-        offset = cursor_iter.get_offset()
-
-        # Delete the last word in the line (i.e., the 'before' text, aka the
-        # Zen un-expanded code), so that we can replace it.
-        word_iter = cursor_iter.copy()
-        word_iter.set_line_index(cursor_iter.get_line_index() - len(before))
-        buffer.delete(word_iter, cursor_iter)
-
-        # Insert the new expanded text.
-        buffer.insert_at_cursor(after)
-
-        # Set parameters for search
-        end_iter = buffer.get_iter_at_mark(buffer.get_insert())
-        buffer.place_cursor(buffer.get_iter_at_offset(offset - len(before)))
-        begin_iter = buffer.get_iter_at_mark(buffer.get_insert())
-        begin_match = begin_iter.copy()
-        end_match = end_iter.copy()
-
-        # Do search
-        document.set_search_text('[ ]', 0)
-        document.search_forward(begin_iter, end_iter, begin_match, end_match)
-        buffer.select_range(begin_match, end_match)
+    def toggle_comment(self, action, window):
+        self.editor.toggle_comment(window)
 
         return True

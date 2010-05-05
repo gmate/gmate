@@ -59,7 +59,7 @@ rails-related files.
 
 <b>Note:</b> In order to use Go to File feature you need to choose just one of:
 GeditGoToFile, SnapOpen or GeditOpenFiles. Multi Edit plugin is not enabled by
-default Gmate instalation.
+default Gmate installation.
 
 
 === Themes/Styles

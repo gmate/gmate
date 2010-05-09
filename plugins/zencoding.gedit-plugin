@@ -3,9 +3,10 @@ Loader=python
 Module=zencoding
 IAge=2
 Name=Zen Coding
-Description=Enables Zen Coding's CSS and HTML shorthand tools for Gedit.
+Name[ru]=Дзэн-разработка
+Description=Enables Zen Coding's CSS and HTML tools for Gedit.
 Description[fr]=Des sélecteurs CSS pour écrire du code HTML.
-Authors=Mike Crittenden <mike@mikethecoder.com>, Zen Coding team\nFranck Marcia <franck.marcia@gmail.com>
+Description[ru]=Упрощает набор HTML и CSS с помощью механизма сокращений Zen Coding.
+Authors=Mike Crittenden <mike@mikethecoder.com>, Franck Marcia <franck.marcia@gmail.com>
 Copyright=Mike Crittenden <mike@mikethecoder.com>\nFranck Marcia <franck.marcia@gmail.com>
 Website=http://github.com/mikecrittenden/zen-coding-gedit
-

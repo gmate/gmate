@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+ Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
 
- Copyright (C) 2006-2007 Will Farrington <wcfarrington@gmail.com>
+ This file was generated from a textmate theme named IDLE
+ with tm2gtksw2 tool. (Alexandre da Silva)
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
@@ -17,89 +19,72 @@
  License along with this library; if not, write to the
  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.
-
 -->
+
 <style-scheme id="idle" _name="IDLE" version="1.0">
-  <author>Will Farrington</author>
-  <_description>Color scheme used in the IDLE Python IDE</_description>
+  <author>tm2gtksw2(Alexandre da Silva)</author>
+  <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
 
-<!-- Colors -->
-
-  <color name="white" value="#ffffff"/>
-  <color name="black" value="#000000"/>
-  <color name="black_grey" value="#222222"/>
-  <color name="dark_grey" value="#919191"/>
-  <color name="light_grey" value="#dedede"/>
-  <color name="steelblue3" value="#4f94cd"/>
-  <color name="maroon" value="#800000"/>
-  <color name="purple" value="#a535ae"/>
-  <color name="orange" value="#ff5600"/>
-  <color name="green" value="#00a33f"/>
-  <color name="red" value="#e80023"/>
-
-<!-- Global Settings -->
-
-  <style name="text" foreground="black" background="white"/>
-  <style name="cursor" foreground="black"/>
-  <style name="current-line" background="light_grey"/>
-  <style name="line-numbers" foreground="black_grey" background="white"/>
+  <style name="bracket-match"  background="#ededed" bold="true"/>
+  <style name="bracket-mismatch"  background="#ededed" underline="true"/>
+  <style name="css:at-rules" foreground="#ff5600"/>
+  <style name="css:keyword" foreground="#a535ae"/>
+  <style name="current-line"  background="#ededed"/>
+  <style name="cursor" foreground="#000000"/>
+  <style name="def:boolean" foreground="#a535ae"/>
+  <style name="def:builtin" foreground="#a535ae"/>
+  <style name="def:character" foreground="#00a33f"/>
+  <style name="def:comment" foreground="#919191"/>
+  <style name="def:doc-comment" foreground="#919191"/>
+  <style name="def:doc-comment-element" foreground="#919191"/>
+  <style name="def:error" foreground="#ffffff" background="#990000"/>
+  <style name="def:function" foreground="#21439c"/>
+  <style name="def:keyword" foreground="#ff5600"/>
+  <style name="def:note" foreground="#919191"/>
+  <style name="def:operator" foreground="#ff5600"/>
+  <style name="def:preprocessor" foreground="#a535ae"/>
+  <style name="def:reserved" foreground="#ff5600"/>
+  <style name="def:shebang" foreground="#919191"/>
+  <style name="def:special-char" foreground="#a535ae"/>
+  <style name="def:special-constant" foreground="#a535ae"/>
+  <style name="def:statement" foreground="#ff5600"/>
+  <style name="def:string" foreground="#00a33f"/>
+  <style name="def:type" foreground="#a535ae"/>
+  <style name="draw-spaces" foreground="#bfbfbf"/>
+  <style name="html:dtd" foreground="#00a33f"/>
+  <style name="html:tag" foreground="#21439c"/>
+  <style name="js:function" foreground="#a535ae"/>
+  <style name="line-numbers" foreground="#000000" background="#ededed"/>
+  <style name="perl:builtin" foreground="#21439c"/>
+  <style name="perl:include-statement" foreground="#ff5600"/>
+  <style name="perl:special-variable" foreground="#a535ae"/>
+  <style name="php:string" foreground="#00a33f"/>
+  <style name="python:builtin-constant" foreground="#ff5600"/>
+  <style name="python:builtin-function" foreground="#21439c"/>
+  <style name="python:module-handler" foreground="#ff5600"/>
+  <style name="python:special-variable" foreground="#ff5600"/>
+  <style name="ruby:attribute-definition" foreground="#ff5600"/>
+  <style name="ruby:global-variable" foreground="#21439c"/>
+  <style name="ruby:module-handler" foreground="#ff5600"/>
+  <style name="ruby:predefined-variable" foreground="#a535ae"/>
+  <style name="ruby:regex" foreground="#00a33f"/>
+  <style name="ruby:special-variable" foreground="#ff5600"/>
+  <style name="rubyonrails:attribute-definition" foreground="#ff5600"/>
+  <style name="rubyonrails:class-inherit" foreground="#21439c"/>
+  <style name="rubyonrails:class-name" foreground="#21439c"/>
+  <style name="rubyonrails:complex-interpolation" foreground="#00a33f"/>
+  <style name="rubyonrails:global-variable" foreground="#21439c"/>
+  <style name="rubyonrails:module-handler" foreground="#ff5600"/>
+  <style name="rubyonrails:module-name" foreground="#21439c"/>
+  <style name="rubyonrails:predefined-variable" foreground="#a535ae"/>
+  <style name="rubyonrails:regex" foreground="#00a33f"/>
+  <style name="rubyonrails:simple-interpolation" foreground="#00a33f"/>
+  <style name="rubyonrails:special-variable" foreground="#ff5600"/>
+  <style name="search-match"  background="#ededed" bold="true" underline="true"/>
+  <style name="selection" foreground="#000000" background="#bad6fd"/>
+  <style name="text" foreground="#000000" background="#ffffff"/>
+  <style name="xml:tag" foreground="#21439c"/>
   
-<!-- Bracket Matching -->
-  <style name="bracket-match" background="steelblue3"/>
-  <style name="bracket-mismatch" background="maroon" bold="true"/>
-  <style name="search-match" foreground="white" background="steelblue3"/>
-
-<!-- Comments -->
-  <style name="def:comment" foreground="dark_grey"/>
-  <style name="def:shebang" foreground="dark_grey"/>
-  <style name="def:doc-comment-element" foreground="dark_grey" bold="true"/>
-
-<!-- Constants and Variables-->
-  <style name="def:constant" foreground="black"/>
-  <style name="def:string" foreground="green"/>
-  <style name="def:special-char" foreground="maroon"/>
-  <style name="def:special-constant" foreground="purple" bold="true"/>
-  <style name="def:boolean" foreground="purple"/>
-  <style name="def:number" foreground="black"/>
-  <style name="def:floating-point" foreground="black"/>
-  <style name="def:keyword" foreground="orange"/>
-  <style name="def:builtin" foreground="orange" bold="true"/>
-  <style name="def:variable" foreground="black"/>
-  
-<!-- Identifiers -->
-  <style name="def:identifier" foreground="black"/>
-
-<!-- Statements -->
-  <style name="def:statement" foreground="orange"/>
-
-<!-- Types -->
-  <style name="def:type" foreground="purple"/>
-  
-<!-- Others -->
-  <style name="def:error" foreground="white" background="maroon" bold="true"/>
-  <style name="def:note" foreground="red" bold="true"/>
-  <style name="def:net-address-in-comment" foreground="steelblue3" italic="false" underline="true"/>
-  <style name="def:preprocessor" color="maroon"/>
-    
-<!-- Unknown? -->
-  <style name="def:specials" background="orange"/>
-
-<!-- C Styles -->
-  <style name="c:preprocessor" map-to="def:special-char"/>
-
-<!-- Diff Styles -->
-  <style name="diff:ignore" foreground="dark_grey"/>
-
-<!-- Ruby Styles -->
-  <style name="ruby:module-handler" foreground="purple"/>
-  <style name="ruby:symbol" foreground="black"/>
-  <style name="ruby:regex" foreground="green"/>
-
-<!-- SH Styles -->
-  <style name="sh:others" map-to="text"/>
-  
-<!-- XML Styles -->
-  <style name="xml:attribute-name" foreground="purple"/>
-  <style name="xml:element-name" foreground="maroon"/>
 
 </style-scheme>
+

@@ -45,7 +45,7 @@
     </context>
 
     <context id="key-en" style-ref="keyword">
-      <match>^\s*(Feature|In\s[Oo]rder|As\san?|I\s[Ww]ant|Scenario(\sOutline)?|Given|When|Then|And|But|Background)</match>
+      <match>^\s*(Feature|In\s[Oo]rder|As\san?|I\s[Ww]ant|Scenario(s|\sOutline)?|Given|When|Then|And|But|Background)</match>
     </context>
 
     <context id="key-pt" style-ref="keyword">

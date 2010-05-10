@@ -26,8 +26,6 @@ zencoding_ui_str = """
           <menuitem name="ZenCodingPrev"     action="ZenCodingPrevAction"/>
           <menuitem name="ZenCodingNext"     action="ZenCodingNextAction"/>
           <separator/>
-          <menuitem name="ZenCodingSize"     action="ZenCodingSizeAction"/>
-          <separator/>
           <menuitem name="ZenCodingRemove"   action="ZenCodingRemoveAction"/>
           <menuitem name="ZenCodingSplit"    action="ZenCodingSplitAction"/>
           <menuitem name="ZenCodingComment"  action="ZenCodingCommentAction"/>
@@ -45,14 +43,13 @@ class ZenCodingPlugin(gedit.Plugin):
         actions = [
           ('ZenCodingMenuAction',     None, '_Zen Coding',                  None,            "Zen Coding tools",                            None),
           ('ZenCodingExpandAction',   None, '_Expand abbreviation',         '<Ctrl>E',        "Expand abbreviation to raw HTML/CSS",         self.expand_abbreviation),
-          ('ZenCodingExpandWAction',  None, 'E_xpand with abbreviation...', '<Ctrl><Alt>E',   "Type in an abbreviation to expand",           self.expand_with_abbreviation),
+          ('ZenCodingExpandWAction',  None, 'E_xpand dynamic abbreviation...', '<Ctrl><Alt>E',   "Dynamically expand abbreviation as you type",           self.expand_with_abbreviation),
           ('ZenCodingWrapAction',     None, '_Wrap with abbreviation...',   '<Ctrl><Shift>E', "Wrap with code expanded from abbreviation",   self.wrap_with_abbreviation),
           ('ZenCodingInwardAction',   None, 'Balance tag _inward',          '<Ctrl><Alt>I',   "Select inner tag's content",                  self.match_pair_inward),
           ('ZenCodingOutwardAction',  None, 'Balance tag _outward',         '<Ctrl><Alt>O',   "Select outer tag's content",                  self.match_pair_outward),
           ('ZenCodingMergeAction',    None, '_Merge lines',                 '<Ctrl><Alt>M',   "Merge all lines of the current selection",    self.merge_lines),
           ('ZenCodingPrevAction',     None, '_Previous edit point',         '<Alt>Left',      "Place the cursor at the previous edit point", self.prev_edit_point),
           ('ZenCodingNextAction',     None, '_Next edit point',             '<Alt>Right',     "Place the cursor at the next edit point",     self.next_edit_point),
-          ('ZenCodingSizeAction',     None, 'Update image _size',           '<Ctrl><Alt>S',   "Update image size tag from file",             self.update_image_size),
           ('ZenCodingRemoveAction',   None, '_Remove tag',                  '<Ctrl><Alt>R',   "Remove a tag",                                self.remove_tag),
           ('ZenCodingSplitAction',    None, 'Split or _join tag',           '<Ctrl><Alt>J',   "Toggle between single and double tag",        self.split_join_tag),
           ('ZenCodingCommentAction',  None, 'Toggle _comment',              '<Ctrl><Alt>C',   "Toggle an XML or HTML comment",               self.toggle_comment)
@@ -111,9 +108,6 @@ class ZenCodingPlugin(gedit.Plugin):
 
     def next_edit_point(self, action, window):
         self.editor.next_edit_point(window)
-
-    def update_image_size(self, action, window):
-        self.editor.update_image_size(window)
 
     def remove_tag(self, action, window):
         self.editor.remove_tag(window)

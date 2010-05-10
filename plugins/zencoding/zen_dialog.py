@@ -22,7 +22,7 @@ class ZenDialog():
         self.window.connect("focus-out-event", self.focus_lost)
         self.window.connect("key-press-event", self.key_pressed)
         self.window.set_resizable(False)
-        self.window.move(x - 15, y - 35)
+        self.window.move(x, y - 27)
 
         self.frame = gtk.Frame()
         self.window.add(self.frame)
@@ -35,8 +35,8 @@ class ZenDialog():
         self.entry = gtk.Entry()
         self.entry.connect("changed", self.update)
         self.entry.set_text(text)
-        self.entry.set_icon_from_icon_name(gtk.ENTRY_ICON_PRIMARY, 'zencoding')
-        self.entry.set_width_chars(48)
+        self.entry.set_has_frame(False)
+        self.entry.set_width_chars(36)
         self.box.pack_start(self.entry, True, True, 4)
         self.entry.show()
 
@@ -57,8 +57,8 @@ class ZenDialog():
             return False
             
     def focus_lost(self, widget=None, event=None):
-        widget.exit = True
-        widget.quit()
+        self.exit = True
+        self.quit()
 
     def update(self, entry):
         self.abbreviation = self.entry.get_text()

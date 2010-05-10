@@ -66,7 +66,16 @@ Enter the snippet acellerator than Press TAB.
 
 Zen Coding
 ----------
-CTRL+E => Expand Zen Code template
+Ctrl+E => Expand abbreviation 
+CTRL+ALT+E => Expand abbreviation as you type
+CTRL+SHIFT+E => Wrap with abbreviation
+CTRL+ALT+I => Balance tag inward
+CTRL+ALT+O => Balance tag outward
+CTRL+ALT+M => Merge lines with Ctrl+Alt+M
+ALT+LEFT or ALT+RIGHT => Go to previous or next edit point
+CTRL+ALT+R => Remove tag
+CTRL+ALT+J => Split or join tags
+CTRL+ALT+C => Toggle comment
 
 Spell Checker
 -------------

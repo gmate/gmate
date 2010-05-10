@@ -2,9 +2,6 @@
 # Kill all runing instances if exists
 # killall gedit
 
-# Put the Zen Coding image in the correct place and update Icon Cache.
-sudo cp plugins/zencoding/zencoding.png /usr/share/icons/hicolor/16x16/apps
-sudo gtk-update-icon-cache /usr/share/icons/hicolor > /dev/null 2>&1
 # Register rails-related mime types
 sudo cp mime/rails.xml /usr/share/mime/packages
 sudo cp mime/cfml.xml /usr/share/mime/packages

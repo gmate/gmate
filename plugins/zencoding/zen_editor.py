@@ -21,7 +21,6 @@ Gedit implementation:
 
 import zen_core, zen_actions
 import os, re, locale
-from image_size import update_image_size
 import zen_dialog
 
 class ZenEditor():
@@ -303,12 +302,6 @@ class ZenEditor():
         result = zen_actions.next_edit_point(self)
         self.show_caret()
         return result
-
-    def update_image_size(self, window):
-        self.set_context(window)
-        self.buffer.begin_user_action()
-        update_image_size(self)
-        self.buffer.end_user_action()
 
     def remove_tag(self, window):
         self.set_context(window)

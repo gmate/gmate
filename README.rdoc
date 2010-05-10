@@ -99,6 +99,7 @@ default Gmate installation.
 * Emacs Strict (Converted from Textmate)
 * Expresso Libre (Converted from Textmate)
 * Fade to Grey (Converted from Textmate)
+* Flark
 * Fluffy
 * ForLaTeX (Converted from Textmate)
 * Fruity

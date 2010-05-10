@@ -168,27 +168,25 @@ default Gmate installation.
 
 === Language Improvements and Mime Types
 
-* Ruby on Rails improvements
-* rhtml/erb Syntax Highlight
 * Basic YAML Syntax Highlight
-* HAML Syntax Highlight
-* reStructuredText Syntax Highlight
-* Markdown Syntax Highlight
+* ColdFusion Syntax Highlight
 * Cucumber Syntax Highlight
-* SASS Syntax Highlight
 * Groovy and gsp Support (Included bundle created by Aaron Eischeid)
-
+* HAML Syntax Highlight
+* Markdown Syntax Highlight
+* reStructuredText Syntax Highlight
+* rhtml/erb Syntax Highlight
+* Ruby on Rails improvements
+* SASS Syntax Highlight
 
 === Tags Definitions
 * Groovy Tags (Included bundle created by Aaron Eischeid)
 
-
 === Code snippets
-
-<b>I need help to create a good snippet base, for now current snippets I got from some place, and most are outdated.</b>
+<b>I need help creating a good snippet base. For now, there are only snippets I 
+got from some place, and most are outdated.</b>
 
 == Notes
-
 In addition if your syntax not works properly just with install process you can
 edit your <tt>/etc/mime.types</tt> file and add following lines next to other
 “text/x-????” entries:
@@ -204,7 +202,6 @@ More info : http://blog.siverti.com.br/gmate
 
 If you have issues with one of the plugins included in Gmate or have suggestions
 please fill an issue in http://github.com/gmate/gmate/issues
-
 
 Refer to each plugin source code and readme file to get information about
 specific plugin licencing and copyright.

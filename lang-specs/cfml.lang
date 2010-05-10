@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Authors: Marco Barisione, Emanuele Aina
+ Copyright (C) 2005-2007 Marco Barisione <barisione@gmail.com>
+ Copyright (C) 2005-2007 Emanuele Aina
+ Copyright (C) 2009 Rob Rohan
+ 
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+ 2009 Rob Rohan: Tweaked the XML lang spec for Coldfusion
+-->
+<language id="cfml" _name="CFML" version="2.0" _section="Markup">
+    <metadata>
+        <property name="mimetypes">application/cfml;text/cfml</property>
+        <property name="globs">*.cfm;*.cfml;*.cfc</property>
+        <property name="block-comment-start">&lt;!---</property>
+        <property name="block-comment-end">---&gt;</property>
+    </metadata>
+
+    <styles>
+        <style id="comment" _name="Comment" map-to="xml:comment"/>
+        <style id="tag" _name="Tag" map-to="xml:element-name"/>
+        <style id="attrib-name" _name="Attribute Name" map-to="xml:attribute-name"/>
+        <style id="attrib-value" _name="Attribute Value" map-to="xml:attribute-value"/>
+        <style id="dtd" _name="DTD" map-to="xml:doctype"/>
+        <style id="error" _name="Error" map-to="xml:error"/>
+    </styles>
+
+    <default-regex-options case-sensitive="false"/>
+
+    <definitions>
+        <!-- Html comments are more permissive than xml comments -->
+        <context id="comment" style-ref="comment">
+            <start>&lt;!---</start>
+            <end>---&gt;</end>
+            <!-- <include>
+                <context style-ref="error" extend-parent="false">
+                    <match>- -+</match>
+                </context>
+                <context ref="def:in-comment"/>
+            </include> -->
+        </context>
+
+        <context id="dtd" style-ref="dtd">
+            <start>&lt;!</start>
+            <end>&gt;</end>
+        </context>
+
+        <!-- This is a placeholder context intended to be <replace>d
+             in languages like php that need to embedd contexts inside
+             html tags and attributes.
+        -->
+        <context id="embedded-lang-hook">
+            <start>\%{def:never-match}</start>
+            <end></end>
+        </context>
+
+        <context id="generic-tag">
+            <include>
+
+                <!-- Attribute in the form: name="value" -->
+                <context id="attrib-quoted" style-ref="attrib-name">
+                    <start extended="true">
+                        [A-Za-z0-9:_-]+ # attribute name
+                        \s*=\s*         # "="
+                        (\")            # string beginning
+                    </start>
+                    <end>\"</end>
+                    <include>
+                        <context sub-pattern="1" where="start" style-ref="attrib-value"/>
+                        <context sub-pattern="0" where="end" style-ref="attrib-value"/>
+                        <context id="string" extend-parent="false" end-at-line-end="true" style-ref="attrib-value">
+                            <start>\%{def:always-match}</start>
+                            <include>
+                                <context ref="xml:entity"/>
+                                <context ref="xml:character-reference"/>
+                                <context ref="embedded-lang-hook"/>
+                            </include>
+                        </context>
+                    </include>
+                </context>
+
+                <!-- Attribute in the form: name=value -->
+                <context id="attrib-unquoted" style-ref="attrib-value">
+                    <start extended="true">
+                        [a-z0-9:_-]+ # attribute name
+                        \s*=\s*      # "="
+                    </start>
+                    <end>(?=&gt;|\s)</end>
+                    <include>
+                        <context sub-pattern="0" where="start" style-ref="attrib-name"/>
+                        <context ref="xml:entity"/>
+                        <context ref="xml:character-reference"/>
+                    </include>
+                </context>
+
+                <!-- Attribute in the form: name -->
+                <context id="attrib-no-value" style-ref="attrib-name">
+                    <match extended="true">
+                        [a-z0-9:_-]+  # attribute name
+                    </match>
+                </context>
+
+                <context ref="embedded-lang-hook"/>
+
+            </include>
+        </context>
+
+        <context id="script">
+            <start>&lt;\s*script\%]</start>
+            <end>/&gt;|&lt;\s*/\s*script\s*&gt;</end>
+
+            <include>
+                <context sub-pattern="0" where="start" style-ref="tag"/>
+                <context sub-pattern="0" where="end" style-ref="tag"/>
+                <context ref="generic-tag"/>
+                <context id="js-code" extend-parent="false">
+                    <start>&gt;</start>
+                    <include>
+                        <context sub-pattern="0" where="start" style-ref="tag"/>
+                        <context ref="js:js"/>
+                    </include>
+                </context>
+            </include>
+        </context>
+
+        <context id="tag">
+            <start>&lt;\s*/?\s*[a-z0-9_-]+</start>
+            <end>/?\s*&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="tag"/>
+                <context sub-pattern="0" where="end" style-ref="tag"/>
+                <context ref="generic-tag"/>
+            </include>
+        </context>
+
+        <context id="cfml">
+            <include>
+                <context ref="xml:doctype"/>
+                <context ref="xml:entity"/>
+                <context ref="xml:character-reference"/>
+                <context ref="xml:cdata"/>
+                <context ref="comment"/>
+                <context ref="dtd"/>
+                <context ref="script"/>
+                <context ref="tag"/>
+            </include>
+        </context>
+
+    </definitions>
+</language>

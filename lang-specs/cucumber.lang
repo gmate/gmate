@@ -43,6 +43,10 @@
       <start>'</start>
       <end>'</end>
     </context>
+    
+    <context id="apostrophe">
+      <match>\w\'\w</match>
+    </context>
 
     <context id="key-en" style-ref="keyword">
       <match>^\s*(Feature|In\s[Oo]rder|As\san?|I\s[Ww]ant|Scenario(s|\sOutline)?|Given|When|Then|And|But|Background)</match>
@@ -56,6 +60,7 @@
       <include>
         <context ref="string"/>
         <context ref="string-2"/>
+        <context ref="apostrophe"/>
         <context ref="key-en"/>
         <context ref="key-pt"/>
       </include>

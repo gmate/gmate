@@ -25,12 +25,12 @@
   </metadata>
 
   <styles>
-    <style id="escape"               _name="Escaped Character"     map-to="def:special-char"/>
-    <style id="comment"              _name="Comment"               map-to="def:comment"/>
-    <style id="keyword"              _name="Keyword"               map-to="def:keyword"/>
-    <style id="string"               _name="String"                map-to="def:string"/>
-    <style id="inner-key"            _name="Inner Key"             map-to="def:decimal"/>
-    <style id="scalar-value"         _name="Scalar Value"          map-to="def:identifier"/>
+    <style id="escape"       _name="Escaped Character" map-to="def:special-char"/>
+    <style id="comment"      _name="Comment"           map-to="def:comment"/>
+    <style id="keyword"      _name="Keyword"           map-to="def:keyword"/>
+    <style id="string"       _name="String"            map-to="def:string"/>
+    <style id="inner-key"    _name="Inner Key"         map-to="def:decimal"/>
+    <style id="scalar-value" _name="Scalar Value"      map-to="def:identifier"/>
   </styles>
 
   <definitions>

@@ -32,12 +32,12 @@
     </metadata>
 
     <styles>
-        <style id="comment" _name="Comment" map-to="xml:comment"/>
-        <style id="tag" _name="Tag" map-to="xml:element-name"/>
-        <style id="attrib-name" _name="Attribute Name" map-to="xml:attribute-name"/>
-        <style id="attrib-value" _name="Attribute Value" map-to="xml:attribute-value"/>
-        <style id="dtd" _name="DTD" map-to="xml:doctype"/>
-        <style id="error" _name="Error" map-to="xml:error"/>
+        <style id="comment"    _name="Comment"         map-to="xml:comment"/>
+        <style id="tag"        _name="Tag"             map-to="xml:element-name"/>
+        <style id="attr-name"  _name="Attribute Name"  map-to="xml:attribute-name"/>
+        <style id="attr-value" _name="Attribute Value" map-to="xml:attribute-value"/>
+        <style id="dtd"        _name="DTD"             map-to="xml:doctype"/>
+        <style id="error"      _name="Error"           map-to="xml:error"/>
     </styles>
 
     <default-regex-options case-sensitive="false"/>
@@ -73,7 +73,7 @@
             <include>
 
                 <!-- Attribute in the form: name="value" -->
-                <context id="attrib-quoted" style-ref="attrib-name">
+                <context id="attr-quoted" style-ref="attr-name">
                     <start extended="true">
                         [A-Za-z0-9:_-]+ # attribute name
                         \s*=\s*         # "="
@@ -81,9 +81,9 @@
                     </start>
                     <end>\"</end>
                     <include>
-                        <context sub-pattern="1" where="start" style-ref="attrib-value"/>
-                        <context sub-pattern="0" where="end" style-ref="attrib-value"/>
-                        <context id="string" extend-parent="false" end-at-line-end="true" style-ref="attrib-value">
+                        <context sub-pattern="1" where="start" style-ref="attr-value"/>
+                        <context sub-pattern="0" where="end" style-ref="attr-value"/>
+                        <context id="string" extend-parent="false" end-at-line-end="true" style-ref="attr-value">
                             <start>\%{def:always-match}</start>
                             <include>
                                 <context ref="xml:entity"/>
@@ -109,7 +109,7 @@
                 </context>
 
                 <!-- Attribute in the form: name -->
-                <context id="attrib-no-value" style-ref="attrib-name">
+                <context id="attr-no-value" style-ref="attr-name">
                     <match extended="true">
                         [a-z0-9:_-]+  # attribute name
                     </match>

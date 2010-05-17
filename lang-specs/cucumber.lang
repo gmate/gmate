@@ -25,8 +25,8 @@
   </metadata>
 
   <styles>
-    <style id="keyword"              _name="Keyword"               map-to="def:keyword"/>
-    <style id="string"               _name="String"                map-to="def:string"/>
+    <style id="keyword" _name="Keyword" map-to="def:keyword"/>
+    <style id="string"  _name="String"  map-to="def:string"/>
   </styles>
 
   <definitions>

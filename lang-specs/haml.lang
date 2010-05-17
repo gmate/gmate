@@ -8,11 +8,11 @@
     <property name="globs">*.haml</property>
   </metadata>
   <styles>
-    <style id="comment"                 _name="Comment"                 map-to="def:comment"/>
-    <style id="tag"                     _name="Tag"                     map-to="def:keyword"/>
-    <style id="class-tag"               _name="Class Tag"               map-to="def:function"/>
-    <style id="id-tag"                  _name="Id Tag"                  map-to="def:identifier"/>
-    <style id="error"                   _name="Error"                   map-to="def:error"/>
+    <style id="comment"   _name="Comment"   map-to="def:comment"/>
+    <style id="tag"       _name="Tag"       map-to="def:keyword"/>
+    <style id="class-tag" _name="Class Tag" map-to="def:function"/>
+    <style id="id-tag"    _name="Id Tag"    map-to="def:identifier"/>
+    <style id="error"     _name="Error"     map-to="def:error"/>
   </styles>
   <definitions>
     <context id="comment" style-ref="comment">

@@ -8,22 +8,22 @@
     <property name="globs">*.sass</property>
   </metadata>
   <styles>
-    <style id="comment"                 _name="Comment"                 map-to="def:comment"/>
-    <style id="tag"                     _name="Tag"                     map-to="def:special-constant"/>
-    <style id="class-tag"               _name="Class Tag"               map-to="def:function"/>
-    <style id="id-tag"                  _name="Id Tag"                  map-to="def:identifier"/>
-    <style id="error"                   _name="Error"                   map-to="def:error"/>
-    <style id="keyword"                 _name="Keyword"                 map-to="def:keyword"/>
-    <style id="function"                _name="Function"                map-to="def:function"/>    
-    <style id="known-property-values"   _name="Known Property Value"    map-to="def:type"/>
-    <style id="decimal"                 _name="Decimal"                 map-to="def:decimal"/>
-    <style id="dimension"               _name="Dimension"               map-to="def:floating-point"/>
-    <style id="color"                   _name="Color"                   map-to="def:base-n-integer"/>
+    <style id="comment"     _name="Comment"              map-to="def:comment"/>
+    <style id="tag"         _name="Tag"                  map-to="def:special-constant"/>
+    <style id="class-tag"   _name="Class Tag"            map-to="def:function"/>
+    <style id="variable"    _name="Variable"               map-to="def:identifier"/>
+    <style id="error"       _name="Error"                map-to="def:error"/>
+    <style id="keyword"     _name="Keyword"              map-to="def:keyword"/>
+    <style id="mixin"       _name="Mixin"                map-to="def:function"/>    
+    <style id="known-value" _name="Known Property Value" map-to="def:type"/>
+    <style id="decimal"     _name="Decimal"              map-to="def:decimal"/>
+    <style id="dimension"   _name="Dimension"            map-to="def:floating-point"/>
+    <style id="color"       _name="Color"                map-to="def:base-n-integer"/>
   </styles>
   
   <definitions>
     <context id="comment" style-ref="comment">
-      <match>^(  )*\/.*$</match>
+      <match>^(  )*\/\/.*$</match>
     </context>
     
     <context id="identation-error">
@@ -51,131 +51,10 @@
     </context>
   
     <context id="property-names" style-ref="keyword">
-      <prefix>^(  )+:</prefix>
-      <keyword>azimuth</keyword>
-      <keyword>background-attachment</keyword>
-      <keyword>background-color</keyword>
-      <keyword>background-image</keyword>
-      <keyword>background-position</keyword>
-      <keyword>background-repeat</keyword>
-      <keyword>background</keyword>
-      <keyword>border-bottom-color</keyword>
-      <keyword>border-bottom-style</keyword>
-      <keyword>border-bottom-width</keyword>
-      <keyword>border-bottom</keyword>
-      <keyword>border-collapse</keyword>
-      <keyword>border-color</keyword>
-      <keyword>border-left-color</keyword>
-      <keyword>border-left-style</keyword>
-      <keyword>border-left-width</keyword>
-      <keyword>border-left</keyword>
-      <keyword>border-right-color</keyword>
-      <keyword>border-right-style</keyword>
-      <keyword>border-right-width</keyword>
-      <keyword>border-right</keyword>
-      <keyword>border-spacing</keyword>
-      <keyword>border-style</keyword>
-      <keyword>border-top-color</keyword>
-      <keyword>border-top-style</keyword>
-      <keyword>border-top-width</keyword>
-      <keyword>border-top</keyword>
-      <keyword>border-width</keyword>
-      <keyword>border</keyword>
-      <keyword>bottom</keyword>
-      <keyword>caption-side</keyword>
-      <keyword>clear</keyword>
-      <keyword>clip</keyword>
-      <keyword>color</keyword>
-      <keyword>content</keyword>
-      <keyword>counter-increment</keyword>
-      <keyword>counter-reset</keyword>
-      <keyword>cue-after</keyword>
-      <keyword>cue-before</keyword>
-      <keyword>cue</keyword>
-      <keyword>cursor</keyword>
-      <keyword>direction</keyword>
-      <keyword>display</keyword>
-      <keyword>elevation</keyword>
-      <keyword>empty-cells</keyword>
-      <keyword>float</keyword>
-      <keyword>font-family</keyword>
-      <keyword>font-size-adjust</keyword>
-      <keyword>font-size</keyword>
-      <keyword>font-style</keyword>
-      <keyword>font-variant</keyword>
-      <keyword>font-weight</keyword>
-      <keyword>font</keyword>
-      <keyword>height</keyword>
-      <keyword>left</keyword>
-      <keyword>letter-spacing</keyword>
-      <keyword>line-height</keyword>
-      <keyword>list-style-image</keyword>
-      <keyword>list-style-position</keyword>
-      <keyword>list-style-type</keyword>
-      <keyword>list-style</keyword>
-      <keyword>margin-bottom</keyword>
-      <keyword>margin-left</keyword>
-      <keyword>margin-right</keyword>
-      <keyword>margin-top</keyword>
-      <keyword>margin</keyword>
-      <keyword>marker-offset</keyword>
-      <keyword>marks</keyword>
-      <keyword>max-height</keyword>
-      <keyword>max-width</keyword>
-      <keyword>min-height</keyword>
-      <keyword>min-width</keyword>
-      <keyword>orphans</keyword>
-      <keyword>outline-color</keyword>
-      <keyword>outline-style</keyword>
-      <keyword>outline-width</keyword>
-      <keyword>outline</keyword>
-      <keyword>overflow</keyword>
-      <keyword>padding-bottom</keyword>
-      <keyword>padding-left</keyword>
-      <keyword>padding-right</keyword>
-      <keyword>padding-top</keyword>
-      <keyword>padding</keyword>
-      <keyword>page-break-after</keyword>
-      <keyword>page-break-before</keyword>
-      <keyword>page-break-inside</keyword>
-      <keyword>page</keyword>
-      <keyword>pause-after</keyword>
-      <keyword>pause-before</keyword>
-      <keyword>pause</keyword>
-      <keyword>pitch-range</keyword>
-      <keyword>pitch</keyword>
-      <keyword>play-during</keyword>
-      <keyword>position</keyword>
-      <keyword>quotes</keyword>
-      <keyword>richness</keyword>
-      <keyword>right</keyword>
-      <keyword>size</keyword>
-      <keyword>speak-header</keyword>
-      <keyword>speak-numerical</keyword>
-      <keyword>speak-punctuation</keyword>
-      <keyword>speak</keyword>
-      <keyword>speech-rate</keyword>
-      <keyword>stress</keyword>
-      <keyword>table-layout</keyword>
-      <keyword>text-align</keyword>
-      <keyword>text-decoration</keyword>
-      <keyword>text-indent</keyword>
-      <keyword>text-shadow</keyword>
-      <keyword>text-transform</keyword>
-      <keyword>top</keyword>
-      <keyword>unicode-bidi</keyword>
-      <keyword>vertical-align</keyword>
-      <keyword>visibility</keyword>
-      <keyword>voice-family</keyword>
-      <keyword>volume</keyword>
-      <keyword>white-space</keyword>
-      <keyword>widows</keyword>
-      <keyword>width</keyword>
-      <keyword>word-spacing</keyword>
-      <keyword>z-index</keyword>
+      <match>:[^\s]+|[^\s]+(:|=)</match>
     </context>
 
-    <context id="known-property-values" style-ref="known-property-values">
+    <context id="known-values" style-ref="known-values">
       <keyword>above</keyword>
       <keyword>absolute</keyword>
       <keyword>always</keyword>
@@ -413,6 +292,10 @@
       <keyword>ul</keyword>
       <keyword>li</keyword>
     </context>
+
+    <context id="variable" style-ref="variable">
+      <match>(\!|\$)[a-zA-Z][a-zA-Z0-9-_]*</match>
+    </context>
     
     <context id="dimension" style-ref="dimension">
       <match>[\+-]?([0-9]+|[0-9]*\.[0-9]+)(%|e(m|x)|p(x|t|c)|in|ft|(m|c)m|k?Hz|deg|g?rad|m?s)</match>
@@ -422,8 +305,8 @@
       <match>#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})</match>
     </context>
         
-    <context id="function" style-ref="function">
-      <start>[a-zA-Z][a-z0-9-]+\(</start>
+    <context id="mixin" style-ref="mixin">
+      <start>\+?[a-zA-Z][a-zA-Z0-9-_]*\(</start>
       <end>\)</end>
       <include>
         <context ref="def:escape"/>
@@ -448,11 +331,11 @@
         <context ref="selector-pseudo-elements"/>
         <context ref="selector-pseudo-classes"/>
         <context ref="property-names"/>
-        <context ref="known-property-values"/>
-        <context ref="tags"/>
+        <context ref="known-values"/>
+        <context ref="variable"/>
         <context ref="dimension"/>
         <context ref="hexadecimal-color"/>
-        <context ref="function"/>
+        <context ref="mixin"/>
         <context ref="number"/>
         <context ref="importance-modifier"/>
       </include>

@@ -1,3 +1,12 @@
+gedit-gmate (0.9.11~uorppa0) lucid; urgency=low
+
+  * Update Zen Coding plugin.
+  * Update Gedit Open File plugin.
+  * Update SASS highlight for new syntax.
+  * Add new color scheme Flarp.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Thu, 20 May 2010 19:13:31 +0400
+
 gedit-gmate (0.9.10~uorppa0) lucid; urgency=low
 
   * Add Find Open plugin.

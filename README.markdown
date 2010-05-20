@@ -122,7 +122,7 @@ specific plugin licencing and copyright.
 * Emacs Strict (Converted from Textmate)
 * Expresso Libre (Converted from Textmate)
 * Fade to Grey (Converted from Textmate)
-* Flark
+* Flarp
 * Fluffy
 * ForLaTeX (Converted from Textmate)
 * Fruity

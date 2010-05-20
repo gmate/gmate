@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Andrey Sitnik <andrey@sitnik.ru>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 0.9.10~uorppa0
-Homepage: http://blog.siverti.com.br/gmate/
-Vcs-Git: git://github.com/lexrupy/gmate.git
-Vcs-Browser: http://github.com/lexrupy/gmate
+Homepage: http://github.com/gmate/gmate
+Vcs-Git: git://github.com/gmate/gmate.git
+Vcs-Browser: http://github.com/gmate/gmate
 
 Package: gedit-gmate
 Architecture: any

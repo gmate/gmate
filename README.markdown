@@ -13,29 +13,27 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 
 1. Add Ubuntu on Rails PPA:
 
-         sudo apt-add-repository ppa:ubuntu-on-rails/ppa
+        sudo apt-add-repository ppa:ubuntu-on-rails/ppa
 
 2. Install gedit-gmate package:
 
-         sudo apt-get install gedit-gmate
+        sudo apt-get install gedit-gmate
 
 ### Other Linux
 
 1. Install all dependencies:
-
-   * `python-webkitgtk` for Todo-List plugin, see
+    * `python-webkitgtk` for Todo-List plugin, see
       <http://code.google.com/p/pywebkitgtk>
-   * `python-sexy` for Go to File plugin
-   * `pyinotify` for Gedit Open Files and SnapOpen plugins.
-
+    * `python-sexy` for Go to File plugin
+    * `pyinotify` for Gedit Open Files and SnapOpen plugins.
 2. Download gmate sources or clone git repository:
 
-         git clone git://github.com/gmate/gmate.git
-         cd gmate
+        git clone git://github.com/gmate/gmate.git
+        cd gmate
 
 3. And run install script:
 
-         sh install.sh
+        sh install.sh
 
    **Note:** Some commands will expect you enter your sudo password.
 

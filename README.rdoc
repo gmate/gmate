@@ -17,15 +17,16 @@ rails-related files.
      $ sudo apt-get install gedit-gmate
 
 === Other Linux
-1. Install python-webkitgtk for Todo-List plugin.
-   See http://code.google.com/p/pywebkitgtk
-2. Install pyinotify for Gedit Open Files and SnapOpen plugins.
-3. Download gmate sources or clone git repository:
+1. Install all dependencies:
+     python-webkitgtk for Todo-List plugin, see http://code.google.com/p/pywebkitgtk
+     python-sexy for Go to File plugin
+     pyinotify for Gedit Open Files and SnapOpen plugins.
+2. Download gmate sources or clone git repository:
 
      $ git clone git://github.com/gmate/gmate.git
      $ cd gmate
 
-4. And run install script:
+3. And run install script:
 
      $ sh install.sh
 
@@ -55,7 +56,7 @@ rails-related files.
   GeditOpenFiles also based in Textmate Go to file.
 * Multi Edit – Check it out at author's page http://jon-walsh.com/journal/multi-edit
 * Pastie - Paste a selection of code or a source file to pastie.org directly from editor http://github.com/ivyl/gedit-pastie
-* Zen Coding – Tools for faster HTML/CSS coding http://github.com/mikecrittenden/zen-coding-gedit 
+* Zen Coding – Tools for faster HTML/CSS coding http://github.com/mikecrittenden/zen-coding-gedit
 
 <b>Note:</b> In order to use Go to File feature you need to choose just one of:
 GeditGoToFile, SnapOpen or GeditOpenFiles. Multi Edit plugin is not enabled by
@@ -183,7 +184,7 @@ default Gmate installation.
 * Groovy Tags (Included bundle created by Aaron Eischeid)
 
 === Code snippets
-<b>I need help creating a good snippet base. For now, there are only snippets I 
+<b>I need help creating a good snippet base. For now, there are only snippets I
 got from some place, and most are outdated.</b>
 
 == Notes

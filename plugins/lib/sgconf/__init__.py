@@ -50,7 +50,7 @@ class Option(object):
         value = self._storage_client.get(key)
         if value is None and self.default_value is not None:
             self.__set__(instance, self.default_value)
-            return self.__get__(instance, owner)
+            return Option.__get__(self, instance, owner)
 
         return value
 

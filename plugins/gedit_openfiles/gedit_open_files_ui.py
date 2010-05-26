@@ -79,7 +79,7 @@ class GeditOpenFilesUi(object):
 
         # Setup Callback for root path
         self._open_root_path = self._builder.get_object("open_root_path")
-        self._open_root_path.set_current_folder(self.searcher.configuration.get_value("STATIC_ROOT_PATH"))
+        self._open_root_path.set_current_folder(self.searcher.configuration.static_root_path)
 
         self._config_ignore_input = self._builder.get_object("config_ignore_input")
 
@@ -90,7 +90,7 @@ class GeditOpenFilesUi(object):
         self._builder.get_object("config_cancel_button").connect("clicked", self._cancel_config_event)
         self._builder.get_object("config_refresh_button").connect("clicked", self._refresh_data)
 
-        use_file_browser = self.searcher.configuration.get_value("USE_FILEBROWSER")
+        use_file_browser = self.searcher.configuration.use_filebrowser
         if use_file_browser == True or use_file_browser == None: # Defualt
             self._open_root_hbox.set_sensitive(False)
         else:
@@ -101,32 +101,32 @@ class GeditOpenFilesUi(object):
         self._insert_menu()
 
     def _refresh_data(self, event):
-        if self.searcher.configuration.get_value("USE_FILEBROWSER"):
+        if self.searcher.configuration.use_filebrowser:
             self.searcher.root_changed(root=self.searcher.filebrowser_current_root)
         else:
-            self.searcher.root_changed(root=self.searcher.configuration.get_value('STATIC_ROOT_PATH'))
+            self.searcher.root_changed(root=self.searcher.configuration.static_root_path)
         self._plugin_window.hide()
 
     def _reset_config(self):
-        if self.searcher.configuration.get_value("USE_FILEBROWSER"):
+        if self.searcher.configuration.use_filebrowser:
             self._file_browser_checkbox.set_active(True)
         else:
             self._file_browser_checkbox.set_active(False)
-        log.debug("[GeditOpenFileGui] EXCLUDE_LIST = " + str(self.searcher.configuration.get_value("")))
-        self._config_ignore_input.set_text(", ".join(self.searcher.configuration.get_value("EXCLUDE_LIST")))
+        log.debug("[GeditOpenFileGui] EXCLUDE_LIST = " + str(self.searcher.configuration.exclude_list))
+        self._config_ignore_input.set_text(", ".join(self.searcher.configuration.exclude_list))
 
     def _cancel_config_event(self, event):
         self._reset_config()
         self._plugin_window.hide()
 
     def _save_config_event(self, event):
-        self.searcher.configuration.set_value("USE_FILEBROWSER", self._file_browser_checkbox.get_active())
+        self.searcher.configuration.use_filebrowser = self._file_browser_checkbox.get_active()
         log.debug("[GeditOpenFileGui] : STATIC_ROOT_PATH = %s" % self._open_root_path.get_current_folder())
-        self.searcher.configuration.set_value("STATIC_ROOT_PATH", self._open_root_path.get_current_folder())
+        self.searcher.configuration.static_root_path = self._open_root_path.get_current_folder()
 
         ignored_list = [s.strip() for s in self._config_ignore_input.get_text().split(",")]
         log.debug("[GeditOpenFileGui] ignored_list = " + str(ignored_list))
-        self.searcher.configuration.set_value("EXCLUDE_LIST", ignored_list)
+        self.searcher.configuration.exclude_list = ignored_list
         self.searcher.build_exclude_list()
         self._refresh_data(event)
 
@@ -239,3 +239,4 @@ class GeditOpenFilesUi(object):
 
     def _open_selected_item(self, event):
         self._on_select_from_list(None, event)
+

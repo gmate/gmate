@@ -45,17 +45,17 @@ class FilesystemSearcher(object):
         self._monitor.change_root(previous_root)
 
         log.debug("changing root from %s -> %s" % (previous_root, self._root))
-        
+
 
     @property
     def current_root(self):
         """
         Returns the current root location of the window.
         """
-        if self.configuration.get_value("USE_FILEBROWSER"):
+        if self.configuration.use_filebrowser:
             return urllib.unquote(self._root)
         else:
-            return urllib.unquote(self.configuration.get_value('STATIC_ROOT_PATH'))
+            return urllib.unquote(self.configuration.static_root_path)
 
     @property
     def filebrowser_current_root(self):
@@ -101,3 +101,4 @@ class FilesystemSearcher(object):
             return msg.uri
         else:
             return msg.get_value('uri')
+

@@ -30,7 +30,7 @@ class FileProcessEvent(ProcessEvent):
 
     def __init__(self, file_monitor):
         self._file_monitor = file_monitor
-    
+
     def is_dir(self, event):
         if hasattr(event, "dir"):
             return event.dir
@@ -39,7 +39,7 @@ class FileProcessEvent(ProcessEvent):
 
     def process_IN_CREATE(self, event):
         path = os.path.join(event.path, event.name)
-        
+
         if self.is_dir(event):
             log.info("[FileProcessEvent] CREATED DIRECTORY: " + path)
             self._file_monitor.add_directory(path)
@@ -64,7 +64,7 @@ class FileProcessEvent(ProcessEvent):
     def process_IN_MOVED_TO(self, event):
         path = os.path.join(event.path, event.name)
         log.info("[FileProcessEvent] MOVED_TO: " + path)
-        self.process_IN_CREATE(event)    
+        self.process_IN_CREATE(event)
 
 
 class FilesystemMonitor(object):
@@ -74,7 +74,7 @@ class FilesystemMonitor(object):
 
     def __init__(self, searcher):
         self.searcher = searcher
-        
+
         self._thread_pool = ThreadPool(THREAD_POOL_WORKS)
 
         # Add a watch to the root of the dir
@@ -90,7 +90,7 @@ class FilesystemMonitor(object):
 
         self._exclude_regexs = []
         # Complie Ignore list in to a list of regexs
-        for ignore in self.searcher.configuration.get_value("EXCLUDE_LIST"):
+        for ignore in self.searcher.configuration.exclude_list:
             ignore = ignore.strip()
             ignore = ignore.replace(".", "\.")
             ignore = ignore.replace("*", ".*")
@@ -162,3 +162,4 @@ class FilesystemMonitor(object):
                 return False
         log.debug("[WalkDirectoryThread] # Passed %s", name)
         return True
+

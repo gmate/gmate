@@ -4,11 +4,38 @@ import gnomevfs
 import pygtk
 pygtk.require('2.0')
 import os, os.path, gobject
+import locale
+
+###############################
+# CUSTOM VALUES
 
 # Set this to true for gedit versions before 2.16
 pre216_version = False
 
+# Limit the number of matches
 max_result = 50
+limit_total_results = "head -n " + repr(max_result)
+
+# Set this to true if you have grep < 2.5.3
+# Useful to search by content (with some ignore dirs) - require grep 2.5.3 or higher http://www.zulius.com/how-to/grep-skip-svn-directories/
+preGrep253_version = False
+
+# Ignore those directories
+ignore_dirs = '--exclude-dir="./.*" --exclude-dir="./public/productshots" --exclude-dir="./log" --exclude-dir="./vendor" --exclude-dir="./legacy" --exclude-dir="./coverage" --exclude-dir="./log"'
+
+# Ignore not text files
+#ignore_images = " ! -iname '*.jpg' ! -iname '*.jpeg' ! -iname '*.gif' ! -iname '*.png' ! -iname '*.psd' ! -iname '*.tif' "
+        
+###############################
+
+# Get the current locale
+lc, encoding = locale.getdefaultlocale()
+
+label_title = ("Find a file by content", "Encuentra un archivo por su contenido")[lc=="es_MX"]
+label_menu = ('Go to File by content...', 'Buscar por contenido...')[lc=="es_MX"]
+label_searching = ("Searching... ", "Buscando... ")[lc=="es_MX"]
+label_instructions = ("Write the text to find:", "Escribe el texto a buscar:")[lc=="es_MX"]
+label_max_results = ("* too many hits", "* demasiados")[lc=="es_MX"]
 
 ui_str="""<ui>
 <menubar name="MenuBar">
@@ -50,7 +77,7 @@ class FindOpenPluginInstance:
     def _insert_menu(self):
         manager = self._window.get_ui_manager()
         actions = [
-            ('GoToFileByContentAction', gtk.STOCK_JUMP_TO, _('Go to File by content...'), '<Ctrl><Alt>f', _("Go to a file with regex search"), self.on_findopen_action)
+            ('GoToFileByContentAction', gtk.STOCK_JUMP_TO, label_menu, '<Ctrl><Alt>f', label_menu, self.on_findopen_action)
         ]
         self._action_group = gtk.ActionGroup("FindOpenPluginActions")
         self._action_group.add_actions(actions, self._window)
@@ -102,32 +129,39 @@ class FindOpenPluginInstance:
 
     #keyboard event on entry field
     def on_pattern_entry(self, widget, event):
-        oldtitle = self._findopen_window.get_title().replace(" * too many hits", "")
+        oldtitle = self._findopen_window.get_title().replace( label_max_results, "" )
         if event.keyval == gtk.keysyms.Return:
             self.open_selected_item(event)
             return
         pattern = self._glade_entry_name.get_text()
         pattern = pattern.replace(" ",".")
         #modify lines below as needed, these defaults work pretty well
-        rawpath = self._rootdir.replace("file://", "")
-        filefilter = " | grep -s -v \"/\.\""
-        #imagefilter = " ! -iname '*.jpg' ! -iname '*.jpeg' ! -iname '*.gif' ! -iname '*.png' ! -iname '*.psd' ! -iname '*.tif' "
+        search_path = self._rootdir.replace("file://", "")
+        ignore_hidden = "grep -v ~$ | grep -s -v \"/\.\"" # Ignore hidden files, like ".git/config"
         cmd = ""
         if self._show_hidden:
-            filefilter = ""
-        if len(pattern) > 0:
-            # To search by content
-            cmd = "cd " + rawpath + "; grep -RIsilE '" + pattern + "' . | grep -v '~$' " + filefilter + " | head -n " + repr(max_result + 1) + " | sort" 
-            self._findopen_window.set_title("Searching ... ")
+            ignore_hidden = ""
+        if len(pattern) > 3: # We start to search if there is more than 3 letters.
+            
+            ###############################
+            if preGrep253_version:
+                # To search by content
+                cmd = "cd " + search_path + "; grep -RIsilE '" + pattern + "' . | " + ignore_hidden + " | " + limit_total_results + " | sort "
+            else:
+                # To search by content (with some ignore dirs)
+                cmd = "cd " + search_path + "; grep -RIsilE " + ignore_dirs + " '" + pattern + "' . | " + ignore_hidden + " | " + limit_total_results + " | sort "
+
+            print "Running:\n" + cmd
+            ###############################
+            self._findopen_window.set_title( label_searching )
         else:
-            self._findopen_window.set_title("Enter the text to find ... ")
-        #print cmd
+            self._findopen_window.set_title( label_instructions )
 
         self._liststore.clear()
         maxcount = 0
         hits = os.popen(cmd).readlines()
         for file in hits:
-            file = file.rstrip().replace("./", "") #remove cwd prefix
+            file = file.rstrip().replace("./", "")
             name = os.path.basename(file)
 
             self._liststore.append([self.highlight_pattern(name, pattern), self.highlight_pattern(file, pattern), file])
@@ -135,7 +169,7 @@ class FindOpenPluginInstance:
                 break
             maxcount = maxcount + 1
         if maxcount > max_result:
-            oldtitle = oldtitle + " * too many hits"
+            oldtitle = oldtitle + label_max_results
         self._findopen_window.set_title(oldtitle)
 
         selected = []
@@ -166,14 +200,14 @@ class FindOpenPluginInstance:
         fbroot = self.get_filebrowser_root()
         if fbroot != "" and fbroot is not None:
             self._rootdir = fbroot
-            self._findopen_window.set_title("Find a file by content (Filebrowser integration)")
+            self._findopen_window.set_title(label_title + " (" + self._rootdir.replace("file://", "") + ")")
         else:
             eddtroot = self.get_eddt_root()
             if eddtroot != "" and eddtroot is not None:
                 self._rootdir = eddtroot
-                self._findopen_window.set_title("Find a file by content (EDDT integration)")
+                self._findopen_window.set_title(label_title + + " (" + self._rootdir.replace("file://", "") + ")")
             else:
-                self._findopen_window.set_title("Find a file by content (cwd): " + self._rootdir)
+                self._findopen_window.set_title(label_title + + " (" + self._rootdir.replace("file://", "") + ")")
         self._findopen_window.show()
         self._glade_entry_name.select_region(0,-1)
         self._glade_entry_name.grab_focus()

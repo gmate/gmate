@@ -2,9 +2,9 @@
 Loader=python
 Module=findopen
 IAge=2
-Name=Find Open
+Name=Find Open v1.3.1
 Description=Write some sentence and find all files that contain it. Ctrl + Alt + F
-Description[es]=Escribe una palabra y encuentra todos los archivos que la contienen. Ctrl + Alt + F
+Description[es]=Escribe palabras y encuentra todos los archivos que la contienen. Ctrl + Alt + F
 Authors=Mario Zaizar <mariozaizar@gmail.com>
 Copyright=Copyright (C) 2010 Mario Zaizar <mariozaizar@gmail.com>
 Website=http://github.com/mariozaizar/gedit-findopen-plugin

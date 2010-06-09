@@ -1,4 +1,4 @@
-Gedit Find Open Plugin
+gedit Find Open Plugin
 Copyright (C) 2010 Mario Zaizar <mariozaizar@gmail.com>
 
 DESCRIPTION
@@ -13,7 +13,7 @@ for files to open. if file browser is NOT used,  The files suggested are those
 in or below the directory from where gedit was started. 
 
 You can select the file using keyboard arrows, and then hit enter to open that file.
-If the file is already open, Gedit will switch to the proper tab.
+If the file is already open, gedit will switch to the proper tab.
 Escape will close the dialog.
 
 HOW TO USE

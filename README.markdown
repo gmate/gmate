@@ -14,6 +14,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 1. Add Ubuntu on Rails PPA:
 
         sudo apt-add-repository ppa:ubuntu-on-rails/ppa
+        sudo apt-get update
 
 2. Install gedit-gmate package:
 

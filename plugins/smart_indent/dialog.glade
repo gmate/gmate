@@ -56,7 +56,7 @@
                           <widget class="GtkSpinButton" id="edt_size">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="adjustment">4 1 8 1 1 1</property>
+                            <property name="adjustment">4 1 8 1 1 0</property>
                             <property name="climb_rate">1</property>
                             <property name="numeric">True</property>
                           </widget>

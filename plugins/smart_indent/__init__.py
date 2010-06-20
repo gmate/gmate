@@ -8,6 +8,7 @@
 
 import gedit
 import gtk
+import gtk.glade
 import gobject
 import gconf
 import re

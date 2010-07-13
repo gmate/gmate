@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  Author: Ivan Kerin <kerin@rizn.info>
+ 
+ Comments support from c.lang by Marco Barisione and Emanuele Aina
+ Strings, at-rules & other definitions from css.lang by Scott Martin
+ Some reg. exp. patterns based on http://github.com/charlesr/ruby-sass-tmbundle
+-->
+<!--
+TODO:
+* extend at-rules with SASS specific keywords
+* Polish mixins highlighting to include brackets (messes with function)
 -->
 <language id="sass" _name="SASS" version="2.0" _section="Others">
   <metadata>
     <property name="mimetypes">text/x-sass</property>
     <property name="globs">*.sass</property>
+    <property name="line-comment-start">//</property>
+    <property name="block-comment-start">/*</property>
+    <property name="block-comment-end">*/</property>
   </metadata>
   <styles>
     <style id="comment"     _name="Comment"              map-to="def:comment"/>
     <style id="tag"         _name="Tag"                  map-to="def:special-constant"/>
-    <style id="class-tag"   _name="Class Tag"            map-to="def:function"/>
-    <style id="variable"    _name="Variable"               map-to="def:identifier"/>
+    <style id="class-tag"   _name="Class Tag"            map-to="def:identifier"/>
+    <style id="id-tag"      _name="Id Tag"               map-to="def:identifier"/>
+    <style id="variable"    _name="Variable"             map-to="def:identifier"/>
     <style id="error"       _name="Error"                map-to="def:error"/>
     <style id="keyword"     _name="Keyword"              map-to="def:keyword"/>
-    <style id="mixin"       _name="Mixin"                map-to="def:function"/>    
+    <style id="at-rules"    _name="at-rules"             map-to="def:keyword"/>
+    <style id="function"    _name="Function"             map-to="def:function"/>    
     <style id="known-value" _name="Known Property Value" map-to="def:type"/>
     <style id="decimal"     _name="Decimal"              map-to="def:decimal"/>
     <style id="dimension"   _name="Dimension"            map-to="def:floating-point"/>
@@ -22,10 +36,30 @@
   </styles>
   
   <definitions>
-    <context id="comment" style-ref="comment" class-disabled="no-spell-check">
+<!--    <context id="comment" style-ref="comment">
       <match>^(  )*\/\/.*$</match>
-    </context>
+    </context> -->
     
+    <context id="comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+        <start>//</start>
+
+        <include>
+          <context ref="def:in-line-comment"/>
+        </include>
+    </context>
+
+    <context id="comment-multiline" style-ref="comment" class="comment" class-disabled="no-spell-check">
+        <start>/\*</start>
+        <end>\*/</end>
+        <include>
+            <context ref="def:in-comment"/>
+        </include>
+    </context>
+
+    <context id="close-comment-outside-comment" style-ref="error">
+        <match>\*/(?!\*)</match>
+    </context>
+
     <context id="identation-error">
       <match>^( (  )*)[^\s].*$</match>
       <include>
@@ -33,6 +67,23 @@
       </include>
     </context>
   
+    <context id="class-tag" style-ref="class-tag">
+      <match>(\.)[a-zA-Z][a-zA-Z0-9_-]*</match>
+    </context>
+
+    <context id="id-tag" style-ref="id-tag">
+      <match>(#)[a-zA-Z][a-zA-Z0-9_-]*</match>
+    </context>
+ 
+    <context id="at-rules" style-ref="at-rules">
+      <prefix>^[ \t]*@</prefix>
+      <keyword>charset</keyword>
+      <keyword>font-face</keyword>
+      <keyword>media</keyword>
+      <keyword>page</keyword>
+      <keyword>import</keyword>
+    </context>
+
     <context id="selector-pseudo-elements" style-ref="function">
       <keyword>first-line</keyword>
       <keyword>first-letter</keyword>
@@ -54,7 +105,7 @@
       <match>:[^\s]+|[^\s]+(:|=)</match>
     </context>
 
-    <context id="known-values" style-ref="known-values">
+    <context id="known-value" style-ref="known-value">
       <keyword>above</keyword>
       <keyword>absolute</keyword>
       <keyword>always</keyword>
@@ -291,6 +342,52 @@
       <keyword>img</keyword>
       <keyword>ul</keyword>
       <keyword>li</keyword>
+
+      <keyword>html</keyword>
+      
+      <keyword>object</keyword>
+      <keyword>iframe</keyword>
+      <keyword>p</keyword>
+      <keyword>blockquote</keyword>
+      <keyword>abbr</keyword>
+      <keyword>address</keyword>
+      <keyword>cite</keyword>
+      <keyword>del</keyword>
+      <keyword>dfn</keyword>
+      <keyword>ins</keyword>
+      <keyword>kbd</keyword>
+      <keyword>q</keyword>
+      <keyword>samp</keyword>
+      <keyword>sup</keyword>
+      <keyword>var</keyword>
+      <keyword>b</keyword>
+      <keyword>i</keyword>
+      <keyword>dl</keyword>
+      <keyword>dt</keyword>
+      <keyword>dd</keyword>
+      <keyword>ol</keyword>
+      <keyword>legend</keyword>
+      <keyword>caption</keyword>
+      <keyword>tbody</keyword>
+      <keyword>tfoot</keyword>
+      <keyword>thead</keyword>
+      <keyword>article</keyword>
+      <keyword>aside</keyword>
+      <keyword>canvas</keyword>
+      <keyword>details</keyword>
+      <keyword>figcaption</keyword>
+      <keyword>figure</keyword>
+      <keyword>footer</keyword>
+      <keyword>header</keyword>
+      <keyword>hgroup</keyword>
+      <keyword>menu</keyword>
+      <keyword>nav</keyword>
+      <keyword>section</keyword>
+      <keyword>summary</keyword>
+      <keyword>time</keyword>
+      <keyword>mark</keyword>
+      <keyword>audio</keyword>
+      <keyword>video</keyword>
     </context>
 
     <context id="variable" style-ref="variable">
@@ -304,14 +401,20 @@
     <context id="hexadecimal-color" style-ref="color">
       <match>#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})</match>
     </context>
-        
-    <context id="mixin" style-ref="mixin">
+    
+    <!-- XXX Also matches generic CSS "functions" (e.g. url()) - name "function" may be appropriate-->
+    <context id="mixin" style-ref="function">
       <start>\+?[a-zA-Z][a-zA-Z0-9-_]*\(</start>
       <end>\)</end>
       <include>
         <context ref="def:escape"/>
         <context ref="def:line-continue"/>
       </include>
+    </context>
+    
+    <!-- XXX Ugly. Couldn't this be merged to "mixin"? -->
+    <context id="mixin-no-attribute" style-ref="function">
+      <match>\+[a-zA-Z0-9_-]+</match>
     </context>
 
     <context id="number" style-ref="decimal">
@@ -324,18 +427,25 @@
     
     <context id="sass" class="no-spell-check">
       <include>
-        <context ref="comment"/> 
+        <context ref="comment"/>
+        <context ref="comment-multiline"/>
+        <context ref="close-comment-outside-comment"/>
         <context ref="identation-error"/> 
         <context ref="def:string"/>
         <context ref="def:single-quoted-string"/>
+        <context ref="class-tag"/>
+        <context ref="id-tag"/>
+        <context ref="at-rules"/>
         <context ref="selector-pseudo-elements"/>
         <context ref="selector-pseudo-classes"/>
         <context ref="property-names"/>
-        <context ref="known-values"/>
+        <context ref="tags"/>
+        <context ref="known-value"/>
         <context ref="variable"/>
         <context ref="dimension"/>
         <context ref="hexadecimal-color"/>
         <context ref="mixin"/>
+        <context ref="mixin-no-attribute"/>
         <context ref="number"/>
         <context ref="importance-modifier"/>
       </include>

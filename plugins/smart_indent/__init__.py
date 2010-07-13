@@ -109,7 +109,14 @@ default_indent_config = {
 
     "php_indent_regex"                  : r'\s*(((if|while|else\s*(if)?|for(each)?|switch|declare)\s*\(.*\)[^{:;]*)|(do\s*[^\({:;]*))',
     "php_unindent_regex"                : r'^.*(default:\s*|case.*:.*)$',
-    "php_unindent_keystrokes"           : ':'
+    "php_unindent_keystrokes"           : ':',
+        
+    
+    "sass_indent_regex"                 : r'(?!^\s*$)(?!^\s*(@|\+|\*|/\*|//))(^\s*?[^:=]+?(?<!,)$)',
+    "sass_unindent_regex"               : r'', # XXX E.g., on blank line? (r'^\s*$')
+    "sass_unindent_keystrokes"          : '',
+    "sass_use_space"                    : True,
+    "sass_tab_size"                     : 2
 }
 
 

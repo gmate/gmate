@@ -19,3 +19,10 @@ General
  => Create a configuration per language to configure spaces and tabs
  => Create a Cheat Sheet
 
+lang-specs
+----------
+Support for SCSS (incl. MIME detection)
+
+MIME
+----
+Add translations to type description

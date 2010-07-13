@@ -21,13 +21,13 @@ TODO:
   </metadata>
   <styles>
     <style id="comment"     _name="Comment"              map-to="def:comment"/>
-    <style id="tag"         _name="Tag"                  map-to="def:special-constant"/>
+    <style id="tag"         _name="Tag"                  map-to="def:constant"/>
     <style id="class-tag"   _name="Class Tag"            map-to="def:identifier"/>
     <style id="id-tag"      _name="Id Tag"               map-to="def:identifier"/>
-    <style id="variable"    _name="Variable"             map-to="def:identifier"/>
+    <style id="variable"    _name="Variable"             map-to="def:type"/>
     <style id="error"       _name="Error"                map-to="def:error"/>
     <style id="keyword"     _name="Keyword"              map-to="def:keyword"/>
-    <style id="at-rules"    _name="at-rules"             map-to="def:keyword"/>
+    <style id="at-rules"    _name="At-Rules"             map-to="def:keyword"/>
     <style id="function"    _name="Function"             map-to="def:function"/>    
     <style id="known-value" _name="Known Property Value" map-to="def:type"/>
     <style id="decimal"     _name="Decimal"              map-to="def:decimal"/>

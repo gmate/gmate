@@ -400,7 +400,7 @@ def toggle_comment(editor):
 	@type editor: ZenEditor
 	"""
 	syntax = editor.get_syntax()
-	if syntax == 'css':
+	if syntax in ['css', 'sass']:
 		return toggle_css_comment(editor)
 	else:
 		return toggle_html_comment(editor)

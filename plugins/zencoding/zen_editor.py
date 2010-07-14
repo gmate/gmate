@@ -181,6 +181,7 @@ class ZenEditor():
         lang = lang and lang.get_name()
         if lang == 'CSS': lang = 'css'
         elif lang == 'XSLT': lang = 'xsl'
+        elif lang == 'SASS': lang = 'sass'
         else: lang = 'html'
         return lang
 

@@ -241,6 +241,8 @@ class CompletionPlugin(gedit.Plugin):
 
         if event.state & gtk.gdk.CONTROL_MASK:
             return self._terminate_completion()
+        if event.state & gtk.gdk.SUPER_MASK:
+            return self._terminate_completion()
         if event.state & gtk.gdk.MOD1_MASK:
             return self._terminate_completion()
         if (event.keyval == gtk.keysyms.Return) and self._remains:

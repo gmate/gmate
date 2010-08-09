@@ -16,6 +16,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
         sudo apt-add-repository ppa:ubuntu-on-rails/ppa
         sudo apt-get update
 
+   *Note:* on Karmic use `add-apt-repository` instead of `apt-add-repository`.
 2. Install gedit-gmate package:
 
         sudo apt-get install gedit-gmate

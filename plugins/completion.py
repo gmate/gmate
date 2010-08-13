@@ -51,6 +51,7 @@ class CompletionWindow(gtk.Window):
         gtk.Window.__init__(self, gtk.WINDOW_POPUP)
         self._store = None
         self._view = None
+        self._moved = False
         self.set_transient_for(parent)
         self._init_view()
         self._init_containers()
@@ -85,6 +86,7 @@ class CompletionWindow(gtk.Window):
         """Return the index of the selected row."""
 
         selection = self._view.get_selection()
+        self._moved = False
         return selection.get_selected_rows()[1][0][0]
 
     def select_next(self):
@@ -94,6 +96,7 @@ class CompletionWindow(gtk.Window):
         selection = self._view.get_selection()
         selection.unselect_all()
         selection.select_path(row)
+        self._moved = True
         self._view.scroll_to_cell(row)
 
     def select_previous(self):
@@ -103,6 +106,7 @@ class CompletionWindow(gtk.Window):
         selection = self._view.get_selection()
         selection.unselect_all()
         selection.select_path(row)
+        self._moved = True
         self._view.scroll_to_cell(row)
 
     def set_completions(self, completions):
@@ -245,9 +249,13 @@ class CompletionPlugin(gedit.Plugin):
             return self._terminate_completion()
         if event.state & gtk.gdk.MOD1_MASK:
             return self._terminate_completion()
-        if (event.keyval == gtk.keysyms.Return) and self._remains:
-            return not self._complete_current()
+
         completion_window = self._completion_windows[window]
+        if (event.keyval == gtk.keysyms.Tab) and self._remains:
+            return not self._complete_current()
+        if (event.keyval == gtk.keysyms.Return) and self._remains and completion_window._moved:
+            return not self._complete_current()
+        
         if (event.keyval == gtk.keysyms.Up) and self._remains:
             return not completion_window.select_previous()
         if (event.keyval == gtk.keysyms.Down) and self._remains:
@@ -381,4 +389,3 @@ class CompletionPlugin(gedit.Plugin):
         for doc in window.get_documents():
             self._all_words.pop(doc, None)
             self._favorite_words.pop(doc, None)
-

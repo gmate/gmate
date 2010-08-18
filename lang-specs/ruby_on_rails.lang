@@ -76,7 +76,7 @@
 
     <!-- Ruby Syntax documentation inform beginning of line,
          but can have spaces between beginning and =begin, =end keywords -->
-    <context id="multiline-comment" style-ref="comment">
+    <context id="multiline-comment" style-ref="comment" class-disabled="no-spell-check">
       <start>^\s*=begin</start>
       <end>^\s*=end</end>
       <include>
@@ -537,7 +537,7 @@
     <!-- ruby strings do not end at line end,
          so we cannot use def:string
          (parts lifted from perl.lang) -->
-    <context id="double-quoted-string" style-ref="string">
+    <context id="double-quoted-string" style-ref="string" class-disabled="no-spell-check">
       <start>"</start>
       <end>"</end>
       <include>
@@ -548,7 +548,7 @@
       </include>
     </context>
 
-    <context id="single-quoted-string" style-ref="string">
+    <context id="single-quoted-string" style-ref="string" class-disabled="no-spell-check">
       <start>'</start>
       <end>'</end>
       <include>
@@ -908,7 +908,7 @@
       </include>
     </context>
 
-    <context id="rubyonrails">
+    <context id="rubyonrails" class="no-spell-check">
       <include>
         <context ref="def:shebang"/>
         <context ref="def:shell-like-comment"/>

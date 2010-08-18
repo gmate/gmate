@@ -64,11 +64,11 @@
       <match>/?-?\\?\??!?\.?\+?\*?\w*</match>
     </context>
 
-    <context id="key" style-ref="keyword">
+    <context id="key" style-ref="keyword" class="no-spell-check">
       <match>^[\w_]*:</match>
     </context>
 
-    <context id="inner-key" style-ref="inner-key">
+    <context id="inner-key" style-ref="inner-key" class="no-spell-check">
       <match>\W[\w_]*:</match>
     </context>
 

@@ -15,7 +15,7 @@
             <context ref="def:in-comment"/>
         </include>
     </context>
-    <context id="erb-block">
+    <context id="erb-block" class="no-spell-check">
       <start>&lt;%</start>
       <end>%&gt;</end>
       <include>

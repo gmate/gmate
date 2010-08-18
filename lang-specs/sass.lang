@@ -22,7 +22,7 @@
   </styles>
   
   <definitions>
-    <context id="comment" style-ref="comment">
+    <context id="comment" style-ref="comment" class-disabled="no-spell-check">
       <match>^(  )*\/\/.*$</match>
     </context>
     
@@ -322,7 +322,7 @@
       <match>\![ \t]*important</match>
     </context>
     
-    <context id="sass">
+    <context id="sass" class="no-spell-check">
       <include>
         <context ref="comment"/> 
         <context ref="identation-error"/> 

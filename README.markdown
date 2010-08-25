@@ -45,8 +45,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 
 * **Advanced Bookmarks**. Highlight, remenber and toggle bookmarks in your files.
 * **Classbrowser**. A Classbrowser (depends of ctags, I use exuberant-ctags).
-* **Find in Files**. Find a string in files (integrated with filebrowser).
-* **Gedit Open File**. Regex based file open (like textmate Go to file…).
+* **Fuzzy Open**. Quick way to open file in project.
 * **Gedit Todo**. Find Todo Marks in source files (integrated with filebrowser).
 * **Gemini**. Pair complete for quotes and braces.
 * **Quickhighligthmode**. Fast change current highlight mode.

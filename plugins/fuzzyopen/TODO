@@ -1,0 +1,10 @@
+Fuzzy Open (Gedit Plugin)
+Andrew Liu <andrewliu33 (at) gmail com>
+Mads Buus Jensen <online@buus.net> (SnapOpen)
+
+Todos:
+
+* Filter some file types (i.e. *.jpg, *.png, *.gif, *.psd, *.tif, *.pyc)
+* Improve ui
+* Fallback to current active tab path if File Browser plugin not activated
+

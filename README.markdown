@@ -58,8 +58,6 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Text Tools**. Some text manipulation improvements (adapted from line tools).
 * **Trailsave**. Remove trailing spaces before save a document.
 * **Word Completion**. Word completion plugin.
-* **Gedit Go To File**. Yet Another Go to File plugin Just Like SnapOpen and
-  GeditOpenFiles also based in Textmate Go to file.
 * **Multi Edit**. Check it out at author's page
   <http://jon-walsh.com/journal/multi-edit>
 * **Pastie**. Paste a selection of code or a source file to pastie.org directly
@@ -67,9 +65,8 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Zen Coding**. Tools for faster HTML/CSS coding
   <http://github.com/mikecrittenden/zen-coding-gedit>
 
-**Note:** In order to use Go to File feature you need to choose just one of:
-GeditGoToFile, SnapOpen or GeditOpenFiles. Multi Edit plugin is not enabled by
-default GMate installation.
+**Note:** Multi Edit plugin is not enabled by default GMate installation.
+
 
 Refer to each plugin source code and readme file to get information about
 specific plugin licencing and copyright.

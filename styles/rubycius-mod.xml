@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="rubycius-mod" _name="Rubycius-Mod" version="1.0">
+  <author>Joselo (mods by @wavded)</author>
+  <_description>Rubycius-Mod</_description>
+
+<!-- Colors -->
+  <color name="gris"          value="#060606" />
+  <color name="negro"         value="#000000" />
+  <color name="blanco"        value="#ffffff" />
+  <color name="amarillo"      value="#ffff00" />
+  <color name="celeste"       value="#00ffff" />
+  <color name="verde"         value="#00ff00" />
+  <color name="verde_bajo"    value="#66ff66" />
+  <color name="amarillo_bajo" value="#ffff66" />
+  <color name="labrillo"      value="#ff8000" />
+  <color name="morado"        value="#666666" />
+  <color name="verde_medio"   value="#dae335" />
+  <color name="azul_bajo"     value="#339996" />
+  <color name="celeste_bajo"  value="#95cc99" />
+  <color name="azul_obscuro"  value="#2c82cc" />
+  <color name="azul"          value="#0c23ff" />
+  <color name="rojo"          value="#d6533a" />
+  <color name="azul_claro"    value="#67e4ff" />
+
+<!--GUI styles-->
+  <style name="text"                 foreground="blanco"  background="negro" />
+  <style name="selection"            foreground="#d9d59f" background="#180024" />
+  <style name="selection-unfocused"  foreground="#d9d59f" background="#180024" />
+  <style name="cursor"               foreground="blanco" />
+  <style name="secondary-cursor"     foreground="blanco" />
+  <style name="line-numbers"         foreground="#191919" background="gris" />
+  <style name="current-line"         background="#232826" />
+  <style name="search-match"         foreground="#242424" background="#fce94f" />
+  <style name="bracket-match"        foreground="#eeeeec" background="#babdb6" bold="true" />
+  <style name="bracket-mismatch"     foreground="#eeeeec" background="#a40000" bold="true" />
+
+<!-- CUSTOM styles -->
+  <style name="def:symbol" 				foreground="amarillo"/>
+  <style name="def:comment"  			foreground="morado" italic="true" />
+  <style name="def:string"   			foreground="verde_bajo" />
+  <style name="def:keyword"  			foreground="labrillo" bold="true" />
+  <style name="def:global-variable" 	foreground="celeste" />
+  <style name="def:class-variable" 		foreground="celeste" />
+  <style name="def:instance-variable" 	foreground="celeste" />
+  <style name="def:identifier" 			foreground="azul_claro" bold="false" />
+  <style name="def:type"               	foreground="celeste_bajo" />
+  <style name="ruby:rails" 				foreground="amarillo_bajo" />
+  <style name="rhtml:rails" 			foreground="amarillo_bajo" />
+  <style name="def:block" 				background="#191919" />
+
+<!-- STANDARD styles -->
+  <style name="def:statement"               foreground="blanco"/>
+  <style name="def:function"                foreground="blanco" underline="true"/>
+  <style name="def:preprocessor"            foreground="blanco" bold="true"/>
+  <style name="def:character"               foreground="verde"/>
+  <style name="def:number"                  foreground="azul_obscuro"/>
+  <style name="def:decimal"					use-style="def:number"/>
+  <style name="def:base-n-integer"          use-style="def:number"/>
+  <style name="def:floating-point"			use-style="def:number"/>
+  <style name="def:complex"                 foreground="verde"/>
+  <style name="def:net-address-in-comment"  foreground="azul" italic="true" underline="true"/>
+  <style name="def:note"                    foreground="blanco" background="blanco" bold="true"/>
+  <style name="def:error"                   background="rojo" bold="true"/>
+  <style name="def:escape"                  foreground="#72c654"/>
+  <style name="def:shebang"                 foreground="blanco" bold="true"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+  <style name="def:builtin"					foreground="verde_medio" bold="true"/>
+  <style name="def:specials"                foreground="blanco" background="blanco"/>
+  <style name="def:boolean"                 foreground="azul_bajo" bold="true"/>
+  <style name="def:constant"                foreground="blanco"/>
+  <style name="def:special-constant"        foreground="blanco" bold="true"/>
+  <style name="def:special-char"            foreground="amarillo"/>
+  <style name="diff:added-line"             foreground="blanco"/>
+  <style name="diff:removed-line"           foreground="blanco"/>
+  <style name="diff:changed-line"           foreground="blanco"/>
+  <style name="diff:location"               use-style="def:keyword"/>
+  <style name="diff:special-case"           use-style="def:string"/>
+
+</style-scheme>

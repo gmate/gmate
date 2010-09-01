@@ -1,3 +1,15 @@
+gedit-gmate (0.9.12~uorppa0) lucid; urgency=low
+
+  * Add FuzzyOpen plugin and remove similar plugins to open files.
+  * Disable spell-check for code in SASS, HAML, RHTML, Rails and YAML.
+  * A lot of fixes for SASS.
+  - Add snippet for gem specification.
+  - Prevent suggestion during key commands on OS X.
+  - Allow return key to complete words if user has moved selection up or down.
+  - Fix Smart Indent configuration in Fedora 13.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Wed, 01 Sep 2010 16:12:53 +0400
+
 gedit-gmate (0.9.11~uorppa0) lucid; urgency=low
 
   * Update Zen Coding plugin.

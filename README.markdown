@@ -74,6 +74,7 @@ specific plugin licencing and copyright.
 ### Language Improvements and Mime Types
 
 * Basic YAML Syntax Highlight
+* CoffeeScript Syntax Highlight
 * ColdFusion Syntax Highlight
 * Cucumber Syntax Highlight
 * Groovy and gsp Support (Included bundle created by Aaron Eischeid)

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Author: Marc Harter <wavded@gmail.com>
+ Copyright (C) 2004 Marc Harter <wavded@gmail.com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<language id="coffee" _name="CoffeeScript" version="2.0" _section="Scripts">
+    <metadata>
+        <property name="mimetypes">application/coffeescript;text/coffeescript;application/cakefile;text/cakefile;</property>
+        <property name="globs">*.coffee;*.Cakefile</property>
+        <property name="line-comment-start">#</property>
+        <property name="block-comment-start">###</property>
+        <property name="block-comment-end">###</property>
+    </metadata>
+
+    <styles>
+        <style id="comment"         _name="Comment"                  map-to="def:comment"/>
+        <style id="error"           _name="Error"                    map-to="def:error"/>
+        <style id="string"          _name="String"                   map-to="def:string"/>
+        <style id="global"          _name="Global Value"             map-to="def:special-constant"/>
+        <style id="constant"        _name="Constant"                 map-to="def:special-constant"/>
+        <style id="boolean"         _name="Boolean value"            map-to="def:boolean"/>
+        <style id="statement"       _name="Statement"                map-to="def:statement"/>
+        <style id="loop"            _name="Loop"                     map-to="def:keyword"/>
+        <style id="conditional"     _name="Conditional"              map-to="def:keyword"/>
+        <style id="exception"       _name="Exception"                map-to="def:error"/>
+        <style id="operator"        _name="Operator"                 map-to="def:special-char"/>
+        <style id="keyword"         _name="Keyword"                  map-to="def:keyword"/>
+        <style id="assessor"        _name="Assessor"                 map-to="def:identifier"/>
+        <style id="regexp"          _name="RegExp"                   map-to="def:special-char"/>
+        <style id="function"        _name="Function"                 map-to="def:function"/>
+        <style id="constructors"    _name="Constructors"             map-to="def:type"/>
+    </styles>
+
+    <definitions>
+        <context id="coffee">
+            <include>
+
+                <!-- Comments -->
+                <context id="line-comment" style-ref="comment">
+                    <start>#[^#]</start>
+                    <end>$</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="def:in-comment"/>
+                    </include>
+                </context>
+
+                <context id="block-comment" style-ref="comment">
+                    <start>###</start>
+                    <end>###</end>
+                    <include>
+                        <context ref="def:in-comment"/>
+                    </include>
+                </context>
+
+                <context id="regexp" style-ref="regexp">
+                    <match>(?&lt;!\d)\s*/(?![\s/*+{}?]).*/[igmy]*</match>
+                </context>
+
+                <!-- Strings -->
+                <context id="string-double" style-ref="string">
+                    <start>"</start>
+                    <end>"</end>
+                    <include>
+                        <context id="interpolation-string-double" style-ref="assessor" extend-parent="false">
+                            <match>\#{[^}]+}</match>
+                        </context>
+                    </include>
+                </context>
+
+                <context id="string-single" style-ref="string">
+                    <start>'</start>
+                    <end>'</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="def:escape"/>
+                        <context id="interpolation-string-single" style-ref="assessor" extend-parent="false">
+                            <match>\${[^}]+}</match>
+                        </context>
+                    </include>
+                </context>
+
+                <context id="string-javascript" style-ref="string">
+                    <start>`</start>
+                    <end>`</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="def:escape"/>
+                    </include>
+                </context>
+
+                <context id="string-heredocs-single" style-ref="string">
+                    <start>'''</start>
+                    <end>'''</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="def:escape"/>
+                        <context id="interpolation-heredocs-single" style-ref="assessor" extend-parent="false">
+                            <match>\${[^}]+}</match>
+                        </context>
+                    </include>
+                </context>
+
+                <context id="string-heredocs-double" style-ref="string">
+                    <start>"""</start>
+                    <end>"""</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="def:escape"/>
+                        <context id="interpolation-heredocs-double" style-ref="assessor" extend-parent="false">
+                            <match>\${[^}]+}</match>
+                        </context>
+                    </include>
+                </context>
+
+                <!-- Numbers -->
+                <context ref="def:float"/>
+                <context ref="def:decimal"/>
+                <context ref="def:octal"/>
+                <context ref="def:hexadecimal"/>
+
+                <!-- Constants -->
+
+                <context id="global" style-ref="global">
+                    <keyword>undefined</keyword>
+                    <keyword>null</keyword>
+                </context>
+
+                <context id="constant" style-ref="constant">
+                    <match>\b[A-Z0-9_]+\b</match>
+                </context>
+
+                <context id="boolean" style-ref="boolean">
+                    <keyword>false</keyword>
+                    <keyword>true</keyword>
+                    <keyword>yes</keyword>
+                    <keyword>no</keyword>
+                    <keyword>on</keyword>
+                    <keyword>off</keyword>
+                </context>
+
+                <context id="statement" style-ref="statement">
+                    <keyword>return</keyword>
+                    <keyword>break</keyword>
+                    <keyword>continue</keyword>
+                    <keyword>throw</keyword>
+                </context>
+
+                <context id="loop" style-ref="loop">
+                    <keyword>for</keyword>
+                    <keyword>while</keyword>
+                    <keyword>until</keyword>
+                    <keyword>loop</keyword>
+                </context>
+
+                <context id="conditional" style-ref="conditional">
+                    <keyword>if</keyword>
+                    <keyword>else</keyword>
+                    <keyword>unless</keyword>
+                    <keyword>switch</keyword>
+                    <keyword>when</keyword>
+                    <keyword>then</keyword>
+                    <keyword>and</keyword>
+                    <keyword>or</keyword>
+                    <keyword>in</keyword>
+                    <keyword>of</keyword>
+                    <keyword>by</keyword>
+                    <keyword>is</keyword>
+                    <keyword>isnt</keyword>
+                    <keyword>not</keyword>
+                </context>
+
+                <context id="operator" style-ref="operator">
+                    <match>(::|:|&gt;=|&lt;=|&gt;|&lt;|!=|!|\?=|\?|-\>|=\>|!=|=|==|\.\.\.|\.\.)</match>
+                </context>
+
+                <!-- Keywords -->
+                <context id="keywords" style-ref="keyword">
+                    <keyword>instanceof</keyword>
+                    <keyword>typeof</keyword>
+                    <keyword>delete</keyword>
+                    <keyword>new</keyword>
+                    <keyword>where</keyword>
+                    <keyword>class</keyword>
+                    <keyword>extends</keyword>
+                    <keyword>super</keyword>
+                    <keyword>try</keyword>
+                    <keyword>catch</keyword>
+                    <keyword>finally</keyword>
+                </context>
+
+                <context id="exception" style-ref="exception">
+                    <keyword>try</keyword>
+                    <keyword>catch</keyword>
+                    <keyword>finally</keyword>
+                </context>
+
+                <context id="assessor" style-ref="assessor">
+                    <match>(@[^: ]+|this)</match>
+                </context>
+
+                <context id="functions" style-ref="function">
+                    <keyword>\b[A-Za-z0-9_]+\b(?=\s*?(=|:)\s*?(\(|-\>|=\>))</keyword>
+                </context>
+
+                <context id="constructors" style-ref="constructors">
+                    <match>\b[A-Z][A-Za-z0-9_]+\b(?!\.)</match>
+                </context>
+
+            </include>
+        </context>
+    </definitions>
+</language>

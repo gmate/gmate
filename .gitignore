@@ -2,3 +2,6 @@
 *.pyo
 *.*~
 build
+update_scss.sh
+test.scss
+

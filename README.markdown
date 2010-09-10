@@ -64,6 +64,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
   from editor <http://github.com/ivyl/gedit-pastie>
 * **Zen Coding**. Tools for faster HTML/CSS coding
   <http://github.com/mikecrittenden/zen-coding-gedit>
+* **Encoding**. Reopen the document in a different encoding
 
 **Note:** Multi Edit plugin is not enabled by default GMate installation.
 

@@ -24,10 +24,11 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 ### Other Linux
 
 1. Install all dependencies:
-    * `python-webkitgtk` for Todo-List plugin, see
+    * `python-webkitgtk` for Todo-List plugin and Find in Project plugin, see
       <http://code.google.com/p/pywebkitgtk>
     * `python-sexy` for Go to File plugin
     * `pyinotify` for Gedit Open Files and SnapOpen plugins.
+    * `ack-grep` for faster search in Find in Project. (optional)
 2. Download gmate sources or clone git repository:
 
         git clone git://github.com/gmate/gmate.git
@@ -46,6 +47,9 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Advanced Bookmarks**. Highlight, remenber and toggle bookmarks in your files.
 * **Classbrowser**. A Classbrowser (depends of ctags, I use exuberant-ctags).
 * **Fuzzy Open**. Quick way to open file in project.
+  <http://github.com/eggegg/fuzzyopen>
+* **Find in Project**. Search in the project with ack/grep.
+  <http://github.com/eggegg/find-in-project>
 * **Gedit Todo**. Find Todo Marks in source files (integrated with filebrowser).
 * **Gemini**. Pair complete for quotes and braces.
 * **Quickhighligthmode**. Fast change current highlight mode.

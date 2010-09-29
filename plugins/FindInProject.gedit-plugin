@@ -1,0 +1,11 @@
+[Gedit Plugin]
+Loader=python
+Module=FindInProject
+IAge=2
+Name=Find in Project
+Name[zh]=專案搜尋
+Description=Search in project.
+Description[zh]=搜尋專案檔案
+Authors=Andrew Liu <andrewliu33 (at) gmail com>
+Website=http://github.com/eggegg/find-in-project
+

@@ -100,9 +100,13 @@ Multi-edit
 ----------
 CTRL+R => Add single mark
 
-Snap Open ( Go to File )
-------------------------
+Fuzzy Open
+----------
 CTRL+ALT+O => Open file by regex search (Go to File Window)
+
+Find In Project
+---------------
+CTRL+ALT+F => Open search window to search in the project
 
 Indent Lines
 ------------

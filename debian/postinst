@@ -1,11 +1,25 @@
 #!/bin/sh
 set -e
 
+if [ $(id -u) = "0" ]; then
+  sudo="yes"
+else
+  sudo="no"
+fi
+
 # Create links to executable files
-ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/gmate
-ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/mate
-ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/e
-ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/g
+if [ $sudo = "yes" ]; then
+  ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/gmate
+  ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/mate
+  ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/e
+  ln -nfs /usr/share/gedit-2/gmate/gmate.py /usr/bin/g
+else
+  ln -nfs ~/gmate/gmate.py ~/gmate/gmate
+  ln -nfs ~/gmate/gmate.py ~/gmate/mate
+  ln -nfs ~/gmate/gmate.py ~/gmate/e
+  ln -nfs ~/gmate/gmate.py ~/gmate/g
+  #echo "Please add ~/gmate/ to your \$PATH environment variable"
+fi
 
 #DEBHELPER#
 

@@ -2,23 +2,57 @@
 # Kill all runing instances if exists
 # killall gedit
 
-# Register rails-related mime types
-sudo cp mime/rails.xml /usr/share/mime/packages
-sudo cp mime/cfml.xml /usr/share/mime/packages
-# Copy language definitions
-sudo cp lang-specs/*.lang /usr/share/gtksourceview-2.0/language-specs/
-# Copy Gmate executable
-sudo mkdir -p /usr/share/gedit-2/gmate
-sudo cp gmate.py /usr/share/gedit-2/gmate/gmate.py
-# Copy Tags
-if [ ! -d /usr/share/gedit-2/plugins/taglist/ ]
-then
-  sudo mkdir -p /usr/share/gedit-2/plugins/taglist/
+# Try to use sudo
+echo "Type root password if you want to install system wide. Press [Enter] to install to this user only"
+sudo -v
+
+if [ $(id -u) = "0" ]; then
+  sudo="yes"
+else
+  sudo="no"
 fi
-sudo cp tags/*.tags.gz /usr/share/gedit-2/plugins/taglist/
+
+# Register rails-related mime types
+if [ $sudo = "yes" ]; then
+  sudo cp mime/rails.xml /usr/share/mime/packages
+  sudo cp mime/cfml.xml /usr/share/mime/packages
+else
+  mkdir -p ~/.local/share/mime/packages
+  cp mime/rails.xml ~/.local/share/mime/packages
+  cp mime/cfml.xml ~/.local/share/mime/packages
+fi
+
+# Copy language definitions
+if [ $sudo = "yes" ]; then
+  sudo cp lang-specs/*.lang /usr/share/gtksourceview-2.0/language-specs/
+else
+  mkdir -p ~/.local/share/gtksourceview-2.0/language-specs
+  cp lang-specs/* ~/.local/share/gtksourceview-2.0/language-specs/
+fi
+
+if [ $sudo = "yes" ]; then
+  # Copy Gmate executable
+  sudo mkdir -p /usr/share/gedit-2/gmate
+  sudo cp gmate.py /usr/share/gedit-2/gmate/gmate.py
+else
+  mkdir -p ~/gmate
+  cp gmate.py ~/gmate
+fi
+# Copy Tags
+if [ $sudo = "yes" ]; then
+  sudo mkdir -p /usr/share/gedit-2/plugins/taglist/
+  sudo cp tags/*.tags.gz /usr/share/gedit-2/plugins/taglist/
+else
+  mkdir -p ~/.gnome2/gedit/taglist/
+  cp tags/*.tags.gz ~/.gnome2/gedit/taglist/
+fi
 
 # Update mime type database
-sudo update-mime-database /usr/share/mime
+if [ $sudo = "yes" ]; then
+  sudo update-mime-database /usr/share/mime
+else
+  update-mime-database ~/.local/share/mime
+fi
 
 # Copy gedit facilities
 if [ ! -d $HOME/.gnome2/gedit ]
@@ -48,12 +82,19 @@ cp styles/* ~/.gnome2/gedit/styles
 
 # Ask for Python-Webkit package
 if [ -f /etc/debian_version ]; then
-  sudo apt-get install python-webkit
+  if [ $sudo = "yes" ]; then
+    sudo apt-get install python-webkit
+  else
+    echo "Please install python-webkit (sudo apt-get install python-webkit)"
+  fi
 fi
 
 # Execute debian postins script
-
-`sudo sh ./debian/postinst`
+if [ $sudo = "yes" ]; then
+  `sudo sh ./debian/postinst`
+else
+  `sh ./debian/postinst`
+fi
 
 echo -n "Do you want to activate default plugin and configuration set? [y,N]:"
 read answer

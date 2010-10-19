@@ -55,7 +55,7 @@ class FuzzyOpenPluginInstance:
     self._action_group.add_action( fuzzyopen_menu_action )
     fuzzyopen_action = gtk.Action( name="FuzzyOpenAction", label="Fuzzy Open...\t", tooltip="Open file by autocomplete...", stock_id=gtk.STOCK_JUMP_TO )
     fuzzyopen_action.connect( "activate", lambda a: self.on_fuzzyopen_action() )
-    self._action_group.add_action_with_accel( fuzzyopen_action, "<Ctrl><Alt>o" )
+    self._action_group.add_action_with_accel( fuzzyopen_action, "<Ctrl><Shift>o" )
     manager.insert_action_group( self._action_group, 0 )
     self._ui_id = manager.new_merge_id()
     manager.add_ui_from_string( ui_str )

@@ -1,5 +1,6 @@
 import gedit
 from fuzzyopen import FuzzyOpenPluginInstance
+from config import FuzzyOpenConfigWindow
 
 # STANDARD PLUMMING
 class FuzzyOpenPlugin( gedit.Plugin ):
@@ -13,6 +14,12 @@ class FuzzyOpenPlugin( gedit.Plugin ):
 
   def _set_instance( self, window, instance ):
     window.set_data( self.DATA_TAG, instance )
+
+  def is_configurable( self ):
+    return True
+
+  def create_configure_dialog( self ):
+    return FuzzyOpenConfigWindow()._window
 
   def activate( self, window ):
     self._set_instance( window, FuzzyOpenPluginInstance( self, window ) )

@@ -7,14 +7,16 @@ import subprocess
 from util import debug
 import util
 
-max_result = 50
-excluded_file_types = ["jpg", "jpeg", "gif", "png", "tif", "psd", "pyc"]
+max_result = 15
 
 class FuzzySuggestion:
   def __init__( self, filepath, show_hidden=False, git=False ):
     self._filepath = filepath
     self._show_hidden = show_hidden
-    self._git = git
+    self._git = git and util.config('use_git')
+    self._excluded = util.config('ignore_ext').split(',')
+    self._ignore_case = util.config('ignore_case')
+    self._ignore_space = util.config('ignore_space')
     if self._git:
       self._load_git()
     self._load_file()
@@ -29,7 +31,7 @@ class FuzzySuggestion:
       path = os.path.relpath( dirname, self._filepath )
       for filename in filenames:
         if (self._show_hidden or filename[0] != '.'):
-          if os.path.splitext( filename )[-1][1:] not in excluded_file_types:
+          if os.path.splitext( filename )[-1][1:] not in self._excluded:
             self._fileset.append( os.path.normpath(os.path.join( path, filename ) ) )
     self._fileset = sorted( self._fileset )
     debug("Loaded files count = %d" % len(self._fileset))
@@ -38,10 +40,11 @@ class FuzzySuggestion:
     self._git_with_diff = subprocess.Popen(["git", "diff", "--numstat", "--relative"], cwd=self._filepath, stdout=subprocess.PIPE).communicate()[0].split('\n')[:-1]
     debug("Git file path: %s" % self._filepath)
     self._git_with_diff = [ s.strip().split('\t') for s in self._git_with_diff ]
-    #print self._git_with_diff
     self._git_files = [ s[2] for s in self._git_with_diff ]
 
   def suggest( self, sub ):
+    if self._ignore_space:
+      sub = sub.replace(' ', '')
     suggestion = []
     for f in self._fileset:
       highlight, score = self._match_score( sub, f )
@@ -79,7 +82,7 @@ class FuzzySuggestion:
   def _match_score( self, sub, str ):
     result, score, pos, git, orig_length, highlight = 0, 0, 0, 0, len(str), ''
     for c in sub:
-      while str != '' and str[0] != c:
+      while str != '' and not self._match(str[0], c):
         score = 0
         highlight += str[0]
         str = str[1:]
@@ -88,8 +91,8 @@ class FuzzySuggestion:
       score += 1
       result += score
       pos += len(str)
+      highlight += "<b>" + str[0] + "</b>"
       str = str[1:]
-      highlight += "<b>" + c + "</b>"
     highlight += str
     if len(sub) != 0 and orig_length > 1:
       pos = float(pos-1) / ((float(orig_length)-1.0) * float(len(sub)))
@@ -98,4 +101,10 @@ class FuzzySuggestion:
     if self._git and (str in self._git_files):
       git = 1
     return (highlight, float(result) + pos + git)
+
+  def _match(self, a, b):
+    if self._ignore_case:
+      return a.lower() == b.lower()
+    else:
+      return a == b
 

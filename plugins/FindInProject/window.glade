@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
@@ -30,12 +30,12 @@
               <object class="GtkEntry" id="searchbox">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
+                <property name="invisible_char">●</property>
                 <property name="primary_icon_stock">gtk-find</property>
-                <property name="primary_icon_activatable">False</property>
-                <property name="primary_icon_sensitive">True</property>
                 <property name="secondary_icon_stock">gtk-clear</property>
                 <property name="secondary_icon_activatable">True</property>
+                <property name="primary_icon_sensitive">True</property>
+                <property name="primary_icon_activatable">False</property>
                 <property name="secondary_icon_sensitive">True</property>
               </object>
               <packing>
@@ -67,6 +67,110 @@
           </packing>
         </child>
         <child>
+          <object class="GtkExpander" id="extra-option">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <child>
+              <object class="GtkVBox" id="option-holder">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkHBox" id="ext-holder">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkLabel" id="ext-label">
+                        <property name="visible">True</property>
+                        <property name="xpad">8</property>
+                        <property name="label" translatable="yes">File Extension</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="extbox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="invisible_char">•</property>
+                        <property name="secondary_icon_stock">gtk-clear</property>
+                      </object>
+                      <packing>
+                        <property name="padding">5</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="padding">5</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHBox" id="check-options">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkCheckButton" id="ignore-case">
+                        <property name="label" translatable="yes">Ignore Case</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="padding">5</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton" id="show-context">
+                        <property name="label" translatable="yes">Show Context</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="padding">5</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton" id="use-regex">
+                        <property name="label" translatable="yes">Use Regular Expression</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="padding">5</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="extra-label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Extra Options</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">5</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkScrolledWindow" id="placeholder">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -77,7 +181,40 @@
             </child>
           </object>
           <packing>
-            <property name="position">1</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStatusbar" id="search-status">
+            <property name="visible">True</property>
+            <property name="spacing">2</property>
+            <property name="has_resize_grip">True</property>
+            <child>
+              <object class="GtkLabel" id="message">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">5</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinner" id="spinner">
+                <property name="visible">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>

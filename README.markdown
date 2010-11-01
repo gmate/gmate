@@ -60,6 +60,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Smart Indent**. Smart Indentation regex based.
 * **Tabulation**. Auto set tabs and spaces based on file type.
 * **Text Tools**. Some text manipulation improvements (adapted from line tools).
+* **TextMate Style Autocompletion**. Better autocompletion. Tap `Esc` to cycle through the available completions.
 * **Trailsave**. Remove trailing spaces before save a document.
 * **Word Completion**. Word completion plugin.
 * **Multi Edit**. Check it out at author's page

@@ -6,6 +6,22 @@ from datetime import datetime
 import gconf
 import os
 
+def config(name, value=None):
+  base = lambda x: u'/apps/gedit-2/plugins/fuzzyopen/%s' % x
+  client = gconf.client_get_default()
+  key = ['use_git', 'ignore_case', 'ignore_space', 'ignore_ext']
+  lambda_set = [client.set_bool, client.set_bool, client.set_bool, client.set_string]
+  lambda_get = [client.get_bool, client.get_bool, client.get_bool, client.get_string]
+  default = [True, True, True, "jpg,jpeg,gif,png,tif,psd,pyc"]
+
+  val = client.get(base(name))
+  index = key.index(name)
+  if value != None:
+    lambda_set[index](base(name), value)
+  if val == None:
+    lambda_set[index](base(name), default[index])
+  return lambda_get[index](base(name))
+
 # EDDT integration
 def eddt_root():
   base = u'/apps/gedit-2/plugins/eddt'

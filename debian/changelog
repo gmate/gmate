@@ -1,3 +1,13 @@
+gedit-gmate (0.9.13~uorppa0) lucid; urgency=low
+
+  * Add Rubycius theme.
+  * Add CoffeeScript, SCSS support.
+  * Add encoding plugin.
+  * Add find-in-project plugin for seaching in project.
+  * Update FuzzyOpen to 1.3.1.
+
+ -- Andrew Liu <andrewliu33@gmail.com>  Wed, 21 Sep 2010 11:28:23 +0800
+
 gedit-gmate (0.9.12~uorppa0) lucid; urgency=low
 
   * Add FuzzyOpen plugin and remove similar plugins to open files.

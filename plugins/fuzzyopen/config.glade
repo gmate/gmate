@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="configwindow">
+    <property name="title" translatable="yes">Fuzzy Open Configuration</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="type_hint">dialog</property>
+    <property name="skip_taskbar_hint">True</property>
+    <child>
+      <object class="GtkVBox" id="row">
+        <property name="visible">True</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkHBox" id="row1">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="ignore-ext-label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Ignore Extensions</property>
+              </object>
+              <packing>
+                <property name="fill">False</property>
+                <property name="padding">10</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="ignore-ext">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">●</property>
+                <property name="width_chars">30</property>
+              </object>
+              <packing>
+                <property name="padding">10</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="padding">5</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="row2">
+            <property name="visible">True</property>
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkCheckButton" id="ignore-case">
+                <property name="label" translatable="yes">Ignore Case</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">0.49000000953674316</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="padding">10</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="ignore-space">
+                <property name="label" translatable="yes">Ignore Space</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="padding">5</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="use-git">
+                <property name="label" translatable="yes">Use Git</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="done">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="padding">10</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="padding">10</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

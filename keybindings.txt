@@ -102,7 +102,7 @@ CTRL+R => Add single mark
 
 Fuzzy Open
 ----------
-CTRL+ALT+O => Open file by regex search (Go to File Window)
+CTRL+SHIFT+O => Open file by regex search (Go to File Window)
 
 Find In Project
 ---------------

@@ -1,4 +1,4 @@
-import gedit, gtk
+import gedit, gtk, gio
 import gconf
 import pygtk
 pygtk.require('2.0')
@@ -85,9 +85,9 @@ class FuzzyOpenPluginInstance:
     self._hit_list = self._fuzzyopen_glade.get_object( "hit_list" )
     self._hit_list.connect("select-cursor-row", self.on_select_from_list)
     self._hit_list.connect("button_press_event", self.on_list_mouse)
-    self._liststore = gtk.ListStore(str, str, str)
+    self._liststore = gtk.ListStore(gtk.gdk.Pixbuf, str, str)
     self._hit_list.set_model(self._liststore)
-    column0 = gtk.TreeViewColumn("Token", gtk.CellRendererText(), markup=0)
+    column0 = gtk.TreeViewColumn("Icon", gtk.CellRendererPixbuf(), pixbuf=0)
     column0.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
     column1 = gtk.TreeViewColumn("File", gtk.CellRendererText(), markup=1)
     column1.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)

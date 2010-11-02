@@ -4,6 +4,7 @@
 
 import os
 import subprocess
+import gio, gtk
 from util import debug
 import util
 
@@ -57,11 +58,13 @@ class FuzzySuggestion:
   def _metadata( self, suggestion ):
     target = os.path.join(self._filepath, suggestion[1])
     time_string = util.relative_time(os.stat(target).st_mtime)
-    highlight = suggestion[0] + "\nMODIFY " + time_string
+    highlight = "<span size='x-large'>" + suggestion[0] + "</span>\n" + self._token_string( suggestion[1] ) + "MODIFY " + time_string
     if self._git and (suggestion[1] in self._git_files):
       index = self._git_files.index(suggestion[1])
       highlight += self._git_string(index)
-    return (self._token_string( suggestion[1] ), highlight, suggestion[1])
+    file_icon = gio.File(os.path.join(self._filepath, suggestion[1])).query_info('standard::icon').get_icon()
+    icon = gtk.icon_theme_get_default().lookup_by_gicon(file_icon, 40, gtk.ICON_LOOKUP_USE_BUILTIN)
+    return (icon and icon.load_icon(), highlight, suggestion[1])
 
   def _token_string( self, file ):
     token = os.path.splitext(file)[-1]
@@ -69,7 +72,7 @@ class FuzzySuggestion:
       token = token[1:]
     else:
       token = '.'
-    return "<span variant='smallcaps' size='x-large' foreground='#FFFFFF' background='#929292'><b>" + token.upper() + '</b></span>'
+    return "<span variant='smallcaps' foreground='#FFFFFF' background='#B2B2B2'><b> " + token.upper() + ' </b></span> '
 
   def _git_string( self, line_id ):
     add = int(self._git_with_diff[line_id][0])

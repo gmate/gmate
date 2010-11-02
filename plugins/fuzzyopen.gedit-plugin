@@ -4,9 +4,9 @@ Module=fuzzyopen
 IAge=2
 Name=Fuzzy Open
 Name[zh]=智能開檔
-Description=Opens files by fuzzy search. Ctrl + Alt + O
-Description[es]=Encuentra todos los archivos por porciones de su nombre. Ctrl + Alt + O
-Description[zh]=使用模糊搜尋開啟檔案 Ctrl + Alt + O
+Description=Opens files by fuzzy search. Ctrl + Shift + O
+Description[es]=Encuentra todos los archivos por porciones de su nombre. Ctrl + Shift + O
+Description[zh]=使用模糊搜尋開啟檔案 Ctrl + Shift + O
 Authors=Andrew Liu <andrewliu33 (at) gmail com>, Mads Buus Jensen <online@buus.net>
 Website=http://github.com/eggegg/fuzzyopen
 

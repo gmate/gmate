@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=gedit_openfiles
+IAge=2
+Name=Gedit Open File
+Name[ru]=Открытие файлов в gedit
+Description=Opens files by search terms
+Description[ru]=Открывает файлы по условиям поиска
+Authors=Vitaly Babiy <vbabiy86@gmail.com>
+Copyright=Copyright © 2010 Vitaly Babiy <vbabiy86@gmail.com>

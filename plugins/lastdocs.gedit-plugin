@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=lastdocs
+IAge=2
+Name=Lastdocs
+Description=A Dialog that contains the last opened documents
+Authors=Marco Laspe <macco@gmx.net>
+Copyright=Copyright © 2008 Marco Laspe <macco@gmx.net>
+Website=http://www.gedit.org

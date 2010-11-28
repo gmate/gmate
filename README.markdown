@@ -71,6 +71,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Zen Coding**. Tools for faster HTML/CSS coding
   <http://github.com/mikecrittenden/zen-coding-gedit>
 * **Encoding**. Reopen the document in a different encoding
+* **File Search**. This is a search plugin for Gedit to search for a text inside a directory. <https://github.com/oliver/gedit-file-search>
 
 **Note:** Multi Edit plugin is not enabled by default GMate installation.
 

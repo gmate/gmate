@@ -28,6 +28,7 @@ Upstream Authors:
     Nando Vieira <fnando.vieira@gmail.com>
     Sébastien Wilmet
     Sergey Rublev
+    Oliver Gerlich <oliver.gerlich@gmx.de>
     Osmo Salomaa <otsaloma@cc.hut.fi>
     Tiago bastos <comechao@gmail.com>
     Tom Hirashima
@@ -38,21 +39,22 @@ Upstream Authors:
 
 Copyright:
 
-    Copyright (C) 2008 Alexandre da Silva
-    Copyright (C) 2010 Andrew Liu
-    Copyright (C) 2008 Eric Butler
-    Copyright (C) 2008 Eugene Khorev
-    Copyright (C) 2009 Elia Sarti
-    Copyright (C) 2006 Frederic Back
-    Copyright (C) 2006 Gary Haran
-    Copyright (C) 2009 Jonathan Walsh
-    Copyright (C) 2008 Mads Buus Jensen
-    Copyright (C) 2007 Mike Doty
-    Copyright (C) 2007 Nando Vieira
-    Copyright (C) 2006-2008 Osmo Salomaa
-    Copyright (C) 2008 Vitaly Babiy
-    Copyright (C) 2010 Mike Crittenden, Franck Marcia, Zen Coding team
-    Copyright (C) 2010 Kevin McGuinness
+    Copyright 2008 Alexandre da Silva
+    Copyright 2010 Andrew Liu
+    Copyright 2008 Eric Butler
+    Copyright 2008 Eugene Khorev
+    Copyright 2009 Elia Sarti
+    Copyright 2006 Frederic Back
+    Copyright 2006 Gary Haran
+    Copyright 2009 Jonathan Walsh
+    Copyright 2008 Mads Buus Jensen
+    Copyright 2007 Mike Doty
+    Copyright 2007 Nando Vieira
+    Copyright 2006-2008 Osmo Salomaa
+    Copyright 2008 Vitaly Babiy
+    Copyright 2010 Mike Crittenden, Franck Marcia, Zen Coding team
+    Copyright 2010 Kevin McGuinness
+    Copyright 2008 Oliver Gerlich
 
 License:
 

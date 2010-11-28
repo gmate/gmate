@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=file-search
+IAge=2
+Name=File Search
+Description=Search in multiple files
+Icon=search
+Authors=Oliver Gerlich <oliver.gerlich@gmx.de>
+Copyright=Copyright © 2008 Oliver Gerlich <oliver.gerlich@gmx.de>
+Website=http://www.gedit.org

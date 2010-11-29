@@ -1,3 +1,13 @@
+gedit-gmate (0.9.14~uorppa0) lucid; urgency=low
+
+  * Add Lastdoc plugin.
+  * Add File Search plugin.
+  * Re-add Gedit Open File.
+  * Update FuzzyOpen to 1.3.2.
+  * Add syntax highlight for Apache config.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Tue, 30 Nov 2010 00:05:35 +0300
+
 gedit-gmate (0.9.13~uorppa0) lucid; urgency=low
 
   * Add Rubycius theme.

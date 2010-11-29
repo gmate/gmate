@@ -47,6 +47,7 @@ import urllib
 import gconf
 import pango
 import errno
+import dircache
 
 ui_str = """<ui>
   <menubar name="MenuBar">
@@ -449,10 +450,12 @@ class SearchProcess:
             findCmd += ["(", "!", "-path", "*/CVS/*", "!", "-path", "*/.svn/*", "!", "-path", "*/.git/*", "!", "-path", "*/RCS/*", ")"]
         if query.selectFileTypes:
             fileTypeList = query.parseFileTypeString()
-            findCmd += ["(", "-false"]
-            for t in fileTypeList:
-                findCmd += ["-o", "-name", t]
-            findCmd += [")"]
+            if fileTypeList:
+                findCmd += ["("]
+                for t in fileTypeList:
+                    findCmd += ["-name", t, "-o"]
+                findCmd.pop()
+                findCmd += [")"]
         findCmd += ["-xtype", "f", "-print"]
 
         self.cmdRunner = RunCommand(findCmd, self, gobject.PRIORITY_DEFAULT_IDLE)
@@ -479,6 +482,11 @@ class SearchProcess:
     def handleFinished (self):
         #print "find finished (%d files found)" % len(self.files)
         self.cmdRunner = None
+
+        if self.cancelled:
+            self.resultHandler.handleFinished()
+            self.files = []
+            return
 
         self.files.sort(pathCompare)
 
@@ -517,6 +525,7 @@ class FileSearchWindowHelper:
         self._lastTypes = RecentList(self.gclient, "recent_types")
 
         self._lastDir = None
+        self._autoCompleteList = None
 
         self._lastClickIter = None # TextIter at position of last right-click or last popup menu
 
@@ -639,6 +648,29 @@ class FileSearchWindowHelper:
     def on_cbSelectFileTypes_toggled (self, checkbox):
         self.tree.get_widget('cboFileTypeList').set_sensitive( checkbox.get_active() )
 
+    def on_cboSearchDirectoryEntry_changed (self, entry):
+        text = entry.get_text()
+        if text and self._autoCompleteList != None:
+            path = os.path.dirname(text)
+            start = os.path.basename(text)
+
+            self._autoCompleteList.clear()
+            try:
+                files = dircache.listdir(path)[:]
+            except OSError:
+                return
+            dircache.annotate(path, files)
+            for f in files:
+                if f.startswith(".") and not(start.startswith(".")):
+                    # show hidden dirs only if explicitly requested by user
+                    continue
+                if f.startswith(start) and f.endswith("/"):
+                    if path == "/":
+                        match = path + f
+                    else:
+                        match = path + os.sep + f
+                    self._autoCompleteList.append([match])
+
     def on_btnBrowse_clicked (self, button):
         fileChooser = gtk.FileChooserDialog(title="Select directory to search in",
             parent=self._dialog,
@@ -686,7 +718,7 @@ class FileSearchWindowHelper:
                     # otherwise, try to use directory of that file
                     currFileDir = self._window.get_active_tab().get_document().get_uri()
                     if currFileDir != None and currFileDir.startswith("file:///"):
-                        searchDir = os.path.dirname(currFileDir[7:])
+                        searchDir = urllib.unquote(os.path.dirname(currFileDir[7:]))
             else:
                 # there's no file open => fall back to Gedit's current working dir
                 pass
@@ -695,6 +727,13 @@ class FileSearchWindowHelper:
 
         # ... and display that in the text field:
         self.tree.get_widget('cboSearchDirectoryEntry').set_text(searchDir)
+
+        # Set up autocompletion for search directory:
+        completion = gtk.EntryCompletion()
+        self.tree.get_widget('cboSearchDirectoryEntry').set_completion(completion)
+        self._autoCompleteList = gtk.ListStore(str)
+        completion.set_model(self._autoCompleteList)
+        completion.set_text_column(0)
 
         # Fill the drop-down part of the text field with recent dirs:
         cboLastDirs = self.tree.get_widget('cboSearchDirectoryList')
@@ -960,6 +999,9 @@ class FileSearcher:
             currView = gedit.tab_get_from_document(currDoc).get_view()
             currView.scroll_to_cursor()
 
+            # workaround to scroll to cursor position when opening file into window of "Unnamed Document":
+            gobject.idle_add(scrollToCursorCb, currView)
+
     def on_btnClose_clicked (self, button):
         self.destroy()
 
@@ -1015,6 +1057,10 @@ class FileSearcher:
         clipboard.set_text(plainText)
         clipboard.store()
 
+
+def scrollToCursorCb (view):
+    view.scroll_to_cursor()
+    return False
 
 def resultSearchCb (model, column, key, it):
     """Callback function for searching in result list"""

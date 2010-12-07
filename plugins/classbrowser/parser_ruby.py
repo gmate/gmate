@@ -119,7 +119,8 @@ class RubyFile(Token):
         self.uri = doc.get_uri()
         self.linestotal = 0 # total line count
         self.type = "file"
-        self.name = os.path.basename(self.uri)
+        if self.uri:
+            self.name = os.path.basename(self.uri)
         self.tokens = []
 
 
@@ -262,10 +263,11 @@ class RubyFile(Token):
                 if ends_to_skip > 0:
                     ends_to_skip -= 1
                 else:
-                  token = currentParent
-                  #print "end",currentParent.name
-                  token.end = linecount
-                  currentParent = token.parent
+                    token = currentParent
+                    #print "end",currentParent.name
+                    token.end = linecount
+                    if token.parent:
+                        currentParent = token.parent
                 
 
         # set new token list
@@ -413,4 +415,23 @@ class RubyParser( ClassParserInterface ):
                 
         crp.set_property("pixbuf",imagelibrary.pixbufs[icon])
 
+        
+    def __str_ends_with(self, string, w):
+        return string[-len(w):] == w
+        
+    def get_menu(self, model, path):
+        tok = model.get_value( model.get_iter(path), 0 )
+        if tok and tok.rubyfile.uri:
+            path, filename = os.path.split(tok.rubyfile.uri);
+            parentpath = os.path.split(path);
+            
+            # 1) see if the path of the current file indicates if this is a controller,
+            #    a helper or a model
+            
+            # the current file is a controller?
+            if self.__str_ends_with(path,"/app/controllers") and self.__str_ends_with(filename,"controller.rb"):
+                 print "is a controller"
+                 
+            
+        return []
         

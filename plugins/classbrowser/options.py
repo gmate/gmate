@@ -85,7 +85,10 @@ class Options(gobject.GObject):
     def create_configure_dialog(self):
         win = gtk.Window()
         win.connect("delete-event",lambda w,e: w.destroy())
-        win.set_title("Preferences")
+        win.set_title("Class Browser Preferences")
+        win.set_position(gtk.WIN_POS_CENTER)
+        win.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
+        win.set_border_width(6)
         vbox = gtk.VBox() 
 
         #--------------------------------  
@@ -94,40 +97,40 @@ class Options(gobject.GObject):
         notebook.set_border_width(6)
         vbox.pack_start(notebook)
 
-        vbox2 = gtk.VBox()
-        vbox2.set_border_width(6) 
-
+        vbox2 = gtk.VBox(spacing=6)
+        vbox2.set_border_width(6)
+        
         box = gtk.HBox()
-        verbose = gtk.CheckButton("show debug information")
-        verbose.set_active(self.verbose)
-        box.pack_start(verbose,False,False,6)
-        vbox2.pack_start(box,False)
-
-        box = gtk.HBox()
-        autocollapse = gtk.CheckButton("autocollapse symbol tree")
+        autocollapse = gtk.CheckButton("Auto-_collapse symbol tree")
         autocollapse.set_active(self.autocollapse)
         box.pack_start(autocollapse,False,False,6)
         vbox2.pack_start(box,False)
 
         box = gtk.HBox()
-        jumpToTagOnMiddleClick = gtk.CheckButton("jump to tag on middle click")
+        jumpToTagOnMiddleClick = gtk.CheckButton("_Jump to tag on middle click")
         jumpToTagOnMiddleClick.set_active(self.jumpToTagOnMiddleClick)
         box.pack_start(jumpToTagOnMiddleClick,False,False,6)
+        vbox2.pack_start(box,False)
+        
+        box = gtk.HBox()
+        verbose = gtk.CheckButton("Show _debug information")
+        verbose.set_active(self.verbose)
+        box.pack_start(verbose,False,False,6)
         vbox2.pack_start(box,False)
 
         notebook.append_page(vbox2,gtk.Label("General"))
 
         #--------------------------------       
-        vbox2 = gtk.VBox()
+        vbox2 = gtk.VBox(spacing=6)
         vbox2.set_border_width(6)
 
         button = {}
         for i in self.colours:
-            box = gtk.HBox()
+            box = gtk.HBox(spacing=6)
             button[i] = gtk.ColorButton()
             button[i].set_color(self.colours[i])
-            box.pack_start(button[i],False)
-            box.pack_start(gtk.Label(i),False,False,6)
+            box.pack_end(button[i],False)
+            box.pack_start(gtk.Label(i.capitalize() + " :"), False, False, 6)
             vbox2.pack_start(box)
 
         notebook.append_page(vbox2,gtk.Label("Colours"))
@@ -154,13 +157,16 @@ class Options(gobject.GObject):
             self.emit("options-changed")
             win.destroy()
 
-        box = gtk.HBox()
-        b = gtk.Button(None,gtk.STOCK_OK)
-        b.connect("clicked",setValues)
-        box.pack_end(b,False)
+        box = gtk.HButtonBox()
+        box.set_spacing(6)
+        box.set_border_width(6)
+        box.set_layout(gtk.BUTTONBOX_END)
         b = gtk.Button(None,gtk.STOCK_CANCEL)
         b.connect("clicked",lambda w,win: win.destroy(),win)
-        box.pack_end(b,False)
+        box.add(b)
+        b = gtk.Button(None,gtk.STOCK_OK)
+        b.connect("clicked",setValues)
+        box.add(b)
         vbox.pack_start(box,False)
 
         win.add(vbox)

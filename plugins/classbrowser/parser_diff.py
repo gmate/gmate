@@ -13,7 +13,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330,
+# Foundation, Inc., 59 Temple Place, Suite 330, 
 # Boston, MA 02111-1307, USA.
 
 import gtk
@@ -42,7 +42,7 @@ class DiffParser(ClassParserInterface):
     changeset = None
     files = []
     uri = geditdoc.get_uri()
-
+    
     for line in text.splitlines():
       linecount += 1
       lstrip = line.lstrip()
@@ -59,7 +59,7 @@ class DiffParser(ClassParserInterface):
         current_file.uri = uri
         files.append(current_file)
 
-      elif current_file is None: continue
+      elif current_file == None: continue
 
       elif ln[0] == '@@' and ln[-1] == '@@':
         if changeset is not None:
@@ -70,7 +70,7 @@ class DiffParser(ClassParserInterface):
         changeset.uri = uri
         current_file.children.append(changeset)
         changeset.parent = current_file
-
+                  
       # Ending line of last tokens
       if len(files) > 0:
         f =  files[-1]
@@ -79,7 +79,7 @@ class DiffParser(ClassParserInterface):
           f.children[-1].end = linecount + 2
 
     model = gtk.TreeStore(gobject.TYPE_PYOBJECT)
-
+    
     pp = None
 
     # "Fake" common top folder, if any
@@ -99,10 +99,10 @@ class DiffParser(ClassParserInterface):
       tree_iter = model.append(pp,(f,))
       for c in f.children:
          model.append(tree_iter,(c,))
-
+    
     return model
 
-  def cellrenderer(self, treeviewcolumn, cellrenderertext, treemodel, it):
+  def cellrenderer(self, treeviewcolumn, cellrenderertext, treemodel, it):  
     token = treemodel.get_value(it,0)
 
     colour = options.singleton().colours["member"]
@@ -127,7 +127,7 @@ class DiffParser(ClassParserInterface):
       line = data[0]
       token = model.get_value(iter, 0)
       if token.start <= line and token.end > line:
-        # print path
+        print path
         data[1].append(path)
         #return True
       return False
@@ -163,7 +163,7 @@ class DiffParser(ClassParserInterface):
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330,
+# Foundation, Inc., 59 Temple Place, Suite 330, 
 # Boston, MA 02111-1307, USA.
 
 import gtk
@@ -192,7 +192,7 @@ class DiffParser(ClassParserInterface):
     changeset = None
     files = []
     uri = geditdoc.get_uri()
-
+    
     for line in text.splitlines():
       linecount += 1
       lstrip = line.lstrip()
@@ -209,7 +209,7 @@ class DiffParser(ClassParserInterface):
         current_file.uri = uri
         files.append(current_file)
 
-      elif current_file is None: continue
+      elif current_file == None: continue
 
       elif ln[0] == '@@' and ln[-1] == '@@':
         if changeset is not None:
@@ -220,7 +220,7 @@ class DiffParser(ClassParserInterface):
         changeset.uri = uri
         current_file.children.append(changeset)
         changeset.parent = current_file
-
+                  
       # Ending line of last tokens
       if len(files) > 0:
         f =  files[-1]
@@ -229,7 +229,7 @@ class DiffParser(ClassParserInterface):
           f.children[-1].end = linecount + 2
 
     model = gtk.TreeStore(gobject.TYPE_PYOBJECT)
-
+    
     pp = None
 
     # "Fake" common top folder, if any
@@ -249,10 +249,10 @@ class DiffParser(ClassParserInterface):
       tree_iter = model.append(pp,(f,))
       for c in f.children:
          model.append(tree_iter,(c,))
-
+    
     return model
 
-  def cellrenderer(self, treeviewcolumn, cellrenderertext, treemodel, it):
+  def cellrenderer(self, treeviewcolumn, cellrenderertext, treemodel, it):  
     token = treemodel.get_value(it,0)
 
     colour = options.singleton().colours["member"]
@@ -277,7 +277,7 @@ class DiffParser(ClassParserInterface):
       line = data[0]
       token = model.get_value(iter, 0)
       if token.start <= line and token.end > line:
-        # print path
+        print path
         data[1].append(path)
         #return True
       return False
@@ -297,3 +297,4 @@ class DiffParser(ClassParserInterface):
       cellrendererpixbuf.set_property("stock-id", gtk.STOCK_FILE)
     else:
       cellrendererpixbuf.set_property("pixbuf",imagelibrary.pixbufs['patch'])
+

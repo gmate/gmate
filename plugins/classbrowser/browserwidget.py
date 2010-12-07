@@ -115,7 +115,7 @@ class ClassBrowser( gtk.VBox ):
             path, line = self.parser.get_tag_position(self.browser.get_model(),path)
             self.__openDocumentAtLine(path, line)
         except:
-            pass
+            print "Classbrowser: Unable to jump to path:",path
                 
                 
     def on_row_activated(self, treeview, path, view_column):
@@ -123,7 +123,6 @@ class ClassBrowser( gtk.VBox ):
 
 
     def __onClick(self, treeview, event):
-
         if event.button == 2:
             if options.singleton().jumpToTagOnMiddleClick:
                 x, y = int(event.x), int(event.y)
@@ -131,8 +130,7 @@ class ClassBrowser( gtk.VBox ):
                 if pthinfo is None: return
                 path, col, cellx, celly = pthinfo
                 self.__jump_to_tag(path)
-                return True
-            
+                return True   
         if event.button == 3:
             x, y = int(event.x), int(event.y)
             pthinfo = treeview.get_path_at_pos(x, y)
@@ -162,7 +160,7 @@ class ClassBrowser( gtk.VBox ):
             menu.append( m )
             
             
-            m = gtk.CheckMenuItem("autocollapse")
+            m = gtk.CheckMenuItem("Auto-_collapse")
             menu.append(m)
             m.show()
             m.set_active( options.singleton().autocollapse )
@@ -285,7 +283,7 @@ class ClassBrowser( gtk.VBox ):
             self.back.set_sensitive(True)
             self.forward.set_sensitive(False)
             self.history_pos += 1
-            
+
 
     def on_cursor_changed(self, *args):
         """
@@ -296,7 +294,6 @@ class ClassBrowser( gtk.VBox ):
         if not self.active_timeout:
             gobject.timeout_add(100,self.update_cursor)
             self.active_timeout = True
-            
 
     def update_cursor(self, *args):
         doc = self.geditwindow.get_active_document()

@@ -2,10 +2,8 @@
 Loader=python
 Module=classbrowser
 IAge=2
-Name=Class Browser
-Name[ru]=Обозреватель классов
-Description=class browser for gedit
-Description[ru]=Обозреватель классов для gedit
+Name=Class Browser 0.3
+Description=A class browser for gedit. 
 Authors=Frederic Back <fredericback@gmail.com>
-Copyright=Copyright 2006 Frederic Back <fredericback@gmail.com>
+Copyright=Copyright 2006-2008 Frederic Back <fredericback@gmail.com>
 Website=http://www.stambouliote.de/projects/gedit_plugins.html

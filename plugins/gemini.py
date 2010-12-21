@@ -50,10 +50,10 @@ class GeminiPlugin( gedit.Plugin):
                 self.handler_ids.append((handler_id, view))
 
 class Gemini:
-    start_keyvals = [34, 39, 96, 40, 91, 123,60]
-    end_keyvals   = [34, 39, 96, 41, 93, 125,62]
-    twin_start    = ['"',"'",'`','(','[','{','<']
-    twin_end      = ['"',"'",'`',')',']','}','>']
+    start_keyvals = [34, 39, 96, 40, 91, 123]
+    end_keyvals   = [34, 39, 96, 41, 93, 125]
+    twin_start    = ['"',"'",'`','(','[','{']
+    twin_end      = ['"',"'",'`',')',']','}']
 
     def __init__(self):
         return

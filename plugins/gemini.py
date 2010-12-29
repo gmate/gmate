@@ -54,12 +54,17 @@ class Gemini:
     end_keyvals   = [34, 39, 96, 41, 93, 125]
     twin_start    = ['"',"'",'`','(','[','{']
     twin_end      = ['"',"'",'`',')',']','}']
+    toggle        = False
 
     def __init__(self):
         return
 
     def key_press_handler(self, view, event):
-        #print event.keyval
+        if self.toggle:
+            self.toggle = False
+            return
+        else:
+            self.toggle = True
         buf = view.get_buffer()
         cursor_mark = buf.get_insert()
         cursor_iter = buf.get_iter_at_mark(cursor_mark)
@@ -69,7 +74,6 @@ class Gemini:
             back_iter = cursor_iter.copy()
             back_char = back_iter.backward_char()
             back_char = buf.get_text(back_iter, cursor_iter)
-
             forward_iter = cursor_iter.copy()
             forward_char = forward_iter.forward_char()
             forward_char = buf.get_text(cursor_iter, forward_iter)
@@ -79,6 +83,7 @@ class Gemini:
                 start_str = self.twin_start[index]
                 end_str = self.twin_end[index]
             else:
+                index = -1
                 start_str, end_str = None, None
 
             # Here is the meat of the logic
@@ -89,7 +94,7 @@ class Gemini:
                 buf.delete(start_iter, end_iter)
                 buf.insert_at_cursor(start_str + selected_text + end_str)
                 return True
-            elif end_str != forward_char and end_str != None:
+            elif index >= 0 and start_str == self.twin_start[index]:
                 # insert the twin that matches your typed twin
                 buf.insert(cursor_iter, end_str)
                 if cursor_iter.backward_char():
@@ -97,20 +102,12 @@ class Gemini:
             elif event.keyval == 65288 and back_char in self.twin_start and forward_char in self.twin_end:
                 # delete twins when backspacing starting char next to ending char
                 if self.twin_start.index(back_char) == self.twin_end.index(forward_char):
-                        cursor_iter = buf.get_iter_at_mark(buf.get_insert())
-                        forward_iter = cursor_iter.copy()
-                        if forward_iter.forward_char():
-                            buf.delete(back_iter, forward_iter)
-                            return True
+                    buf.delete(cursor_iter, forward_iter)
             elif event.keyval in self.end_keyvals:
                 # stop people from closing an already closed pair
                 index = self.end_keyvals.index(event.keyval)
                 if self.twin_end[index] == forward_char :
-                    cursor_iter = buf.get_iter_at_mark(buf.get_insert())
-                    forward_iter = cursor_iter.copy()
-                    if forward_iter.forward_char():
-                        buf.place_cursor(forward_iter)
-                        return True
+                    buf.delete(cursor_iter, forward_iter)
             elif event.keyval == 65293 and forward_char == '}':
                 # add proper indentation when hitting before a closing bracket
                 cursor_iter = buf.get_iter_at_mark(buf.get_insert ())
@@ -143,3 +140,4 @@ class Gemini:
                 else:
                     buf.insert_at_cursor('\t')
                 return True
+

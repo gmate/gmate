@@ -92,7 +92,7 @@ class FindInProjectParser:
         #\x1b[0mew\x1b[0m-67-    Eastwind()
         #\x1b[0mew\x1b[0m-68-
 
-        groups = self.raw.split('--\n')
+        groups = re.split('(?<=\n)--\n', self.raw)
         if groups and len(groups) == 1:
             filename_hash = {}
             for l in groups[0].split('\n'):

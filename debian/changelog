@@ -1,3 +1,12 @@
+gedit-gmate (0.9.15~uorppa0) maverick; urgency=low
+
+  * Update classbrowser
+  * Add exuberant-tags to dependency
+  * Fix bugs in gemini, remove "<" and ">" for completion
+  * Fix bugs in find-in-project
+
+ -- Andrew Liu <andrewliu33@gmail.com>  Wed, 29 Dec 2010 18:26:48 +0800
+
 gedit-gmate (0.9.14~uorppa0) lucid; urgency=low
 
   * Add Lastdoc plugin.

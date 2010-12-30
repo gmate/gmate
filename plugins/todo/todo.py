@@ -81,11 +81,11 @@ def parse_directory(root):
 
     # Todo Header image pattern
     def todo_header():
-        return "file:///usr/lib/gedit-2/plugins/todo/todo_header.png"
+        return "file://" + os.path.join(os.path.dirname(__file__), "todo_header.png")
 
     # Todo Gear Image
     def todo_gears():
-        return  "file:///usr/lib/gedit-2/plugins/todo/todo_gears.png"
+        return "file://" + os.path.join(os.path.dirname(__file__), "todo_gears.png")
 
     # Initialize the values list
     values = []

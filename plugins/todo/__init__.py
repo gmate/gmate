@@ -185,7 +185,7 @@ class TodoWindowHelper:
             self.todo_window.show_all()
 
         self.todo_window.set_title(title)
-        self._browser.load_string(html_str, "text/html", "utf-8", "about:")
+        self._browser.load_string(html_str, "text/html", "utf-8", "file://")
 
     def on_todo_close(self, *args):
         self.todo_window.hide()

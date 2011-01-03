@@ -6,6 +6,7 @@
   <metadata>
     <property name="mimetypes">text/x-haml</property>
     <property name="globs">*.haml</property>
+    <property name="line-comment-start">//</property>
   </metadata>
   <styles>
     <style id="comment"   _name="Comment"   map-to="def:comment"/>

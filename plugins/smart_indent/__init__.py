@@ -16,12 +16,16 @@ import os
 
 GLADE_FILE = os.path.join(os.path.dirname(__file__), "dialog.glade")
 
-DEFAULT_USE_SPACES = True
-DEFAULT_TAB_SIZE   = 4
+default_tab_size_key   = "/apps/gedit-2/preferences/editor/tabs/tabs_size"
+default_use_spaces_key = "/apps/gedit-2/preferences/editor/tabs/insert_spaces"
 
 gconf_base_uri = u"/apps/gedit-2/plugins/smart_indent"
 config_client = gconf.client_get_default()
 config_client.add_dir(gconf_base_uri, gconf.CLIENT_PRELOAD_NONE)
+
+DEFAULT_USE_SPACES = config_client.get_bool(default_use_spaces_key) or True
+DEFAULT_TAB_SIZE   = config_client.get_int(default_tab_size_key) or 4
+
 
 size_key_str       = "%s_tab_size"
 space_key_str      = "%s_use_space"
@@ -33,10 +37,6 @@ keystrokes_key_str = "%s_unindent_keystrokes"
 crop_spaces_eol_key_str        = "%s_crop_spaces_eol"
 insert_newline_eof_key_str     = "%s_insert_newline_eof"
 remove_blank_lines_eol_key_str = "%s_remove_blank_lines_eol"
-
-
-default_tab_size_key   = "/apps/gedit-2/preferences/editor/tabs/tabs_size"
-default_use_spaces_key = "/apps/gedit-2/preferences/editor/tabs/insert_spaces"
 
 user_interface = """
 <ui>
@@ -445,9 +445,6 @@ class SmartIndent:
         # Set the buffer tab configuration
         view.set_tab_width(tab_size)
         view.set_insert_spaces_instead_of_tabs(use_spaces)
-        # Update global configuration
-        config_client.set_int(default_tab_size_key, tab_size)
-        config_client.set_bool(default_use_spaces_key, use_spaces)
 
 
     def __update_line_no(self, buf):

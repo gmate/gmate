@@ -178,6 +178,7 @@ class SearchQuery:
         self.text = ''
         self.directory = ''
         self.caseSensitive = True
+        self.wholeWord = False
         self.isRegExp = False
         self.includeSubfolders = True
         self.excludeHidden = True
@@ -195,6 +196,11 @@ class SearchQuery:
             self.caseSensitive = gclient.get_without_default(gconfBase+"/case_sensitive").get_bool()
         except:
             self.caseSensitive = True
+
+        try:
+            self.wholeWord = gclient.get_without_default(gconfBase+"/whole_word").get_bool()
+        except:
+            self.wholeWord = False
 
         try:
             self.isRegExp = gclient.get_without_default(gconfBase+"/is_reg_exp").get_bool()
@@ -228,6 +234,7 @@ class SearchQuery:
 
     def storeDefaults (self, gclient):
         gclient.set_bool(gconfBase+"/case_sensitive", self.caseSensitive)
+        gclient.set_bool(gconfBase+"/whole_word", self.wholeWord)
         gclient.set_bool(gconfBase+"/is_reg_exp", self.isRegExp)
         gclient.set_bool(gconfBase+"/include_subfolders", self.includeSubfolders)
         gclient.set_bool(gconfBase+"/exclude_hidden", self.excludeHidden)
@@ -332,18 +339,43 @@ class RunCommand:
         self.lineSplitter.cancel()
 
 
+def buildQueryRE (queryText, caseSensitive, wholeWord):
+    "returns a RegEx pattern for searching for the given queryText"
+
+    # word detection etc. cannot be done on an encoding-less string:
+    assert(type(queryText) == unicode)
+
+    pattern = re.escape(queryText)
+    if wholeWord:
+        if re.search('^\w', queryText, re.UNICODE):
+            pattern = '\\b' + pattern
+        if re.search('\w$', queryText, re.UNICODE):
+            pattern = pattern + '\\b'
+
+    flags = re.UNICODE
+    if not(caseSensitive):
+        flags |= re.IGNORECASE
+    return re.compile(pattern, flags)
+
+
 class GrepProcess:
     def __init__ (self, query, resultCb, finishedCb):
         self.query = query
-        self.queryText = query.text
         self.resultCb = resultCb
         self.finishedCb = finishedCb
+
+        # Assume all file contents are in UTF-8 encoding (AFAIK grep will just search for byte sequences, it doesn't care about encodings):
+        self.queryText = query.text.encode("utf-8")
 
         self.fileNames = []
         self.cmdRunner = None
         self.cancelled = False
         self.numGreps = 0
         self.inputFinished = False
+
+        self.postSearchPattern = None
+        if query.wholeWord:
+            self.postSearchPattern = buildQueryRE(self.query.text, query.caseSensitive, True)
 
     def cancel (self):
         self.cancelled = True
@@ -359,6 +391,9 @@ class GrepProcess:
     def handleInputFinished (self):
         "Called when there will be no more input files added"
         self.inputFinished = True
+        if not(self.cmdRunner):
+            # this can happen if no files at all are found
+            self.finishedCb()
 
     def runGrep (self):
         if self.cmdRunner or len(self.fileNames) == 0 or self.cancelled:
@@ -389,9 +424,6 @@ class GrepProcess:
         if not(self.query.isRegExp):
             grepCmd += ["-F"]
 
-        # Assume all file contents are in UTF-8 encoding (AFAIK grep will just search for byte sequences, it doesn't care about encodings):
-        self.queryText = self.queryText.encode("utf-8")
-
         grepCmd += ["-e", self.queryText]
         grepCmd += fileNameList
 
@@ -417,6 +449,12 @@ class GrepProcess:
             linetext = unicode(linetext, 'utf8', 'replace')
             #print "file: '%s'; line: %d; text: '%s'" % (filename, lineno, linetext)
             linetext = linetext.rstrip("\n\r")
+
+            # do some manual grep'ing on each line (for whole-word search):
+            if self.postSearchPattern is not None and \
+                self.postSearchPattern.search(linetext) is None:
+                return
+
             self.resultCb(filename, lineno, linetext)
 
     def handleFinished (self):
@@ -774,6 +812,7 @@ class FileSearchWindowHelper:
         query.loadDefaults(self.gclient)
         self.tree.get_widget('cbCaseSensitive').set_active(query.caseSensitive)
         self.tree.get_widget('cbRegExp').set_active(query.isRegExp)
+        self.tree.get_widget('cbWholeWord').set_active(query.wholeWord)
         self.tree.get_widget('cbIncludeSubfolders').set_active(query.includeSubfolders)
         self.tree.get_widget('cbExcludeHidden').set_active(query.excludeHidden)
         self.tree.get_widget('cbExcludeBackups').set_active(query.excludeBackup)
@@ -811,6 +850,7 @@ class FileSearchWindowHelper:
         query.directory = searchDir
         query.caseSensitive = self.tree.get_widget('cbCaseSensitive').get_active()
         query.isRegExp = self.tree.get_widget('cbRegExp').get_active()
+        query.wholeWord = self.tree.get_widget('cbWholeWord').get_active()
         query.includeSubfolders = self.tree.get_widget('cbIncludeSubfolders').get_active()
         query.excludeHidden = self.tree.get_widget('cbExcludeHidden').get_active()
         query.excludeBackup = self.tree.get_widget('cbExcludeBackups').get_active()
@@ -848,6 +888,8 @@ class FileSearcher:
         self.numMatches = 0
         self.numLines = 0
         self.wasCancelled = False
+        self.searchProcess = None
+        self._collapseAll = False # if true, new nodes will be displayed collapsed
 
         self._createResultPanel()
         self._updateSummary()
@@ -858,6 +900,7 @@ class FileSearcher:
         self.treeStore.append(None, [searchSummary, '', 0])
 
         self.searchProcess = SearchProcess(query, self)
+        self._updateSummary()
 
     def handleResult (self, file, lineno, linetext):
         expandRow = False
@@ -867,6 +910,8 @@ class FileSearcher:
             expandRow = True
         else:
             it = self.files[file]
+        if self._collapseAll:
+            expandRow = False
         self._addResultLine(it, lineno, linetext)
         if expandRow:
             path = self.treeStore.get_path(it)
@@ -882,6 +927,8 @@ class FileSearcher:
         editBtn = self.tree.get_widget("btnModifyFileSearch")
         editBtn.hide()
         editBtn.set_label("gtk-edit")
+
+        self._updateSummary()
 
         if self.wasCancelled:
             line = "<i><span foreground=\"red\">(search was cancelled)</span></i>"
@@ -913,6 +960,8 @@ class FileSearcher:
             summary += "\nin 1 file"
         else:
             summary += "\nin %d files" % len(self.files)
+        if self.searchProcess:
+            summary += u"\u2026" # ellipsis character
         self.tree.get_widget("lblNumMatches").set_label(summary)
 
 
@@ -966,7 +1015,7 @@ class FileSearcher:
             addTruncationMarker = True
 
         if not(self.query.isRegExp):
-            (linetext, numLineMatches) = escapeAndHighlight(linetext, self.query.text, self.query.caseSensitive)
+            (linetext, numLineMatches) = escapeAndHighlight(linetext, self.query.text, self.query.caseSensitive, self.query.wholeWord)
             self.numMatches += numLineMatches
         else:
             linetext = escapeMarkup(linetext)
@@ -1039,7 +1088,21 @@ class FileSearcher:
 
                 menu = gtk.Menu()
                 mi = gtk.ImageMenuItem("gtk-copy")
-                mi.connect_object("activate", FileSearcher.onPopupMenuItemActivate, self, treeview, path[0])
+                mi.connect_object("activate", FileSearcher.onCopyActivate, self, treeview, path[0])
+                mi.show()
+                menu.append(mi)
+
+                mi = gtk.SeparatorMenuItem()
+                mi.show()
+                menu.append(mi)
+
+                mi = gtk.MenuItem("Expand All")
+                mi.connect_object("activate", FileSearcher.onExpandAllActivate, self, treeview)
+                mi.show()
+                menu.append(mi)
+
+                mi = gtk.MenuItem("Collapse All")
+                mi.connect_object("activate", FileSearcher.onCollapseAllActivate, self, treeview)
                 mi.show()
                 menu.append(mi)
 
@@ -1048,7 +1111,7 @@ class FileSearcher:
         else:
             return False
 
-    def onPopupMenuItemActivate (self, treeview, path):
+    def onCopyActivate (self, treeview, path):
         it = treeview.get_model().get_iter(path)
         markupText = treeview.get_model().get_value(it, 0)
         plainText = pango.parse_markup(markupText, u'\x00')[1]
@@ -1056,6 +1119,14 @@ class FileSearcher:
         clipboard = gtk.clipboard_get()
         clipboard.set_text(plainText)
         clipboard.store()
+
+    def onExpandAllActivate (self, treeview):
+        self._collapseAll = False
+        treeview.expand_all()
+
+    def onCollapseAllActivate (self, treeview):
+        self._collapseAll = True
+        treeview.collapse_all()
 
 
 def scrollToCursorCb (view):
@@ -1092,7 +1163,7 @@ def escapeMarkup (origText):
     text = text.replace('>', '&gt;')
     return text
 
-def escapeAndHighlight (origText, searchText, caseSensitive):
+def escapeAndHighlight (origText, searchText, caseSensitive, wholeWord):
     """
     Replaces Pango markup special characters, and adds highlighting markup
     around text fragments that match searchText.
@@ -1102,18 +1173,16 @@ def escapeAndHighlight (origText, searchText, caseSensitive):
     # and matching text interleaved (if two matches are adjacent in origText,
     # they will be separated by an empty string in the resulting list).
     matchLen = len(searchText)
-    if not(caseSensitive):
-        searchText = searchText.lower()
     fragments = []
     startPos = 0
     text = origText[:]
+    pattern = buildQueryRE(searchText, caseSensitive, wholeWord)
     while True:
-        if not(caseSensitive):
-            pos = text.lower().find(searchText, startPos)
-        else:
-            pos = text.find(searchText, startPos)
-        if pos < 0:
+        m = pattern.search(text, startPos)
+        if m is None:
             break
+        pos = m.start()
+
         preStr = origText[startPos:pos]
         matchStr = origText[pos:pos+matchLen]
         fragments.append(preStr)

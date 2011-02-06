@@ -18,6 +18,10 @@
     <glob pattern="Rakefile"/>
   </mime-type>
   <mime-type type="application/x-ruby">
+    <comment>Bundler Gemfile</comment>
+    <glob pattern="Gemfile"/>
+  </mime-type>
+  <mime-type type="application/x-ruby">
     <comment>Capistrano Deployment File</comment>
     <glob pattern="Capfile"/>
   </mime-type>

@@ -35,7 +35,7 @@ import gobject
 import gtk
 import pango
 import re
-
+from lib import sgconf # gmate lib
 
 class CompletionWindow(gtk.Window):
 
@@ -126,6 +126,84 @@ class CompletionWindow(gtk.Window):
 
         self._view.modify_font(font_desc)
 
+class Settings(sgconf.Options):
+    _uri = u"/apps/gedit-2/plugins/completion"
+
+    max_completions_show = sgconf.IntOption(6)
+    enter_behaviour_mode = sgconf.StringOption('complete')
+
+class CompletionConfigDialog(gtk.Dialog):
+    Title = 'Completion plugin settings'
+    MaxCompletionsShow = 'Maximum suggestions for show:'
+    # two variants of completion works:
+    OnEnterComplete = ('Completion on enter, new line on <mod> + enter', 'complete')
+    OnEnterNewLine =  ('Completion after select suggestion in popup menu', 'newline')
+    EnterBehaviourKey = 'behaviour'
+    EnterBehaviourFrameText = "<b>Behaviour for key 'enter':</b>"
+
+    def __init__(self, settings):
+        gtk.Dialog.__init__(self, self.Title, None, gtk.DIALOG_DESTROY_WITH_PARENT)
+        self._settings = settings
+        self.set_resizable(False)
+        mainbox = gtk.VBox()
+        mainbox.set_border_width(10)
+        mainbox.set_spacing(10)
+        
+        close_button = self.add_button(gtk.STOCK_CLOSE, gtk.RESPONSE_CLOSE)
+        close_button.grab_default()
+        close_button.connect('clicked', self.on_close, None)
+        
+        # Enter Behaviour frame
+        frame = gtk.Frame(self.EnterBehaviourFrameText)
+        frame.set_shadow_type(gtk.SHADOW_NONE)
+        frame.get_label_widget().set_use_markup(True)
+
+        scope_box = gtk.VBox(False, 0)
+        scope_box.set_border_width(5)
+        def entermode_radio(text, mode, group=None):
+            btn = gtk.RadioButton(group, text)
+            btn.set_data(self.EnterBehaviourKey, mode)
+            btn.connect('toggled', self.enter_mode_change)
+            btn.set_active(self._settings.enter_behaviour_mode == mode)
+            scope_box.pack_start(btn)
+            return btn
+        btn1 = entermode_radio(*self.OnEnterComplete)
+        btn2 = entermode_radio(*(self.OnEnterNewLine +  (btn1, )))
+        frame.add(scope_box)
+        mainbox.pack_start(frame)
+        
+        # Max Completions frame
+        frame = gtk.Frame()
+        frame.set_shadow_type(gtk.SHADOW_NONE)
+        hbox = gtk.HBox()
+        hbox.set_spacing(10)
+        label = gtk.Label(self.MaxCompletionsShow)
+        label.set_use_markup(True)
+
+        # gtk.Adjustment(value=0, lower=0, upper=0, step_incr=0, page_incr=0,
+        # page_size=0)
+        adj = gtk.Adjustment(self._settings.max_completions_show, 1, 60, 1, 5)
+        self._max_compl_show = gtk.SpinButton(adj)
+
+        hbox.pack_start(label)
+        hbox.pack_start(self._max_compl_show)
+        frame.add(hbox)
+        mainbox.pack_start(frame)
+
+        # Show
+        self.vbox.pack_start(mainbox)
+        self.vbox.show_all()
+        self.show()
+
+    def on_close(self, widget, data=None):
+        self._settings.max_completions_show = self._max_compl_show.get_value_as_int()
+        gtk.Widget.destroy(self)
+
+    def enter_mode_change(self, widget):
+        mode = widget.get_data(self.EnterBehaviourKey)
+        if mode is not None and mode in ('complete', 'newline'):
+            self._settings.enter_behaviour_mode = mode
+
 
 class CompletionPlugin(gedit.Plugin):
 
@@ -159,9 +237,8 @@ class CompletionPlugin(gedit.Plugin):
     _re_alpha = re.compile(r"\w+", re.UNICODE | re.MULTILINE)
     _re_non_alpha = re.compile(r"\W+", re.UNICODE | re.MULTILINE)
 
-    # TODO: Are these sane defaults? Do we need a configuration dialog?
+    # TODO: Are these sane defaults?
     _scan_frequency = 10000 # ms
-    _max_completions_to_show = 6
 
     def __init__(self):
 
@@ -172,6 +249,14 @@ class CompletionPlugin(gedit.Plugin):
         self._favorite_words = {}
         self._font_ascent = 0
         self._remains = []
+        self._settings = Settings()
+
+    def is_configurable(self):
+        return True
+
+    def create_configure_dialog(self):
+        self._config_dialog = CompletionConfigDialog(self._settings)
+        return self._config_dialog
 
     def _complete_current(self):
         """Complete the current word."""
@@ -230,7 +315,7 @@ class CompletionPlugin(gedit.Plugin):
         _all_words = set(())
         for words in self._all_words.itervalues():
             _all_words.update(words)
-        limit = self._max_completions_to_show
+        limit = self._settings.max_completions_show
         for sequence in (favorites, _all_words):
             for word in sequence:
                 if not word.startswith(incomplete): continue
@@ -239,6 +324,11 @@ class CompletionPlugin(gedit.Plugin):
                 self._completions.append(word)
                 self._remains.append(word[len(incomplete):])
                 if len(self._remains) >= limit: break
+
+    def _check_by_completion_moved(self, moved):
+        if self._settings.enter_behaviour_mode == 'newline':
+            return moved
+        return True
 
     def _on_view_key_press_event(self, view, event, window):
         """Manage actions for completions and the completion window."""
@@ -251,9 +341,8 @@ class CompletionPlugin(gedit.Plugin):
             return self._terminate_completion()
 
         completion_window = self._completion_windows[window]
-        if (event.keyval == gtk.keysyms.Tab) and self._remains:
-            return not self._complete_current()
-        if (event.keyval == gtk.keysyms.Return) and self._remains and completion_window._moved:
+        if (event.keyval == gtk.keysyms.Return) and self._remains and \
+                self._check_by_completion_moved(completion_window._moved):
             return not self._complete_current()
         
         if (event.keyval == gtk.keysyms.Up) and self._remains:

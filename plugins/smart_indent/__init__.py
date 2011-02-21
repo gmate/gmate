@@ -23,7 +23,11 @@ gconf_base_uri = u"/apps/gedit-2/plugins/smart_indent"
 config_client = gconf.client_get_default()
 config_client.add_dir(gconf_base_uri, gconf.CLIENT_PRELOAD_NONE)
 
-DEFAULT_USE_SPACES = config_client.get_bool(default_use_spaces_key) or True
+DEFAULT_USE_SPACES = config_client.get(default_use_spaces_key)
+if DEFAULT_USE_SPACES:
+    DEFAULT_USE_SPACES = DEFAULT_USE_SPACES.get_bool()
+else:
+    DEFAULT_USE_SPACES = True # if setting not set default is True
 DEFAULT_TAB_SIZE   = config_client.get_int(default_tab_size_key) or 4
 
 

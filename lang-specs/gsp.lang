@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language id="gsp" _name="GSP" version="2.0" _section="Markup">
+<language id="gsp" _name="Groovy Server Page File" version="2.0" _section="Markup">
     <metadata>
       <property name="mimetypes">text/x-gsp</property>
       <property name="globs">*.gsp</property>
@@ -8,12 +8,12 @@
     </metadata>
  
     <styles>
-        <style id="comment" _name="Comment" map-to="xml:comment"/>
-        <style id="tag" _name="Tag" map-to="xml:element-name"/>
-        <style id="attrib-name" _name="Attribute Name" map-to="xml:attribute-name"/>
-        <style id="attrib-value" _name="Attribute Value" map-to="xml:attribute-value"/>
-        <style id="dtd" _name="DTD" map-to="xml:doctype"/>
-        <style id="error" _name="Error" map-to="xml:error"/>
+        <style id="comment"       _name="Comment"         map-to="xml:comment"/>
+        <style id="tag"           _name="Tag"             map-to="xml:element-name"/>
+        <style id="attrib-name"   _name="Attribute Name"  map-to="xml:attribute-name"/>
+        <style id="attrib-value"  _name="Attribute Value" map-to="xml:attribute-value"/>
+        <style id="dtd"           _name="DTD"             map-to="xml:doctype"/>
+        <style id="error"         _name="Error"           map-to="xml:error"/>
     </styles>
  
     <default-regex-options case-sensitive="false"/>
@@ -32,15 +32,55 @@
             <start>&lt;!</start>
             <end>&gt;</end>
         </context>
+        
+        
+      <!--        
+        <context id="g-string" style-ref="groovy:g-string">
+            <start>"${</start>
+            <end>}"</end>
+        </context>
+      -->
  
         <!-- This is a placeholder context intended to be <replace>d
              in languages like php that need to embedd contexts inside
              html tags and attributes.
         -->
+        
         <context id="embedded-lang-hook">
             <start>\%{def:never-match}</start>
             <end></end>
         </context>
+        
+        <!--
+            TODO: gsp embedded groovy syntax is " <% println 'hi I am groovy' %>"
+        -->
+<!--        <context id="groovy-block">-->
+<!--            <start>&lt;\%</start>-->
+<!--            <end>\%&gt;</end>-->
+<!--            <include>-->
+<!--                <context ref="groovy:string"/>-->
+<!--                <context ref="groovy:string-2"/>-->
+<!--                <context ref="groovy:g-string"/>-->
+<!--                <context ref="groovy:line-comment"/>-->
+<!--                <context ref="groovy:block-comment"/>-->
+<!--                <context ref="groovy:close-comment-outside-comment"/>-->
+<!--                <context ref="groovy:variable"/>-->
+<!--                <context ref="groovy:externals"/>-->
+<!--                <context ref="groovy:declarations"/>-->
+<!--                <context ref="groovy:primitive-types"/>-->
+<!--                <context ref="groovy:simple-data-objects"/>-->
+<!--                <context ref="groovy:storage-class"/>-->
+<!--                <context ref="groovy:scope-declarations"/>-->
+<!--                <context ref="groovy:flow"/>-->
+<!--                <context ref="groovy:memory"/>-->
+<!--                <context ref="groovy:future-reserved-words"/>-->
+<!--                <context ref="groovy:null-value"/>-->
+<!--                <context ref="groovy:boolean"/>-->
+<!--                <context ref="groovy:numeric"/>-->
+<!--            </include>-->
+<!--        </context>-->
+
+<!--        <replace id="html:embedded-lang-hook" ref="groovy-block"/>-->
  
         <context id="generic-tag">
             <include>
@@ -121,15 +161,15 @@
             </include>
         </context>
  
-	<context id="gtag">
-		<start>&lt;g:\s*/?\s*[a-z0-9_-]+</start>
-                <end>/?\s*&gt;</end>
-            	<include>
-                	<context sub-pattern="0" where="start" style-ref="tag"/>
-                	<context sub-pattern="0" where="end" style-ref="tag"/>
-                	<context ref="generic-tag"/>
-		</include>
-	</context>
+        <context id="gtag">
+            <start>&lt;g:\s*/?\s*[a-z0-9_-]+</start>
+            <end>/?\s*&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="tag"/>
+                <context sub-pattern="0" where="end" style-ref="tag"/>
+                <context ref="generic-tag"/>
+            </include>
+        </context>
  
         <context id="gsp">
             <include>
@@ -139,6 +179,8 @@
                 <context ref="xml:cdata"/>
                 <context ref="comment"/>
                 <context ref="dtd"/>
+<!--                <context ref="g-string"/>-->
+<!--                <context ref="groovy-block"/>-->
                 <context ref="script"/>
                 <context ref="tag"/>
                 <context ref="gtag"/>

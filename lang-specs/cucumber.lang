@@ -27,9 +27,14 @@
   <styles>
     <style id="keyword" _name="Keyword" map-to="def:keyword"/>
     <style id="string"  _name="String"  map-to="def:string"/>
+    <style id="comment" _name="Comment" map-to="def:comment"/>
   </styles>
 
   <definitions>
+    <context id="line-comment" style-ref="comment" end-at-line-end="true">
+        <start>#</start>
+    </context>
+    
     <context id="string" style-ref="string">
       <start>"</start>
       <end>"</end>
@@ -58,6 +63,7 @@
 
     <context id="cucumber">
       <include>
+        <context ref="line-comment"/>
         <context ref="string"/>
         <context ref="string-2"/>
         <context ref="apostrophe"/>

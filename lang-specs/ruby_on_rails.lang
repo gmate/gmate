@@ -855,7 +855,55 @@
         <context ref="simple-interpolation"/>
       </include>
     </context>
+    
+    <context id="here-doc-backtick-quoted-string" style-ref="here-doc" style-inside="true">
+      <start>&lt;&lt;`(\w+)`</start>
+      <end>^\%{1@start}</end>
+      <include>
+        <context sub-pattern="0" where="start" style-ref="here-doc-bound"/>
+        <context sub-pattern="0" where="end" style-ref="here-doc-bound"/>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+    
+    <context id="here-doc-single-quoted-indented-string" style-ref="here-doc" style-inside="true">
+      <start>&lt;&lt;-'(\w+)'</start>
+      <end>^\s*\%{1@start}</end>
+      <include>
+        <context sub-pattern="0" where="start" style-ref="here-doc-bound"/>
+        <context sub-pattern="0" where="end" style-ref="here-doc-bound"/>
+      </include>
+    </context>
 
+    <context id="here-doc-double-quoted-indented-string" style-ref="here-doc" style-inside="true">
+      <start>&lt;&lt;-"(\w+)"</start>
+      <end>^\s*\%{1@start}</end>
+      <include>
+        <context sub-pattern="0" where="start" style-ref="here-doc-bound"/>
+        <context sub-pattern="0" where="end" style-ref="here-doc-bound"/>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+    
+    <context id="here-doc-backtick-quoted-indented-string" style-ref="here-doc" style-inside="true">
+      <start>&lt;&lt;-`(\w+)`</start>
+      <end>^\s*\%{1@start}</end>
+      <include>
+        <context sub-pattern="0" where="start" style-ref="here-doc-bound"/>
+        <context sub-pattern="0" where="end" style-ref="here-doc-bound"/>
+        <context ref="escape"/>
+        <context ref="def:line-continue"/>
+        <context ref="complex-interpolation"/>
+        <context ref="simple-interpolation"/>
+      </include>
+    </context>
+    
     <define-regex id="regex-opts">[iomx]*[neus]?[iomx]*</define-regex>
 
     <context id="regex-bracketed" style-ref="escape" style-inside="true">
@@ -913,10 +961,14 @@
         <context ref="def:shebang"/>
         <context ref="def:shell-like-comment"/>
         <context ref="multiline-comment"/>
+        <context ref="here-doc-string"/>
         <context ref="here-doc-single-quoted-string"/>
         <context ref="here-doc-double-quoted-string"/>
-        <context ref="here-doc-string"/>
+        <context ref="here-doc-backtick-quoted-string"/>
         <context ref="here-doc-indented-string"/>
+        <context ref="here-doc-single-quoted-indented-string"/>
+        <context ref="here-doc-double-quoted-indented-string"/>
+        <context ref="here-doc-backtick-quoted-indented-string"/>
         <context ref="double-quoted-string"/>
         <context ref="single-quoted-string"/>
         <context ref="query-string1"/>

@@ -41,7 +41,7 @@ class FindInProjectParser:
             if ignorecase:
                 arg.append('-i')
             if filetype:
-                arg.append('--include=*.{%s}' % ','.join(filetype))
+                arg.extend(['--include=*.%s' % t for t in filetype])
             process = subprocess.Popen(arg, stdout=subprocess.PIPE, cwd=path,env={"GREP_COLORS": "ms=33:mc=01;31:sl=:cx=:fn=0:ln=:bn=32:se="})
             self.raw = cgi.escape(process.communicate()[0])
             self.raw = self.raw.replace('\x1b[K', '')

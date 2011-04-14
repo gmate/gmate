@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2011 Craig Russell
+    Author: Craig Russell <craig@craig-russell.co.uk>
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the
+    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+
+-->
+<style-scheme id="solarized-light" _name="Solarized Light" version="1.0">
+    <author>Craig Russell</author>
+    <_description>Color scheme using Solarized light color palette</_description>
+
+    <!-- Solarized Palette -->
+    <color name="base03"  value="#002B36"/>
+    <color name="base02"  value="#073642"/>
+    <color name="base01"  value="#586E75"/>
+    <color name="base00"  value="#657B83"/>
+    <color name="base0"   value="#839496"/>
+    <color name="base1"   value="#93A1A1"/>
+    <color name="base2"   value="#EEE8D5"/>
+    <color name="base3"   value="#FDF6E3"/>
+    <color name="yellow"  value="#B58900"/>
+    <color name="orange"  value="#CB4B16"/>
+    <color name="red"     value="#DC322F"/>
+    <color name="magenta" value="#D33682"/>
+    <color name="violet"  value="#6C71C4"/>
+    <color name="blue"    value="#268BD2"/>
+    <color name="cyan"    value="#2AA198"/>
+    <color name="green"   value="#859900"/>
+
+    <!-- Global Settings -->
+    <style name="text"                        foreground="base01" background="base3"/>
+    <style name="selection"                   background="base1"/>
+    <style name="cursor"                      foreground="base03"/>
+    <style name="current-line"                background="base2"/>
+    <style name="line-numbers"                foreground="base1" background="base2"/>
+
+  
+    <!-- Bracket Matching -->
+    <style name="bracket-match"               background="base02"/>
+    <style name="bracket-mismatch"            foreground="red" background="base2"/>
+
+    <!-- Search Matching -->
+    <style name="search-match"                foreground="blue" background="base2"/>  
+
+    <!-- Comments -->
+    <style name="def:comment"                 foreground="base1"/>
+    <style name="def:shebang"                 foreground="base1" bold="true"/>
+    <style name="def:doc-comment-element"     italic="true"/>
+
+    <!-- Constants -->
+    <style name="def:constant"                foreground="cyan"/>
+    <style name="def:special-char"            foreground="green"/>
+
+    <!-- Identifiers -->
+    <style name="def:identifier"              foreground="blue"/>
+
+    <!-- Statements -->
+    <style name="def:statement"               foreground="red" bold="true"/>
+
+    <!-- Types -->
+    <style name="def:type"                    foreground="magenta" bold="true"/>
+
+    <!-- Others -->
+    <style name="def:preprocessor"            foreground="violet"/>
+    <style name="def:error"                   foreground="red" background="base2"/>
+    <style name="def:note"                    foreground="blue" background="yellow"/>
+    <style name="def:underlined"              italic="true" underline="true"/>
+
+
+</style-scheme>

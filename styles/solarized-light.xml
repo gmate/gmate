@@ -44,18 +44,18 @@
 
     <!-- Global Settings -->
     <style name="text"                        foreground="base01" background="base3"/>
-    <style name="selection"                   background="base1"/>
-    <style name="cursor"                      foreground="base03"/>
+    <style name="selection"                   foreground="base3" background="base1"/>
+    <style name="cursor"                      foreground="base01"/>
     <style name="current-line"                background="base2"/>
     <style name="line-numbers"                foreground="base1" background="base2"/>
 
   
     <!-- Bracket Matching -->
-    <style name="bracket-match"               background="base02"/>
-    <style name="bracket-mismatch"            foreground="red" background="base2"/>
+    <style name="bracket-match"               foreground="base3" background="base1"/>
+    <style name="bracket-mismatch"            foreground="red" background="base1"/>
 
     <!-- Search Matching -->
-    <style name="search-match"                foreground="blue" background="base2"/>  
+    <style name="search-match"                foreground="orange" background="base3"/>  
 
     <!-- Comments -->
     <style name="def:comment"                 foreground="base1"/>
@@ -70,16 +70,17 @@
     <style name="def:identifier"              foreground="blue"/>
 
     <!-- Statements -->
-    <style name="def:statement"               foreground="red" bold="true"/>
+    <style name="def:statement"               foreground="orange"/>
 
     <!-- Types -->
-    <style name="def:type"                    foreground="magenta" bold="true"/>
+    <style name="def:type"                    foreground="yellow"/>
+
+    <!-- Operators -->
+    <style name="def:operator"                foreground="green"/>
 
     <!-- Others -->
     <style name="def:preprocessor"            foreground="violet"/>
-    <style name="def:error"                   foreground="red" background="base2"/>
-    <style name="def:note"                    foreground="blue" background="yellow"/>
+    <style name="def:error"                   foreground="red" bold="true"/>
+    <style name="def:note"                    foreground="magenta" bold="true"/>
     <style name="def:underlined"              italic="true" underline="true"/>
-
-
 </style-scheme>

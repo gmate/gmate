@@ -49,6 +49,14 @@ import pango
 import errno
 import dircache
 
+# only display remote directories in file chooser if GIO is available:
+onlyLocalPathes = False
+try:
+    import gio
+except ImportError:
+    onlyLocalPathes = True
+
+
 ui_str = """<ui>
   <menubar name="MenuBar">
     <menu name="SearchMenu" action="Search">
@@ -553,6 +561,7 @@ class FileSearchWindowHelper:
         self._window = window
         self._plugin = plugin
         self._dialog = None
+        self._bus = None
         self.searchers = [] # list of existing SearchProcess instances
 
         self.gclient = gconf.client_get_default()
@@ -568,6 +577,7 @@ class FileSearchWindowHelper:
         self._lastClickIter = None # TextIter at position of last right-click or last popup menu
 
         self._insert_menu()
+        self._addFileBrowserMenuItem()
 
         self._window.connect_object("destroy", FileSearchWindowHelper.destroy, self)
         self._window.connect_object("tab-added", FileSearchWindowHelper.onTabAdded, self)
@@ -651,6 +661,40 @@ class FileSearchWindowHelper:
     def onMenuItemActivate (self, searchText):
         self.openSearchDialog(searchText)
 
+    def _addFileBrowserMenuItem (self):
+        if hasattr(self._window, 'get_message_bus') and gedit.version >= (2,27,4):
+            self._bus = self._window.get_message_bus()
+
+            fbAction = gtk.Action('search-files-plugin', "Search files...", "Search in files", None)
+            try:
+                self._bus.send_sync('/plugins/filebrowser', 'add_context_item',
+                    {'action':fbAction, 'path':'/FilePopup/FilePopup_Opt3'})
+            except StandardError, e:
+                return
+            fbAction.connect('activate', self.onFbMenuItemActivate)
+
+    def onFbMenuItemActivate (self, action):
+        responseMsg = self._bus.send_sync('/plugins/filebrowser', 'get_view')
+        fbView = responseMsg.get_value('view')
+        (model, rowPathes) = fbView.get_selection().get_selected_rows()
+
+        selectedUri = None
+        for rowPath in rowPathes:
+            fileFlags = model[rowPath][3]
+            isDirectory = bool(fileFlags & 1)
+            if isDirectory:
+                selectedUri = model[rowPath][2]
+                break
+
+        if selectedUri is None:
+            msg = self._bus.send_sync('/plugins/filebrowser', 'get_root')
+            selectedUri = msg.get_value('uri')
+
+        fileObj = gio.File(selectedUri)
+        selectedDir = fileObj.get_path()
+
+        self.openSearchDialog(searchDirectory=selectedDir)
+
     def registerSearcher (self, searcher):
         self.searchers.append(searcher)
 
@@ -715,6 +759,7 @@ class FileSearchWindowHelper:
             action=gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER,
             buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
         fileChooser.set_default_response(gtk.RESPONSE_OK)
+        fileChooser.set_local_only(onlyLocalPathes)
         fileChooser.set_filename( self.tree.get_widget('cboSearchDirectoryEntry').get_text() )
 
         response = fileChooser.run()
@@ -726,7 +771,7 @@ class FileSearchWindowHelper:
     def on_search_files_activate(self, action):
         self.openSearchDialog()
 
-    def openSearchDialog (self, searchText = None):
+    def openSearchDialog (self, searchText = None, searchDirectory = None):
         gladeFile = os.path.join(os.path.dirname(__file__), "file-search.glade")
         self.tree = gtk.glade.XML(gladeFile)
         self.tree.signal_autoconnect(self)
@@ -754,12 +799,20 @@ class FileSearchWindowHelper:
                     searchDir = projectMarkerRootDir
                 else:
                     # otherwise, try to use directory of that file
-                    currFileDir = self._window.get_active_tab().get_document().get_uri()
-                    if currFileDir != None and currFileDir.startswith("file:///"):
-                        searchDir = urllib.unquote(os.path.dirname(currFileDir[7:]))
+                    currFilePath = self._window.get_active_tab().get_document().get_uri()
+                    if currFilePath != None:
+                        if onlyLocalPathes:
+                            if currFilePath.startswith("file:///"):
+                                searchDir = urllib.unquote(os.path.dirname(currFilePath[7:]))
+                        else:
+                            gFilePath = gio.File(currFilePath)
+                            searchDir = gFilePath.get_parent().get_path()
             else:
                 # there's no file open => fall back to Gedit's current working dir
                 pass
+
+        if searchDirectory is not None:
+            searchDir = searchDirectory
 
         searchDir = os.path.normpath(searchDir) + "/"
 
@@ -1048,8 +1101,8 @@ class FileSearcher:
             currView = gedit.tab_get_from_document(currDoc).get_view()
             currView.scroll_to_cursor()
 
-            # workaround to scroll to cursor position when opening file into window of "Unnamed Document":
-            gobject.idle_add(scrollToCursorCb, currView)
+        # use an Idle handler so the document has time to load:  
+        gobject.idle_add(self.onDocumentOpenedCb, (lineno > 0))
 
     def on_btnClose_clicked (self, button):
         self.destroy()
@@ -1128,10 +1181,24 @@ class FileSearcher:
         self._collapseAll = True
         treeview.collapse_all()
 
+    def onDocumentOpenedCb (self, doScroll):
+        currDoc = self._window.get_active_document()
 
-def scrollToCursorCb (view):
-    view.scroll_to_cursor()
-    return False
+        if doScroll:
+            # workaround to scroll to cursor position when opening file into window of "Unnamed Document":
+            currView = gedit.tab_get_from_document(currDoc).get_view()
+            currView.scroll_to_cursor()
+
+        # highlight matches in opened document:
+        flags = 0
+        if self.query.caseSensitive:
+            flags |= 4
+        if self.query.wholeWord:
+            flags |= 2
+
+        currDoc.set_search_text(self.query.text, flags)
+        return False
+
 
 def resultSearchCb (model, column, key, it):
     """Callback function for searching in result list"""

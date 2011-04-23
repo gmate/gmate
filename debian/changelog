@@ -1,3 +1,17 @@
+gedit-gmate (0.9.16~uorppa0) natty; urgency=low
+  * Add Solarized theme.
+  * Update File Search plugin.
+  * Fix File In Project plugin.
+  * Add Gemfile as Ruby MIME-type.
+  * Fix the picture path of TODO-list plugin.
+  * Fix Completion plugin – remove catch of Tab key.
+  * Fix Smart Indent plugin to use defaults tabs prefs from global conf and
+    no rewrite him.
+  * Fix Smart Indent plugin to don’t ignore gedit setting “use tabs”.
+  * Fix Gemini backward compatibility.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Sat, 23 Apr 2011 11:53:37 +0400
+
 gedit-gmate (0.9.15~uorppa0) maverick; urgency=low
 
   * Update classbrowser

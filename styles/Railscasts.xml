@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+
+2011-04-28 modificated for a better simulation of the original Railscasts Theme.
+Vladimir Prieto.- 
+
  Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
 
  This file was generated from a textmate theme named Railscasts
@@ -25,7 +29,11 @@
   <author>tm2gtksw2(Alexandre da Silva)</author>
   <_description>GMate Theme - Generated from textmate theme with tm2gtksw2</_description>
 
-  <style name="bracket-match"  background="#3d3f40"/>
+	<color name="buildin_color" 		value="#da4939"/>
+	<color name="helper_color" 			value="#da4939"/>
+	<color name="rubycode_color" 	value="#212121"/>
+
+  <style name="bracket-match"  background="#333435" bold="true"/>
   <style name="bracket-mismatch"  background="#333435" underline="true"/>
   <style name="css:at-rules" foreground="#cc7833"/>
   <style name="css:color" foreground="#6d9cbe"/>
@@ -64,7 +72,7 @@
   <style name="draw-spaces" foreground="#404040"/>
   <style name="html:dtd" foreground="#a5c261"/>
   <style name="html:tag" foreground="#e8bf6a"/>
-  <style name="js:function" foreground="#da4939"/>
+  <style name="js:function" foreground="builtin_color"/>
   <style name="line-numbers" foreground="#e6e1dc" background="#333435"/>
   <style name="perl:builtin" foreground="#ffc66d"/>
   <style name="perl:include-statement" foreground="#cc7833"/>
@@ -78,11 +86,10 @@
   <style name="python:builtin-object" foreground="#6d9cbe"/>
   <style name="python:module-handler" foreground="#cc7833"/>
   <style name="python:special-variable" foreground="#cc7833"/>
-  <style name="ruby:attribute-definition" foreground="#da4939"/>
-  <style name="ruby:builtin" foreground="#da4939"/>
-  <style name="ruby:support-constant" foreground="#da4939"/>
+  <style name="ruby:attribute-definition" foreground="buildin_color"/>
+  <style name="ruby:builtin" foreground="buildin_color"/>
   <style name="ruby:class-variable" foreground="#d0d0ff"/>
-  <style name="ruby:constant" foreground="#da4939"/>
+  <style name="ruby:constant" foreground="buildin_color"/>
   <style name="ruby:global-variable" foreground="#ffc66d"/>
   <style name="ruby:instance-variable" foreground="#d0d0ff"/>
   <style name="ruby:module-handler" foreground="#cc7833"/>
@@ -90,20 +97,19 @@
   <style name="ruby:regex" foreground="#a5c261"/>
   <style name="ruby:special-variable" foreground="#cc7833"/>
   <style name="ruby:symbol" foreground="#6d9cbe"/>
-  <style name="rubyonrails:attribute-definition" foreground="#da4939"/>
-  <style name="rubyonrails:builtin" foreground="#da4939"/>
-  <style name="rubyonrails:support-constant" foreground="#da4939"/>
+  <style name="rubyonrails:attribute-definition" foreground="buildin_color"/>
+  <style name="rubyonrails:builtin" foreground="buildin_color"/>
   <style name="rubyonrails:class-inherit" foreground="#ffffff"/>
   <style name="rubyonrails:class-name" foreground="#ffffff"/>
   <style name="rubyonrails:class-variable" foreground="#d0d0ff"/>
   <style name="rubyonrails:complex-interpolation" foreground="#519f50"/>
-  <style name="rubyonrails:constant" foreground="#da4939"/>
+  <style name="rubyonrails:constant" foreground="buildin_color"/>
   <style name="rubyonrails:global-variable" foreground="#ffc66d"/>
   <style name="rubyonrails:instance-variable" foreground="#d0d0ff"/>
   <style name="rubyonrails:module-handler" foreground="#cc7833"/>
   <style name="rubyonrails:module-name" foreground="#ffffff"/>
   <style name="rubyonrails:predefined-variable" foreground="#6e9cbe"/>
-  <style name="rubyonrails:rails" foreground="#da4939"/>
+  <style name="rubyonrails:rails" foreground="buildin_color"/>
   <style name="rubyonrails:regex" foreground="#a5c261"/>
   <style name="rubyonrails:simple-interpolation" foreground="#519f50"/>
   <style name="rubyonrails:special-variable" foreground="#cc7833"/>
@@ -116,6 +122,10 @@
   <style name="xml:element-name" foreground="#e8bf6a"/>
   <style name="xml:namespace" foreground="#e8bf6a"/>
   <style name="xml:tag" foreground="#e8bf6a"/>
+  
+
+	<style name="rhtml:helper" foreground="helper_color" bold="false"/>
+	<style name="rhtml:rubycode" background="rubycode_color"/>
 
 </style-scheme>
 

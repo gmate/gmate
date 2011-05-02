@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Pythonic is a theme based on iPlastic and inspired by the Ironman theme
+ for vim. Full support for python and css has been added.
+ Copyright 2011. Changes by Eddie Flores (eddflrs@gmail.com).
+
+ Original license info:
+ Copyright (C) 2009 tm2gtksw2(Alexandre da Silva)
+
+ This file was generated from a textmate theme named iPlastic
+ with tm2gtksw2 tool. (Alexandre da Silva)
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+-->
+
+<style-scheme id="Pythonic" _name="Pythonic" version="1.0">
+  <author>Eddie Flores</author>
+  <_description>Theme based on iPlastic by Alexandre da Silva, changes inspired by Ironman for vim.</_description>
+
+  <style name="bracket-match"               foreground="#FFFFFF" background="#31FF76" bold="true"/>
+  <style name="bracket-mismatch"            background="#ff4b52" underline="true"/>
+  <style name="current-line"                background="#E3E3E3"/>
+  <style name="cursor"                      foreground="#000000"/>
+  <style name="draw-spaces"                 foreground="#E0E0E0"/>
+  <style name="line-numbers"                foreground="#FFFFFF" background="#C0D0E0"/>
+  <style name="search-match"                foreground= "#000000" background="#fffd8c" bold="true" underline="true"/>
+  <style name="selection"                   foreground="#000000" background="#bad6fd"/>
+  <style name="text"                        foreground="#000000" background="#eeeeee"/>
+
+  <style name="html:dtd"                    foreground="#8cfffd"/>
+  <style name="html:tag"                    foreground="#1446DC"/>
+ 
+  <style name="css:at-rules"                foreground="#4998e6"/>
+  <style name="css:color"                   foreground="#eb7950" italic="true"/>
+  <style name="css:comment"                 background="#EFEFFF" foreground="#A0B0C0" italic="true"/>
+  <style name="css:decimal"                 foreground="#ff7530"/>
+  <style name="css:dimension"               foreground="#000000"/>
+  <style name="css:error"                   foreground="#ff4b52"/>
+  <style name="css:function"                foreground="#000" bold="true"/>
+  <style name="css:keyword"                 foreground="#333" bold="true"/>
+  <style name="css:known-property-values"   foreground="#e54997"/>
+  <style name="css:others-2"                foreground="#00ffff"/>
+  <style name="css:others-3"                foreground="#78828c"/>
+  <style name="css:string"                  foreground="#000000" background="#E8F1FF"/>
+ 
+  <style name="def:base-n-integer"          foreground="#0066ff"/>
+  <style name="def:boolean"                 foreground="#000000" bold="true"/>
+  <style name="def:builtin"                 foreground="#9700cc"/>
+  <style name="def:character"               foreground="#009933"/>
+  <style name="def:comment"                 background="#EFEFFF" foreground="#A0B0C0"/>
+  <style name="def:complex"                 foreground="#0066ff"/>
+  <style name="def:constant"                foreground="#6782d3"/>
+  <style name="def:decimal"                 foreground="#0066ff"/>
+  <style name="def:doc-comment"             foreground="#0066ff" italic="true"/>
+  <style name="def:doc-comment-element"     foreground="#0066ff" italic="true"/>
+  <style name="def:error"                   foreground="#ff0000" background="#ebadab"/>
+  <style name="def:floating-point"          foreground="#0066ff"/>
+  <style name="def:function"                foreground="#ff8000"/>
+  <style name="def:keyword"                 foreground="#0070e6"/>
+  <style name="def:note"                    foreground="#0066ff"/>
+  <style name="def:number"                  foreground="#0066ff"/>
+  <style name="def:operator"                foreground="#4998e6"/>
+  <style name="def:preprocessor"            foreground="#6782d3"/>
+  <style name="def:reserved"                foreground="#4998e6"/>
+  <style name="def:shebang"                 foreground="#ff4b52" italic="true"/>
+  <style name="def:special-char"            foreground="#6782d3"/>
+  <style name="def:special-constant"        foreground="#9700cc"/>
+  <style name="def:statement"               foreground="#4998e6"/>
+  <style name="def:string"                  foreground="#000" background="#E8F1FF"/>
+  <style name="def:type"                    foreground="#3333ff" bold="true"/>
+
+
+  <style name="js:function"                 foreground="#3333ff" bold="true"/>
+
+  <style name="perl:builtin"                foreground="#ff8000"/>
+  <style name="perl:include-statement"      foreground="#4998e6"/>
+  <style name="perl:line-directive"         foreground="#6782d3"/>
+  <style name="perl:special-variable"       foreground="#9700cc"/>
+  <style name="perl:type"                   foreground="#6782d3"/>
+
+  <style name="php:string"                  foreground="#009933"/>
+
+  <style name="python:base-n-integer"       foreground="#ff4b52"/>
+  <style name="python:boolean"              foreground="#7530ff" bold="true"/>
+  <style name="python:builtin-constant"     foreground="#4998e6"/>
+  <style name="python:builtin-function"      foreground="#4a50ff"/>
+  <style name="python:builtin-object"       foreground="#6782d3"/>
+  <style name="python:complex"              foreground="#000000" background="#FFFFFF"/>
+  <style name="python:decimal"              foreground="#ff7530"/>
+  <style name="python:escaped-char"         foreground="#7530ff"/>
+  <style name="python:floating-point"       foreground="#ff4b52"/>
+  <style name="python:format"               foreground="#7f6eff"/>
+  <style name="python:keyword"              foreground="#000000" bold="true"/>
+  <style name="python:multiline-string"     foreground="#000000" background="#FAFAFA"/>
+  <style name="python:string"               foreground="#000000" background="#E8F1FF"/>
+  <style name="python:string-conversion"    foreground="#000000" background="#E8F1FF"/>
+  <style name="python:module-handler"       foreground="#000000" bold="true"/>
+  <style name="python:special-variable"     foreground="#4a50ff"/>
+
+  <style name="ruby:attribute-definition"   foreground="#4998e6"/>
+  <style name="ruby:constant"               foreground="#6782d3"/>
+  <style name="ruby:global-variable"        foreground="#ff8000"/>
+  <style name="ruby:module-handler"         foreground="#4998e6"/>
+  <style name="ruby:predefined-variable"    foreground="#9700cc"/>
+  <style name="ruby:regex"                  foreground="#ff0080"/>
+  <style name="ruby:special-variable"       foreground="#4998e6"/>
+  <style name="ruby:symbol"                 foreground="#6782d3"/>
+  
+  <style name="rubyonrails:attribute-definition"        foreground="#4998e6"/>
+  <style name="rubyonrails:block-parameter"             italic="true"/>
+  <style name="rubyonrails:builtin"                     foreground="#3333ff" bold="true"/>
+  <style name="rubyonrails:class-inherit"               bold="true" underline="true"/>
+  <style name="rubyonrails:class-name"                  bold="true" underline="true"/>
+  <style name="rubyonrails:complex-interpolation"       foreground="#6782d3"/>
+  <style name="rubyonrails:constant"                    foreground="#6782d3"/>
+  <style name="rubyonrails:global-variable"             foreground="#ff8000"/>
+  <style name="rubyonrails:module-handler"              foreground="#4998e6"/>
+  <style name="rubyonrails:module-name"                 bold="true" underline="true"/>
+  <style name="rubyonrails:predefined-variable"         foreground="#9700cc"/>
+  <style name="rubyonrails:regex"                       foreground="#ff0080"/>
+  <style name="rubyonrails:simple-interpolation"        foreground="#6782d3"/>
+  <style name="rubyonrails:special-variable"            foreground="#4998e6"/>
+  <style name="rubyonrails:symbol"                      foreground="#6782d3"/>
+  
+
+  <style name="xml:attribute-name"          foreground="#EB7950" italic="true"/>
+  <style name="xml:doctype"                 foreground="#1446DC"/>
+  <style name="xml:element-name"            bold="true"/>
+  <style name="xml:namespace"               bold="true"/>
+  <style name="xml:tag"                     foreground="#1446DC"/>
+  
+</style-scheme>
+

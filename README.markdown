@@ -58,6 +58,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Rails Hotcommands**. Execute Rails Commands (such rake tasks).
 * **Rails Hotkeys**. Navigation in Rails Project Files.
 * **Regex Search Replace**. Search and replace with regular expressions.
+* **Reopen Tabs**. Saves opened tabs on exit to restore them on next run.
 * **Smart Indent**. Smart Indentation regex based.
 * **Tabulation**. Auto set tabs and spaces based on file type.
 * **Text Tools**. Some text manipulation improvements (adapted from line tools).

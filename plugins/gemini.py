@@ -60,7 +60,7 @@ class Gemini:
         return
 
     def key_press_handler(self, view, event):
-        if gedit.version > (2, 30, 1):
+        if gedit.version > (2, 30, 3):
             if self.toggle:
                 self.toggle = False
                 return

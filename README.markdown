@@ -177,6 +177,7 @@ specific plugin licencing and copyright.
 * SpaceCadet Pro (Converted from Textmate)
 * Spetacular (Converted from Textmate)
 * Stoneship (Converted from Textmate)
+* Solarized
 * Sunburst (Converted from Textmate)
 * Swyphs II (Converted from Textmate)
 * Tango (Converted from Textmate)

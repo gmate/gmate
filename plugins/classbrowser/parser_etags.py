@@ -94,10 +94,9 @@ class ETagsParser( CTagsParser ):
             
             # Tokens of the ctags parser are constructed as follows:
             # name, file uri, line number, type code (as used in ctags, see _get_type)
-            
-            try: filename = str(gnomevfs.get_uri_from_local_path(filename))
-            except: pass
-            
+            if filename != None and not filename.startswith("file://"):
+                try: filename = str(gnomevfs.get_uri_from_local_path(filename))
+                except: pass
             token = [b,str(filename),int(linenumber),self._get_type(a)]
             
             parent = None # Indentation is arbitrary

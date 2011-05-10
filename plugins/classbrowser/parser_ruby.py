@@ -168,6 +168,10 @@ class RubyFile(Token):
                 if token is None: continue
                 token.rubyfile = self
                 token.start = linecount
+
+                if token.type in ("class", "module"):
+                    access = "public"
+
                 if token.type == "def":
                     token.access = access
                     
@@ -259,7 +263,7 @@ class RubyFile(Token):
                 if len(ln) == 1:
                     access = ln[0]
                     
-            if re.search(r";?\s*end(?:\s*$|\s+(?:while|until))", line):
+	    if re.search(r";?\s*end(\.|,|&|\||\s|$)", line):
                 if ends_to_skip > 0:
                     ends_to_skip -= 1
                 else:

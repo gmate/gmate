@@ -24,6 +24,7 @@ import gnomevfs
 from parserinterface import *
 import imagelibrary
 import options
+import re
 
 
 
@@ -60,9 +61,9 @@ class CTagsParser( ClassParserInterface ):
         if os.system("ctags --version >/dev/null") != 0:
             self.model.append( None, ["Please install ctags!","",0,""] )
             return self.model
-        
-        self._parse_doc_to_model()
-        return self.model
+        else:
+            self._parse_doc_to_model()
+            return self.model
         
         
     def _generate_tagfile_from_document(self, doc, options = "-n"):
@@ -73,22 +74,19 @@ class CTagsParser( ClassParserInterface ):
         except: return None
     
         docpath = doc.get_uri_for_display()
+	if not os.path.isfile(docpath):
+	    # don't parse the file if it doesn't exist
+	    return None
         path, filename = os.path.split(docpath)
         if not self.parse_all_files:
             if filename.find(".") != -1:
-                arg = path + os.sep + filename[:filename.rfind(".")] + ".*"
+                arg = self.shell_escape(path + os.sep + filename[:filename.rfind(".")]) + ".*"
             else:
-                arg = docpath
+                arg = self.shell_escape(docpath)
         else:
-            arg = path + os.sep + "*.*"       
+            arg = self.shell_escape(path) + os.sep + "*.*"       
             
-        # simply replacing blanks is the best variant because both gnomevfs
-        # and the fs understand it.
-        arg = arg.replace(" ","\ ")
-        
-        print filename.find(".vala")
-        
-        if filename.find(".vala") >= 0:
+        if filename.find(".vala") != -1:
              return self._generate_tagfile(docpath, "-n --language-force=C#")                
         else:         
              return self._generate_tagfile(arg,options)
@@ -102,8 +100,7 @@ class CTagsParser( ClassParserInterface ):
         os.close(h)
         
         # launch ctags
-        command = "ctags %s -f %s %s"%(options,tmpfile,filestr)
-        print "command: %s"%command
+        command = "ctags %s -f \"%s\" %s"%(options,tmpfile,filestr)
         os.system(command)
         
         return tmpfile
@@ -177,6 +174,10 @@ class CTagsParser( ClassParserInterface ):
         os.remove(tmpfile)
         
         
+    def shell_escape(self, filename):
+        return re.sub(r"([ \"'\\\$])", '\\\\\\1', filename)
+    
+    
     def get_tag_position(self, model, path):
         filepath = model.get_value( model.get_iter(path), 1 )
         linenumber = model.get_value( model.get_iter(path), 2 )
@@ -229,19 +230,18 @@ class CTagsParser( ClassParserInterface ):
         """ Returns a char representing the token type or False if none were found.
 
         According to the ctags docs, possible types are:
-		c	class name
-		d	define (from #define XXX)
-		e	enumerator
-		f	function or method name
-		F	file name
-		g	enumeration name
-		m	member (of structure or class data)
-		n	namespace
-		p	function prototype
-		s	structure name
-		t	typedef
-		u	union name
-		v	variable        
+            c    class name
+            d    define (from #define XXX)
+            e    enumerator
+            f    function or method name
+            F    file name
+            g    enumeration name
+            m    member (of structure or class data)
+            p    function prototype
+            s    structure name
+            t    typedef
+            u    union name
+            v    variable        
         """
         if len(tokrow) == 3: return
         for i in tokrow[3:]:
@@ -272,7 +272,7 @@ class CTagsParser( ClassParserInterface ):
         """ class, enumerations, structs and unions are considerer containers.
             See Issue 13 for some issues we had with this.
         """
-        if self.__get_type(tokrow) in 'cgnsut': return True
+        if self.__get_type(tokrow) in 'cgsut': return True
         return False
         
         
@@ -294,7 +294,6 @@ class CTagsParser( ClassParserInterface ):
         ctr.set_property("text", i)
         elements = {
             "c":"class",
-            "s":"class",
             "f":"function",
             "m":"member",
             "e":"enumerator",
@@ -315,12 +314,12 @@ class CTagsParser( ClassParserInterface ):
             "F":"default", #file name
             "g":"enum", #enumeration name
             "m":"default", #(of structure or class data)
-        	"p":"default", #function prototype
-		    "s":"struct", #structure name
-		    "t":"default", #typedef
-		    "u":"struct", #union name
-		    "v":"variable", #variable
-		    "n":"namespace", #namespace
+            "p":"default", #function prototype
+            "s":"struct", #structure name
+            "t":"default", #typedef
+            "u":"struct", #union name
+            "v":"variable", #variable
+            "n":"namespace", #namespace
         }
         try:
             i = model.get_value(it,3)

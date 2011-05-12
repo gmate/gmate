@@ -26,6 +26,14 @@
     <glob pattern="Capfile"/>
   </mime-type>
   <mime-type type="application/x-ruby">
+    <comment>Thor tasks</comment>
+    <glob pattern="Thorfile"/>
+  </mime-type>
+  <mime-type type="application/x-ruby">
+    <comment>Thor tasks</comment>
+    <glob pattern="*.thor"/>
+  </mime-type>
+  <mime-type type="application/x-ruby">
     <comment>Rackup File</comment>
     <glob pattern="*.ru"/>
   </mime-type>

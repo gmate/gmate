@@ -1,5 +1,8 @@
 #!/bin/sh
 # Build all files to upload to PPA or .deb package (call with deb argument).
+# 
+# To build release install developer’s packages:
+# sudo apt-get install devscripts debhelper
 
 version=`cat debian/control | grep ^Standards-Version: | awk '{print $2}'`
 dir=gedit-gmate-$version
@@ -34,4 +37,3 @@ if [ 'deb' = "$1" ]; then
 fi
 
 cd ..
-

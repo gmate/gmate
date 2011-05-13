@@ -16,7 +16,9 @@ install:
 	
 	cp    lang-specs/*.lang $(build)/usr/share/gtksourceview-2.0/language-specs/
 	cp    mime/*            $(build)/usr/share/mime/packages/
-	cp -R plugins/*         $(build)/usr/lib/gedit-2/plugins/
+	for plugin in plugins/gedit2/*; do \
+	    cp -R $$plugin/*         $(build)/usr/lib/gedit-2/plugins/; \
+	done
 	cp -R styles/*          $(build)/usr/share/gtksourceview-2.0/styles/
 	cp -R snippets/*        $(build)/usr/share/gedit-2/plugins/snippets/
 	cp    gmate.py          $(build)/usr/share/gedit-2/gmate/

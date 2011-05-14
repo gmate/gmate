@@ -11,7 +11,7 @@ TODO:
 * extend at-rules with SASS specific keywords
 * Polish mixins highlighting to include brackets (messes with function)
 -->
-<language id="sass" _name="SASS" version="2.0" _section="Others">
+<language id="sass" _name="Sass" version="2.0" _section="Others">
   <metadata>
     <property name="mimetypes">text/x-sass</property>
     <property name="globs">*.sass</property>

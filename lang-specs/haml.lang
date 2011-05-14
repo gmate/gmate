@@ -2,7 +2,7 @@
 <!--
  Author: Ivan Kerin <kerin@rizn.info>
 -->
-<language id="haml" _name="HAML" version="2.0" _section="Markup">
+<language id="haml" _name="Haml" version="2.0" _section="Markup">
   <metadata>
     <property name="mimetypes">text/x-haml</property>
     <property name="globs">*.haml</property>

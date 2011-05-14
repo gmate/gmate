@@ -18,7 +18,7 @@
   </metadata>
 
   <styles>
-    <style id="string"       _name="String"            map-to="def:string"/>
+    <style id="string"      _name="String"               map-to="def:string"/>
     <style id="comment"     _name="Comment"              map-to="def:comment"/>
     <style id="tag"         _name="Tag"                  map-to="def:constant"/>
     <style id="class-tag"   _name="Class Tag"            map-to="def:identifier"/>

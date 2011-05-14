@@ -27,20 +27,13 @@ else
     cp lang-specs/* ~/.local/share/gtksourceview-2.0/language-specs/
 fi
 
-# Register rails-related mime types
+# Register MIME-types
 if [ $sudo = "yes" ]; then
-    sudo cp mime/rails.xml /usr/share/mime/packages
-    sudo cp mime/cfml.xml /usr/share/mime/packages
-else
-    mkdir -p ~/.local/share/mime/packages
-    cp mime/rails.xml ~/.local/share/mime/packages
-    cp mime/cfml.xml ~/.local/share/mime/packages
-fi
-
-# Update mime type database
-if [ $sudo = "yes" ]; then
+    sudo cp mime/*.xml /usr/share/mime/packages
     sudo update-mime-database /usr/share/mime
 else
+    mkdir -p ~/.local/share/mime/packages
+    cp mime/*.xml ~/.local/share/mime/packages
     update-mime-database ~/.local/share/mime
 fi
 

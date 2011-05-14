@@ -1,3 +1,16 @@
+gedit-gmate (0.9.17~uorppa0) natty; urgency=low
+  * Add Reopen Tabs plugin.
+  * Update Gemini plugin to support gedit 2.30.3.
+  * Update Class Browser plugin.
+  * Fix Apache Conf detection.
+  * Add highlighting for Slim templates.
+  * Add Pythonic and Frill themes.
+  * Fix Railscasts theme.
+  * Detect Thorfile as Ruby file.
+  * Fix Haml and Sass name in syntax files.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Sat, 14 May 2011 21:00:36 +0800
+
 gedit-gmate (0.9.16~uorppa0) natty; urgency=low
   * Add Solarized theme.
   * Update File Search plugin.

@@ -26,7 +26,6 @@
 -->
 <language id="apache" _name="Apache Confs" version="2.0" _section="Others">
   <metadata>
-    <property name="mimetypes">text/plain</property>
     <property name="globs">httpd.conf;apache.conf;.htaccess</property>
     <property name="line-comment-start">#</property>
   </metadata>

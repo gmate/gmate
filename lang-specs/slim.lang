@@ -3,7 +3,7 @@
  Author: Miguel San Miguel contact at miguelsanmiguel dotcom
  Based on 'haml.lang' by Ivan Kerin
 -->
-<language id="slim" _name="Slim" version="1.0" _section="Markup">
+<language id="slim" _name="Slim" version="2.0" _section="Markup">
   <metadata>
     <property name="mimetypes">text/x-slim</property>
     <property name="globs">*.slim</property>
@@ -12,6 +12,7 @@
   <styles>
     <style id="comment"   _name="Comment"   map-to="def:comment" />
     <style id="directive" _name="Directive" map-to="def:shebang" />
+    <style id="filter"    _name="Filter"    map-to="def:function" />
     <style id="tag"       _name="Tag"       map-to="def:keyword" />
     <style id="class-tag" _name="Class Tag" map-to="def:function" />
     <style id="id-tag"    _name="Id Tag"    map-to="def:identifier" />
@@ -43,6 +44,9 @@
       <match>^(  )*\|.*$</match>
     </context>
     
+    <context id="filter" style-ref="filter">
+      <match>^(  )*[a-zA-Z0-9\-\_]+:\s*$</match>
+    </context>
     
     <context id="tags">
       <start>^(  )*</start>
@@ -58,7 +62,7 @@
         </context>
         
         <context id="tag" style-ref="tag" once-only="true">
-          <match>%[a-zA-Z0-9\-\_]+</match>
+          <match>[a-zA-Z0-9\-\_]+</match>
         </context>
         
         <context id="id-tag" style-ref="id-tag">
@@ -86,12 +90,13 @@
     
     <context id="slim">
       <include>
-        <context ref="line-comment"/> 
-        <context ref="html-comment"/> 
-        <context ref="directive"/> 
-        <context ref="identation-error"/> 
-        <context ref="string"/> 
-        <context ref="tags"/> 
+        <context ref="line-comment"/>
+        <context ref="html-comment"/>
+        <context ref="directive"/>
+        <context ref="identation-error"/>
+        <context ref="string"/>
+        <context ref="filter"/>
+        <context ref="tags"/>
       </include>
     </context>        
   </definitions>

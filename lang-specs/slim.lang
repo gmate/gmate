@@ -3,7 +3,7 @@
  Author: Miguel San Miguel contact at miguelsanmiguel dotcom
  Based on 'haml.lang' by Ivan Kerin
 -->
-<language id="slim" _name="Slim" version="1.0" _section="Rails">
+<language id="slim" _name="Slim" version="1.0" _section="Markup">
   <metadata>
     <property name="mimetypes">text/x-slim</property>
     <property name="globs">*.slim</property>

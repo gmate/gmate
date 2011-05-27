@@ -1,0 +1,11 @@
+[Gedit Plugin]
+Loader=python
+Module=indent-converter
+IAge=2
+Name=Indent Converter
+Name[ru]=Конвертер отступов
+Description=Converts tabs to spaces and spaces to tabs
+Description[ru]=Заменяет табуляции пробелами и пробелы табуляциями
+Authors=disfated <disfated@gmail.com>
+Copyright=Copyright © 2011 disfated
+Website=https://github.com/disfated/gedit-plugin-indent-converter

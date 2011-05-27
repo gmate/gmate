@@ -49,6 +49,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Fuzzy Open**. Quick way to open file in project.
   <http://github.com/eggegg/fuzzyopen>
 * **Gedit Open File**. Regex based file open (like textmate Go to file…).
+* **Indent Converter**. Converts tabs to spaces and spaces to tabs.
 * **Find in Project**. Search in the project with ack/grep.
   <http://github.com/eggegg/find-in-project>
 * **Gedit Todo**. Find Todo Marks in source files (integrated with filebrowser).

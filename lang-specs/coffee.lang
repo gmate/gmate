@@ -40,7 +40,7 @@
         <style id="loop"            _name="Loop"                     map-to="def:keyword"/>
         <style id="conditional"     _name="Conditional"              map-to="def:keyword"/>
         <style id="exception"       _name="Exception"                map-to="def:error"/>
-        <style id="operator"        _name="Operator"                 map-to="def:special-char"/>
+        <style id="operator"        _name="Operator"                 map-to="def:keyword"/>
         <style id="keyword"         _name="Keyword"                  map-to="def:keyword"/>
         <style id="assessor"        _name="Assessor"                 map-to="def:identifier"/>
         <style id="regexp"          _name="RegExp"                   map-to="def:special-char"/>
@@ -53,19 +53,19 @@
             <include>
 
                 <!-- Comments -->
-                <context id="line-comment" style-ref="comment">
-                    <start>#[^#]</start>
-                    <end>$</end>
+                <context id="block-comment" style-ref="comment">
+                    <start>^[ \t]*###([^#]|$)</start>
+                    <end>^.*###([^#]|$)</end>
                     <include>
-                        <context ref="def:line-continue"/>
                         <context ref="def:in-comment"/>
                     </include>
                 </context>
 
-                <context id="block-comment" style-ref="comment">
-                    <start>###</start>
-                    <end>###</end>
+                <context id="line-comment" style-ref="comment">
+                    <start>#</start>
+                    <end>$</end>
                     <include>
+                        <context ref="def:line-continue"/>
                         <context ref="def:in-comment"/>
                     </include>
                 </context>
@@ -75,6 +75,27 @@
                 </context>
 
                 <!-- Strings -->
+                <context id="string-heredocs-single" style-ref="string">
+                    <start>'''</start>
+                    <end>'''</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="def:escape"/>
+                    </include>
+                </context>
+
+                <context id="string-heredocs-double" style-ref="string">
+                    <start>"""</start>
+                    <end>"""</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="def:escape"/>
+                        <context id="interpolation-heredocs-double" style-ref="assessor" extend-parent="false">
+                            <match>\#{[^}]+}</match>
+                        </context>
+                    </include>
+                </context>
+
                 <context id="string-double" style-ref="string">
                     <start>"</start>
                     <end>"</end>
@@ -91,9 +112,6 @@
                     <include>
                         <context ref="def:line-continue"/>
                         <context ref="def:escape"/>
-                        <context id="interpolation-string-single" style-ref="assessor" extend-parent="false">
-                            <match>\${[^}]+}</match>
-                        </context>
                     </include>
                 </context>
 
@@ -106,29 +124,6 @@
                     </include>
                 </context>
 
-                <context id="string-heredocs-single" style-ref="string">
-                    <start>'''</start>
-                    <end>'''</end>
-                    <include>
-                        <context ref="def:line-continue"/>
-                        <context ref="def:escape"/>
-                        <context id="interpolation-heredocs-single" style-ref="assessor" extend-parent="false">
-                            <match>\${[^}]+}</match>
-                        </context>
-                    </include>
-                </context>
-
-                <context id="string-heredocs-double" style-ref="string">
-                    <start>"""</start>
-                    <end>"""</end>
-                    <include>
-                        <context ref="def:line-continue"/>
-                        <context ref="def:escape"/>
-                        <context id="interpolation-heredocs-double" style-ref="assessor" extend-parent="false">
-                            <match>\${[^}]+}</match>
-                        </context>
-                    </include>
-                </context>
 
                 <!-- Numbers -->
                 <context ref="def:float"/>
@@ -188,7 +183,7 @@
                 </context>
 
                 <context id="operator" style-ref="operator">
-                    <match>(::|:|&gt;=|&lt;=|&gt;|&lt;|!=|!|\?=|\?|-\>|=\>|!=|=|==|\.\.\.|\.\.)</match>
+                    <match>(-[\-=>]?|\+[+=]?|[*&amp;|\/%=&lt;&gt;^~:!?]+)([ \t]*)</match>
                 </context>
 
                 <!-- Keywords -->
@@ -213,7 +208,7 @@
                 </context>
 
                 <context id="assessor" style-ref="assessor">
-                    <match>(@[^: ]+|this)</match>
+                    <match>(@([a-zA-Z\$_](\w|\$)*)|this)</match>
                 </context>
 
                 <context id="functions" style-ref="function">

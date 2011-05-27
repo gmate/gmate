@@ -121,6 +121,12 @@ default_indent_config = {
     "sass_unindent_keystrokes"          : '',
     "sass_use_space"                    : True,
     "sass_tab_size"                     : 2
+    # Regex taken from jEdit CoffeeScript mode, kudos to Dennis Hotson and Balazs Toth https://github.com/dhotson/coffeescript-jedit
+    "coffee_indent_regex"                 : r'(?!^\s*$)(?!^\s*(@|\+|\*|/\*|//))(^\s*?[^:=]+?(?<!,)$)',
+    "coffee_unindent_regex"               : r'^\s*(else|catch|finally)(\s*|\s+.*)$',
+    "coffee_unindent_keystrokes"          : '',
+    "coffee_use_space"                    : True,
+    "coffee_tab_size"                     : 2
 }
 
 

@@ -91,7 +91,7 @@ default_indent_config = {
     "javascript_unindent_regex"         : r'^.*(default:\s*|case.*:.*)$',
     "javascript_unindent_keystrokes"    : ':',
     "javascript_use_space"              : True,
-    "javascript_tab_size"               : 2,
+    "javascript_tab_size"               : 4,
 
     "rhtml_indent_regex"                : r'',
     "rhtml_unindent_regex"              : r'',
@@ -103,18 +103,17 @@ default_indent_config = {
     "xml_unindent_regex"                : r'',
     "xml_unindent_keystrokes"           : '',
     "xml_use_space"                     : True,
-    "xml_tab_size"                      : 2,
+    "xml_tab_size"                      : 4,
 
     "html_indent_regex"                 : r'',
     "html_unindent_regex"               : r'',
     "html_unindent_keystrokes"          : '',
     "html_use_space"                    : True,
-    "html_tab_size"                     : 2,
+    "html_tab_size"                     : 4,
 
     "php_indent_regex"                  : r'\s*(((if|while|else\s*(if)?|for(each)?|switch|declare)\s*\(.*\)[^{:;]*)|(do\s*[^\({:;]*))',
     "php_unindent_regex"                : r'^.*(default:\s*|case.*:.*)$',
     "php_unindent_keystrokes"           : ':',
-        
     
     "sass_indent_regex"                 : r'(?!^\s*$)(?!^\s*(@|\+|\*|/\*|//))(^\s*?[^:=]+?(?<!,)$)',
     "sass_unindent_regex"               : r'', # XXX E.g., on blank line? (r'^\s*$')

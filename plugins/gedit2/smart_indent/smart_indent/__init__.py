@@ -115,6 +115,12 @@ default_indent_config = {
     "php_unindent_regex"                : r'^.*(default:\s*|case.*:.*)$',
     "php_unindent_keystrokes"           : ':',
     
+    "haml_indent_regex"                 : r'',
+    "haml_unindent_regex"               : r'',
+    "haml_unindent_keystrokes"          : '',
+    "haml_use_space"                    : True,
+    "haml_tab_size"                     : 2
+    
     "sass_indent_regex"                 : r'(?!^\s*$)(?!^\s*(@|\+|\*|/\*|//))(^\s*?[^:=]+?(?<!,)$)',
     "sass_unindent_regex"               : r'', # XXX E.g., on blank line? (r'^\s*$')
     "sass_unindent_keystrokes"          : '',

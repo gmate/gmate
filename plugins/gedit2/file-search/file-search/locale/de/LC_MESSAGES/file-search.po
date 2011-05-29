@@ -1,0 +1,186 @@
+# German translation of gedit-file-search plugin
+# Copyright (C) 2011  Oliver Gerlich <oliver.gerlich@gmx.de>
+# This file is distributed under the same license as the gedit-file-search plugin package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: File Search\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-29 13:10+0400\n"
+"PO-Revision-Date: 2011-05-20 21:06+0200\n"
+"Last-Translator: Oliver Gerlich <oliver.gerlich@gmx.de>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: file-search/file-search.glade:8
+msgid "Find in files"
+msgstr "Suche in Dateien"
+
+#: file-search/file-search.glade:38
+msgid "Search for:"
+msgstr "Suchen nach:"
+
+#: file-search/file-search.glade:73
+msgid "Case sensitive"
+msgstr "Groß/Kleinschreibung beachten"
+
+#: file-search/file-search.glade:87
+msgid "Regular Expression"
+msgstr "Regulärer Ausdruck"
+
+#: file-search/file-search.glade:101
+msgid "Whole word"
+msgstr "Ganzes Wort"
+
+#: file-search/file-search.glade:132
+msgid "Search in:"
+msgstr "Suchen in:"
+
+#: file-search/file-search.glade:143
+msgid "folder"
+msgstr "Ordner"
+
+#: file-search/file-search.glade:157
+msgid "current file"
+msgstr "aktuelle Datei"
+
+#: file-search/file-search.glade:173
+msgid "open files"
+msgstr "offenen Dateien"
+
+#: file-search/file-search.glade:187
+msgid "project files"
+msgstr "Projektdateien"
+
+#: file-search/file-search.glade:232
+msgid "Browse..."
+msgstr "Durchsuchen …"
+
+#: file-search/file-search.glade:252
+msgid "with subfolders"
+msgstr "Unterordner durchsuchen"
+
+#: file-search/file-search.glade:275
+msgid "exclude:"
+msgstr "ausschließen:"
+
+#: file-search/file-search.glade:286
+msgid "hidden files/folders"
+msgstr "versteckte Dateien/Ordner"
+
+#: file-search/file-search.glade:301
+msgid "VCS folders"
+msgstr "VCS-Ordner"
+
+#: file-search/file-search.glade:315
+msgid "backup files"
+msgstr "Sicherungsdateien"
+
+#: file-search/file-search.glade:346
+msgid "Only these file types:"
+msgstr "Nur diese Dateitypen:"
+
+#: file-search/file-search.glade:394 file-search/file-search.glade:497
+msgid "gtk-close"
+msgstr ""
+
+#: file-search/file-search.glade:408
+msgid "gtk-find"
+msgstr ""
+
+#: file-search/file-search.glade:460
+msgid ""
+"<b>0</b> matches\n"
+"in 0 files"
+msgstr ""
+"<b>0</b> Treffer\n"
+"in 0 Dateien"
+
+#: file-search/file-search.glade:480
+msgid "gtk-edit"
+msgstr ""
+
+#: file-search/ui.py:298
+#, python-format
+msgid "Search files for \"%s\""
+msgstr "In Dateien nach \"%s\" suchen"
+
+#: file-search/ui.py:300 file-search/ui.py:313 file-search/ui.py:355
+msgid "Search files..."
+msgstr "In Dateien suchen …"
+
+#: file-search/ui.py:313 file-search/ui.py:356
+msgid "Search in all files in a directory"
+msgstr "Dateien in einem Verzeichnis durchsuchen"
+
+#: file-search/ui.py:402
+msgid "Select Directory"
+msgstr "Verzeichnis auswählen"
+
+#: file-search/ui.py:538
+msgid "Directory does not exist"
+msgstr "Verzeichnis existiert nicht"
+
+#: file-search/ui.py:539
+msgid "The specified directory does not exist."
+msgstr "Das angegebene Verzeichnis existiert nicht"
+
+#: file-search/ui.py:594
+#, python-format
+msgid "searching for <i>%(keywords)s</i> in <i>%(folder)s</i>"
+msgstr "suche nach <i>%(keywords)s</i> unter <i>%(folder)s</i>"
+
+#: file-search/ui.py:629
+msgid "(search was cancelled)"
+msgstr "(Suche wurde abgebrochen)"
+
+#: file-search/ui.py:631
+msgid "(no matching files found)"
+msgstr "(keine passenden Dateien gefunden)"
+
+#: file-search/ui.py:633
+#, python-format
+msgid "found %d match"
+msgid_plural "found %d matches"
+msgstr[0] "%d Treffer"
+msgstr[1] "%d Treffer"
+
+#: file-search/ui.py:634
+#, python-format
+msgid " (%d line)"
+msgid_plural " (%d lines)"
+msgstr[0] " (%d Zeile)"
+msgstr[1] " (%d Zeilen)"
+
+#: file-search/ui.py:635
+#, python-format
+msgid " in %d file"
+msgid_plural " in %d files"
+msgstr[0] " in %d Datei"
+msgstr[1] " in %d Dateien"
+
+#: file-search/ui.py:639
+#, python-format
+msgid "<b>%d</b> match"
+msgid_plural "<b>%d</b> matches"
+msgstr[0] "<b>%d</b> Treffer"
+msgstr[1] "<b>%d</b> Treffer"
+
+#: file-search/ui.py:640
+#, python-format
+msgid "in %d file"
+msgid_plural "in %d files"
+msgstr[0] "in %d Datei"
+msgstr[1] "in %d Dateien"
+
+#: file-search/ui.py:780
+msgid "Expand All"
+msgstr "Alle ausklappen"
+
+#: file-search/ui.py:785
+msgid "Collapse All"
+msgstr "Alle einklappen"

@@ -1,5 +1,6 @@
 #    Gedit file search plugin
-#    Copyright (C) 2008  Oliver Gerlich <oliver.gerlich@gmx.de>
+#    Copyright (C) 2008-2011  Oliver Gerlich <oliver.gerlich@gmx.de>
+#    Copyright (C) 2011  Jean-Philippe Fleury <contact@jpfleury.net>
 #
 #    This program is free software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -20,34 +21,32 @@
 # Main classes:
 # - FileSearchWindowHelper (is instantiated by FileSearchPlugin for every window, and holds the search dialog)
 # - FileSearcher (is instantiated by FileSearchWindowHelper for every search, and holds the result tab)
-# - FileSearchPlugin (the actual plugin, which implements the Gedit plugin interface)
-#
-# Search functionality classes:
-# - LineSplitter (accumulates incoming strings and splits them into lines)
-# - RunCommand (runs a shell command and passes the output to LineSplitter)
-# - GrepProcess (uses RunCommand to run Grep, parses its output, and passes that to the result window)
-# - SearchProcess (uses RunCommand to run Find, parses its output, and starts GrepProcess)
 #
 # Helper classes:
-# - ProcessInfo (gets process tree info, for killing search processes)
 # - RecentList (holds list of recently-selected search directories, for search dialog)
 # - SearchQuery (holds all parameters for a search; also, can read and write these from/to GConf)
 #
-
 
 import os
 import gedit
 import gtk
 import gtk.glade
 import gobject
-import fcntl
-import popen2
-import re
 import urllib
 import gconf
 import pango
-import errno
 import dircache
+from gettext import gettext, translation
+
+# translation
+APP_NAME = 'file-search'
+LOCALE_PATH = os.path.dirname(__file__) + '/locale'
+t = translation(APP_NAME, LOCALE_PATH, fallback=True)
+_ = t.ugettext
+ngettext = t.ungettext
+gtk.glade.bindtextdomain(APP_NAME, LOCALE_PATH)
+
+from searcher import SearchProcess, buildQueryRE
 
 # only display remote directories in file chooser if GIO is available:
 onlyLocalPathes = False
@@ -69,63 +68,6 @@ ui_str = """<ui>
 """
 
 gconfBase = '/apps/gedit-2/plugins/file-search'
-
-
-class ProcessInfo:
-    """
-    Parses the process table in /proc and offers info
-    about processes and their parents.
-    """
-    def __init__ (self):
-
-        self.pids = []
-
-        intRe = re.compile('^\d+$')
-        nameRe = re.compile('^Name:\s+(\w+)$')
-        ppidRe = re.compile('^PPid:\s+(\d+)$')
-        for d in os.listdir('/proc'):
-            if intRe.match(d):
-                pid = int(d)
-                name = ''
-                ppid = 0
-                fileName = "/proc/%d/status" % pid
-                try:
-                    fd = open(fileName, "r")
-                except IOError:
-                    pass
-                else:
-                    for line in fd.readlines():
-                        m = nameRe.match(line)
-                        if m:
-                            name = m.group(1)
-                            continue
-                        m = ppidRe.match(line)
-                        if m:
-                            ppid = int(m.group(1))
-                            continue
-                    self.pids.append( (pid, name, ppid) )
-
-    def getName (self, mainPid):
-        for pid in self.pids:
-            if pid[0] == mainPid:
-                return pid[1]
-        return None
-
-    def getDirectChildren (self, mainPid):
-        res = []
-        for pid in self.pids:
-            if pid[2] == mainPid:
-                res.append(pid[0])
-        return res
-
-    def getAllChildren (self, mainPid):
-        "Returns a list of all (direct and indirect) child processes"
-        res = []
-        directChildren = self.getDirectChildren(mainPid)
-        res.extend(directChildren)
-        for pid in directChildren:
-            res.extend( self.getAllChildren(pid) )
-        return res
 
 
 class RecentList:
@@ -251,310 +193,6 @@ class SearchQuery:
         gclient.set_bool(gconfBase+"/select_file_types", self.selectFileTypes)
 
 
-class LineSplitter:
-    "Split incoming text into lines which are passed to the resultHandler object"
-    def __init__ (self, resultHandler):
-        self.buf = ""
-        self.cancelled = False
-        self.resultHandler = resultHandler
-
-    def cancel (self):
-        self.cancelled = True
-
-    def parseFragment (self, text):
-        if self.cancelled:
-            return
-
-        self.buf = self.buf + text
-
-        while '\n' in self.buf:
-            pos = self.buf.index('\n')
-            line = self.buf[:pos]
-            self.buf = self.buf[pos + 1:]
-            self.resultHandler.handleLine(line)
-
-    def finish (self):
-        self.parseFragment("")
-        if self.buf != "":
-            self.resultHandler.handleLine(self.buf)
-        self.resultHandler.handleFinished()
-
-
-class RunCommand:
-    "Run a command in background, passing all of its stdout output to a LineSplitter"
-    def __init__ (self, cmd, resultHandler, prio=gobject.PRIORITY_LOW):
-        self.lineSplitter = LineSplitter(resultHandler)
-
-        #print "executing command: %s" % cmd
-        self.popenObj = popen2.Popen3(cmd)
-        self.pipe = self.popenObj.fromchild
-
-        # make pipe non-blocking:
-        fl = fcntl.fcntl(self.pipe, fcntl.F_GETFL)
-        fcntl.fcntl(self.pipe, fcntl.F_SETFL, fl | os.O_NONBLOCK)
-
-        #print "(add watch)"
-        gobject.io_add_watch(self.pipe, gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
-            self.onPipeReadable, priority=prio)
-
-    def onPipeReadable (self, fd, cond):
-        #print "condition: %s" % cond
-        if (cond & gobject.IO_IN):
-            readText = self.pipe.read(4000)
-            #print "(read %d bytes)" % len(readText)
-            if self.lineSplitter:
-                self.lineSplitter.parseFragment(readText)
-            return True
-        else:
-            # read all remaining data from pipe
-            while True:
-                readText = self.pipe.read(4000)
-                #print "(read %d bytes before finish)" % len(readText)
-                if len(readText) <= 0:
-                    break
-                if self.lineSplitter:
-                    self.lineSplitter.parseFragment(readText)
-
-            #print "(closing pipe)"
-            result = self.pipe.close()
-            if result == None:
-                #print "(command finished successfully)"
-                pass
-            else:
-                #print "(command finished with exit code %d; exited: %s, exit status: %d)" % (result,
-                    #str(os.WIFEXITED(result)), os.WEXITSTATUS(result))
-                pass
-            self.popenObj.wait()
-            if self.lineSplitter:
-                self.lineSplitter.finish()
-                self.lineSplitter = None
-            return False
-
-    def cancel (self):
-        #print "(cancelling command)"
-        mainPid = self.popenObj.pid
-        pi = ProcessInfo()
-        allProcs = [mainPid]
-        allProcs.extend(pi.getAllChildren(mainPid))
-        #print "main pid: %d; num procs: %d" % (mainPid, len(allProcs))
-        for pid in allProcs:
-            #print "killing pid %d (name: %s)" % (pid, pi.getName(pid))
-            try:
-                os.kill(pid, 15)
-            except OSError, e:
-                if e.errno != errno.ESRCH:
-                    print "error killing PID %d (child of %d): %s" % (pid, mainPid, e)
-        self.lineSplitter.cancel()
-
-
-def buildQueryRE (queryText, caseSensitive, wholeWord):
-    "returns a RegEx pattern for searching for the given queryText"
-
-    # word detection etc. cannot be done on an encoding-less string:
-    assert(type(queryText) == unicode)
-
-    pattern = re.escape(queryText)
-    if wholeWord:
-        if re.search('^\w', queryText, re.UNICODE):
-            pattern = '\\b' + pattern
-        if re.search('\w$', queryText, re.UNICODE):
-            pattern = pattern + '\\b'
-
-    flags = re.UNICODE
-    if not(caseSensitive):
-        flags |= re.IGNORECASE
-    return re.compile(pattern, flags)
-
-
-class GrepProcess:
-    def __init__ (self, query, resultCb, finishedCb):
-        self.query = query
-        self.resultCb = resultCb
-        self.finishedCb = finishedCb
-
-        # Assume all file contents are in UTF-8 encoding (AFAIK grep will just search for byte sequences, it doesn't care about encodings):
-        self.queryText = query.text.encode("utf-8")
-
-        self.fileNames = []
-        self.cmdRunner = None
-        self.cancelled = False
-        self.numGreps = 0
-        self.inputFinished = False
-
-        self.postSearchPattern = None
-        if query.wholeWord:
-            self.postSearchPattern = buildQueryRE(self.query.text, query.caseSensitive, True)
-
-    def cancel (self):
-        self.cancelled = True
-        if self.cmdRunner:
-            self.cmdRunner.cancel()
-            self.cmdRunner = None
-        pass
-
-    def addFilename (self, filename):
-        self.fileNames.append(filename)
-        self.runGrep()
-
-    def handleInputFinished (self):
-        "Called when there will be no more input files added"
-        self.inputFinished = True
-        if not(self.cmdRunner):
-            # this can happen if no files at all are found
-            self.finishedCb()
-
-    def runGrep (self):
-        if self.cmdRunner or len(self.fileNames) == 0 or self.cancelled:
-            return
-
-        # run Grep on many files at once:
-        maxGrepFiles = 5000
-        maxGrepLine = 3800
-        fileNameList = []
-
-        i = 0
-        numChars = 0
-        for f in self.fileNames:
-            fileNameList += [f]
-            i+=1
-            numChars += len(f)
-            if i > maxGrepFiles or numChars > maxGrepLine:
-                break
-        self.fileNames = self.fileNames[i:]
-
-        self.numGreps += 1
-        #if self.numGreps % 100 == 0:
-            #print "ran %d greps so far" % self.numGreps
-
-        grepCmd = ["grep", "-H", "-I", "-n", "-s", "-Z"]
-        if not(self.query.caseSensitive):
-            grepCmd += ["-i"]
-        if not(self.query.isRegExp):
-            grepCmd += ["-F"]
-
-        grepCmd += ["-e", self.queryText]
-        grepCmd += fileNameList
-
-        self.cmdRunner = RunCommand(grepCmd, self)
-
-    def handleLine (self, line):
-        filename = None
-        lineno = None
-        linetext = ""
-        if '\0' in line:
-            [filename, end] = line.split('\0', 1)
-            if ':' in end:
-                [lineno, linetext] = end.split(':', 1)
-                lineno = int(lineno)
-
-        if lineno == None:
-            #print "(ignoring invalid line)"
-            pass
-        else:
-            # Assume that grep output is in UTF8 encoding, and convert it to
-            # a Unicode string. Also, sanitize non-UTF8 characters.
-            # TODO: what's the actual encoding of grep's output?
-            linetext = unicode(linetext, 'utf8', 'replace')
-            #print "file: '%s'; line: %d; text: '%s'" % (filename, lineno, linetext)
-            linetext = linetext.rstrip("\n\r")
-
-            # do some manual grep'ing on each line (for whole-word search):
-            if self.postSearchPattern is not None and \
-                self.postSearchPattern.search(linetext) is None:
-                return
-
-            self.resultCb(filename, lineno, linetext)
-
-    def handleFinished (self):
-        #print "grep finished"
-        self.cmdRunner = None
-        if len(self.fileNames) > 0 and not(self.cancelled):
-            self.runGrep()
-        else:
-            if self.inputFinished:
-                #print "ran %d greps" % self.numGreps
-                self.finishedCb()
-
-
-class SearchProcess:
-    def __init__ (self, query, resultHandler):
-        self.resultHandler = resultHandler
-        self.cancelled = False
-        self.files = []
-
-        self.grepProcess = GrepProcess(query, self.handleGrepResult, self.handleGrepFinished)
-
-        findCmd = ["find", query.directory]
-        if not(query.includeSubfolders):
-            findCmd += ["-maxdepth", "1"]
-        if query.excludeHidden:
-            findCmd += ["(", "!", "-path", "%s*/.*" % query.directory, ")"]
-            findCmd += ["(", "!", "-path", "%s.*" % query.directory, ")"]
-        if query.excludeBackup:
-            findCmd += ["(", "!", "-name", "*~", "!", "-name", ".#*.*", ")"]
-        if query.excludeVCS:
-            findCmd += ["(", "!", "-path", "*/CVS/*", "!", "-path", "*/.svn/*", "!", "-path", "*/.git/*", "!", "-path", "*/RCS/*", ")"]
-        if query.selectFileTypes:
-            fileTypeList = query.parseFileTypeString()
-            if fileTypeList:
-                findCmd += ["("]
-                for t in fileTypeList:
-                    findCmd += ["-name", t, "-o"]
-                findCmd.pop()
-                findCmd += [")"]
-        findCmd += ["-xtype", "f", "-print"]
-
-        self.cmdRunner = RunCommand(findCmd, self, gobject.PRIORITY_DEFAULT_IDLE)
-
-    def cancel (self):
-        self.cancelled = True
-        if self.cmdRunner:
-            self.cmdRunner.cancel()
-            self.cmdRunner = None
-        if self.grepProcess:
-            self.grepProcess.cancel()
-
-    def destroy (self):
-        self.cancel()
-
-    def handleLine (self, line):
-        #print "find result line: '%s' (type: %s)" % (line, type(line))
-
-        # Note: we don't assume anything about the encoding of output from `find`
-        # but just treat it as encoding-less byte sequence.
-
-        self.files.append(line)
-
-    def handleFinished (self):
-        #print "find finished (%d files found)" % len(self.files)
-        self.cmdRunner = None
-
-        if self.cancelled:
-            self.resultHandler.handleFinished()
-            self.files = []
-            return
-
-        self.files.sort(pathCompare)
-
-        for f in self.files:
-            self.grepProcess.addFilename(f)
-        self.files = []
-        self.grepProcess.handleInputFinished()
-
-    def handleGrepResult (self, filename, lineno, linetext):
-        self.resultHandler.handleResult(filename, lineno, linetext)
-
-    def handleGrepFinished (self):
-        self.resultHandler.handleFinished()
-        self.grepProcess = None
-
-def pathCompare (p1, p2):
-    "Sort path names (files before directories; alphabetically)"
-    s1 = os.path.split(p1)
-    s2 = os.path.split(p2)
-    return cmp(s1, s2)
-
-
 class FileSearchWindowHelper:
     def __init__(self, plugin, window):
         #print "file-search: plugin created for", window
@@ -570,6 +208,13 @@ class FileSearchWindowHelper:
         self._lastSearchTerms = RecentList(self.gclient, "recent_search_terms")
         self._lastDirs = RecentList(self.gclient, "recent_dirs")
         self._lastTypes = RecentList(self.gclient, "recent_types")
+
+        if self._lastTypes.isEmpty():
+            # add some default file types
+            self._lastTypes.add('*.C *.cpp *.cxx *.h *.hpp')
+            self._lastTypes.add('*.c *.h')
+            self._lastTypes.add('*.py')
+            self._lastTypes.add('*')
 
         self._lastDir = None
         self._autoCompleteList = None
@@ -650,9 +295,9 @@ class FileSearchWindowHelper:
 
         # add actual menu item:
         if selText:
-            menuText = 'Search files for "%s"' % selText
+            menuText = _('Search files for "%s"') % selText
         else:
-            menuText = 'Search files...'
+            menuText = _('Search files...')
         mi = gtk.MenuItem(menuText, use_underline=False)
         mi.connect_object("activate", FileSearchWindowHelper.onMenuItemActivate, self, selText)
         mi.show()
@@ -665,7 +310,7 @@ class FileSearchWindowHelper:
         if hasattr(self._window, 'get_message_bus') and gedit.version >= (2,27,4):
             self._bus = self._window.get_message_bus()
 
-            fbAction = gtk.Action('search-files-plugin', "Search files...", "Search in files", None)
+            fbAction = gtk.Action('search-files-plugin', _("Search files..."), _("Search in all files in a directory"), None)
             try:
                 self._bus.send_sync('/plugins/filebrowser', 'add_context_item',
                     {'action':fbAction, 'path':'/FilePopup/FilePopup_Opt3'})
@@ -707,8 +352,8 @@ class FileSearchWindowHelper:
 
         # Create a new action group
         self._action_group = gtk.ActionGroup("FileSearchPluginActions")
-        self._action_group.add_actions([("FileSearch", "gtk-find", _("Find in files ..."),
-                                         "<control><shift>F", _("Search in multiple files"),
+        self._action_group.add_actions([("FileSearch", "gtk-find", _("Search files..."),
+                                         "<control><shift>F", _("Search in all files in a directory"),
                                          self.on_search_files_activate)])
 
         # Insert the action group
@@ -754,7 +399,7 @@ class FileSearchWindowHelper:
                     self._autoCompleteList.append([match])
 
     def on_btnBrowse_clicked (self, button):
-        fileChooser = gtk.FileChooserDialog(title="Select directory to search in",
+        fileChooser = gtk.FileChooserDialog(title=_("Select Directory"),
             parent=self._dialog,
             action=gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER,
             buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
@@ -773,7 +418,7 @@ class FileSearchWindowHelper:
 
     def openSearchDialog (self, searchText = None, searchDirectory = None):
         gladeFile = os.path.join(os.path.dirname(__file__), "file-search.glade")
-        self.tree = gtk.glade.XML(gladeFile)
+        self.tree = gtk.glade.XML(gladeFile, domain = APP_NAME)
         self.tree.signal_autoconnect(self)
 
         self._dialog = self.tree.get_widget('searchDialog')
@@ -856,8 +501,6 @@ class FileSearchWindowHelper:
         if not(self._lastTypes.isEmpty()):
             typeListString = self._lastTypes.topEntry()
             self.tree.get_widget('cboFileTypeEntry').set_text(typeListString)
-        else:
-            self.tree.get_widget('cboFileTypeEntry').set_text("*")
 
 
         # get default values for other controls from GConf:
@@ -892,8 +535,8 @@ class FileSearchWindowHelper:
                 print "internal error: search text is empty!"
             elif not(os.path.exists(searchDir)):
                 msgDialog = gtk.MessageDialog(self._dialog, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, "Directory does not exist")
-                msgDialog.format_secondary_text("The specified directory does not exist.")
+                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, _("Directory does not exist"))
+                msgDialog.format_secondary_text(_("The specified directory does not exist."))
                 msgDialog.run()
                 msgDialog.destroy()
             else:
@@ -948,8 +591,7 @@ class FileSearcher:
         self._updateSummary()
 
         #searchSummary = "<span size=\"smaller\" foreground=\"#585858\">searching for </span><span size=\"smaller\"><i>%s</i></span><span size=\"smaller\" foreground=\"#585858\"> in </span><span size=\"smaller\"><i>%s</i></span>" % (query.text, query.directory)
-        searchSummary = "<span size=\"smaller\">searching for <i>%s</i> in <i>%s</i></span>" % (
-            escapeMarkup(query.text), escapeMarkup(gobject.filename_display_name(query.directory)))
+        searchSummary = "<span size=\"smaller\">" + _("searching for <i>%(keywords)s</i> in <i>%(folder)s</i>") % {'keywords': escapeMarkup(query.text), 'folder': escapeMarkup(gobject.filename_display_name(query.directory))} + "</span>"
         self.treeStore.append(None, [searchSummary, '', 0])
 
         self.searchProcess = SearchProcess(query, self)
@@ -984,35 +626,18 @@ class FileSearcher:
         self._updateSummary()
 
         if self.wasCancelled:
-            line = "<i><span foreground=\"red\">(search was cancelled)</span></i>"
+            line = "<i><span foreground=\"red\">" + _("(search was cancelled)") + "</span></i>"
         elif self.numMatches == 0:
-            line = "<i>(no matching files found)</i>"
+            line = "<i>" + _("(no matching files found)") + "</i>"
         else:
-            if self.numMatches == 1:
-                line = "<i>found 1 match"
-            else:
-                line = "<i>found %d matches" % self.numMatches
-
-            if self.numLines == 1:
-                line += " (1 line)"
-            else:
-                line += " (%d lines)" % self.numLines
-
-            if len(self.files) == 1:
-                line += " in 1 file</i>"
-            else:
-                line += " in %d files</i>" % len(self.files)
+            line = "<i>" + ngettext("found %d match", "found %d matches", self.numMatches) % self.numMatches
+            line += ngettext(" (%d line)", " (%d lines)", self.numLines) % self.numLines
+            line += ngettext(" in %d file", " in %d files", len(self.files)) % len(self.files) + "</i>"
         self.treeStore.append(None, [line, '', 0])
 
     def _updateSummary (self):
-        if self.numMatches == 1:
-            summary = "<b>1</b> match"
-        else:
-            summary = "<b>%d</b> matches" % self.numMatches
-        if len(self.files) == 1:
-            summary += "\nin 1 file"
-        else:
-            summary += "\nin %d files" % len(self.files)
+        summary = ngettext("<b>%d</b> match", "<b>%d</b> matches", self.numMatches) % self.numMatches
+        summary += "\n" + ngettext("in %d file", "in %d files", len(self.files)) % len(self.files)
         if self.searchProcess:
             summary += u"\u2026" # ellipsis character
         self.tree.get_widget("lblNumMatches").set_label(summary)
@@ -1020,14 +645,17 @@ class FileSearcher:
 
     def _createResultPanel (self):
         gladeFile = os.path.join(os.path.dirname(__file__), "file-search.glade")
-        self.tree = gtk.glade.XML(gladeFile, 'hbxFileSearchResult')
+        self.tree = gtk.glade.XML(gladeFile, 'hbxFileSearchResult', domain = APP_NAME)
         self.tree.signal_autoconnect(self)
         resultContainer = self.tree.get_widget('hbxFileSearchResult')
 
         resultContainer.set_data("filesearcher", self)
 
+        tabTitle = self.query.text
+        if len(tabTitle) > 30:
+            tabTitle = tabTitle[:30] + u"\u2026" # ellipsis character 
         panel = self._window.get_bottom_panel()
-        panel.add_item(resultContainer, self.query.text, "gtk-find")
+        panel.add_item(resultContainer, tabTitle, "gtk-find")
         panel.activate_item(resultContainer)
 
         editBtn = self.tree.get_widget("btnModifyFileSearch")
@@ -1149,12 +777,12 @@ class FileSearcher:
                 mi.show()
                 menu.append(mi)
 
-                mi = gtk.MenuItem("Expand All")
+                mi = gtk.MenuItem(_("Expand All"))
                 mi.connect_object("activate", FileSearcher.onExpandAllActivate, self, treeview)
                 mi.show()
                 menu.append(mi)
 
-                mi = gtk.MenuItem("Collapse All")
+                mi = gtk.MenuItem(_("Collapse All"))
                 mi.connect_object("activate", FileSearcher.onCollapseAllActivate, self, treeview)
                 mi.show()
                 menu.append(mi)
@@ -1276,19 +904,3 @@ def escapeAndHighlight (origText, searchText, caseSensitive, wholeWord):
             retText += f
         highLight = not(highLight)
     return (retText, numMatches)
-
-
-class FileSearchPlugin(gedit.Plugin):
-    def __init__(self):
-        gedit.Plugin.__init__(self)
-        self._instances = {}
-
-    def activate(self, window):
-        self._instances[window] = FileSearchWindowHelper(self, window)
-
-    def deactivate(self, window):
-        self._instances[window].deactivate()
-        del self._instances[window]
-
-    def update_ui(self, window):
-        self._instances[window].update_ui()

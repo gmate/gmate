@@ -119,13 +119,14 @@ default_indent_config = {
     "haml_unindent_regex"               : r'',
     "haml_unindent_keystrokes"          : '',
     "haml_use_space"                    : True,
-    "haml_tab_size"                     : 2
+    "haml_tab_size"                     : 2,
     
     "sass_indent_regex"                 : r'(?!^\s*$)(?!^\s*(@|\+|\*|/\*|//))(^\s*?[^:=]+?(?<!,)$)',
     "sass_unindent_regex"               : r'', # XXX E.g., on blank line? (r'^\s*$')
     "sass_unindent_keystrokes"          : '',
     "sass_use_space"                    : True,
-    "sass_tab_size"                     : 2
+    "sass_tab_size"                     : 2,
+    
     # Regex taken from jEdit CoffeeScript mode, kudos to Dennis Hotson and Balazs Toth https://github.com/dhotson/coffeescript-jedit
     "coffee_indent_regex"                 : r'(?!^\s*$)(?!^\s*(@|\+|\*|/\*|//))(^\s*?[^:=]+?(?<!,)$)',
     "coffee_unindent_regex"               : r'^\s*(else|catch|finally)(\s*|\s+.*)$',

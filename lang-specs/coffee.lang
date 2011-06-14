@@ -103,6 +103,7 @@
                         <context id="interpolation-string-double" style-ref="assessor" extend-parent="false">
                             <match>\#{[^}]+}</match>
                         </context>
+                        <context ref="def:escape"/>
                     </include>
                 </context>
 

@@ -1836,6 +1836,27 @@ end]]></text>
     <description>rspec: context with before</description>
   </snippet>
   <snippet>
+    <text><![CDATA[feature '${1:description}' do
+	$0
+end]]></text>
+    <tag>feature</tag>
+    <description>rspec:capybara:feature</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[scenario '${1:description}' do
+	$0
+end]]></text>
+    <tag>scenario</tag>
+    <description>rspec:capybara:scenario</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[background '${1:description}' do
+	$0
+end]]></text>
+    <tag>background</tag>
+    <description>rspec:capybara:background</description>
+  </snippet>
+  <snippet>
     <text><![CDATA[Factory.define :${1:name} do |f|
   f.${0}
 end]]></text>

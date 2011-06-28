@@ -1,0 +1,20 @@
+[Gedit Plugin]
+Loader=python
+Module=zoom
+IAge=2
+Name=Zoom
+Name[de]=Zoom
+Name[de_CH]=Zoom
+Name[de_LI]=Zoom
+Name[pt_BR]=Zoom
+Name[ru]=Масштаб
+Description=Adds the ability to change the text size
+Description[de]=Ermöglicht ein schnelles Verändern der Testgröße
+Description[de_CH]=Ermöglicht ein schnelles Verändern der Testgrösse
+Description[de_LI]=Ermöglicht ein schnelles Verändern der Testgrösse
+Description[pt_BR]=Adiciona a habilidade de mudar o tamanho do texto
+Description[ru]=Позволяет увеличивать и уменьшать размер текста
+Icon=stock_chart-scale-text
+Authors=Christian Luginbühl <dinkel@pimprecords.com>; Hugo Maia Vieira <hugomaiavieira@gmail.com>
+Copyright=Copyright © 2010 Christian Luginbühl
+Website=http://github.com/algorich/gedit-zoom

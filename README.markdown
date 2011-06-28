@@ -44,16 +44,24 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 
 ### Plugins
 
-* **Advanced Bookmarks**. Highlight, remenber and toggle bookmarks in your files.
+* **Advanced Bookmarks**. Highlight, remenber and toggle bookmarks in your
+  files.
 * **Classbrowser**. A Classbrowser (depends of ctags, I use exuberant-ctags).
+* **Encoding**. Reopen the document in a different encoding
+* **File Search**. This is a search plugin for Gedit to search for a text inside
+  a directory. <https://github.com/oliver/gedit-file-search>
+* **Find in Project**. Search in the project with ack/grep.
+  <http://github.com/eggegg/find-in-project>
 * **Fuzzy Open**. Quick way to open file in project.
   <http://github.com/eggegg/fuzzyopen>
 * **Gedit Open File**. Regex based file open (like textmate Go to file…).
-* **Indent Converter**. Converts tabs to spaces and spaces to tabs.
-* **Find in Project**. Search in the project with ack/grep.
-  <http://github.com/eggegg/find-in-project>
 * **Gedit Todo**. Find Todo Marks in source files (integrated with filebrowser).
 * **Gemini**. Pair complete for quotes and braces.
+* **Indent Converter**. Converts tabs to spaces and spaces to tabs.
+* **Multi Edit**. Check it out at author's page
+  <http://jon-walsh.com/journal/multi-edit>
+* **Pastie**. Paste a selection of code or a source file to pastie.org directly
+  from editor <http://github.com/ivyl/gedit-pastie>
 * **Quickhighligthmode**. Fast change current highlight mode.
 * **Rails Extract Partial**. Extract selected region of rhtml as a partial.
 * **Rails Hotcommands**. Execute Rails Commands (such rake tasks).
@@ -62,18 +70,15 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Reopen Tabs**. Saves opened tabs on exit to restore them on next run.
 * **Smart Indent**. Smart Indentation regex based.
 * **Tabulation**. Auto set tabs and spaces based on file type.
+* **TextMate Style Autocompletion**. Better autocompletion. Tap `Esc` to cycle
+  through the available completions.
 * **Text Tools**. Some text manipulation improvements (adapted from line tools).
-* **TextMate Style Autocompletion**. Better autocompletion. Tap `Esc` to cycle through the available completions.
 * **Trailsave**. Remove trailing spaces before save a document.
 * **Word Completion**. Word completion plugin.
-* **Multi Edit**. Check it out at author's page
-  <http://jon-walsh.com/journal/multi-edit>
-* **Pastie**. Paste a selection of code or a source file to pastie.org directly
-  from editor <http://github.com/ivyl/gedit-pastie>
 * **Zen Coding**. Tools for faster HTML/CSS coding
   <http://github.com/mikecrittenden/zen-coding-gedit>
-* **Encoding**. Reopen the document in a different encoding
-* **File Search**. This is a search plugin for Gedit to search for a text inside a directory. <https://github.com/oliver/gedit-file-search>
+* **Zoom**. Adds the ability to change the text size.
+  <http://github.com/algorich/gedit-zoom>
 
 **Note:** Multi Edit plugin is not enabled by default GMate installation.
 
@@ -197,3 +202,4 @@ specific plugin licencing and copyright.
 * Wombat
 * Zenburn
 * Zenburnesque (Converted from Textmate)
+

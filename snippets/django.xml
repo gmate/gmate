@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="python">
+  <snippet>
+    <tag>file</tag>
+    <description>FileField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.FileField(upload_to=${1:/path/for/upload})]]></text>
+  </snippet>
+  <snippet>
+    <tag>phonenumber</tag>
+    <description>PhoneNumberField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.PhoneNumberField(${2:blank=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>nullbool</tag>
+    <description>NullBooleanField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.NullBooleanField(${2:default=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>smallint</tag>
+    <description>SmallIntegerField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.SmallIntegerField(${2:blank=True, null=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>decimal</tag>
+    <description>DecimalField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.DecimalField(max_digits=$2, decimal_places=$3)]]></text>
+  </snippet>
+  <snippet>
+    <tag>text</tag>
+    <description>TextField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.TextField(${2:blank=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>sendmail</tag>
+    <description>send_mail</description>
+    <text><![CDATA[mail.send_mail("${1:Subject}", "${2:Message}", "${3:from@example.com}", ${4:["to@example.com"]}${5:, fail_silently=True})
+]]></text>
+  </snippet>
+  <snippet>
+    <tag>integer</tag>
+    <description>IntegerField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.IntegerField(${2:blank=True, null=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>ipaddress</tag>
+    <description>IPAddressField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.IPAddressField(${2:blank=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>possmall</tag>
+    <description>PositiveSmallIntegerField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.PositiveSmallIntegerField(${2:blank=True, null=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>posint</tag>
+    <description>PositiveIntegerField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.PositiveIntegerField(${2:blank=True, null=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>comaseparatedinteger</tag>
+    <description>CommaSeparatedIntegerField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.CommaSeparatedIntegerField(max_length=$2)]]></text>
+  </snippet>
+  <snippet>
+    <tag>char</tag>
+    <description>CharField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.CharField(${2:blank=True}, max_length=${3:100})]]></text>
+  </snippet>
+  <snippet>
+    <tag>xml</tag>
+    <description>XMLField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.XMLField(schema_path=${2:/path/to/RelaxNG}${3:, blank=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>manytomany</tag>
+    <description>ManyToManyField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.ManyToManyField(${2:RELATED_MODEL})]]></text>
+  </snippet>
+  <snippet>
+    <tag>image</tag>
+    <description>ImageField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.ImageField(upload_to="${2:/dir/path}"${3:, height_field=$4}${5:, width_field=$6})]]></text>
+  </snippet>
+  <snippet>
+    <tag>float</tag>
+    <description>FloatField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.FloatField()]]></text>
+  </snippet>
+  <snippet>
+    <tag>datetime</tag>
+    <description>DateTimeField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.DateTimeField(${2:blank=True}${3:, default=datetime.datetime.now})]]></text>
+  </snippet>
+  <snippet>
+    <tag>slug</tag>
+    <description>SlugField</description>
+    <text><![CDATA[${1:slug} = models.SlugField(${2:prepopulate_from=("$3",$4)})]]></text>
+  </snippet>
+  <snippet>
+    <tag>url</tag>
+    <description>URLField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.URLField(${2:blank=True}, verify_exists=${3:True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>email</tag>
+    <description>EmailField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.EmailField()]]></text>
+  </snippet>
+  <snippet>
+    <tag>boolean</tag>
+    <description>BooleanField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.BooleanField(${2:default=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>fk</tag>
+    <description>ForeignKey</description>
+    <text><![CDATA[${1:FIELDNAME} = models.ForeignKey(${2:RELATED_MODEL})]]></text>
+  </snippet>
+  <snippet>
+    <tag>time</tag>
+    <description>TimeField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.TimeField(${2:blank=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>model</tag>
+    <description>Model Skeleton</description>
+    <text><![CDATA[class ${1:Modelname}(models.Model):
+	"""${2:($1 description)}"""
+	$0
+
+	class Admin:
+		list_display = ('',)
+		search_fields = ('',)
+
+	def __unicode__(self):
+		return u"$1"
+]]></text>
+  </snippet>
+  <snippet>
+    <tag>filepath</tag>
+    <description>FilePathField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.FilePathField(path="${1:/location/of/choices}"${2:, match="${3:regex}"}${4:, recursive=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>usstate</tag>
+    <description>USStateField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.USStateField(${2:blank=True})]]></text>
+  </snippet>
+  <snippet>
+    <tag>auto</tag>
+    <description>AutoField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.AutoField()]]></text>
+  </snippet>
+  <snippet>
+    <tag>date</tag>
+    <description>DateField</description>
+    <text><![CDATA[${1:FIELDNAME} = models.DateField(${2:default=datetime.datetime.today})]]></text>
+  </snippet>
+</snippets>

@@ -17,7 +17,7 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 -->
-<language id="cucumber" _name="Cubumber Plain Text" version="2.0" _section="Other">
+<language id="cucumber" _name="Cucumber Plain Text" version="2.0" _section="Other">
   <metadata>
     <property name="mimetypes">text/x-cucumber</property>
     <property name="globs">*.feature</property>

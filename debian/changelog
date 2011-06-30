@@ -1,3 +1,14 @@
+gedit-gmate (0.9.19~uorppa0) natty; urgency=low
+  * Replace plugin “Align” by “Align columns”.
+  * Add Zoom plugin.
+  * Add licenses snippets.
+  * Add snippets for Django.
+  * Add rspec capybara snippets: feature, background and scenario.
+  * Fix quote escape in CoffeeScript highlighting.
+  * Fixed typo in Cucumber language file.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Thu, 30 Jun 2011 13:06:30 +0400
+
 gedit-gmate (0.9.18~uorppa0) natty; urgency=low
   * Update File Search plugin to use German, French and Russian localization.
   * Add Indent Converter plugin.

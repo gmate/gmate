@@ -109,7 +109,7 @@ echo -n "Do you want to activate default plugin and configuration set? [y,N]:"
 read answer
 case "$answer" in
     [yY])
-        gconftool-2 --set /apps/gedit-2/plugins/active-plugins -t list --list-type=str [rails_extract_partial,rubyonrailsloader,align,smart_indent,text_tools,completion,quickhighlightmode,gemini,trailsave,rails_hotkeys,fuzzyopen,filebrowser,snippets,modelines,smartspaces,docinfo,time,spell,terminal,drawspaces,codecomment,colorpicker,indent,encodingpy,FindInProject]
+        gconftool-2 --set /apps/gedit-2/plugins/active-plugins -t list --list-type=str [rails_extract_partial,rubyonrailsloader,align-columns,smart_indent,text_tools,completion,quickhighlightmode,gemini,trailsave,rails_hotkeys,fuzzyopen,filebrowser,snippets,modelines,smartspaces,docinfo,time,spell,terminal,drawspaces,codecomment,colorpicker,indent,encodingpy,FindInProject]
         gconftool-2 --set /apps/gedit-2/preferences/editor/auto_indent/auto_indent -t bool true
         gconftool-2 --set /apps/gedit-2/preferences/editor/bracket_matching/bracket_matching -t bool true
         gconftool-2 --set /apps/gedit-2/preferences/editor/current_line/highlight_current_line -t bool true
@@ -128,3 +128,4 @@ case "$answer" in
         echo "No config performed."
         ;;
 esac
+

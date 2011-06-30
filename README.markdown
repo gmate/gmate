@@ -46,6 +46,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 
 * **Advanced Bookmarks**. Highlight, remenber and toggle bookmarks in your
   files.
+* **Align columns**. Align text blocks into columns separated by pipe ( | )
 * **Classbrowser**. A Classbrowser (depends of ctags, I use exuberant-ctags).
 * **Encoding**. Reopen the document in a different encoding
 * **File Search**. This is a search plugin for Gedit to search for a text inside

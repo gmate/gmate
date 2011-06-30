@@ -1,0 +1,13 @@
+[Gedit Plugin]
+Loader=python
+Module=align-columns
+IAge=2
+Name=Align columns
+Name[pt_BR]=Alinhar colunas
+Name[ru]=Выравнивание столбцов
+Description=Align text blocks into columns separated by pipe ( | )
+Description[pt_BR]=Alinha blocos de texto em colunas separadas por pipe ( | )
+Description[ru]=Выравнивает блоки текста в столбцах, разделённых прямой чертой ( | )
+Authors=Hugo Maia Vieira <hugomaiavieira@gmail.com>
+Copyright=Copyright © 2011 Hugo Maia Vieira <hugomaiavieira@gmail.com>
+Website=http://github.com/algorich/gedit-align-columns

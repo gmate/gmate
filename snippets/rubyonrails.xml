@@ -1850,7 +1850,7 @@ end]]></text>
     <description>rspec:capybara:scenario</description>
   </snippet>
   <snippet>
-    <text><![CDATA[background '${1:description}' do
+    <text><![CDATA[background do
 	$0
 end]]></text>
     <tag>background</tag>

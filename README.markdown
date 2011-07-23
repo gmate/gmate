@@ -69,6 +69,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Rails Hotkeys**. Navigation in Rails Project Files.
 * **Regex Search Replace**. Search and replace with regular expressions.
 * **Reopen Tabs**. Saves opened tabs on exit to restore them on next run.
+* **Simple Folding**. Collapse selected text.
 * **Smart Indent**. Smart Indentation regex based.
 * **Tabulation**. Auto set tabs and spaces based on file type.
 * **TextMate Style Autocompletion**. Better autocompletion. Tap `Esc` to cycle

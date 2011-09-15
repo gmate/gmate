@@ -50,6 +50,10 @@
     <glob pattern="*.rxml"/>
     <glob pattern="*.builder"/>
   </mime-type>
+  <mime-type type="application/x-ruby">
+    <comment>Ruby API Builder Language template</comment>
+    <glob pattern="*.rabl"/>
+  </mime-type>
   <mime-type type="text/x-yaml">
     <comment>YAML Ain't Markup Language</comment>
     <glob pattern="*.yml"/>

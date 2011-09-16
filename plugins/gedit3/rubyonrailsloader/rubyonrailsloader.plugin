@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python
+Module=rubyonrailsloader
+IAge=3
+Name=Rails File Loader
+Description=Detects if a File is a part of a Rails Project and set the language to RubyOnRails
+Authors=Hassan Zamani <hsn.zamani@gmail.com>
+Copyright=Copyright © 2011 Hassan Zamani <hsn.zamani@gmail.com>
+Website=http://www.gedit.org

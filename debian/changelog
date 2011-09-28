@@ -1,3 +1,15 @@
+gedit-gmate (0.9.20~uorppa0) natty; urgency=low
+  * Add Highlight Edited Lines plugin.
+  * Add Text Map plugin.
+  * Add Simple Folding plugin.
+  * Add Multi Terminal plugin.
+  * Add MIME detection for RABL templetes.
+  * Add JS support to RHTML highlight.
+  * Add 'smart def' snippet for python.
+  * Fix rspec:capybara:background snippet.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Wed, 28 Sep 2011 23:31:15 +0400
+
 gedit-gmate (0.9.19~uorppa0) natty; urgency=low
   * Replace plugin “Align” by “Align columns”.
   * Add Zoom plugin.

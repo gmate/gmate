@@ -58,6 +58,8 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Gedit Open File**. Regex based file open (like textmate Go to file…).
 * **Gedit Todo**. Find Todo Marks in source files (integrated with filebrowser).
 * **Gemini**. Pair complete for quotes and braces.
+* **Highlight Edited Lines**. Highlights lines changed during your edit session.
+  <http://1dan.org/gedit-plugins/highlight-edited-lines/>
 * **Indent Converter**. Converts tabs to spaces and spaces to tabs.
 * **Multi Edit**. Check it out at author's page
   <http://jon-walsh.com/journal/multi-edit>
@@ -74,6 +76,8 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Tabulation**. Auto set tabs and spaces based on file type.
 * **TextMate Style Autocompletion**. Better autocompletion. Tap `Esc` to cycle
   through the available completions.
+* **Text Map**. Navigatable thumbnail of the entire file
+  <http://1dan.org/gedit-plugins/textmap/>
 * **Text Tools**. Some text manipulation improvements (adapted from line tools).
 * **Trailsave**. Remove trailing spaces before save a document.
 * **Word Completion**. Word completion plugin.

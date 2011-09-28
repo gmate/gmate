@@ -49,6 +49,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Align columns**. Align text blocks into columns separated by pipe ( | )
 * **Classbrowser**. A Classbrowser (depends of ctags, I use exuberant-ctags).
 * **Encoding**. Reopen the document in a different encoding
+* **Embedded Terminal**. Terminal with multiple windows
 * **File Search**. This is a search plugin for Gedit to search for a text inside
   a directory. <https://github.com/oliver/gedit-file-search>
 * **Find in Project**. Search in the project with ack/grep.

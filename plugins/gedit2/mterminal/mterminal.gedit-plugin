@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=mterminal
+IAge=2
+Name=Embedded Terminal
+Description=Terminal with multiple windows
+Icon=gnome-terminal
+Authors=FaziBear
+Copyright=Copyright © 2008
+Website=http://fazibear.blogspot.com/2008/04/gedit-with-multi-terminal.html

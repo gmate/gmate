@@ -1,3 +1,8 @@
+gedit-gmate (0.10~uorppa0) oneiric; urgency=low
+  * Support for gedit 3.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Sun, 02 Oct 2011 02:20:19 +0400
+
 gedit-gmate (0.9.20~uorppa0) natty; urgency=low
   * Add Highlight Edited Lines plugin.
   * Add Text Map plugin.

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="rubyonrails">
+
+  <snippet id="it">
+    <text><![CDATA[it "${1:test}" do
+	$0
+end]]></text>
+    <tag>it</tag>
+    <description>rspec: It</description>
+  </snippet>
+
+  <snippet id="describe">
+    <text><![CDATA[describe "${1:description}" do
+	$0
+end]]></text>
+    <tag>describe</tag>
+    <description>rspec: describe</description>
+  </snippet>
+
+  <snippet id="context">
+    <text><![CDATA[context "${1:description}" do
+	$0
+end]]></text>
+    <tag>context</tag>
+    <description>rspec: context</description>
+  </snippet>
+
+  <snippet id="before">
+    <text><![CDATA[before(:each) do
+  $0
+end]]></text>
+    <tag>before</tag>
+    <description>rspec: before</description>
+  </snippet>
+
+  <snippet id="beforea">
+    <text><![CDATA[before(:all) do
+  $0
+end]]></text>
+    <tag>beforea</tag>
+    <description>rspec: before all</description>
+  </snippet>
+  <snippet id="after">
+    <text><![CDATA[after(:each) do
+  $0
+end]]></text>
+    <tag>after</tag>
+    <description>rspec: after</description>
+  </snippet>
+
+  <snippet id="aftera">
+    <text><![CDATA[after(:all) do
+  $0
+end]]></text>
+    <tag>aftera</tag>
+    <description>rspec: after all</description>
+  </snippet>
+
+  <snippet id="describeb">
+    <text><![CDATA[describe '${1:description}' do
+	before(:each) do
+		$0
+	end
+end]]></text>
+    <tag>describeb</tag>
+    <description>rspec: describe with before</description>
+  </snippet>
+
+  <snippet id="contextb">
+    <text><![CDATA[context '${1:description}' do
+	before(:each) do
+  	$0
+	end
+end]]></text>
+    <tag>contextb</tag>
+    <description>rspec: context with before</description>
+  </snippet>
+
+  <snippet id="feature">
+    <text><![CDATA[feature "${1:description}" do
+	$0
+end]]></text>
+    <tag>feature</tag>
+    <description>rspec:capybara:feature</description>
+  </snippet>
+
+  <snippet id="scanario">
+    <text><![CDATA[scenario "${1:description}" do
+	$0
+end]]></text>
+    <tag>scenario</tag>
+    <description>rspec:capybara:scenario</description>
+  </snippet>
+
+  <snippet id="background">
+    <text><![CDATA[background do
+	$0
+end]]></text>
+    <tag>background</tag>
+    <description>rspec:capybara:background</description>
+  </snippet>
+</snippets>
+

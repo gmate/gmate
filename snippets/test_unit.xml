@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="rubyonrails">
+
+  <!--  Test::Unit::TestCase-->
+
+  <snippet id="test">
+    <tag>test</tag>
+    <text><![CDATA[test "${1:desc}" do
+  $0
+end]]></text>
+    <description>testunit: test</description>
+  </snippet>
+
+  <snippet id="set">
+    <tag>set</tag>
+    <text><![CDATA[setup do
+  ${0}
+end]]></text>
+    <description>testunit: setup block</description>
+  </snippet>
+
+  <snippet id="tear">
+    <tag>tear</tag>
+    <text><![CDATA[teardown do
+  ${0}
+end]]></text>
+    <description>testunit: teardown block</description>
+  </snippet>
+
+  <!-- Test::Unit::Assertions -->
+
+  <snippet id="assert">
+    <tag>assert</tag>
+    <description>testunit: assert</description>
+    <text><![CDATA[assert ${1:test}, "${2:msg}"]]></text>
+  </snippet>
+
+  <snippet id="asb">
+    <tag>asb</tag>
+    <description>testunit: assert_block</description>
+    <text><![CDATA[assert_block "${1:msg}" do
+  ${0}
+end]]></text>
+  </snippet>
+
+
+  <snippet id="art">
+    <tag>art</tag>
+    <description>testunit: assert_redirected_to(@instance)</description>
+    <text><![CDATA[assert_redirected_to(@${1:inst})]]></text>
+  </snippet>
+
+  <snippet id="artca">
+    <tag>artca</tag>
+    <description>testunit: assert_redirected_to(:controller, :action)</description>
+    <text><![CDATA[assert_redirected_to(:controller => "${1:name}", :action => "${2:name}")]]></text>
+  </snippet>
+
+  <snippet id="artu">
+    <tag>artu</tag>
+    <description>testunit: assert_redirected_to(url)</description>
+    <text><![CDATA[assert_redirected_to(${1:name}_url)]]></text>
+  </snippet>
+
+  <snippet id="ase">
+    <tag>ase</tag>
+    <description>testunit: assert_equal(..)</description>
+    <text><![CDATA[assert_equal(${1:expected}, ${2:actual})]]></text>
+  </snippet>
+
+  <snippet id="asid">
+    <tag>asid</tag>
+    <description>testunit: assert_in_delta(..)</description>
+    <text><![CDATA[assert_in_delta(${1:expected_float}, ${2:actual_float}, ${3:delta}, "${4:msg}")]]></text>
+  </snippet>
+
+  <snippet id="asio">
+    <tag>asio</tag>
+    <description>testunit: assert_instance_of(..)</description>
+    <text><![CDATA[assert_instance_of(${1:klass}, ${2:obj}, "${3:msg}")]]></text>
+  </snippet>
+
+  <snippet id="asko">
+    <tag>asko</tag>
+    <description>testunit: assert_kind_of(..)</description>
+    <text><![CDATA[assert_kind_of(${1:ExpectedKind}, ${2:actual_instance})]]></text>
+  </snippet>
+
+  <snippet id="asm">
+    <tag>asm</tag>
+    <description>testunit: assert_match(..)</description>
+    <text><![CDATA[assert_match(/${1:expected_pattern}/, ${2:actual_string})]]></text>
+  </snippet>
+
+  <snippet id="asnm">
+    <tag>asnm</tag>
+    <description>testunit: assert_no_match(..)</description>
+    <text><![CDATA[assert_no_match(/${1:unexpected_pattern}/, ${2:actual_string})]]></text>
+  </snippet>
+
+  <snippet id="asn">
+    <tag>asn</tag>
+    <description>testunit: assert_nil(..)</description>
+    <text><![CDATA[assert_nil(${1:instance})]]></text>
+  </snippet>
+  <snippet id="asne">
+    <tag>asne</tag>
+    <description>testunit: assert_not_equal(..)</description>
+    <text><![CDATA[assert_not_equal(${1:unexpected}, ${2:actual})]]></text>
+  </snippet>
+  <snippet id="asnn">
+    <tag>asnn</tag>
+    <description>testunit: assert_not_nil(..)</description>
+    <text><![CDATA[assert_not_nil(${1:instance})]]></text>
+  </snippet>
+  <snippet id="asnr">
+    <tag>asnr</tag>
+    <description>testunit: assert_nothing_raised(..) { .. }</description>
+    <text><![CDATA[assert_nothing_raised(${1:Exception}) { ${0} }]]></text>
+  </snippet>
+  <snippet id="asns">
+    <tag>asns</tag>
+    <description>testunit: assert_not_same(..)</description>
+    <text><![CDATA[assert_not_same(${1:unexpected}, ${2:actual})]]></text>
+  </snippet>
+  <snippet id="asnt">
+    <tag>asnt</tag>
+    <description>testunit: assert_nothing_thrown { .. }</description>
+    <text><![CDATA[assert_nothing_thrown { ${0} }]]></text>
+  </snippet>
+  <snippet id="aso">
+    <tag>aso</tag>
+    <description>testunit: assert_operator(..)</description>
+    <text><![CDATA[assert_operator(${1:left}, :${2:operator}, ${3:right})]]></text>
+  </snippet>
+  <snippet id="asr">
+    <tag>asr</tag>
+    <description>testunit: assert_raise(..) { .. }</description>
+    <text><![CDATA[assert_raise(${1:Exception}) { ${0} }]]></text>
+  </snippet>
+  <snippet id="asre">
+    <tag>asre</tag>
+    <description>testunit: assert_response</description>
+    <text><![CDATA[assert_response :${1:success}]]></text>
+  </snippet>
+  <snippet id="asrt">
+    <tag>asrt</tag>
+    <description>testunit: assert_respond_to(..)</description>
+    <text><![CDATA[assert_respond_to(${1:object}, :${2:method})]]></text>
+  </snippet>
+  <snippet id="ass">
+    <tag>ass</tag>
+    <description>testunit: assert_same(..)</description>
+    <text><![CDATA[assert_same(${1:expected}, ${2:actual})]]></text>
+  </snippet>
+  <snippet id="ass">
+    <tag>ass</tag>
+    <description>testunit: assert_send(..)</description>
+    <text><![CDATA[assert_send([${1:object}, :${2:message}, ${3:args}])]]></text>
+  </snippet>
+  <snippet id="ast">
+    <tag>ast</tag>
+    <description>testunit: assert_throws(..) { .. }</description>
+    <text><![CDATA[assert_throws(:${1:expected}) { ${0} }]]></text>
+  </snippet>
+  <snippet id="flunk">
+    <tag>flunk</tag>
+    <description>testunit: flunk(..)</description>
+    <text><![CDATA[flunk("${1:msg}")]]></text>
+  </snippet>
+
+
+  <!-- Rails specific assertions -->
+
+  <snippet id="asv">
+    <text><![CDATA[assert_valid ${1:object}]]></text>
+    <description>testunit: assert_valid</description>
+    <tag>asv</tag>
+  </snippet>
+  <snippet id="asd">
+    <text><![CDATA[assert_difference(${1:expr}, ${2:diff}, "${3:msg}") do
+  ${0}
+end]]></text>
+    <description>testunit: assert_difference</description>
+    <tag>asd</tag>
+  </snippet>
+  <snippet id="asnd">
+    <text><![CDATA[assert_no_difference(${1:expr}, "${2:msg}") do
+  ${0}
+end]]></text>
+    <description>testunit: assert_no_difference</description>
+    <tag>asnd</tag>
+  </snippet>
+  <snippet id="asrec">
+    <text><![CDATA[assert_recognizes({ ${1:options} }, "${2:path}")]]></text>
+    <description>testunit: assert_recognizes</description>
+    <tag>asrec</tag>
+  </snippet>
+  <snippet id="asg">
+    <text><![CDATA[assert_generates("${1:path}", ${2:options})]]></text>
+    <description>testunit: assert_generates</description>
+    <tag>asg</tag>
+  </snippet>
+  <snippet id="asres">
+    <text><![CDATA[assert_response(:${1:success/redirect/missing/error}, "${2:msg}")]]></text>
+    <description>testunit: assert_response</description>
+    <tag>asres</tag>
+  </snippet>
+  <snippet id="asred">
+    <text><![CDATA[assert_redirected_to(${1:"path"/@resource/{ options }})]]></text>
+    <description>testunit: assert_redirected_to</description>
+    <tag>asred</tag>
+  </snippet>
+  <snippet id="astem">
+    <text><![CDATA[assert_template(${1:options})]]></text>
+    <description>testunit: assert_template</description>
+    <tag>astem</tag>
+  </snippet>
+</snippets>
+

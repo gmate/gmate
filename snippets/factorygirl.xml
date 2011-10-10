@@ -2,7 +2,7 @@
 <snippets language="rubyonrails">
 
   <snippet id="fgd">
-    <text><![CDATA[factorygirl: define do
+    <text><![CDATA[FactoryGirl.define do
   ${0}
 end]]></text>
     <tag>fgd</tag>
@@ -10,7 +10,7 @@ end]]></text>
   </snippet>
 
   <snippet id="fgdf">
-    <text><![CDATA[factorygirl: define do
+    <text><![CDATA[FactoryGirl.define do
   factory :${1:name} do
     ${2:key} ${3:value}
     ${0}
@@ -21,7 +21,7 @@ end]]></text>
   </snippet>
 
   <snippet id="fgds">
-    <text><![CDATA[factorygirl: define do
+    <text><![CDATA[FactoryGirl.define do
   sequence :${1:name} do |n|
     "${0}#{n}"
   end
@@ -31,31 +31,31 @@ end]]></text>
   </snippet>
 
   <snippet id="fgb">
-    <text><![CDATA[factorygirl: build(:${1:name})]]></text>
+    <text><![CDATA[FactoryGirl.build(:${1:name})]]></text>
     <tag>fgb</tag>
     <description>factorygirl: build</description>
   </snippet>
 
   <snippet id="fgc">
-    <text><![CDATA[factorygirl: create(:${1:name})]]></text>
+    <text><![CDATA[FactoryGirl.create(:${1:name})]]></text>
     <tag>fgc</tag>
     <description>factorygirl: create</description>
   </snippet>
 
   <snippet id="fgaf">
-    <text><![CDATA[factorygirl: attributes_for(:${1:name})]]></text>
+    <text><![CDATA[FactoryGirl.attributes_for(:${1:name})]]></text>
     <tag>fgaf</tag>
     <description>factorygirl: attributes_for</description>
   </snippet>
 
   <snippet id="">
-    <text><![CDATA[factorygirl: build_stubbed(:${1:name})]]></text>
+    <text><![CDATA[FactoryGirl.build_stubbed(:${1:name})]]></text>
     <tag>fgbs</tag>
     <description>factorygirl: build_stubbed</description>
   </snippet>
 
   <snippet id="fgg">
-    <text><![CDATA[factorygirl: generate(:${1:name})]]></text>
+    <text><![CDATA[FactoryGirl.generate(:${1:name})]]></text>
     <tag>fgg</tag>
     <description>factorygirl: generate</description>
   </snippet>

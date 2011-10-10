@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=editshortcut
+IAge=2
+Name=Edit Shortcuts
+Description=Enables you to edit all menu shortcuts.
+Authors=Hannes Matuschek <hmatuschek@gmail.com>
+Copyright=Copyright © 2007 Hannes Matuschek <hmatuschek@gmail.com>
+Website=http://empty.23inch.de/pmwiki.php/Main/EditShortcuts

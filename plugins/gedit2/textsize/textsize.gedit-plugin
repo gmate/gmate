@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=textsize
+IAge=2
+Name=Text Size
+Description=Easily increase and decrease the text size
+Authors=Konstantin Mikhaylov <jtraub.devel@gmail.com>\nWouter Bolsterlee <wbolster@gnome.org>
+Copyright=Copyright © 2008 by the authors
+Website=http://www.gedit.org

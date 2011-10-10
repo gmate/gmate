@@ -54,18 +54,11 @@ class Gemini:
     end_keyvals   = [34, 39, 96, 41, 93, 125]
     twin_start    = ['"',"'",'`','(','[','{']
     twin_end      = ['"',"'",'`',')',']','}']
-    toggle        = False
 
     def __init__(self):
         return
 
     def key_press_handler(self, view, event):
-        if gedit.version > (2, 30, 3):
-            if self.toggle:
-                self.toggle = False
-                return
-            else:
-                self.toggle = True
         buf = view.get_buffer()
         cursor_mark = buf.get_insert()
         cursor_iter = buf.get_iter_at_mark(cursor_mark)

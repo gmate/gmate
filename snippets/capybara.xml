@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="rubyonrails">
+
+  <snippet id="vis">
+    <text><![CDATA[visit(${1:path})]]></text>
+    <description>capybara: visit path</description>
+    <tag>vis</tag>
+  </snippet>
+
+  <snippet id="saop">
+    <text><![CDATA[save_and_open_page]]></text>
+    <description>capybara: save_and_open_page</description>
+    <tag>saop</tag>
+  </snippet>
+
+  <snippet id="within">
+    <text><![CDATA[within("${1:selector}") do
+  ${0}
+end]]></text>
+    <description>capybara: within block</description>
+    <tag>within</tag>
+  </snippet>
+
+  <!-- Capybara::Node::Actions -->
+
+  <snippet id="atf">
+    <text><![CDATA[attach_file("${1:locator}", "${2:path}")]]></text>
+    <description>capybara: attach_file</description>
+    <tag>atf</tag>
+  </snippet>
+
+  <snippet id="che">
+    <text><![CDATA[check("${1:locator}")]]></text>
+    <description>capybara: check</description>
+    <tag>che</tag>
+  </snippet>
+
+  <snippet id="uche">
+    <text><![CDATA[uncheck("${1:locator}")]]></text>
+    <description>capybara: uncheck</description>
+    <tag>uche</tag>
+  </snippet>
+
+  <snippet id="cho">
+    <text><![CDATA[choose("${1:locator}")]]></text>
+    <description>capybara: choose</description>
+    <tag>cho</tag>
+  </snippet>
+
+  <snippet id="clb">
+    <text><![CDATA[click_button("${1:locator}")]]></text>
+    <description>capybara: click_button</description>
+    <tag>clb</tag>
+  </snippet>
+
+  <snippet id="cll">
+    <text><![CDATA[clik_link("${1:locator}")]]></text>
+    <description>capybara: click_link</description>
+    <tag>cll</tag>
+  </snippet>
+
+  <snippet id="clo">
+    <text><![CDATA[click_on("${1:locator}")]]></text>
+    <description>capybara: click_on</description>
+    <tag>clo</tag>
+  </snippet>
+
+  <snippet id="cllob">
+    <text><![CDATA[click_link_or_button("${1:locator}")]]></text>
+    <description>capybara: click_link_or_button</description>
+    <tag>cllob</tag>
+  </snippet>
+
+  <snippet id="fii">
+    <text><![CDATA[fill_in("${1:locator}", :with => "${2:value}")]]></text>
+    <description>capybara: fill_in</description>
+    <tag>fii</tag>
+  </snippet>
+
+  <snippet id="sele">
+    <text><![CDATA[select("${1:value}", :from => "${2:selector}")]]></text>
+    <description>capybara: select</description>
+    <tag>sele</tag>
+  </snippet>
+
+  <snippet id="unsele">
+    <text><![CDATA[unselect("${1:value}", :from => "${2:selector}")]]></text>
+    <description>capybara: unselect</description>
+    <tag>unsele</tag>
+  </snippet>
+
+  <!-- Capybara::Node::Session -->
+
+  <snippet id="cp">
+    <text><![CDATA[current_path]]></text>
+    <description>capybara: current_path</description>
+    <tag>cp</tag>
+  </snippet>
+
+  <snippet id="cu">
+    <text><![CDATA[current_url]]></text>
+    <description>capybara: current_url</description>
+    <tag>cu</tag>
+  </snippet>
+
+  <!-- Capybara::Node::Matchers -->
+
+  <snippet id="hb">
+    <text><![CDATA[has_button?("${1:locator}")]]></text>
+    <description>capybara: has_button?</description>
+    <tag>hb</tag>
+  </snippet>
+
+  <snippet id="hcf">
+    <text><![CDATA[has_checked_field?("${1:locator}")]]></text>
+    <description>capybara: has_checked_field?</description>
+    <tag>hcf</tag>
+  </snippet>
+
+  <snippet id="hncf">
+    <text><![CDATA[has_no_checked_field?("${1:locator}")]]></text>
+    <description>capybara: has_no_checked_field?</description>
+    <tag>hncf</tag>
+  </snippet>
+
+  <snippet id="huf">
+    <text><![CDATA[has_unchecked_field?("${1:locator}")]]></text>
+    <description>capybara: has_unchecked_field?</description>
+    <tag>huf</tag>
+  </snippet>
+
+  <snippet id="hnuf">
+    <text><![CDATA[has_no_unchecked_field?("${1:locator}")]]></text>
+    <description>capybara: has_no_unchecked_field?</description>
+    <tag>hnuf</tag>
+  </snippet>
+
+  <snippet id="hc">
+    <text><![CDATA[has_content?("${1:locator}")]]></text>
+    <description>capybara: has_content?</description>
+    <tag>hc</tag>
+  </snippet>
+
+  <snippet id="hnc">
+    <text><![CDATA[has_no_content?("${1:locator}")]]></text>
+    <description>capybara: has_no_content?</description>
+    <tag>hnc</tag>
+  </snippet>
+
+  <snippet id="hcss">
+    <text><![CDATA[has_css?("${1:locator}", ${2:options})]]></text>
+    <description>capybara: has_css?</description>
+    <tag>hcss</tag>
+  </snippet>
+
+  <snippet id="hncss">
+    <text><![CDATA[has_no_css?("${1:locator}", ${2:options})]]></text>
+    <description>capybara: has_no_css?</description>
+    <tag>hncss</tag>
+  </snippet>
+
+  <snippet id="hf">
+    <text><![CDATA[has_field?("${1:locator}", ${2:options})]]></text>
+    <description>capybara: has_field?</description>
+    <tag>hf</tag>
+  </snippet>
+
+  <snippet id="hnf">
+    <text><![CDATA[has_no_field?("${1:locator}", ${2:options})]]></text>
+    <description>capybara: has_no_field?</description>
+    <tag>hnf</tag>
+  </snippet>
+
+  <snippet id="hl">
+    <text><![CDATA[has_link?("${1:locator}", ${2:options})]]></text>
+    <description>capybara: has_link?</description>
+    <tag>hl</tag>
+  </snippet>
+
+  <snippet id="hnl">
+    <text><![CDATA[has_no_link?("${1:locator}", ${2:options})]]></text>
+    <description>capybara: has_no_link?</description>
+    <tag>hnl</tag>
+  </snippet>
+
+  <snippet id="hs">
+    <text><![CDATA[has_select?("${1:locator}" ${2:options})]]></text>
+    <description>capybara: has_select?</description>
+    <tag>hs</tag>
+  </snippet>
+
+  <snippet id="hns">
+    <text><![CDATA[has_no_select?("${1:locator}", ${2:options})]]></text>
+    <description>capybara: has_no_select?</description>
+    <tag>hns</tag>
+  </snippet>
+
+  <snippet id="hse">
+    <text><![CDATA[has_selector?(${1:*args})]]></text>
+    <description>capybara: has_selector?</description>
+    <tag>hse</tag>
+  </snippet>
+
+  <snippet id="hnse">
+    <text><![CDATA[has_no_selector?(${1:*args})]]></text>
+    <description>capybara: has_no_selector?</description>
+    <tag>hnse</tag>
+  </snippet>
+
+  <snippet id="ht">
+    <text><![CDATA[has_table?(${1:*args})]]></text>
+    <description>capybara: has_table?</description>
+    <tag>ht</tag>
+  </snippet>
+
+  <snippet id="hnt">
+    <text><![CDATA[has_no_table?(${1:*args})]]></text>
+    <description>capybara: has_no_table?</description>
+    <tag>hnt</tag>
+  </snippet>
+
+  <snippet id="ht">
+    <text><![CDATA[has_xpath?("${1:path}", ${2:options})]]></text>
+    <description>capybara: has_xpath?</description>
+    <tag>ht</tag>
+  </snippet>
+
+  <!-- Capybara::Node::Finders -->
+
+  <snippet id="fall">
+    <text><![CDATA[all(${1:*args})]]></text>
+    <description>capybara: all</description>
+    <tag>fall</tag>
+  </snippet>
+
+  <snippet id="cfind">
+    <text><![CDATA[find(${1:*args})]]></text>
+    <description>capybara: find</description>
+    <tag>cfind</tag>
+  </snippet>
+
+  <snippet id="findb">
+    <text><![CDATA[find_button("${1:locator}")]]></text>
+    <description>capybara: find_button</description>
+    <tag>findb</tag>
+  </snippet>
+
+  <snippet id="findbi">
+    <text><![CDATA[find_by_id("${1:id}")]]></text>
+    <description>capybara: find_by_id</description>
+    <tag>findbi</tag>
+  </snippet>
+
+  <snippet id="findf">
+    <text><![CDATA[find_field("${1:locator}")]]></text>
+    <description>capybara: find_field</description>
+    <tag>findf</tag>
+  </snippet>
+
+  <snippet id="findl">
+    <text><![CDATA[find_link("${1:locator}")]]></text>
+    <description>capybara: find_link</description>
+    <tag>findl</tag>
+  </snippet>
+
+</snippets
+

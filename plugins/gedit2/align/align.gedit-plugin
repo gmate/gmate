@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=align
+IAge=2
+Name=Align
+Description=Align blocks of text into columns
+Authors=Osmo Salomaa <otsaloma@cc.hut.fi>
+Copyright=Copyright (C) 2006 Osmo Salomaa
+Website=http://users.tkk.fi/~otsaloma/gedit

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="rubyonrails">
+
+  <snippet id="fgd">
+    <text><![CDATA[FactoryGirl.define do
+  ${0}
+end]]></text>
+    <tag>fgd</tag>
+    <description>factorygirl: define</description>
+  </snippet>
+
+  <snippet id="fgdf">
+    <text><![CDATA[FactoryGirl.define do
+  factory :${1:name} do
+    ${2:key} ${3:value}
+    ${0}
+  end
+end]]></text>
+    <tag>fgdf</tag>
+    <description>factorygirl: define factory</description>
+  </snippet>
+
+  <snippet id="fgds">
+    <text><![CDATA[FactoryGirl.define do
+  sequence :${1:name} do |n|
+    "${0}#{n}"
+  end
+end]]></text>
+    <tag>fgds</tag>
+    <description>factorygirl: define sequence</description>
+  </snippet>
+
+  <snippet id="fgb">
+    <text><![CDATA[FactoryGirl.build(:${1:name})]]></text>
+    <tag>fgb</tag>
+    <description>factorygirl: build</description>
+  </snippet>
+
+  <snippet id="fgc">
+    <text><![CDATA[FactoryGirl.create(:${1:name})]]></text>
+    <tag>fgc</tag>
+    <description>factorygirl: create</description>
+  </snippet>
+
+  <snippet id="fgaf">
+    <text><![CDATA[FactoryGirl.attributes_for(:${1:name})]]></text>
+    <tag>fgaf</tag>
+    <description>factorygirl: attributes_for</description>
+  </snippet>
+
+  <snippet id="">
+    <text><![CDATA[FactoryGirl.build_stubbed(:${1:name})]]></text>
+    <tag>fgbs</tag>
+    <description>factorygirl: build_stubbed</description>
+  </snippet>
+
+  <snippet id="fgg">
+    <text><![CDATA[FactoryGirl.generate(:${1:name})]]></text>
+    <tag>fgg</tag>
+    <description>factorygirl: generate</description>
+  </snippet>
+
+  <snippet id="fact">
+    <text><![CDATA[factory :${1:name} do
+  ${2:key} ${3:value}
+  ${0}
+end]]></text>
+    <tag>fact</tag>
+    <description>factorygirl: factory</description>
+  </snippet>
+
+  <snippet id="seq">
+    <text><![CDATA[sequence :${1:name} { |n| "${0}#{n}" }]]></text>
+    <tag>seq</tag>
+    <description>factorygirl: sequence with inline block</description>
+  </snippet>
+
+  <snippet id="seqdo">
+    <text><![CDATA[sequence :${1:name} do |n|
+  "${0}#{n}"
+end]]></text>
+    <tag>seqo</tag>
+    <description>factorygirl: sequence</description>
+  </snippet>
+
+</snippets>
+

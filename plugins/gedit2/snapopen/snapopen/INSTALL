@@ -1,0 +1,19 @@
+Gedit Snapopen Plugin
+
+INSTALLATION INSTRUCTIONS                     
+
+Downloaded:
+1) Extract contents of archive
+2) Copy files from gedit-snapopen directory to
+   ~/.gnome2/gedit/plugins
+3) Fire up gedit, go to Edit->Preferences, select the
+   Plugins tab, and make sure "Snap Open" is checked
+  
+GIT clone
+1) git clone git://github.com/MadsBuus/gedit-snapopen-plugin.git 
+2) create a symlink:
+      mkdir -p ~/.gnome2/gedit/ 
+      cd ~/.gnome2/gedit/
+      ln -s [path/to/clone] plugins 
+      
+      

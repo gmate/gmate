@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=snapopen
+IAge=2
+Name=Snap Open
+Description=Opens files by regex
+Description[es]=Encuentra todos los archivos por porciones de su nombre. Ctrl + Alt + O
+Authors=Mads Buus Westmark <online@buus.net>
+Copyright=Copyright © 2010 Mads Buus Westmark <online@buus.net>
+Website=http://github.com/MadsBuus/gedit-snapopen-plugin

@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="rubyonrails">
+  <snippet id="svp">
+    <text><![CDATA[should_validate_presence_of :${1:attribute}]]></text>
+    <tag>svp</tag>
+    <description>remarkable_ar: should_validate_presence_of</description>
+  </snippet>
+  <snippet id="sbt">
+    <text><![CDATA[should_belong_to :${1:association}]]></text>
+    <tag>sbt</tag>
+    <description>remarkable_ar: should_belong_to</description>
+  </snippet>
+  <snippet id="shm">
+    <text><![CDATA[should_have_many :${1:association}]]></text>
+    <tag>shm</tag>
+    <description>remarkable_ar: should_have_many</description>
+  </snippet>
+  <snippet id="sho">
+    <text><![CDATA[should_have_one :${1:association}]]></text>
+    <tag>sho</tag>
+    <description>remarkable_ar: should_have_one</description>
+  </snippet>
+  <snippet id="shabtm">
+    <text><![CDATA[should_have_and_belong_to_many :${1:association}]]></text>
+    <tag>shabtm</tag>
+    <description>remarkable_ar: should_have_and_belong_to_many</description>
+  </snippet>
+  <snippet id="shc">
+    <text><![CDATA[should_have_column :${1:column}, :type => ${2:type}]]></text>
+    <tag>shc</tag>
+    <description>remarkable_ar: should_have_column</description>
+  </snippet>
+  <snippet id="shi">
+    <text><![CDATA[should_have_index :${1:index_name}, :unique => :${2:true}]]></text>
+    <tag>shi</tag>
+    <description>remarkable_ar: should_have_index</description>
+  </snippet>
+  <snippet id="shns">
+    <text><![CDATA[should_have_named_scope :${1:scope}, :conditions => { :${2:column} => ${3:value} }, :order => '${4:order}'$0]]></text>
+    <tag>shns</tag>
+    <description>remarkable_ar: should_have_named_scope</description>
+  </snippet>
+  <snippet id="shs">
+    <text><![CDATA[should_have_scope :${1:scope}, :conditions => { :${2:column} => ${3:value} }, :order => '${4:order}'$0]]></text>
+    <tag>shs</tag>
+    <description>remarkable_ar: should_have_scope</description>
+  </snippet>
+  <snippet id="shra">
+    <text><![CDATA[should_have_readonly_attributes :${1:attribute}]]></text>
+    <tag>shra</tag>
+    <description>remarkable_ar: should_have_readonly_attributes</description>
+  </snippet>
+  <snippet id="svc">
+    <text><![CDATA[should_validate_confirmation_of :${1:attribute}]]></text>
+    <tag>svc</tag>
+    <description>remarkable_ar: should_validate_confirmation_of</description>
+  </snippet>
+  <snippet id="sve">
+    <text><![CDATA[should_validate_exclusion_of :${1:attribute}, :in => ${2:array|range}]]></text>
+    <tag>sve</tag>
+    <description>remarkable_ar: should_validate_exclusion_of</description>
+  </snippet>
+  <snippet id="svi">
+    <text><![CDATA[should_validate_inclusion_of :${1:attribute}, :in => ${2:array|range}]]></text>
+    <tag>svi</tag>
+    <description>remarkable_ar: should_validate_inclusion_of</description>
+  </snippet>
+  <snippet id="svl">
+    <text><![CDATA[should_validate_length_of :${1:attribute}, :${2:minimum|maximum|is|in|within} => ${3:value}]]></text>
+    <tag>svl</tag>
+    <description>remarkable_ar: should_validate_length_of</description>
+  </snippet>
+  <snippet id="svn">
+    <text><![CDATA[should_validate_numericality_of :${1:attribute}, :${2:only_integer|odd|even|...} => ${3:value}]]></text>
+    <tag>svn</tag>
+    <description>remarkable_ar: should_validate_numericality_of</description>
+  </snippet>
+  <snippet id="svu">
+    <text><![CDATA[should_validate_uniqueness_of :${1:attribute}, :scope => :${2:scoped_by}, :case_sensitive => ${3:true|false}]]></text>
+    <tag>svu</tag>
+    <description>remarkable_ar: should_validate_uniqueness_of</description>
+  </snippet>
+  <snippet id="sav">
+    <text><![CDATA[should_allow_values_for :${1:attribute}, :${2:value1}, :${3:value2}, :${4:valueN}]]></text>
+    <tag>sav</tag>
+    <description>remarkable_ar: should_allow_values_for</description>
+  </snippet>
+  <snippet id="sama">
+    <text><![CDATA[should_allow_mass_assignment_of :${1:attr1}, :${2:attr2}, :${3:attrN}]]></text>
+    <tag>sama</tag>
+    <description>remarkable_ar: should_allow_mass_assignment_of</description>
+  </snippet>
+  <snippet id="sana">
+    <text><![CDATA[should_accept_nested_attributes_for :${1:association},
+																		:allow_destroy => ${2:true|false},
+																		:reject => { :${3:attr} => ${4:value} },
+																		:accept => { :${5:attr} => ${6:value} }]]></text>
+    <tag>sana</tag>
+    <description>remarkable_ar: should_accept_nested_attributes_for</description>
+  </snippet>
+  <snippet id="snama">
+    <text><![CDATA[should_not_allow_mass_assignment_of :${1:attr1}, :${2:attr2}, :${3:attrN}]]></text>
+    <tag>snama</tag>
+    <description>remarkable_ar: should_not_allow_mass_assignment_of</description>
+  </snippet>
+  <snippet id="snav">
+    <text><![CDATA[should_not_allow_values_for :${1:attribute}, :${2:value1}, :${3:value2}, :${4:valueN}]]></text>
+    <tag>snav</tag>
+    <description>remarkable_ar: should_not_allow_values_for</description>
+  </snippet>
+  <snippet id="sat">
+    <text><![CDATA[should_assign_to :${1:instance_var_name}, :with => ${2:variable}, :with_kind_of => ${3:type}]]></text>
+    <tag>sat</tag>
+    <description>remarkable_rails: should_assign_to</description>
+  </snippet>
+  <snippet id="expects">
+    <text><![CDATA[expects :${1:method}, :on => ${2:object}, :with => ${3:params}, :returns => ${4:return|mock}]]></text>
+    <tag>expects</tag>
+    <description>remarkable_rails: expects</description>
+  </snippet>
+  <snippet id="sfp">
+    <text><![CDATA[should_filter_params :${1:param1}, :${2:param2}]]></text>
+    <tag>sfp</tag>
+    <description>remarkable_rails: should_filter_params</description>
+  </snippet>
+  <snippet id="mm">
+    <text><![CDATA[mock_models :${1:model}, :as => '${2:class}']]></text>
+    <tag>mm</tag>
+    <description>remarkable_rails: mock_models</description>
+  </snippet>
+  <snippet id="params">
+    <text><![CDATA[params :${1:param} => ${2:value}]]></text>
+    <tag>params</tag>
+    <description>remarkable_rails: params</description>
+  </snippet>
+  <snippet id="srt">
+    <text><![CDATA[should_redirect_to { ${1:url} }]]></text>
+    <tag>srt</tag>
+    <description>remarkable_rails: should_redirect_to</description>
+  </snippet>
+  <snippet id="srta">
+    <text><![CDATA[should_redirect_to :action => '${1:index}']]></text>
+    <tag>srta</tag>
+    <description>remarkable_rails: should_redirect_to action</description>
+  </snippet>
+  <snippet id="srt">
+    <text><![CDATA[should_render_template '${1:index}']]></text>
+    <tag>srt</tag>
+    <description>remarkable_rails: should_render_template</description>
+  </snippet>
+  <snippet id="srwl">
+    <text><![CDATA[should_render_with_layout '${1:layout}']]></text>
+    <tag>srwl</tag>
+    <description>remarkable_rails: should_render_with_layout</description>
+  </snippet>
+  <snippet id="srwol">
+    <text><![CDATA[should_render_without_layout '${1:layout}']]></text>
+    <tag>srwol</tag>
+    <description>remarkable_rails: should_render_without_layout</description>
+  </snippet>
+  <snippet id="srw">
+    <text><![CDATA[should_respond_with :${1:success|redirect|404}, :content_type => ${2:Mime::XML}]]></text>
+    <tag>srw</tag>
+    <description>remarkable_rails: should_respond_with</description>
+  </snippet>
+  <snippet id="srwb">
+    <text><![CDATA[should_respond_with_body '${1:text_body|str_or_regex}']]></text>
+    <tag>srwb</tag>
+    <description>remarkable_rails: should_respond_with_body</description>
+  </snippet>
+  <snippet id="srwct">
+    <text><![CDATA[should_respond_with_content_type ${1:content_type}]]></text>
+    <tag>srwct</tag>
+    <description>remarkable_rails: should_respond_with_content_type</description>
+  </snippet>
+  <snippet id="sr">
+    <text><![CDATA[should_route :${1:get|post|put|delete}, '${2:url}', :action => '${3:index|new|edit..}', :id => 1]]></text>
+    <tag>sr</tag>
+    <description>remarkable_rails: should_route</description>
+  </snippet>
+  <snippet id="ssc">
+    <text><![CDATA[should_set_cookies :${1:cookie}, :to => ${2:value|proc}]]></text>
+    <tag>ssc</tag>
+    <description>remarkable_rails: should_set_cookies</description>
+  </snippet>
+  <snippet id="snsc">
+    <text><![CDATA[should_not_set_cookies :${1:cookie}, :to => ${2:value|proc}]]></text>
+    <tag>snsc</tag>
+    <description>remarkable_rails: should_not_set_cookies</description>
+  </snippet>
+  <snippet id="sstf">
+    <text><![CDATA[should_set_the_flash :${1:notice|error}, :to => ${2:string|regex|proc}]]></text>
+    <tag>sstf</tag>
+    <description>remarkable_rails: should_set_the_flash</description>
+  </snippet>
+  <snippet id="snstf">
+    <text><![CDATA[should_not_set_the_flash :${1:notice|error}, :to => ${2:string|regex|proc}]]></text>
+    <tag>snstf</tag>
+    <description>remarkable_rails: should_not_set_the_flash</description>
+  </snippet>
+</snippets>
+

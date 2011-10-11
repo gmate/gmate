@@ -1,249 +1,342 @@
 <?xml version='1.0' encoding='utf-8'?>
 <snippets language="rubyonrails">
-  <snippet id="asc">
-    <text><![CDATA[assert_contains(${1:collection}, ${2:/${3:x}/}${4:, "${5:extra_msg}"})]]></text>
-    <description>assert_contains</description>
-    <tag>asc</tag>
-  </snippet>
-  <snippet id="asdnc">
-    <text><![CDATA[assert_does_not_contain(${1:collection}, ${2:/${3:x}/}${4:, "${5:extra_msg}"})]]></text>
-    <description>assert_does_not_contain</description>
-    <tag>asdnc</tag>
-  </snippet>
-  <snippet id="asse">
-    <text><![CDATA[assert_same_elements(${1:array1}, ${2:array2}${3:, "${4:message}"})]]></text>
-    <description>assert_same_elements</description>
-    <tag>asse</tag>
-  </snippet>
-  <snippet id="assave">
-    <text><![CDATA[assert_save ${1:object}	]]></text>
-    <description>assert_save</description>
-    <tag>assave</tag>
-  </snippet>
-  <snippet id="assemail">
-    <text><![CDATA[assert_sent_email${1: do |email|
-		email.${2:subject|from|to|body} ${3:==} ${4:'${5:anything}'}$0
-	end}]]></text>
-    <description>assert_sent_email</description>
-    <tag>assemail</tag>
-  </snippet>
-  <snippet id="asv">
-    <text><![CDATA[assert_valid ${1:object}]]></text>
-    <description>assert_valid</description>
-    <tag>asv</tag>
-  </snippet>
-  <snippet id="cont">
-    <text><![CDATA[context "${1:description}" do
-		${2:setup do
-		  $3
-		end
 
-		}should "${4:description}" do
-		  $0
-		end
-	end
-	]]></text>
-    <description>context block with setup</description>
+  <!-- Shoulda::Context::ClassMethods -->
+
+  <snippet id="cont">
+    <text><![CDATA[context "${1:name}" do
+  setup do
+    ${2}
+  end
+  should "${3:name}" do
+    ${0}
+  end
+end]]></text>
+    <description>shoulda: context block with setup and should</description>
     <tag>cont</tag>
   </snippet>
-  <snippet id="contg">
-    <text><![CDATA[context "on GET to :${1:show}" do
-		setup do
-		  get :$1, :id => ${2:1}
-		end
 
-		should "${3:description}" do
-		  $0
-		end
-	end
-	]]></text>
-    <description>context block get</description>
-    <tag>contg</tag>
-  </snippet>
-  <snippet id="contp">
-    <text><![CDATA[context "on POST to :${1:create}" do
-		setup do
-		  post :$1, :${2:user} => { ${3::${4:key} => ${5:value}${6:, :${7:key} => ${8:value}}} }
-		end
-
-		should "${9:description}" do
-		  $0
-		end
-	end
-	]]></text>
-    <description>context block post</description>
-    <tag>contp</tag>
-  </snippet>
-  <snippet id="sh">
-    <text><![CDATA[should "$1" do
-	$0
+  <snippet id="context">
+    <text><![CDATA[context "${1:desc}" do
+  ${0}
 end]]></text>
-    <description>should block</description>
+    <description>shoulda: context block</description>
+    <tag>context</tag>
+  </snippet>
+
+  <snippet id="sh">
+    <text><![CDATA[should "${1:name}" do
+  ${0}
+end]]></text>
+    <description>shoulda: should block</description>
     <tag>sh</tag>
   </snippet>
-  <snippet id="shavf">
-    <text><![CDATA[should_allow_values_for :${1:attribute}, "$2"${3:, "$4"${5:, "$6"}}]]></text>
-    <description>should_allow_values_for</description>
-    <tag>shavf</tag>
+
+  <snippet id="shn">
+    <text><![CDATA[should_not "${1:matcher}" do
+  ${0}
+end]]></text>
+    <description>shoulda: should_not block</description>
+    <tag>shn</tag>
   </snippet>
-  <snippet id="shat">
-    <text><![CDATA[should_assign_to :${1:variable}]]></text>
-    <description>should_assign_to</description>
-    <tag>shat</tag>
+
+  <snippet id="bsh">
+    <text><![CDATA[before_should "${1:name}" do
+  ${0}
+end]]></text>
+    <description>shoulda: before_should block</description>
+    <tag>bsh</tag>
   </snippet>
-  <snippet id="shbt">
-    <text><![CDATA[should_belong_to :${1:object}]]></text>
-    <description>should_belong_to</description>
-    <tag>shbt</tag>
+
+  <snippet id="desct">
+    <text><![CDATA[described_type]]></text>
+    <description>shoulda: described_type</description>
+    <tag>desct</tag>
   </snippet>
-  <snippet id="shbr">
-    <text><![CDATA[should_be_restful do |resource|
-		resource.formats = [:html]
-		${1:resource.${2:something}}
-	end
-	$0]]></text>
-    <description>should_be_restful</description>
-    <tag>shbr</tag>
-  </snippet>
-  <snippet id="shbrdenied">
-    <text><![CDATA[should_be_restful do |resource|
-		resource.denied.actions  = :${1:all}
-		resource.denied.flash    = /${2:must be logged in}/i
-		resource.denied.redirect = '${3:login_url}'
-	end]]></text>
-    <description>should_be_restful denied</description>
-    <tag>shbrdenied</tag>
-  </snippet>
-  <snippet id="shelal">
-    <text><![CDATA[should_ensure_length_at_least :${1:attribute}, ${2:min_length}]]></text>
-    <description>should_ensure_length_at_least</description>
-    <tag>shelal</tag>
-  </snippet>
-  <snippet id="shelir">
-    <text><![CDATA[should_ensure_length_in_range :${1:attribute}, (${2:range})]]></text>
-    <description>should_ensure_length_in_range</description>
-    <tag>shelir</tag>
-  </snippet>
-  <snippet id="shevir">
-    <text><![CDATA[should_ensure_value_in_range :${1:attribute}, (${2:range})]]></text>
-    <description>should_ensure_value_in_range</description>
-    <tag>shevir</tag>
-  </snippet>
+
   <snippet id="she">
-    <text><![CDATA[should_eventually "$1" do
-		$0
-	end]]></text>
-    <description>should_eventually</description>
+    <text><![CDATA[should_eventually "${1:name}" do
+  ${0}
+end]]></text>
+    <description>shoulda: should_eventually block</description>
     <tag>she</tag>
   </snippet>
-  <snippet id="shhabtm">
-    <text><![CDATA[should_have_and_belong_to_many :${1:object}${2:, :${3:object}${4:, :${5:object}}}]]></text>
-    <description>should_have_and_belong_to_many</description>
-    <tag>shhabtm</tag>
+
+  <snippet id="subj">
+    <text><![CDATA[subject { ${0} }]]></text>
+    <description>shoulda: subject</description>
+    <tag>subj</tag>
   </snippet>
-  <snippet id="shhcm">
-    <text><![CDATA[should_have_class_methods :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
-    <description>should_have_class_methods</description>
-    <tag>shhcm</tag>
+
+  <!-- Shoulda::Context::InstanceMethods -->
+
+  <snippet id="getio">
+    <text><![CDATA[get_instance_of ${1:obj_or_class}]]></text>
+    <description>shoulda: get_instance_of</description>
+    <tag>getio</tag>
   </snippet>
-  <snippet id="shhdc">
-    <text><![CDATA[should_have_db_column :${1:name}${2:, :${3:type} => ${4:"${5:text}"}${6:, :${7:default} => ${8:nil}}}]]></text>
-    <description>should_have_db_column</description>
-    <tag>shhdc</tag>
+
+  <snippet id="ivnf">
+    <text><![CDATA[instance_variable_name_for ${1:class}]]></text>
+    <description>shoulda: instance_variable_name_for</description>
+    <tag>ivnf</tag>
   </snippet>
-  <snippet id="shhdc">
-    <text><![CDATA[should_have_db_columns :${1:column}${2:, :${3:column}${4:, :${5:column}}}]]></text>
-    <description>should_have_db_columns</description>
-    <tag>shhdc</tag>
+
+
+  <!-- Shoulda::Context::Assertions -->
+
+  <snippet id="asa">
+    <text><![CDATA[assert_accepts(${1:matcher}, ${2:target}, { ${3:opts} })]]></text>
+    <description>shoulda: assert_accepts</description>
+    <tag>asa</tag>
   </snippet>
-  <snippet id="shhi">
-    <text><![CDATA[should_have_index :${1:column}]]></text>
-    <description>should_have_index</description>
-    <tag>shhi</tag>
+
+  <snippet id="asc">
+    <text><![CDATA[assert_contains(${1:collection}, ${2:x}, "${3:msg}")]]></text>
+    <description>shoulda: assert_contains</description>
+    <tag>asc</tag>
   </snippet>
-  <snippet id="shhi">
-    <text><![CDATA[should_have_indices :${1:column}${2:, :${3:column}${4:, :${5:column}}}]]></text>
-    <description>should_have_indices</description>
-    <tag>shhi</tag>
+
+  <snippet id="asdnc">
+    <text><![CDATA[assert_does_not_contain(${1:collection}, ${2:x}, "${3:msg}")]]></text>
+    <description>shoulda: assert_does_not_contain</description>
+    <tag>asdnc</tag>
   </snippet>
-  <snippet id="shhim">
-    <text><![CDATA[should_have_instance_methods :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
-    <description>should_have_instance_methods</description>
-    <tag>shhim</tag>
+
+  <snippet id="asrej">
+    <text><![CDATA[assert_reject(${1:matcher}, ${2:target}, { ${3:opts} })]]></text>
+    <description>shoulda: assert_reject</description>
+    <tag>asrej</tag>
   </snippet>
-  <snippet id="shhm">
-    <text><![CDATA[should_have_many :${1:objects}${2:, :through => :${3:association}}]]></text>
-    <description>should_have_many</description>
-    <tag>shhm</tag>
+
+  <snippet id="asse">
+    <text><![CDATA[assert_same_elements([${1:array}], [${2:array}], "${3:msg}")]]></text>
+    <description>shoulda: assert_same_elements</description>
+    <tag>asse</tag>
   </snippet>
-  <snippet id="shho">
-    <text><![CDATA[should_have_one :${1:object}]]></text>
-    <description>should_have_one</description>
-    <tag>shho</tag>
+
+
+  <!-- Shoulda::Matchers::ActionController -->
+
+  <snippet id="shat">
+    <text><![CDATA[should assign_to(:${1:var})]]></text>
+    <description>shoulda: should assign_to</description>
+    <tag>shat</tag>
   </snippet>
-  <snippet id="shnavf">
-    <text><![CDATA[should_not_allow_values_for :${1:attribute}, "$2"${3:, "$4"${5:, "$6"}}]]></text>
-    <description>should_not_allow_values_for</description>
-    <tag>shnavf</tag>
-  </snippet>
+
   <snippet id="shnat">
-    <text><![CDATA[should_not_assign_to :${1:variable}]]></text>
-    <description>should_not_assign_to</description>
+    <text><![CDATA[should_not assign_to(:${1:var})]]></text>
+    <description>shoulda: should_not assign_to</description>
     <tag>shnat</tag>
   </snippet>
-  <snippet id="shnstf">
-    <text><![CDATA[should_not_set_the_flash]]></text>
-    <description>should_not_set_the_flash</description>
-    <tag>shnstf</tag>
+
+  <snippet id="shatw">
+    <text><![CDATA[should assign_to(:${1:var}).with(${2:val})]]></text>
+    <description>shoulda: should assign_to with</description>
+    <tag>shatw</tag>
   </snippet>
-  <snippet id="shoanvf">
-    <text><![CDATA[should_only_allow_numeric_values_for :${1:attribute}]]></text>
-    <description>should_only_allow_numeric_values_for</description>
-    <tag>shoanvf</tag>
+
+  <snippet id="shatwko">
+    <text><![CDATA[should assign_to(:${1:var}).with_kind_of(${2:class})]]></text>
+    <description>shoulda: should assign_to with_kind_of</description>
+    <tag>shatwko</tag>
   </snippet>
-  <snippet id="shpa">
-    <text><![CDATA[should_protect_attributes :${1:attribute}${2:, :${3:attribute}${4:, :${5:attribute}}}]]></text>
-    <description>should_protect_attributes</description>
-    <tag>shpa</tag>
+
+  <snippet id="shfp">
+    <text><![CDATA[should filter_param(:${1:key})]]></text>
+    <description>shoulda: should filter_param</description>
+    <tag>shfp</tag>
   </snippet>
+
   <snippet id="shrt">
-    <text><![CDATA[should_redirect_to ${1:${2:user}s_url(@$2)}]]></text>
-    <description>should_redirect_to</description>
+    <text><![CDATA[should redirect_to(${1:url})]]></text>
+    <description>shoulda: should redirect_to</description>
     <tag>shrt</tag>
   </snippet>
-  <snippet id="shraf">
-    <text><![CDATA[should_render_a_form]]></text>
-    <description>should_render_a_form</description>
-    <tag>shraf</tag>
+
+  <snippet id="shrte">
+    <text><![CDATA[should render_template(:${1:tmpl})]]></text>
+    <description>shoulda: should render_template</description>
+    <tag>shrte</tag>
   </snippet>
-  <snippet id="shrt">
-    <text><![CDATA[should_render_template :${1:template}]]></text>
-    <description>should_render_template</description>
-    <tag>shrt</tag>
+
+  <snippet id="shrwl">
+    <text><![CDATA[should render_with_layout(:${1:expected_layout})]]></text>
+    <description>shoulda: should render_with_layout</description>
+    <tag>shrwl</tag>
   </snippet>
-  <snippet id="shrao">
-    <text><![CDATA[should_require_acceptance_of :${1:attribute}]]></text>
-    <description>should_require_acceptance_of</description>
-    <tag>shrao</tag>
+
+  <snippet id="shnrwl">
+    <text><![CDATA[should_not render_with_layout]]></text>
+    <description>shoulda: should_not render_with_layout</description>
+    <tag>shnrwl</tag>
   </snippet>
-  <snippet id="shra">
-    <text><![CDATA[should_require_attributes :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
-    <description>should_require_attributes</description>
-    <tag>shra</tag>
-  </snippet>
-  <snippet id="shrua">
-    <text><![CDATA[should_require_unique_attributes :${1:method}${2:, :${3:method}${4:, :${5:method}}}]]></text>
-    <description>should_require_unique_attributes</description>
-    <tag>shrua</tag>
-  </snippet>
+
   <snippet id="shrw">
-    <text><![CDATA[should_respond_with :${1:response}]]></text>
-    <description>should_respond_with</description>
+    <text><![CDATA[should respond_with(:${1:success/redirect/missing/error/501})]]></text>
+    <description>shoulda: should respond_with</description>
     <tag>shrw</tag>
   </snippet>
+
+  <snippet id="shrwct">
+    <text><![CDATA[should respond_with_content_type(:${1:content_type})]]></text>
+    <description>shoulda: should respond_with_content_type</description>
+    <tag>shrwct</tag>
+  </snippet>
+
+  <snippet id="shroute">
+    <text><![CDATA[should route(:${1:method}, "${2:path}").to(${3:opts})]]></text>
+    <description>shoulda: should route</description>
+    <tag>shroute</tag>
+  </snippet>
+
+  <snippet id="shss">
+    <text><![CDATA[should set_session(:${1:key}).to(${3:val})]]></text>
+    <description>shoulda: should set_session</description>
+    <tag>shss</tag>
+  </snippet>
+
+  <snippet id="shstf">
+    <text><![CDATA[should set_the_flash]]></text>
+    <description>shoulda: should set_the_flash</description>
+    <tag>shstf</tag>
+  </snippet>
+
+  <snippet id="shnstf">
+    <text><![CDATA[should_not set_the_flash]]></text>
+    <description>shoulda: should_not set_the_flash</description>
+    <tag>shnstf</tag>
+  </snippet>
+
   <snippet id="shstft">
-    <text><![CDATA[should_set_the_flash_to ${1:value}]]></text>
-    <description>should_set_the_flash_to</description>
+    <text><![CDATA[should set_the_flash.to(${1:val})]]></text>
+    <description>shoulda: should set_the_flash to</description>
     <tag>shstft</tag>
   </snippet>
+
+  <!-- Shoulda::Matchers::ActionMailer -->
+
+  <snippet id="shhse">
+    <text><![CDATA[should have_sent_email.with_subject(${1:subject}).from(${2:from}).with_body(${3:body}).to(${4:to})]]></text>
+    <description>shoulda: should have_sent_email to</description>
+    <tag>shhse</tag>
+  </snippet>
+
+  <!-- Shoulda::Matchers::ActiveModel -->
+
+  <snippet id="shamao">
+    <text><![CDATA[should allow_mass_assignment_of(:${1:attr})]]></text>
+    <description>shoulda: should allow_mass_assignment_of</description>
+    <tag>shamao</tag>
+  </snippet>
+
+  <snippet id="shnamao">
+    <text><![CDATA[should_not allow_mass_assignment_of(:${1:attr})]]></text>
+    <description>shoulda: should_not allow_mass_assignment_of</description>
+    <tag>shnamao</tag>
+  </snippet>
+
+  <snippet id="shav">
+    <text><![CDATA[should allow_value(${1:val}).for(:${2:attr})]]></text>
+    <description>shoulda: should allow_value</description>
+    <tag>shav</tag>
+  </snippet>
+
+  <snippet id="shnav">
+    <text><![CDATA[should_not allow_value(${1:val}).for(:${2:attr})]]></text>
+    <description>shoulda: should_not allow_value</description>
+    <tag>shnav</tag>
+  </snippet>
+
+  <snippet id="sheio">
+    <text><![CDATA[should ensure_inclusion_of(:${1:attr}).in_range(${2:range})]]></text>
+    <description>shoulda: should ensure_inclusion_of</description>
+    <tag>sheio</tag>
+  </snippet>
+
+  <snippet id="shelo">
+    <text><![CDATA[should ensure_length_of(:${1:attr}).is_at_least(${2:min}).is_at_most(${3:max}).with_short_message("${4:msg}").with_long_message("${5:msg}")]]></text>
+    <description>shoulda: should ensure_length_of</description>
+    <tag>shelo</tag>
+  </snippet>
+
+  <snippet id="sheloiet">
+    <text><![CDATA[should ensure_length_of(:${1:attr}).is_equal_to(${2:val}).with_message("${3:msg}")]]></text>
+    <description>shoulda: should ensure_length_of</description>
+    <tag>sheloiet</tag>
+  </snippet>
+
+  <snippet id="shvao">
+    <text><![CDATA[should validate_acceptance_of(:${1:attr})]]></text>
+    <description>shoulda: should validate_acceptance_of</description>
+    <tag>shvao</tag>
+  </snippet>
+
+  <snippet id="shvfo">
+    <text><![CDATA[should validate_format_of(:${1:attr}).with(${2:str}).with_not(${3:str}).with_message("${4:msg}")]]></text>
+    <description>shoulda: should validate_format_of</description>
+    <tag>shvfo</tag>
+  </snippet>
+
+  <snippet id="shvno">
+    <text><![CDATA[should validate_numericality_of(:${1:attr}).with_message("${2:msg}")]]></text>
+    <description>shoulda: should validate_numericality_of</description>
+    <tag>shvno</tag>
+  </snippet>
+
+  <snippet id="shvpo">
+    <text><![CDATA[should validate_presence_of(:${1:attr}).with_message("${2:msg}")]]></text>
+    <description>shoulda: should validate_presence_of</description>
+    <tag>shvpo</tag>
+  </snippet>
+
+  <snippet id="shvuo">
+    <text><![CDATA[should validate_uniqueness_of(:${1:attr}).scoped_to(:${2:attr})${3:.case_insensitive}.with_message("${4:msg}")]]></text>
+    <description>shoulda: should validate_uniqueness_of</description>
+    <tag>shvuo</tag>
+  </snippet>
+
+  <snippet id="shbt">
+    <text><![CDATA[should belong_to(:${1:name})]]></text>
+    <description>shoulda: should belong_to</description>
+    <tag>shbt</tag>
+  </snippet>
+
+  <snippet id="shhabtm">
+    <text><![CDATA[should have_and_belong_to_many(:${1:name})]]></text>
+    <description>shoulda: should have_and_belong_to_many</description>
+    <tag>shhabtm</tag>
+  </snippet>
+
+  <snippet id="shhdc">
+    <text><![CDATA[should have_db_column(:${1:col}).of_type(:${2:type}).with_options(${3:opts})]]></text>
+    <description>shoulda: should have_db_column</description>
+    <tag>shhdc</tag>
+  </snippet>
+
+  <snippet id="shhdi">
+    <text><![CDATA[should have_db_index(:${1:cols})${2:.unique(true)}]]></text>
+    <description>shoulda: should have_db_index</description>
+    <tag>shhdi</tag>
+  </snippet>
+
+  <snippet id="shhm">
+    <text><![CDATA[should have_many(:${1:attr}).through(:${2:assoc}).dependent(${3:opt})]]></text>
+    <description>shoulda: should have_many</description>
+    <tag>shhm</tag>
+  </snippet>
+
+  <snippet id="shho">
+    <text><![CDATA[should have_one(:${1:attr}).dependent(${2:opt})]]></text>
+    <description>shoulda: should have_one</description>
+    <tag>shho</tag>
+  </snippet>
+
+  <snippet id="shhra">
+    <text><![CDATA[should have_readonly_attribute(:${1:attr})]]></text>
+    <description>shoulda: should have_readonly_attribute</description>
+    <tag>shhra</tag>
+  </snippet>
+
 </snippets>
+

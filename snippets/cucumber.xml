@@ -3,135 +3,136 @@
   <snippet id="ca">
     <text><![CDATA[Característica: $1]]></text>
     <tag>ca</tag>
-    <description>Característica</description>
+    <description>cucumber: Característica</description>
   </snippet>
   <snippet id="pa">
     <text><![CDATA[Para $1]]></text>
     <tag>pa</tag>
-    <description>Para</description>
+    <description>cucumber: Para</description>
   </snippet>
   <snippet id="co">
     <text><![CDATA[Como um $1]]></text>
     <tag>co</tag>
-    <description>Como um</description>
+    <description>cucumber: Como um</description>
   </snippet>
   <snippet id="dd">
     <text><![CDATA[Dado $1]]></text>
     <tag>dd</tag>
-    <description>Dado</description>
+    <description>cucumber: Dado</description>
   </snippet>
   <snippet id="fe">
     <text><![CDATA[Feature: $1]]></text>
     <tag>fe</tag>
-    <description>Feature</description>
+    <description>cucumber: Feature</description>
   </snippet>
   <snippet id="io">
     <text><![CDATA[In order $1]]></text>
     <tag>io</tag>
-    <description>In order</description>
+    <description>cucumber: In order</description>
   </snippet>
   <snippet id="aa">
     <text><![CDATA[As a $1]]></text>
     <tag>aa</tag>
-    <description>As a</description>
+    <description>cucumber: As a</description>
   </snippet>
   <snippet id="an">
     <text><![CDATA[As an $1]]></text>
     <tag>an</tag>
-    <description>As an</description>
+    <description>cucumber: As an</description>
   </snippet>
   <snippet id="iw">
     <text><![CDATA[I want $1]]></text>
     <tag>iw</tag>
-    <description>I want</description>
+    <description>cucumber: I want</description>
   </snippet>
   <snippet id="eq">
     <text><![CDATA[Eu quero $1]]></text>
     <tag>eq</tag>
-    <description>Eu quero</description>
+    <description>cucumber: Eu quero</description>
   </snippet>
   <snippet id="et">
     <text><![CDATA[Então $1]]></text>
     <tag>et</tag>
-    <description>Então</description>
+    <description>cucumber: Então</description>
   </snippet>
   <snippet id="gv">
     <text><![CDATA[Given $1]]></text>
     <tag>gv</tag>
-    <description>Given</description>
+    <description>cucumber: Given</description>
   </snippet>
   <snippet id="bt">
     <text><![CDATA[But $1]]></text>
     <tag>bt</tag>
-    <description>But</description>
+    <description>cucumber: But</description>
   </snippet>
   <snippet id="ms">
     <text><![CDATA[Mas $1]]></text>
     <tag>ms</tag>
-    <description>Mas</description>
+    <description>cucumber: Mas</description>
   </snippet>
   <snippet id="e">
     <text><![CDATA[E $1]]></text>
     <tag>e</tag>
-    <description>E</description>
+    <description>cucumber: E</description>
   </snippet>
   <snippet id="car">
     <text><![CDATA[Característica: ${1:Descrição da característica}
 	Para ${2:Objetivo}
 	Como um ${3:Tipo de usuário}
 	Eu quero ${4:Uma funcionalidade}
-	
+
 	$0]]></text>
     <tag>car</tag>
-    <description>Característica (Completa)</description>
+    <description>cucumber: Característica (Completa)</description>
   </snippet>
   <snippet id="ce">
     <text><![CDATA[Cenário: $1]]></text>
     <tag>ce</tag>
-    <description>Cenário</description>
+    <description>cucumber: Cenário</description>
   </snippet>
   <snippet id="cen">
     <text><![CDATA[Cenário: ${1:Descrição do cenário}
 	Dado ${2:Situação}
 	$0]]></text>
     <tag>cen</tag>
-    <description>Cenário</description>
+    <description>cucumber: Cenário</description>
   </snippet>
   <snippet id="a">
     <text><![CDATA[And $1]]></text>
     <tag>a</tag>
-    <description>And</description>
+    <description>cucumber: And</description>
   </snippet>
   <snippet id="fea">
     <text><![CDATA[Feature: ${1:Feature description}
 	In order ${2:to acomplish the objective}
 	As a ${3:User type}
 	I want ${4:to get the feature working}
-	
+
 	$0]]></text>
     <tag>fea</tag>
-    <description>Feature</description>
+    <description>cucumber: Feature</description>
   </snippet>
   <snippet id="sc">
     <text><![CDATA[Scenario: $1]]></text>
     <tag>sc</tag>
-    <description>Scenario</description>
+    <description>cucumber: Scenario</description>
   </snippet>
   <snippet id="sce">
     <text><![CDATA[Scenario: ${1:Scenario description}
 	Given ${2:situation}
 	$0]]></text>
     <tag>sce</tag>
-    <description>Scenario</description>
+    <description>cucumber: Scenario</description>
   </snippet>
   <snippet id="qd">
     <text><![CDATA[Quando $1]]></text>
     <tag>qd</tag>
-    <description>Quando</description>
+    <description>cucumber: Quando</description>
   </snippet>
   <snippet id="wn">
     <text><![CDATA[When $1]]></text>
     <tag>wn</tag>
-    <description>When</description>
+    <description>cucumber: When</description>
   </snippet>
 </snippets>
+

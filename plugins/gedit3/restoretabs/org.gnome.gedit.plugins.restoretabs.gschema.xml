@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.gedit.plugins.restoretabs" path="/org/gnome/gedit/plugins/restoretabs/">
+    <key type="as" name="uris">
+      <default>['']</default>
+      <summary>URI List</summary>
+      <description>A list of the URIs to restore when Gedit is started.</description>
+    </key>
+  </schema>
+</schemalist>
+

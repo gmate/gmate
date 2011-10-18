@@ -1,0 +1,8 @@
+[Plugin]
+Loader=python
+Module=tabswitch
+IAge=3
+Name=TabSwitch
+Description=Allows to ctrl+tab-switch between documents
+Authors=Elia Sarti, Madhusudhan Sriniavasa
+Copyright=Copyright © 2009 Elia Sarti

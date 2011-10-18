@@ -1,0 +1,66 @@
+Gedit Snap Open Plugin
+Copyright (C) 2008 Mads Buus Westmark <online@buus.net>
+
+Changelog
+
+Version 1.4 (November 2010)
+* Merged in Scotts changes from Github THANKS, SCOTT!
+From Scott Bowers (https://github.com/sbbowers)
+* Store the find results in a temporary file
+* Grep on the temp file
+* Run the find command in the background, allowing you to search immediately
+* The "X" close button on the UI titlebar would destroy the giade window; reinitialize on activation
+* Added directory filtering for common repositories
+* Removed three character search limit
+* Sort by filename rather than full path.
+* Sorts in python rather than a separate sort process
+* Details: https://github.com/MadsBuus/gedit-snapopen-plugin/pull/7#commits-pushed-193ca1c
+
+Version 1.3 (December 2009)
+* Update the CHANGELOG, VERSION and fix the broken project url.
+* Delete the old Snap menu. Now you can call the action by Search > Open a file by name ...
+* Added a simple filter to search process, now all image files (png, jpg, jpeg, gif, psd) are ignored; 
+  this improve a little the performance and avoid that gedit hangs when try to search into 
+  folders (like /myapp/public/galleries/), also you'll get less useless files listed as available.
+  By Mario Zaizar <mariozaizar@gmail.com> http://github.com/mariozaizar
+  
+version 1.2  (december 2009)
+* moved to Github. Made it OSX compatible.
+* minor changes
+
+version 1.1.4  (january 2008)
+* properly survives 'first-time' install. On new installations, the File browsers 'filter'
+  is not set yet (courtesy of Greg Gilbert).
+* NOTE: no initial search, if pattern is empty.
+* minor enhancements
+
+version 1.1.3
+* completion bug. find found all files matching subpath, which made
+	fro example a search of 'home' still find all files (because home was
+	part of the root path)
+	Now uses 'cd' and 'find .'  instead of fullpathed find
+* fixed uri bug
+* moved 'head' pipe further back to improve matching
+
+version 1.1.2 
+* multiple file open support
+* case insensitivity and mulple patterns (Thanks, Dan)
+* output piped through 'head to futher improve performance
+
+version 1.1 
+* contains simple integration for Filebrowser (and eddt) plugins.
+* performance improvements 
+* GNOME button compliance
+
+version 1.0 
+* initial (usable) version
+
+Thanks to:
+Paolo Borelli
+Marcus Lunzenauer
+Gary Haran
+Dan Lind
+Greg Gilbert 
+Mario Zaizar
+
+For more information, visit http://github.com/MadsBuus/gedit-snapopen-plugin

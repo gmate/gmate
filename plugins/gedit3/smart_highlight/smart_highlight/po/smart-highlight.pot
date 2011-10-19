@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-17 19:50+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../config.glade:6
+msgid "Configuration"
+msgstr ""
+
+#: ../config.glade:33
+msgid "Match whole word"
+msgstr ""
+
+#: ../config.glade:48
+msgid "Match case"
+msgstr ""
+
+#: ../config.glade:65
+msgid "Regular expression"
+msgstr ""
+
+#: ../config.glade:98
+msgid "<b>Search Options</b>"
+msgstr ""
+
+#: ../config.glade:140
+msgid "Foreground color : "
+msgstr ""
+
+#: ../config.glade:173
+msgid "Background color : "
+msgstr ""
+
+#: ../config.glade:209
+msgid "<b>Highlight Setting</b>"
+msgstr ""

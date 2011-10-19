@@ -1,0 +1,49 @@
+# Chinese translations for .gnome package.
+# Copyright (C) 2010 THE .gnome'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the .gnome package.
+# swatch swatch.code@gmail.com, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: .gnome 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-17 19:50+0800\n"
+"PO-Revision-Date: 2010-10-17 19:50+0800\n"
+"Last-Translator: swatch swatch.code@gmail.com\n"
+"Language-Team: none\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../config.glade:6
+msgid "Configuration"
+msgstr "設定"
+
+#: ../config.glade:33
+msgid "Match whole word"
+msgstr "符合整個字詞"
+
+#: ../config.glade:48
+msgid "Match case"
+msgstr "符合大小寫"
+
+#: ../config.glade:65
+msgid "Regular expression"
+msgstr "使用正則表達式"
+
+#: ../config.glade:98
+msgid "<b>Search Options</b>"
+msgstr "<b>搜尋選項</b>"
+
+#: ../config.glade:140
+msgid "Foreground color : "
+msgstr "文字顏色"
+
+#: ../config.glade:173
+msgid "Background color : "
+msgstr "背景顏色"
+
+#: ../config.glade:209
+msgid "<b>Highlight Setting</b>"
+msgstr "<b>高亮度標示設定</b>"

@@ -1,0 +1,11 @@
+[Plugin]
+Loader=python
+Module=restoretabs
+IAge=3
+Name=Restore Tabs
+Description=Restores document tabs on startup.
+Authors=Micah Carrick <micah@quixotix.com>
+Copyright=Copyright © 2011 Micah Carrick
+Website=https://github.com/Quixotix/gedit-restore-tabs
+Version=3.0.0
+

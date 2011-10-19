@@ -1,0 +1,24 @@
+Gedit Snapopen Plugin
+
+INSTALL (Gnome 3)
+
+git clone git://github.com/MadsBuus/gedit-snapopen-plugin.git
+cd ~/.local/share/gedit/plugins
+ln -s [path/to/clone]/snapopen.plugin .
+ln -s [path/to/clone]/snapopen .
+
+(If an directory is missing, just create it)
+
+INSTALL (Gnome 2)
+
+The last gnome 2 version is available as a tag.
+
+git clone git://github.com/MadsBuus/gedit-snapopen-plugin.git
+cd gedit-snapopen-plugin
+git checkout gnome2.x
+cd ~/.gnome2/gedit/plugins
+ln -s [path/to/clone]/snapopen.plugin .
+ln -s [path/to/clone]/snapopen .
+
+(If an directory is missing, just create it)
+

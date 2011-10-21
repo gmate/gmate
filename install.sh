@@ -89,7 +89,7 @@ else
 fi
 
 # Copy plugins
-if [ !"$(echo $version3)" ]; then
+if [ "$(echo $version3)" ]; then
     if [ $sudo = "yes" ]; then
         for plugin in plugins/gedit3/*; do
             sudo cp -R $plugin/* /usr/lib/gedit/plugins/

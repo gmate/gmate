@@ -4,8 +4,11 @@ gedit-gmate (0.10~uorppa1) oneiric; urgency=low
   * Add Smart Highlight plugin for gedit3.
   * Add Restore Tabs plugin for gedit3
   * Add Pair Char Completion plugin for gedit3.
-  * Add TabSwitch plugin to gedit 3
+  * Add TabSwitch plugin for gedit 3.
   * Fix install script for gedit3.
+  * Fix factorygirl snippets.
+  * Add yet another railscasts style.
+  * Updated and improved rubyonrails snippets.
 
  -- Andrey Sitnik <andrey@sitnik.ru>  Tue, 15 Nov 2011 14:06:33 +0700
 

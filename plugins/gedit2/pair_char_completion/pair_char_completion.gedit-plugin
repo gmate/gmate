@@ -1,0 +1,10 @@
+[Gedit Plugin]
+Loader=python
+Module=pair_char_completion
+IAge=2
+Name=Pair Character Completion
+Description=Automatically insert closing quotes and parenthesis
+Authors=Kevin McGuinness <kevin.mcguinness@gmail.com>
+Copyright=Copyright © 2010 Kevin McGuinness
+Icon=pair_char_completion
+Website=http://code.google.com/p/gedit-pair-char-autocomplete/

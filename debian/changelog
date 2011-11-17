@@ -1,3 +1,8 @@
+gedit-gmate (0.10~uorppa4) oneiric; urgency=low
+  * Rewrite build script to support Restore Tab plugin.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Fri, 18 Nov 2011 02:01:51 +0900
+
 gedit-gmate (0.10~uorppa2) oneiric; urgency=low
   * Add dependences for Restore Tabs.
 

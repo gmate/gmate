@@ -7,5 +7,8 @@ ln -nfs /usr/share/gedit/gmate/gmate.py /usr/bin/mate
 ln -nfs /usr/share/gedit/gmate/gmate.py /usr/bin/e
 ln -nfs /usr/share/gedit/gmate/gmate.py /usr/bin/g
 
+# Restore Tabs plugin
+glib-compile-schemas /usr/share/glib-2.0/schemas/
+
 #DEBHELPER#
 

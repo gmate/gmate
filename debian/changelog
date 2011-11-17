@@ -1,3 +1,8 @@
+gedit-gmate (0.10~uorppa2) oneiric; urgency=low
+  * Add dependences for Restore Tabs.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Thu, 17 Nov 2011 21:52:04 +0900
+
 gedit-gmate (0.10~uorppa1) oneiric; urgency=low
   * Add Snapopen plugin for gedit 3.
   * Add Whitespace Terminator plugin for gedit3.

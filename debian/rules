@@ -13,13 +13,15 @@ install:
 	dh_testroot
 	dh_installdirs
 	dh_installdocs
-	
+
 	cp    lang-specs/*.lang $(build)/usr/share/gtksourceview-3.0/language-specs/
 	cp -R styles/*          $(build)/usr/share/gtksourceview-3.0/styles/
 	cp    mime/*            $(build)/usr/share/mime/packages/
 	for plugin in plugins/gedit3/*; do \
 	    cp -R $$plugin/*         $(build)/usr/lib/gedit/plugins/; \
 	done
+	sudo cp $(CURDIR)/plugins/gedit3/restoretabs/org.gnome.gedit.plugins.restoretabs.gschema.xml /usr/share/glib-2.0/schemas/
+	sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 	cp -R snippets/*        $(build)/usr/share/gedit/plugins/snippets/
 	cp    gmate.py          $(build)/usr/share/gedit/gmate/
 

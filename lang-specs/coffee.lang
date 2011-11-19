@@ -200,6 +200,7 @@
                     <keyword>try</keyword>
                     <keyword>catch</keyword>
                     <keyword>finally</keyword>
+                    <keyword>do</keyword>
                 </context>
 
                 <context id="exception" style-ref="exception">

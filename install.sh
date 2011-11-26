@@ -123,7 +123,7 @@ if [ !"$(echo $version3)" ]; then
       if [ $sudo = "yes" ]; then
         sudo apt-get install python-webkit
       else
-        echo "Please install python-webkit (sudo apt-get install python-webkit)"
+        dpkg --list python-webkit > /dev/null 2>&1 || echo "Please install python-webkit (sudo apt-get install python-webkit)"
       fi
     fi
 

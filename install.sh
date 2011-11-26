@@ -138,8 +138,12 @@ if [ !"$(echo $version3)" ]; then
     if [ $sudo = "yes" ]; then
       `sudo sh ./debian/postinst`
     else
-      # It does not make anything useful without sudo
-      # `sh ./debian/postinst`
+      # Fix for the RestoreTabs plugin
+      if [ ! -d $HOME~/.local/share/glib-2.0/schemas/ ]; then
+          mkdir -p ~~/.local/share/glib-2.0/schemas/
+      fi
+      mv ~/.local/share/gedit/plugins/org.gnome.gedit.plugins.restoretabs.gschema.xml ~/.local/share/glib-2.0/schemas/
+      glib-compile-schemas ~/.local/share/glib-2.0/schemas/
     fi
 
     echo -n "Do you want to activate default plugin and configuration set? [y,N]:"

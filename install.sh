@@ -138,7 +138,8 @@ if [ !"$(echo $version3)" ]; then
     if [ $sudo = "yes" ]; then
       `sudo sh ./debian/postinst`
     else
-      `sh ./debian/postinst`
+      # It does not make anything useful without sudo
+      # `sh ./debian/postinst`
     fi
 
     echo -n "Do you want to activate default plugin and configuration set? [y,N]:"

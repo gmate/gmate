@@ -95,11 +95,11 @@ if [ "$(echo $version3)" ]; then
             sudo cp -R $plugin/* /usr/lib/gedit/plugins/
         done
     else
-        if [ ! -d $HOME/.gnome2/gedit/plugins ]; then
-            mkdir -p ~/.gnome2/gedit/plugins
+        if [ ! -d $HOME/.local/share/gedit/plugins ]; then
+            mkdir -p ~/.local/share/gedit/plugins
         fi
         for plugin in plugins/gedit3/*; do
-            cp -R $plugin/* ~/.gnome2/gedit/plugins
+            cp -R $plugin/* ~/.local/share/gedit/plugins
         done
     fi
 else

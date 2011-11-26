@@ -140,9 +140,9 @@ if [ !"$(echo $version3)" ]; then
     else
       # Fix for the RestoreTabs plugin
       if [ ! -d $HOME~/.local/share/glib-2.0/schemas/ ]; then
-          mkdir -p ~~/.local/share/glib-2.0/schemas/
+          mkdir -p ~/.local/share/glib-2.0/schemas/
       fi
-      mv ~/.local/share/gedit/plugins/org.gnome.gedit.plugins.restoretabs.gschema.xml ~/.local/share/glib-2.0/schemas/
+      mv ~/.local/share/gedit/plugins/restoretabs/org.gnome.gedit.plugins.restoretabs.gschema.xml ~/.local/share/glib-2.0/schemas/
       glib-compile-schemas ~/.local/share/glib-2.0/schemas/
     fi
 

@@ -38,10 +38,17 @@ fi
 if [ $sudo = "yes" ]; then
     sudo cp styles/* /usr/share/$gtksourceview/styles/
 else
-    if [ ! -d $HOME/.gnome2/gedit/styles ]; then
-        mkdir -p ~/.gnome2/gedit/styles
+    if [ "$(echo $version3)" ]; then
+        if [ ! -d $HOME/.local/share/$gtksourceview/styles ]; then
+            mkdir -p ~/.local/share/$gtksourceview/styles
+        fi
+        cp styles/* ~/.local/share/$gtksourceview/styles
+    else
+        if [ ! -d $HOME/.gnome2/gedit/styles ]; then
+            mkdir -p ~/.gnome2/gedit/styles
+        fi
+        cp styles/* ~/.gnome2/gedit/styles
     fi
-    cp styles/* ~/.gnome2/gedit/styles
 fi
 
 # Register MIME-types

@@ -92,14 +92,14 @@ fi
 if [ "$(echo $version3)" ]; then
     if [ $sudo = "yes" ]; then
         for plugin in plugins/gedit3/*; do
-            sudo cp -R $plugin/* /usr/lib/gedit/plugins/
+            sudo cp -R $plugin /usr/lib/gedit/plugins/
         done
     else
         if [ ! -d $HOME/.local/share/gedit/plugins ]; then
             mkdir -p ~/.local/share/gedit/plugins
         fi
         for plugin in plugins/gedit3/*; do
-            cp -R $plugin/* ~/.local/share/gedit/plugins
+            cp -R $plugin ~/.local/share/gedit/plugins
         done
     fi
 else

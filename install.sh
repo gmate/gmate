@@ -38,10 +38,17 @@ fi
 if [ $sudo = "yes" ]; then
     sudo cp styles/* /usr/share/$gtksourceview/styles/
 else
-    if [ ! -d $HOME/.gnome2/gedit/styles ]; then
-        mkdir -p ~/.gnome2/gedit/styles
+    if [ "$(echo $version3)" ]; then
+        if [ ! -d $HOME/.local/share/$gtksourceview/styles ]; then
+            mkdir -p ~/.local/share/$gtksourceview/styles
+        fi
+        cp styles/* ~/.local/share/$gtksourceview/styles
+    else
+        if [ ! -d $HOME/.gnome2/gedit/styles ]; then
+            mkdir -p ~/.gnome2/gedit/styles
+        fi
+        cp styles/* ~/.gnome2/gedit/styles
     fi
-    cp styles/* ~/.gnome2/gedit/styles
 fi
 
 # Register MIME-types
@@ -92,14 +99,14 @@ fi
 if [ "$(echo $version3)" ]; then
     if [ $sudo = "yes" ]; then
         for plugin in plugins/gedit3/*; do
-            sudo cp -R $plugin/* /usr/lib/gedit/plugins/
+            sudo cp -R $plugin /usr/lib/gedit/plugins/
         done
     else
-        if [ ! -d $HOME/.gnome2/gedit/plugins ]; then
-            mkdir -p ~/.gnome2/gedit/plugins
+        if [ ! -d $HOME/.local/share/gedit/plugins ]; then
+            mkdir -p ~/.local/share/gedit/plugins
         fi
         for plugin in plugins/gedit3/*; do
-            cp -R $plugin/* ~/.gnome2/gedit/plugins
+            cp -R $plugin ~/.local/share/gedit/plugins
         done
     fi
 else
@@ -123,7 +130,7 @@ if [ !"$(echo $version3)" ]; then
       if [ $sudo = "yes" ]; then
         sudo apt-get install python-webkit
       else
-        echo "Please install python-webkit (sudo apt-get install python-webkit)"
+        dpkg --list python-webkit > /dev/null 2>&1 || echo "Please install python-webkit (sudo apt-get install python-webkit)"
       fi
     fi
 
@@ -131,7 +138,12 @@ if [ !"$(echo $version3)" ]; then
     if [ $sudo = "yes" ]; then
       `sudo sh ./debian/postinst`
     else
-      `sh ./debian/postinst`
+      # Fix for the RestoreTabs plugin
+      if [ ! -d $HOME~/.local/share/glib-2.0/schemas/ ]; then
+          mkdir -p ~/.local/share/glib-2.0/schemas/
+      fi
+      mv ~/.local/share/gedit/plugins/restoretabs/org.gnome.gedit.plugins.restoretabs.gschema.xml ~/.local/share/glib-2.0/schemas/
+      glib-compile-schemas ~/.local/share/glib-2.0/schemas/
     fi
 
     echo -n "Do you want to activate default plugin and configuration set? [y,N]:"

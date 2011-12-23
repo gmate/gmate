@@ -18,7 +18,7 @@ install:
 	cp -R styles/*          $(build)/usr/share/gtksourceview-3.0/styles/
 	cp    mime/*            $(build)/usr/share/mime/packages/
 	for plugin in plugins/gedit3/*; do \
-	    cp -R $$plugin/*         $(build)/usr/lib/gedit/plugins/; \
+	    cp -R $$plugin/         $(build)/usr/lib/gedit/plugins/; \
 	done
 	cp plugins/gedit3/restoretabs/org.gnome.gedit.plugins.restoretabs.gschema.xml $(build)/usr/share/glib-2.0/schemas/
 	cp -R snippets/*        $(build)/usr/share/gedit/plugins/snippets/

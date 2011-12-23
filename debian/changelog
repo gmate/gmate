@@ -1,3 +1,10 @@
+gedit-gmate (0.10~uorppa5) oneiric; urgency=low
+  * Move plugins to subdirs.
+  * Fix background color for selection in Wombat style.
+  * Add “do” keyword to CoffeeScript.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Fri, 23 Dec 2011 08:58:48 +0700
+
 gedit-gmate (0.10~uorppa4) oneiric; urgency=low
   * Rewrite build script to support Restore Tab plugin.
 

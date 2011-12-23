@@ -4,10 +4,6 @@
 
 version3="`gedit --version | grep '\s3\.'`"
 
-# Try to use sudo
-echo "Type root password if you want to install system wide. Press [Enter] to install to this user only."
-sudo -v
-
 if [ $(id -u) = "0" ]; then
     sudo="yes"
 else
@@ -99,7 +95,11 @@ if [ "$(echo $version3)" ]; then
             mkdir -p ~/.gnome2/gedit/plugins
         fi
         for plugin in plugins/gedit3/*; do
-            cp -R $plugin/* ~/.gnome2/gedit/plugins
+            if [ $plugin = "plugins/gedit3/restoretabs" ]; then
+                echo "You need install gmate with sudo, to install Restore Tabs plugin"
+            else
+                cp -R $plugin/* ~/.gnome2/gedit/plugins
+            fi
         done
     fi
 else

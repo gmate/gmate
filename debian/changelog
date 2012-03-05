@@ -1,3 +1,8 @@
+gedit-gmate (0.10~uorppa6) oneiric; urgency=low
+  * Add Zen Conding plugin to gedit 3.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Mon, 05 Mar 2012 05:58:25 +0400
+
 gedit-gmate (0.10~uorppa5) oneiric; urgency=low
   * Move plugins to subdirs.
   * Fix background color for selection in Wombat style.

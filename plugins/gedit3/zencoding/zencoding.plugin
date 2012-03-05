@@ -1,0 +1,11 @@
+[Plugin]
+Loader=python
+Module=zencoding
+IAge=3
+Name=Zen Coding
+Description=Expand expressions similar to CSS selectors into HTML, CSS or XSLT code
+Description[fr]=Développe des expressions similaires à des sélecteurs CSS en code HTML, CSS ou XSLT
+Authors=Zen Coding: Sergey Chikuyonok <serge.che@gmail.com>\nGedit Plugin: Franck Marcia <franck.marcia@gmail.com>
+Copyright=Zen Coding: Sergey Chikuyonok <serge.che@gmail.com>\nGedit Plugin: Franck Marcia <franck.marcia@gmail.com>
+Website=http://code.google.com/p/zen-coding/
+

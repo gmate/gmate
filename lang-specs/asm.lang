@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Author: Tobias Kubiczek
+ 
+-->
+<language id="asm" _name="Assembler" version="2.0" _section="Sources">
+  <metadata>
+    <property name="globs">*.asm</property>
+    <property name="line-comment-start">;</property>
+  </metadata>
+
+  <styles>
+    <style id="comment"           _name="Comment"           map-to="def:comment"/>
+    <style id="floating-point"    _name="Floating Point"    map-to="def:floating-point"/>
+    <style id="keyword"           _name="Keyword"           map-to="def:keyword"/>
+    <style id="daten"             _name="Daten"             map-to="def:statement"/>
+    <style id="spekeyword"        _name="spekeyword"        map-to="def:spekeyword"/>
+    <style id="decimal"           _name="Decimal"           map-to="def:decimal"/>
+    <style id="reserved-constant" _name="Reserved Constant" map-to="def:special-constant"/>
+    <style id="assembleranweisung" _name="assembleranweisung" map-to="def:preprocessor"/>
+    <style id="string"            _name="string"            map-to="def:constant"/>
+    <style id="Zahlen"            _name="Zahlen"            map-to="def:constant"/>
+    <style id="functions"         _name="functions"         map-to="def:identifier"/>
+    <style id="register"          _name="register"          map-to="def:statement"/>
+
+  </styles>
+
+  <definitions>
+    <context id="line-comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+      <start>;</start>
+      <include>
+        <context ref="def:in-comment"/>
+      </include>
+    </context>
+
+    <context id="string" style-ref="string" extend-parent="true" class-disabled="no-spell-check">
+      <start>"</start>
+      <end>"</end>
+    </context>
+
+    <context id="Zahlen" style-ref="Zahlen" extend-parent="true">
+      <match>0x([0-9]|[A-F])([0-9]|[A-F])|0b[0-1][0-1][0-1][0-1][0-1][0-1][0-1][0-1]\b|0X([0-9]|[A-F])([0-9]|[A-F])|0B[0-1][0-1][0-1][0-1][0-1][0-1][0-1][0-1]\b</match>
+    </context> 
+
+    <context id="keyword" style-ref="keyword">
+        <!-- Arithmetic and logic instructions-->
+        <keyword>add</keyword>
+        <keyword>adc</keyword>
+        <keyword>adiw</keyword>
+        <keyword>sub</keyword>
+        <keyword>subi</keyword>
+        <keyword>sbc</keyword>
+        <keyword>sbci</keyword>
+        <keyword>sbiw</keyword>
+        <keyword>and</keyword>
+        <keyword>andi</keyword>
+        <keyword>or</keyword>
+        <keyword>ori</keyword>
+        <keyword>eor</keyword>
+        <keyword>com</keyword>
+        <keyword>neg</keyword>
+        <keyword>sbr</keyword>
+        <keyword>sbr</keyword>
+        <keyword>inc</keyword>
+        <keyword>dec</keyword>
+        <keyword>tst</keyword>
+        <keyword>clr</keyword>
+        <keyword>ser</keyword>
+        <keyword>mul</keyword>
+        <keyword>muls</keyword>
+        <keyword>mulsu</keyword>
+        <keyword>fmul</keyword>
+        <keyword>fmuls</keyword>
+        <keyword>fmulsu</keyword>
+        <!-- Branch Instructions-->
+        <keyword>rjmp</keyword>
+        <keyword>ijump</keyword>
+        <keyword>jmp</keyword>
+        <keyword>rcall</keyword>
+        <keyword>icall</keyword>
+        <keyword>call</keyword>
+        <keyword>ret</keyword>
+        <keyword>reti</keyword>
+        <keyword>cpse</keyword>
+        <keyword>cp</keyword>
+        <keyword>cpc</keyword>
+        <keyword>cpi</keyword>
+        <keyword>sbrc</keyword>
+        <keyword>sbrs</keyword>
+        <keyword>sbic</keyword>
+        <keyword>sbis</keyword>
+        <keyword>brbs</keyword>
+        <keyword>brbc</keyword>
+        <keyword>breq</keyword>
+        <keyword>brne</keyword>
+        <keyword>brcs</keyword>
+        <keyword>brcc</keyword>
+        <keyword>brsh</keyword>
+        <keyword>brlo</keyword>
+        <keyword>brmi</keyword>
+        <keyword>brpl</keyword>
+        <keyword>brge</keyword>
+        <keyword>brlt</keyword>
+        <keyword>brhs</keyword>
+        <keyword>brhc</keyword>
+        <keyword>brts</keyword>
+        <keyword>brtc</keyword>
+        <keyword>brvs</keyword>
+        <keyword>brvc</keyword>
+        <keyword>brie</keyword>
+        <keyword>brid</keyword>
+        <!-- Data Transfer Instructions -->
+        <keyword>mov</keyword>
+        <keyword>movw</keyword>
+        <keyword>ldi</keyword>
+        <keyword>ld</keyword>
+        <keyword>ldd</keyword>
+        <keyword>lds</keyword>
+        <keyword>st</keyword>
+        <keyword>std</keyword>
+        <keyword>sts</keyword>
+        <keyword>lpm</keyword>
+        <keyword>spm</keyword>
+        <keyword>push</keyword>
+        <keyword>pop</keyword>
+        <!-- Bit and bit test instructions -->
+        <keyword>sbi</keyword>
+        <keyword>cbi</keyword>
+        <keyword>lsl</keyword>
+        <keyword>lsr</keyword>
+        <keyword>rol</keyword>
+        <keyword>ror</keyword>
+        <keyword>asr</keyword>
+        <keyword>swap</keyword>
+        <keyword>bset</keyword>
+        <keyword>bclr</keyword>
+        <keyword>bst</keyword>
+        <keyword>bld</keyword>
+        <keyword>sec</keyword>
+        <keyword>clc</keyword>
+        <keyword>sen</keyword>
+        <keyword>cln</keyword>
+        <keyword>sez</keyword>
+        <keyword>clz</keyword>
+        <keyword>sei</keyword>
+        <keyword>cli</keyword>
+        <keyword>ses</keyword>
+        <keyword>cls</keyword>
+        <keyword>sev</keyword>
+        <keyword>clv</keyword>
+        <keyword>set</keyword>
+        <keyword>clt</keyword>
+        <keyword>seh</keyword>
+        <keyword>clh</keyword>
+        <!-- MCU control instructions -->
+        <keyword>nop</keyword>
+        <keyword>sleep</keyword>
+        <keyword>wdr</keyword>
+        <keyword>break</keyword>
+   </context>
+
+    <context id="daten" style-ref="daten">
+        <keyword>in</keyword>
+        <keyword>out</keyword>
+    </context>
+
+    <context id="assembleranweisung" style-ref="assembleranweisung">
+        <match>.(def|DEF|equ|EQU|include|INCLUDE|DSEG|CESG|dseg|cesg)|:</match>
+    </context>
+
+    <context id="port" style-ref="daten">
+        <match>PORT[A-Z]|DDR[A-Z]|P[A-Z][0-7]|Port[A-Z]|Ddr[A-Z]|port[A-Z]|ddr[A-Z]|p[A-Z][0-9]</match>
+    </context>
+
+    <context id="functions" style-ref="functions">
+        <match>HIGH|LOW|high|low</match>
+    </context>
+
+    <context id="register" style-ref="register">
+        <match>r([0-2][0-9]|[3][0-2]|[0-9])</match>
+    </context>
+
+    <context id="asm" class="no-spell-check">
+      <include>
+        <context ref="line-comment"/>
+        <context ref="string"/>
+        <context ref="Zahlen"/>
+        <context ref="keyword"/>
+        <context ref="daten"/>
+        <context ref="assembleranweisung"/>
+        <context ref="port"/>
+        <context ref="functions"/>
+        <context ref="register"/>
+      </include>
+    </context>
+  </definitions>
+</language>

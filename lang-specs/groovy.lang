@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language id="groovy" _name="Groovy Source File" version="2.0" _section="Sources">
   <metadata>
-    <property name="mimetypes">text/x-groovy;text/x-groovy++</property>
-    <property name="globs">*.groovy;*.gpp;*.g++</property>
+    <property name="mimetypes">text/x-groovy;text/x-groovy++;text/x-gradle</property>
+    <property name="globs">*.groovy;*.gpp;*.g++;*.gradle</property>
     <property name="line-comment-start">//</property>
     <property name="block-comment-start">/*</property>
     <property name="block-comment-end">*/</property>
@@ -23,6 +23,7 @@
     <style id="reserved"          _name="Future Reserved Keywords"  map-to="def:error"/>
     <style id="type"              _name="Data Type"                 map-to="def:type"/>
     <style id="variable"          _name="Variable"                  map-to="def:identifier"/>
+    <style id="annotation"        _name="Annotation"                map-to="def:annotation"/>
   </styles>
  
   <definitions>
@@ -43,6 +44,10 @@
 <!--    </context>-->
     
     <!-- TODO: add styling rule for annotations @page, @serializeable etc...   -->
+    
+<!--    <context id="annotation" style-ref="annotation" >-->
+<!--      <start>@</start>-->
+<!--    </context>-->
  
     <context id="line-comment" style-ref="comment" end-at-line-end="true">
       <start>//</start>
@@ -159,6 +164,7 @@
       <keyword>new</keyword>
       <keyword>super</keyword>
       <keyword>this</keyword>
+      <keyword>it</keyword>
     </context>
  
     <context id="future-reserved-words" style-ref="reserved">
@@ -189,6 +195,7 @@
         <context ref="string"/>
         <context ref="string-2"/>
 <!--        <context ref="g-string"/>-->
+<!--        <context ref="annotation"/>-->
         <context ref="line-comment"/>
         <context ref="block-comment"/>
         <context ref="close-comment-outside-comment"/>

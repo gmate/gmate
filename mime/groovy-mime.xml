@@ -10,4 +10,9 @@
 		<comment>Groovy++ Source File</comment>
 		<glob pattern="*.gpp;*.g++"/>
 	</mime-type>
+	<mime-type type="text/x-gradle">
+		<sub-class-of type="text/x-groovy"/>
+		<comment>Grade Source File</comment>
+		<glob pattern="*.gradle"/>
+	</mime-type>
 </mime-info>

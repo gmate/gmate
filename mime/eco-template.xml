@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="text/x-eco-template">
+		<sub-class-of type="text/html"/>
+		<comment>Eco Template</comment>
+		<glob pattern="*.eco"/>
+		<glob pattern="*.jeco"/>
+	</mime-type>
+</mime-info>
+
+
+
+

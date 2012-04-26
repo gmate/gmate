@@ -10,8 +10,8 @@
 <language id="scss" _name="SCSS" version="2.0" _section="Others">
 
   <metadata>
-    <property name="mimetypes">text/x-scss</property>
-    <property name="globs">*.scss</property>
+    <property name="mimetypes">text/x-scss;text/x-styl</property>
+    <property name="globs">*.scss;*.styl</property>
     <property name="line-comment-start">//</property>
     <property name="block-comment-start">/*</property>
     <property name="block-comment-end">*/</property>

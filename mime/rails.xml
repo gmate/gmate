@@ -8,8 +8,6 @@
     </magic>
     <glob pattern="*.rhtml"/>
     <glob pattern="*.erb"/>
-    <glob pattern="*.eco"/>
-    <glob pattern="*.jeco"/>
   </mime-type>
   <mime-type type="application/x-ruby">
     <comment>Ruby JavaScript</comment>

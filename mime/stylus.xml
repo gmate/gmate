@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="text/x-styl">
+		<sub-class-of type="text/plain"/>
+		<comment>Stylus CSS</comment>
+		<glob pattern="*.styl"/>
+	</mime-type>
+</mime-info>
+

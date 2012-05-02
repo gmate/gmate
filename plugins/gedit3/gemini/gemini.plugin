@@ -1,0 +1,11 @@
+[Plugin]
+Loader=python
+Module=gemini
+IAge=3
+Name=Gemini
+Name[ru]=Близнецы
+Description=Smart completion of common characters we use in pairs. ({["''"]})
+Description[ru]=Умное завершение парных символов. ({["''"]})
+Authors=Gary Haran <gary.haran@gmail.com>, Shauna Gordon <shauna@shaunagordon.com>
+Copyright=Copyright © 2006 Gary Haran <gary.haran@gmail.com>, © 2012 Shauna Gordon <shauna@shaunagordon.com>
+Website=http://www.garyharan.com/

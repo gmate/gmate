@@ -152,11 +152,12 @@ class ResultsView(Gtk.VBox):
             # Loop through the tabs until we find which one matches the file
             # If we don't find it, we'll create it in a new tab afterwards.
             for each in documents:
+                doc = each.get_uri_for_display()
 
-                if (each.get_uri().replace("file://", "") == absolute_path):
-                    # This sets the active tab to "each"
+                if (doc.replace("file://", "") == absolute_path):
+                         # This sets the active tab to "each"
                     (self.window.set_active_tab
-                        (Gedit.tab_get_from_document(each)))
+                        (Gedit.Tab.get_from_document(each)))
                     each.goto_line(line_number)
 
                     # Get the bounds of the document
@@ -171,8 +172,8 @@ class ResultsView(Gtk.VBox):
 
             # If we got this far, then we didn't find the file open in a tab.
             # Thus, we'll want to go ahead and open it...
-            self.window.create_tab_from_uri("file://" + absolute_path,
-                self.encoding, int(model.get_value(iterator, 2)), False, True)
+            self.window.create_tab_from_location("file://" + absolute_path,
+                self.encoding, int(model.get_value(iterator, 2)), 0, False, True)
 
     # Clicking the "Find" button or hitting return in the search area
     # calls button_press.
@@ -198,6 +199,7 @@ class ResultsView(Gtk.VBox):
         fbroot = self.get_filebrowser_root()
         if fbroot != "" and fbroot is not None:
             location = fbroot.replace("file://", "")
+            location = location.replace("%20", "\\ ")
         else:
             return
 
@@ -210,7 +212,7 @@ class ResultsView(Gtk.VBox):
 
         hooray = os.popen("find " + location + search_filter).readlines()
         for hip in hooray:
-            string += " '%s'" % hip[:-1]
+            string += " \"%s\"" % hip[:-1]
 
         # str_case_operator will hold the "case insensitive"
         # command if necessary
@@ -218,10 +220,11 @@ class ResultsView(Gtk.VBox):
         if (not self.case_sensitive):
             str_case_operator = " -i"
 
-        # Create a pipe and call the grep command, then read it
+       # Create a pipe and call the grep command, then read it
         pipe = os.popen("grep -n -H" + str_case_operator + " %s %s" % (self.search_form.get_text(), string))
-        data = pipe.read()
-        results = data.split("\n")
+        data = pipe.readlines()
+
+        results = data
 
         # Clear any current results from the side panel
         self.search_data.clear()

@@ -1,16 +1,21 @@
-from gi.repository import Gtk, GConf, GObject, Gedit
+from gi.repository import Gtk, Gio, GObject, Gedit
 import os
+
 
 class ResultsView(Gtk.VBox):
     def __init__(self, geditwindow):
         GObject.GObject.__init__(self)
 
-        # We have to use .geditwindow specifically here (self.window won't work)
-        self.geditwindow = geditwindow
+        # We have to use .geditwindow specifically here
+        #(self.window won't work)
+        self.window = geditwindow
 
-        # Save the document's encoding in a variable for later use (when opening new tabs)
-        try: self.encoding = Gedit.encoding_get_current()
-        except: self.encoding = Gedit.gedit_encoding_get_current()
+        # Save the document's encoding in a variable for later use
+        #(when opening new tabs)
+        try:
+            self.encoding = Gedit.encoding_get_current()
+        except:
+            self.encoding = Gedit.gedit_encoding_get_current()
 
         # Preferences (we'll control them with toggled checkboxes)
         self.ignore_comments = False
@@ -18,14 +23,17 @@ class ResultsView(Gtk.VBox):
         self.scan_logs = False
 
         # We save the grep search result data in a ListStore
-        # Format:  ID (COUNT)  |  FILE (without path)  |  LINE  |  FILE (with path)
-        #    Note: We use the full-path version when opening new tabs (when necessary)
+        # Format:  ID (COUNT)  |  FILE (without path)
+        # |  LINE  |  FILE (with path)
+        #    Note: We use the full-path version when opening new tabs
+        #(when necessary)
         self.search_data = Gtk.ListStore(str, str, str, str)
 
         # Create a list (a "tree view" without children) to display the results
         self.results_list = Gtk.TreeView(self.search_data)
 
-        # Get the selection attribute of the results_list and assign a couple of properties
+        # Get the selection attribute of the results_list and assign
+        # a couple of properties
         tree_selection = self.results_list.get_selection()
 
         # Properties...
@@ -56,12 +64,14 @@ class ResultsView(Gtk.VBox):
         cell_filename.pack_start(text_renderer_filename, True)
         cell_line_number.pack_start(text_renderer_line_number, True)
 
-        # Now set the IDs to each of the text renderer objects and set them to "text" mode
+        # Now set the IDs to each of the text renderer objects and
+        # set them to "text" mode
         cell_id.add_attribute(text_renderer_id, "text", 0)
         cell_filename.add_attribute(text_renderer_filename, "text", 1)
         cell_line_number.add_attribute(text_renderer_line_number, "text", 2)
 
-        # Create a scrolling window object and add our results_list treeview object to it
+        # Create a scrolling window object and add
+        # our results_list treeview object to it
         scrolled_window = Gtk.ScrolledWindow()
         scrolled_window.add(self.results_list)
 
@@ -137,7 +147,7 @@ class ResultsView(Gtk.VBox):
             line_number = int(model.get_value(iterator, 2)) - 1
 
             # Get all open tabs
-            documents = self.geditwindow.get_documents()
+            documents = self.window.get_documents()
 
             # Loop through the tabs until we find which one matches the file
             # If we don't find it, we'll create it in a new tab afterwards.
@@ -145,33 +155,37 @@ class ResultsView(Gtk.VBox):
 
                 if (each.get_uri().replace("file://", "") == absolute_path):
                     # This sets the active tab to "each"
-                    self.geditwindow.set_active_tab(Gedit.tab_get_from_document(each))
+                    (self.window.set_active_tab
+                        (Gedit.tab_get_from_document(each)))
                     each.goto_line(line_number)
 
                     # Get the bounds of the document
                     (start, end) = each.get_bounds()
 
-                    self.geditwindow.get_active_view().scroll_to_iter(end, 0.0)
+                    self.window.get_active_view().scroll_to_iter(end, 0.0)
 
                     x = each.get_iter_at_line_offset(line_number, 0)
-                    self.geditwindow.get_active_view().scroll_to_iter(x, 0.0)
+                    self.window.get_active_view().scroll_to_iter(x, 0.0)
 
                     return
 
             # If we got this far, then we didn't find the file open in a tab.
             # Thus, we'll want to go ahead and open it...
-            self.geditwindow.create_tab_from_uri("file://" + absolute_path, self.encoding, int(model.get_value(iterator, 2)), False, True)
+            self.window.create_tab_from_uri("file://" + absolute_path,
+                self.encoding, int(model.get_value(iterator, 2)), False, True)
 
-    # Clicking the "Find" button or hitting return in the search area calls button_press.
-    # This function, of course, searches each open document for the search query and
+    # Clicking the "Find" button or hitting return in the search area
+    # calls button_press.
+    # This function, of course, searches each open document for
+    # the search query and
     # displays the results in the side panel.
     def button_press(self, widget):
         # Get all open tabs
-        documents = self.geditwindow.get_documents()
+        documents = self.window.get_documents()
 
         # Make sure there are documents to search...
         if (len(documents) == 0):
-            return # Can't search nothing.  :P
+            return  # Can't search nothing.  :P
 
         # Let's also make sure the user entered a search string
         if (len(self.search_form.get_text()) <= 0):
@@ -183,23 +197,23 @@ class ResultsView(Gtk.VBox):
 
         fbroot = self.get_filebrowser_root()
         if fbroot != "" and fbroot is not None:
-          location = fbroot.replace("file://", "")
+            location = fbroot.replace("file://", "")
         else:
-          return
-
+            return
 
         #if (not)
         #" -type f -not -regex '.*/.svn.*'"
         #" -type f -not -regex '.*/(.svn|.log|.bak).*'"
-        search_filter = ' -type f | egrep -v ".*(\.svn.*|\.git.*)"'
+        search_filter = '-type f | egrep -v ".*(\.svn.*|\.git.*)"'
         if (not self.scan_logs):
             search_filter = ' -type f | egrep -v ".*(\.svn.*|\.git.*|\.log|\.bak)"'
 
-        hooray = os.popen ("find " + location + search_filter).readlines()
+        hooray = os.popen("find " + location + search_filter).readlines()
         for hip in hooray:
-          string += " '%s'" % hip[:-1]
+            string += " '%s'" % hip[:-1]
 
-        # str_case_operator will hold the "case insensitive" command if necessary
+        # str_case_operator will hold the "case insensitive"
+        # command if necessary
         str_case_operator = ""
         if (not self.case_sensitive):
             str_case_operator = " -i"
@@ -222,37 +236,43 @@ class ResultsView(Gtk.VBox):
 
             if (len(pieces) == 3):
                 line_number = pieces[1]
-                filename = os.path.basename(pieces[0]) # We just want the filename, not the path
-                string = pieces[2].lstrip(" ") # Remove leading whitespace
+                # We just want the filename, not the path
+                filename = os.path.basename(pieces[0])
+                string = pieces[2].lstrip(" ")  # Remove leading whitespace
 
-                # If we want to ignore comments, then we'll make sure it doesn't start with # or //
+                # If we want to ignore comments,
+                # then we'll make sure it doesn't start with # or //
                 if (self.ignore_comments):
-                    if (not string.startswith("#") and not string.startswith("//")):
-                        self.search_data.append( ("%d" % (len(self.search_data) + 1), filename, line_number, pieces[0]) )
+                    if (not string.startswith("#") and
+                        not string.startswith("//")):
+                        self.search_data.append(("%d" % (len(self.search_data)
+                         + 1), filename, line_number, pieces[0]))
                 else:
-                    self.search_data.append( ("%d" % (len(self.search_data) + 1), filename, line_number, pieces[0]) )
+                    self.search_data.append(("%d" % (len(self.search_data) +
+                     1), filename, line_number, pieces[0]))
 
     def get_filebrowser_root(self):
-        base = u'/apps/gedit-2/plugins/filebrowser/on_load'
-        client = GConf.Client.get_default()
-        client.add_dir(base, GConf.ClientPreloadType.PRELOAD_NONE)
-        path = os.path.join(base, u'virtual_root')
-        val = client.get(path)
+        base = u'org.gnome.gedit.plugins.filebrowser'
+        client = Gio.Settings.new(base)
+#        client.add_dir(base, GConf.ClientPreloadType.PRELOAD_NONE)
+#        path = os.path.join(base, u'virtual_root')
+        val = client.get_string('virtual-root')
         if val is not None:
           #also read hidden files setting
-          base = u'/apps/gedit-2/plugins/filebrowser'
-          client = GConf.Client.get_default()
-          client.add_dir(base, GConf.ClientPreloadType.PRELOAD_NONE)
-          path = os.path.join(base, u'filter_mode')
-          try:
-            fbfilter = client.get(path).get_string()
-          except AttributeError:
-            fbfilter = "hidden"
-          if fbfilter.find("hidden") == -1:
-            self._show_hidden = True
-          else:
-            self._show_hidden = False
-          return val.get_string()
+#            base = u'org.gnome.gedit.plugins.filebrowser'
+#            client = Gio.Settings.new(base)
+#            client.add_dir(base, GConf.ClientPreloadType.PRELOAD_NONE)
+#            path = os.path.join(base, u'filter_mode')
+            try:
+                fbfilter = client.get_strv('filter-mode')
+            except AttributeError:
+                fbfilter = "hidden"
+            if 'hide-hidden' in fbfilter:
+                self._show_hidden = True
+            else:
+                self._show_hidden = False
+        return val
+
 
 class PluginHelper:
     def __init__(self, plugin, window):
@@ -279,12 +299,14 @@ class PluginHelper:
 
         image = Gtk.Image()
         image.set_from_stock(Gtk.STOCK_DND_MULTIPLE, Gtk.IconSize.BUTTON)
-        self.ui_id = panel.add_item(self.results_view, "FindInDocumentsPanel", "Find in Open Documents", image)
+        self.ui_id = panel.add_item(self.results_view,
+            "FindInDocumentsPanel", "Find in Open Documents", image)
 
     def remove_menu_item(self):
         panel = self.window.get_side_panel()
 
         panel.remove_item(self.results_view)
+
 
 class FindInDocumentsPlugin(GObject.Object, Gedit.WindowActivatable):
     window = GObject.property(type=Gedit.Window)

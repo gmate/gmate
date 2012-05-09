@@ -161,19 +161,15 @@ class ResultsView(Gtk.VBox):
                     each.goto_line(line_number)
 
                     # Get the bounds of the document
-                    (start, end) = each.get_bounds()
+#                    (start, end) = each.get_bounds()
 
-                    self.window.get_active_view().scroll_to_iter(end, 0.0)
-
-                    x = each.get_iter_at_line_offset(line_number, 0)
-                    self.window.get_active_view().scroll_to_iter(x, 0.0)
+                    self.window.get_active_view().scroll_to_cursor()
 
                     return
 
             # If we got this far, then we didn't find the file open in a tab.
             # Thus, we'll want to go ahead and open it...
-            self.window.create_tab_from_location("file://" + absolute_path,
-                self.encoding, int(model.get_value(iterator, 2)), 0, False, True)
+            self.window.create_tab_from_location(Gio.File.new_for_path(absolute_path), self.encoding, int(model.get_value(iterator, 2)), 0, False, True)
 
     # Clicking the "Find" button or hitting return in the search area
     # calls button_press.
@@ -206,7 +202,7 @@ class ResultsView(Gtk.VBox):
         #if (not)
         #" -type f -not -regex '.*/.svn.*'"
         #" -type f -not -regex '.*/(.svn|.log|.bak).*'"
-        search_filter = '-type f | egrep -v ".*(\.svn.*|\.git.*)"'
+        search_filter = ' -type f | egrep -v ".*(\.svn.*|\.git.*)"'
         if (not self.scan_logs):
             search_filter = ' -type f | egrep -v ".*(\.svn.*|\.git.*|\.log|\.bak)"'
 

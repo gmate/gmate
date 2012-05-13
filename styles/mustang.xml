@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright (C) 2012
+ Author: Bernhard Posselt <bernhard.posselt@gmx.at>
+         Henrique C. Alves <hcarvalhoalves@gmail.com>
+
+ This file is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This file is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+-->
+
+<style-scheme id="mustang" _name="Mustang" version="1.0">
+
+  <author>Bernhard Posselt</author>
+  <_description>This is a port of the VIM colorscheme Mustang</_description>
+
+  <!-- Tango Palette -->
+  <color name="white1"                      value="#e2e2e5"/>
+  <color name="orange1"                     value="#ff9800"/>
+  <color name="blue1"                       value="#7e8aa2"/>
+  <color name="blue2"                       value="#3465a4"/>
+  <color name="grey1"                       value="#808080"/>
+  <color name="grey2"                       value="#626262"/>
+  <color name="grey3"                       value="#202020"/>
+  <color name="grey4"                       value="#2d2d2d"/>
+  <color name="green1"                      value="#b1d631"/>
+  <color name="green2"                      value="#d0ffc0"/>
+  <color name="beige1"                      value="#faf4c6"/>
+  <color name="yellow1"                     value="#e6ea50"/>
+    
+  <!-- Global Settings -->
+  <style name="text"                        foreground="white1" background="grey3"/>
+  <style name="selection"                   foreground="white1" background="blue2"/>
+  <style name="cursor"                      background="grey2"/>
+  <style name="current-line"                background="grey4"/>
+  <style name="line-numbers"                foreground="grey1" background="#black"/>
+  <style name="draw-spaces"                 foreground="def:comment"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="green2" bold="true"/>
+  <style name="bracket-mismatch"            foreground="white1" background="orange1" bold="true"/>
+
+  <!-- Right Margin -->
+  <style name="right-margin"                foreground="white1" background="grey2"/>
+  
+  <!-- Search Matching -->
+  <style name="search-match"                foreground="white1" background="blue2"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="grey1" italic="true"/>
+  <style name="def:shebang"                 foreground="grey1" bold="true"/>
+  <style name="def:doc-comment"             foreground="orange1" />
+  <style name="def:doc-comment-element"     foreground="orange1" />
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="orange1"/>
+  <style name="def:string"                  foreground="green1" italic="true"/>
+  <style name="def:special-char"            foreground="orange1"/>
+  <style name="def:special-constant"        foreground="green1"/>
+  <style name="def:floating-point"          foreground="orange1"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="green1"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="blue1"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="blue1"/> 
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="beige1"/>
+  <style name="def:error"                   foreground="white1" background="orange1" bold="true"/>
+  <style name="def:note"                    background="yellow1" italic="true"/>
+  <style name="def:underlined"              italic="true" underline="true"/>
+
+  <!-- Language specific -->
+  <style name="xml:element-name"            foreground="blue1" italic="true"/>  
+  
+  <style name="sh:variable-definition"      foreground="green1" bold="true"/>
+
+  <style name="diff:added-line"             foreground="green1"/>
+  <style name="diff:removed-line"           foreground="orange1"/>
+  <style name="diff:changed-line"           foreground="beige"/>
+  <style name="diff:diff-file"              foreground="blue1" bold="true"/> 
+  <style name="diff:location"               foreground="blue1"/> 
+  <style name="diff:special-case"           foreground="#white" bold="true"/>
+
+  <style name="latex:command"               foreground="blue1" bold="true"/>
+  <style name="latex:include"               use-style="def:preprocessor"/>
+
+</style-scheme>
+

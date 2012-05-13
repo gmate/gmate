@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright (C) 2012
+ Author: Bernhard Posselt <bernhard.posselt@gmx.at>
+         Henrique C. Alves <hcarvalhoalves@gmail.com>
+
+ This file is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This file is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+-->
+
+<style-scheme id="vitamins" _name="Vitamins" version="1.0">
+
+  <author>Bernhard Posselt</author>
+  <_description>This is a port of the VIM colorscheme Vitamins</_description>
+
+  <!-- Tango Palette -->
+  <color name="white1"                      value="#ffffff"/>
+  <color name="white2"                      value="#ffffd7"/>
+  <color name="white3"                      value="#f6f3f0"/>
+  <color name="red1"                        value="#af5f5f"/>
+  <color name="red2"                        value="#902020"/>
+  <color name="blue1"                       value="#acf0f2"/>  
+  <color name="beige1"                      value="#ede39e"/>
+  <color name="beige2"                      value="#f6f3e8"/>
+  <color name="orange1"                     value="#ff5d28"/>
+  <color name="green1"                      value="#cdd129"/>
+  <color name="brown1"                      value="#857b6f"/>
+  <color name="grey1"                       value="#343434"/>
+  <color name="grey2"                       value="#5c5a4f"/>  
+  <color name="grey3"                       value="#2d2d2d"/>
+  <color name="grey4"                       value="#656565"/>  
+  <color name="grey5"                       value="#999999"/>
+  <color name="grey6"                       value="#808080"/>
+  <color name="grey7"                       value="#444444"/>
+  <color name="grey8"                       value="#242424"/>
+  <color name="yellow1"                     value="#e6ea50"/>
+    
+  <!-- Global Settings -->
+  <style name="text"                        foreground="white3" background="grey8"/>
+  <style name="selection"                   foreground="white2" background="grey7"/>
+  <style name="cursor"                      background="grey4"/>
+  <style name="current-line"                background="grey3"/>
+  <style name="line-numbers"                foreground="grey2" background="#black"/>
+  <style name="draw-spaces"                 foreground="def:comment"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="beige2" background="brown1" bold="true"/>
+  <style name="bracket-mismatch"            foreground="white1" background="red2" bold="true"/>
+
+  <!-- Right Margin -->
+  <style name="right-margin"                foreground="grey5" background="grey6"/>
+  
+  <!-- Search Matching -->
+  <style name="search-match"                background="blue2"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="grey6" italic="true"/>
+  <style name="def:shebang"                 foreground="def:comment" bold="true"/>
+  <style name="def:doc-comment"             foreground="blue1" />
+  <style name="def:doc-comment-element"     foreground="blue1" />
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="blue1"/>
+  <style name="def:string"                  foreground="orange1" />
+  <style name="def:special-char"            foreground="grey6" background="grey1"/>
+  <style name="def:special-constant"        foreground="blue1"/>
+  <style name="def:floating-point"          foreground="beige1"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="orange1"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="red1"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="green1"/> 
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="beige1"/>
+  <style name="def:error"                   foreground="white1" background="red2"/>
+  <style name="def:note"                    background="yellow1" italic="true"/>
+  <style name="def:underlined"              italic="true" underline="true"/>
+
+  <!-- Language specific -->
+  <style name="xml:element-name"            foreground="green1"/>  
+
+  <style name="diff:added-line"             foreground="orange1"/>
+  <style name="diff:removed-line"           foreground="blue1"/>
+  <style name="diff:changed-line"           foreground="beige1"/>
+  <style name="diff:diff-file"              foreground="green1"/> 
+  <style name="diff:location"               foreground="green1"/> 
+  <style name="diff:special-case"           foreground="red1" bold="true"/>
+
+
+</style-scheme>
+

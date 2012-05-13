@@ -158,6 +158,7 @@ specific plugin licencing and copyright.
 * IR_Black (Converted from Textmate)
 * Ironman
 * IR_White (Converted from Textmate)
+* Jellybeans (Converted from VIM)
 * Kate
 * LAZY (Converted from Textmate)
 * Lowlight (Converted from Textmate)
@@ -171,6 +172,7 @@ specific plugin licencing and copyright.
 * minimal Theme (Converted from Textmate)
 * monoindustrial (Converted from Textmate)
 * Monokai (Converted from Textmate)
+* Mustang (Converted from VIM)
 * Neopro (Converted from Textmate)
 * Notepad 2 (Converted from Textmate)
 * Overcast (Converted from Textmate)
@@ -206,6 +208,7 @@ specific plugin licencing and copyright.
 * Vibrant Fun
 * Vibrant Ink (Converted from Textmate)
 * Vibrant Nerd
+* Vitamins (Converted from VIM)
 * Warm Grey
 * Why's Poingnant (Converted from Textmate)
 * Wombat

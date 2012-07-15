@@ -1,0 +1,10 @@
+[Plugin]
+Loader=python
+Module=macropy
+IAge=3
+Name=Macropy
+Description=Records and executes a macro.
+Authors=Eduardo Romero <eguaio@gmail.com>
+Copyright=GPL
+Website=N/A
+Version=1.0.0

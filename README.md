@@ -64,6 +64,8 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Indent Converter**. Converts tabs to spaces and spaces to tabs.
 * **Multi Edit**. Check it out at author's page
   <http://jon-walsh.com/journal/multi-edit>
+* **Macropy**. Record and execute macros.
+  <https://github.com/eguaio/gedit-macropy>
 * **Pair Character Completion**. Pair complete for quotes and braces, that
   also wrap selected text. <http://code.google.com/p/gedit-pair-char-autocomplete>
 * **Pastie**. Paste a selection of code or a source file to pastie.org directly

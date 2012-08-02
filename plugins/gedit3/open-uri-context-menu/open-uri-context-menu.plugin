@@ -1,0 +1,11 @@
+[Plugin]
+Loader=python
+Module=open-uri-context-menu
+IAge=3
+Name=Open URI Context Menu
+Description=Adds context menu item to open an URI at the pointer position.
+Description[fr]=Ajoute une option dans le menu contextuel pour ouvrir l'URI située sous le curseur.
+Icon=gtk-open
+Authors=Martin Szulecki <opensuse@sukimashita.com>\nJean-Philippe Fleury <contact@jpfleury.net>
+Copyright=Copyright © 2007-2008 Martin Szulecki\nCopyright © 2011 Jean-Philippe Fleury
+Website=http://www.jpfleury.net/logiciels/open-uri-context-menu.php

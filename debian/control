@@ -10,7 +10,7 @@ Vcs-Browser: http://github.com/gmate/gmate
 
 Package: gedit-gmate
 Architecture: any
-Depends: python, gedit (>= 3)
+Depends: python, gedit (>= 3), xdg-utils
 Description: Gedit Gmate Plugins pack
  This package contains a collection of plugins and gtksourceview improvements to
  make gedit more powerful to develop especially Ruby on Rails applications.

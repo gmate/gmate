@@ -5,11 +5,6 @@
 		<comment>Groovy Source File</comment>
 		<glob pattern="*.groovy"/>
 	</mime-type>
-	<mime-type type="text/x-groovy++">
-		<sub-class-of type="text/x-groovy"/>
-		<comment>Groovy++ Source File</comment>
-		<glob pattern="*.gpp;*.g++"/>
-	</mime-type>
 	<mime-type type="text/x-gradle">
 		<sub-class-of type="text/x-groovy"/>
 		<comment>Grade Source File</comment>

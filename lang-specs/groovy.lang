@@ -131,6 +131,19 @@
  
     <context id="flow" style-ref="keyword">
       <keyword>assert</keyword>
+      <keyword>assertArrayEquals</keyword>
+      <keyword>assertContains</keyword>
+      <keyword>assertEquals</keyword>
+      <keyword>assertFalse</keyword>
+      <keyword>assertInspect</keyword>
+      <keyword>assertLength</keyword>
+      <keyword>assertNotNull</keyword>
+      <keyword>assertNotSame</keyword>
+      <keyword>assertNull</keyword>
+      <keyword>assertSame</keyword>
+      <keyword>assertScript</keyword>
+      <keyword>assertToString</keyword>
+      <keyword>assertTrue</keyword>
       <keyword>break</keyword>
       <keyword>case</keyword>
       <keyword>catch</keyword>

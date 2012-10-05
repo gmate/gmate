@@ -62,6 +62,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 * **Highlight Edited Lines**. Highlights lines changed during your edit session.
   <http://1dan.org/gedit-plugins/highlight-edited-lines/>
 * **Indent Converter**. Converts tabs to spaces and spaces to tabs.
+* **Line Tools**. comment toggle, duplicate, selection, add semi-colon.
 * **Multi Edit**. Check it out at author's page
   <http://jon-walsh.com/journal/multi-edit>
 * **Macropy**. Record and execute macros.
@@ -106,13 +107,14 @@ specific plugin licencing and copyright.
 * CoffeeScript Syntax Highlight
 * ColdFusion Syntax Highlight
 * Cucumber Syntax Highlight
-* Groovy and gsp Support (Included bundle created by Aaron Eischeid)
+* Groovy/Grails/Gradle improvements
 * HAML Syntax Highlight
 * Markdown Syntax Highlight
 * reStructuredText Syntax Highlight
 * rhtml/erb Syntax Highlight
 * Ruby on Rails improvements
-* SASS Syntax Highlight
+* SASS and Stylus Syntax Highlight
+* Jade and Eco templates Highlight
 
 ### Themes/Styles
 

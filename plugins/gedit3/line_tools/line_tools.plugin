@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python
+Module=line_tools
+IAge=3
+Name=Line Tools Plugin
+Description=This plugin adds a 'toggle comment' shortcut, a 'duplicate line' shortcut and a 'select line' shortcut
+Authors=Jens Nyman <nymanjens.nj@gmail.com>
+Copyright=Copyright (C) 2010 Jens Nyman
+Website=http://code.google.com/p/gedit-improving-plugins

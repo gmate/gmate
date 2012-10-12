@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language _name="dokuwiki" _section="Markup" version="2.0" id="dokuwiki">
+ <styles>
+  <style _name="String" map-to="def:string" id="string"/>
+  <style _name="Escaped Charater" map-to="def:special-char" id="escaped-character"/>
+  <style _name="Preprocessor" map-to="def:preprocessor" id="preprocessor"/>
+  <style _name="Included File" map-to="def:string" id="included-file"/>
+  <style _name="Charcter" map-to="def:character" id="char"/>
+  <style _name="Keyword" map-to="def:keyword" id="keyword"/>
+  <style _name="Data Type" map-to="def:special-constant" id="type"/>
+  <style _name="List Type" map-to="def:type" id="lists"/>
+  <style _name="Code" map-to="def:comment" id="comment"/>
+  <style _name="Underlined" map-to="def:underlined" id="underlined"/>
+ </styles>
+ <definitions>
+  <context style-ref="keyword" id="latex">
+   <start>&lt;latex&gt;</start>
+   <end>&lt;/latex&gt;</end>
+   <include>
+    <context ref="latex:in-math"/>
+   </include>
+  </context>
+  <context id="dokuwiki">
+   <include>
+    <context style-ref="underlined" id="underlined" extend-parent="false">
+     <match>\%{def:net-address}</match>
+    </context>
+    <context ref="latex"/>
+    <context style-ref="string" id="string">
+     <start>\/\/|\*\*|__</start>
+     <end>\/\/|\*\*|__|$</end>
+    </context>
+    <context style-ref="type" id="type">
+     <start>==+</start>
+     <end>==+</end>
+    </context>
+    <context style-ref="comment" id="comment-multiline">
+     <start>&lt;code[ a-z]*&gt;</start>
+     <end>&lt;\/code&gt;</end>
+    </context>
+    <context style-ref="lists" id="lists">
+     <match>([ ]{2})+[\*-]</match>
+    </context>
+    <context style-ref="lists" id="footnote">
+     <match>\(\(.*\)\)</match>
+    </context>
+    <context style-ref="lists" id="picture">
+     <match>\{\{[^\}]*\}\}</match>
+    </context>
+    <context style-ref="comment" id="indent-multiline">
+     <match>^[ ]{2}.*$</match>
+    </context>
+    <context style-ref="comment" id="quotes">
+     <match>^&gt;+ .*</match>
+    </context>
+    <context style-ref="keyword" id="dwkeyword">
+     <keyword>FIXME</keyword>
+     <keyword>DELETEME</keyword>
+     <keyword>~~NOTOC~~</keyword>
+     <keyword>~~ODF~~</keyword>
+     <keyword>----</keyword>
+     <keyword>\\</keyword>
+    </context>
+    <context style-ref="comment" id="tables">
+     <match>^[\|\^].*[\|\^]$</match>
+    </context>
+   </include>
+  </context>
+ </definitions>
+</language>

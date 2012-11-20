@@ -209,6 +209,7 @@ specific plugin licencing and copyright.
 * Text Ex Machina (Converted from Textmate)
 * Textmate (mac classic) (Converted from Textmate)
 * Tinge
+* Tomorrow
 * Travis Jeffery (Converted from Textmate)
 * Twilight (Converted from Textmate)
 * Twilight Modified

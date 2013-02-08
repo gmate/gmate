@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  Author: Jan Krolikowski <yanekk@github>
- SCSS version based on SASS by Ivan Kerin
+ STYL version based on SASS by Ivan Kerin
  String support from yml.lang by Alexandre da Silva
  Comments support from c.lang by Marco Barisione and Emanuele Aina
  Strings, at-rules & other definitions from css.lang by Scott Martin
  Some reg. exp. patterns based on http://github.com/charlesr/ruby-sass-tmbundle
+ + Modified by @niftylettuce to temporarily support Stylus
 -->
-<language id="scss" _name="SCSS" version="2.0" _section="Others">
+<language id="styl" _name="Stylus" version="2.0" _section="Others">
 
   <metadata>
-    <property name="mimetypes">text/x-scss;</property>
-    <property name="globs">*.scss;</property>
+    <property name="mimetypes">text/x-styl</property>
+    <property name="globs">*.styl</property>
     <property name="line-comment-start">//</property>
     <property name="block-comment-start">/*</property>
     <property name="block-comment-end">*/</property>
   </metadata>
 
   <styles>
-    <style id="string"      _name="String"               map-to="def:string"/>
+    <style id="string"       _name="String"            map-to="def:string"/>
     <style id="comment"     _name="Comment"              map-to="def:comment"/>
     <style id="tag"         _name="Tag"                  map-to="def:constant"/>
     <style id="class-tag"   _name="Class Tag"            map-to="def:identifier"/>
@@ -37,7 +38,7 @@
   </styles>
 
   <definitions>
-    <context id="scss">
+    <context id="styl">
     <include>
 
     <context id="string" style-ref="string">
@@ -471,4 +472,5 @@
   </context>
   </definitions>
 </language>
+
 

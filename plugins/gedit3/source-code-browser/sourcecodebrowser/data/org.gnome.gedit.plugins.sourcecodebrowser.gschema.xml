@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.gedit.plugins.sourcecodebrowser" path="/org/gnome/gedit/plugins/sourcecodebrowser/">
+    <key type="b" name="show-line-numbers">
+      <default>false</default>
+      <summary>Show Line Numbers</summary>
+      <description>Show the line number of each item in the source tree.</description>
+    </key>
+    <key type="b" name="load-remote-files">
+      <default>true</default>
+      <summary>Load Remote Files</summary>
+      <description>Download remote files into a temporary file for parsing the symbols.</description>
+    </key>
+    <key type="b" name="expand-rows">
+      <default>true</default>
+      <summary>Expand Rows</summary>
+      <description>Expand the entire source tree when initially loaded.</description>
+    </key>
+    <key type="b" name="sort-list">
+      <default>true</default>
+      <summary>Sort List</summary>
+      <description>Sorts the list of symbols alphabetically rather than by where they occur in the source file.</description>
+    </key>
+    <key type="s" name="ctags-executable">
+      <default>'ctags'</default>
+      <summary>Ctags Executable</summary>
+      <description>Specifies the executable path for Exuberant Ctags.</description>
+    </key>
+  </schema>
+</schemalist>
+

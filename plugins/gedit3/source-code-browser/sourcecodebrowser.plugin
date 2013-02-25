@@ -1,0 +1,10 @@
+[Plugin]
+Loader=python
+Module=sourcecodebrowser
+IAge=3
+Name=Source Code Browser
+Description=A source code class and function browser for Gedit 3.
+Authors=Micah Carrick <micah@quixotix.com>
+Copyright=Copyright © 2011 Micah Carrick
+Website=https://github.com/Quixotix/gedit-source-code-browser
+Version=3.0.3

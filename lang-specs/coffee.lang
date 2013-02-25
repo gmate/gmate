@@ -23,7 +23,7 @@
 <language id="coffee" _name="CoffeeScript" version="2.0" _section="Scripts">
     <metadata>
         <property name="mimetypes">application/coffeescript;text/coffeescript;application/cakefile;text/cakefile;application/icedcoffeescript;text/icedcoffeescript</property>
-        <property name="globs">*.coffee;Cakefile;*.Cakefile;*.coffee.erb;*.iced;*.iced.erb</property>
+        <property name="globs">*.coffee;Cakefile;*.Cakefile;*.coffee.erb;*.iced;*.iced.erb;*.litcoffee</property>
         <property name="line-comment-start">#</property>
         <property name="block-comment-start">###</property>
         <property name="block-comment-end">###</property>
@@ -255,5 +255,4 @@
         </context>
     </definitions>
 </language>
-
 

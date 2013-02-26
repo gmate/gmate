@@ -22,14 +22,15 @@
 -->
 <language id="coffee" _name="CoffeeScript" version="2.0" _section="Scripts">
     <metadata>
-        <property name="mimetypes">application/coffeescript;text/coffeescript;application/cakefile;text/cakefile;</property>
-        <property name="globs">*.coffee;*.Cakefile</property>
+        <property name="mimetypes">application/coffeescript;text/coffeescript;application/cakefile;text/cakefile;application/icedcoffeescript;text/icedcoffeescript</property>
+        <property name="globs">*.coffee;Cakefile;*.Cakefile;*.coffee.erb;*.iced;*.iced.erb;*.litcoffee</property>
         <property name="line-comment-start">#</property>
         <property name="block-comment-start">###</property>
         <property name="block-comment-end">###</property>
     </metadata>
 
     <styles>
+        <style id="await"           _name="Async Wait"               map-to="def:keyword"/>
         <style id="comment"         _name="Comment"                  map-to="def:comment"/>
         <style id="error"           _name="Error"                    map-to="def:error"/>
         <style id="string"          _name="String"                   map-to="def:string"/>
@@ -45,6 +46,7 @@
         <style id="assessor"        _name="Assessor"                 map-to="def:identifier"/>
         <style id="regexp"          _name="RegExp"                   map-to="def:special-char"/>
         <style id="function"        _name="Function"                 map-to="def:function"/>
+        <style id="application"     _name="Application"              map-to="def:identifier"/>
         <style id="constructors"    _name="Constructors"             map-to="def:type"/>
     </styles>
 
@@ -52,10 +54,15 @@
         <context id="coffee">
             <include>
 
+                <context id="await" style-ref="await">
+                    <keyword>await</keyword>
+                    <keyword>defer</keyword>
+                </context>
+
                 <!-- Comments -->
                 <context id="block-comment" style-ref="comment">
                     <start>^[ \t]*###([^#]|$)</start>
-                    <end>^.*###([^#]|$)</end>
+                    <end>.*###([^#]|$)</end>
                     <include>
                         <context ref="def:in-comment"/>
                     </include>
@@ -70,8 +77,18 @@
                     </include>
                 </context>
 
+                <!-- Regexps -->
                 <context id="regexp" style-ref="regexp">
-                    <match>(?&lt;!\d)\s*/(?![\s/*+{}?]).*/[igmy]*</match>
+                    <match>(?&lt;!\d)\s*/(?![\s/*+{}?]).*?[^\\]/[igmy]*</match>
+                </context>
+
+                <context id="heregex" style-ref="regexp">
+                    <start>\/\/\/</start>
+                    <end>\/\/\/</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                        <context ref="line-comment"/>
+                    </include>
                 </context>
 
                 <!-- Strings -->
@@ -103,6 +120,7 @@
                         <context id="interpolation-string-double" style-ref="assessor" extend-parent="false">
                             <match>\#{[^}]+}</match>
                         </context>
+                        <context ref="def:line-continue"/>
                         <context ref="def:escape"/>
                     </include>
                 </context>
@@ -152,55 +170,54 @@
                     <keyword>off</keyword>
                 </context>
 
+                <define-regex id="statement-keyword" extended="true">
+                    \b(return|break|continue|throw)\b
+                </define-regex>
+
+                <define-regex id="loop-keyword" extended="true">
+                    \b(for(\s+own)?|while|until|loop)\b
+                </define-regex>
+
+                <define-regex id="conditional-keyword" extended="true">
+                    \b(if|else|unless|switch|when|then|and|or|in|of|by|is|isnt|
+                    not)\b
+                </define-regex>
+
+                <define-regex id="keywords-keyword" extended="true">
+                    \b(instanceof|typeof|delete|new|where|class|extends|super|
+                    try|catch|finally)\b
+                </define-regex>
+
+                <define-regex id="operator-regex" extended="true">
+                    (-[\-=>]?|\+[+=]?|[*&amp;|\/%=&lt;&gt;^~:!?]+)
+                </define-regex>
+
+                <define-regex id="novalue-keywords" extended="true">
+                    \%{statement-keyword}|
+                    \%{loop-keyword}|
+                    \%{conditional-keyword}|
+                    \%{keywords-keyword}
+                </define-regex>
+
                 <context id="statement" style-ref="statement">
-                    <keyword>return</keyword>
-                    <keyword>break</keyword>
-                    <keyword>continue</keyword>
-                    <keyword>throw</keyword>
+                    <match>\%{statement-keyword}</match>
                 </context>
 
                 <context id="loop" style-ref="loop">
-                    <keyword>for</keyword>
-                    <keyword>while</keyword>
-                    <keyword>until</keyword>
-                    <keyword>loop</keyword>
+                    <match>\%{loop-keyword}</match>
                 </context>
 
                 <context id="conditional" style-ref="conditional">
-                    <keyword>if</keyword>
-                    <keyword>else</keyword>
-                    <keyword>unless</keyword>
-                    <keyword>switch</keyword>
-                    <keyword>when</keyword>
-                    <keyword>then</keyword>
-                    <keyword>and</keyword>
-                    <keyword>or</keyword>
-                    <keyword>in</keyword>
-                    <keyword>of</keyword>
-                    <keyword>by</keyword>
-                    <keyword>is</keyword>
-                    <keyword>isnt</keyword>
-                    <keyword>not</keyword>
+                    <match>\%{conditional-keyword}</match>
                 </context>
 
                 <context id="operator" style-ref="operator">
-                    <match>(-[\-=>]?|\+[+=]?|[*&amp;|\/%=&lt;&gt;^~:!?]+)([ \t]*)</match>
+                    <match>\%{operator-regex}([ \t]*)</match>
                 </context>
 
                 <!-- Keywords -->
                 <context id="keywords" style-ref="keyword">
-                    <keyword>instanceof</keyword>
-                    <keyword>typeof</keyword>
-                    <keyword>delete</keyword>
-                    <keyword>new</keyword>
-                    <keyword>where</keyword>
-                    <keyword>class</keyword>
-                    <keyword>extends</keyword>
-                    <keyword>super</keyword>
-                    <keyword>try</keyword>
-                    <keyword>catch</keyword>
-                    <keyword>finally</keyword>
-                    <keyword>do</keyword>
+                    <match>\%{keywords-keyword}</match>
                 </context>
 
                 <context id="exception" style-ref="exception">
@@ -214,14 +231,28 @@
                 </context>
 
                 <context id="functions" style-ref="function">
-                    <keyword>\b[A-Za-z0-9_]+\b(?=\s*?(=|:)\s*?(\(|-\>|=\>))</keyword>
+                    <keyword>\b\w+\b(?=\s*(=|:)\s*(\(.*\))?\s*(-\>|=\>))</keyword>
                 </context>
 
                 <context id="constructors" style-ref="constructors">
                     <match>\b[A-Z][A-Za-z0-9_]+\b(?!\.)</match>
                 </context>
 
+                <context id="application" style-ref="application">
+                    <match extended="true">
+                    \b @? [A-Za-z0-9_]+ (
+                        (?= [(]) |
+                        \s+ (
+                            (?= [=-]>) |
+                            (?=\S)(?!
+                                \%{novalue-keywords} | [\])}=:,#] |
+                                [-+*/]= | \%{operator-regex}\s )
+                        )
+                    )
+                    </match>
+                </context>
             </include>
         </context>
     </definitions>
 </language>
+

@@ -1,6 +1,6 @@
 Gedit Keybindings, Preparing to create a Cheat Sheet
 
-Gerenal
+General
 =======
 F1           => Help
 CTRL+N       => New Document

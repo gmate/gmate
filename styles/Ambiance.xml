@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="ambiancecyb" _name="Ambiance" version="1.0">
+  <author>Christian Dannie Storgaard (Cybolic)</author>
+  <_description>A light theme to match Ubuntu's Ambiance</_description>
+  
+  <style name="line-numbers" foreground="#DFDBD2" background="#3C3B37" bold="True"/>
+  <style name="text" foreground="#3C3C3C" background="#FFFFFF"/>
+  <style name="selection" foreground="#FFFFFF" background="#F07746"/>
+  <style name="selection-unfocused" background="#B4B3B1"/>
+  <style name="cursor" foreground="#DC4C00"/>
+  <style name="secondary-cursor" foreground="#DC4C00"/>
+  <style name="current-line" background="#F2F1F0"/>
+  <style name="bracket-match" foreground="#000000" background="#FFFDFC"/>
+  <style name="bracket-mismatch" foreground="#9D0E09" background="#F1F0EF"/>
+  <style name="right-margin" foreground="#5B5B5B" background="#EEEDEC"/>
+  <style name="def:builtin" foreground="#145FA2"/>
+  <style name="def:comment" foreground="#7E5794" bold="False" italic="True"/>
+  <style name="def:complex" foreground="#4F46BF"/>
+  <style name="def:constant" foreground="#409900"/>
+  <style name="def:error" foreground="#B4000F" bold="True" underline="True" strikethrough="False"/>
+  <style name="def:function" foreground="#9A2764" bold="True"/>
+  <style name="def:identifier" foreground="#DC4C00"/>
+  <style name="def:keyword" foreground="#772953" bold="True"/>
+  <style name="def:reserved" foreground="#28772C"/>
+  <style name="def:statement" foreground="#C67600" bold="True"/>
+  <style name="def:string" foreground="#CB0700"/>
+  <style name="def:type" foreground="#83A526" bold="True"/>
+</style-scheme>

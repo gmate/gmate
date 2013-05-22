@@ -120,6 +120,8 @@ specific plugin licencing and copyright.
 
 * Active4d (Converted from Textmate)
 * All Hallow's Eve (Converted from Textmate)
+* Ambiance
+* Ambiance Dark
 * Amy (Converted from Textmate)
 * Argonaut  (Converted from Textmate)
 * barf (Converted from Textmate)

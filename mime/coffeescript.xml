@@ -4,6 +4,8 @@
 		<sub-class-of type="text/plain"/>
 		<comment>CoffeeScript program</comment>
 		<glob pattern="*.coffee"/>
+		<glob pattern="*.litcoffee"/>
+		<glob pattern="*.coffee.md"/>
 	</mime-type>
 	
 	<mime-type type="text/cakefile">

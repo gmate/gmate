@@ -29,6 +29,9 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
     * `python-sexy` for Go to File plugin
     * `pyinotify` for Gedit Open Files and SnapOpen plugins.
     * `ack-grep` for faster search in Find in Project. (optional)
+
+   **Note:** Dependencies have slightly different names in Fedora Linux (`pywebkitgtk`, `python-sexy`, `python-inotify` and `ack`).
+
 2. Download gmate sources or clone git repository:
 
         git clone git://github.com/gmate/gmate.git

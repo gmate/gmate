@@ -2,10 +2,6 @@
 Zen Coding settings
 @author Sergey Chikuyonok (serge.che@gmail.com)
 @link http://chikuyonok.ru
-
-Changes for Gedit Plugin
-@author Franck Marcia (franck.marcia@gmail.com)
-@link http://github.com/fmarcia/zen-coding-gedit
 """
 zen_settings = {
 			
@@ -44,8 +40,7 @@ zen_settings = {
 			"r:a": "right:auto;",
 			"b": "bottom:|;",
 			"b:a": "bottom:auto;",
-			"brad": "-webkit-border-radius: ${1:radius};\n-moz-border-radius: $1;\n-ms-border-radius: $1;\nborder-radius: $1;",
-			"bsha": "-webkit-box-shadow: ${1:hoff} ${2:voff} ${3:blur} ${4:rgba(0,0,0,0.5)};\n-moz-box-shadow: $1 $2 $3 $4;\n-ms-box-shadow: $1 $2 $3 $4;\nbox-shadow: $1 $2 $3 $4;",
+			"brad": "-webkit-border-radius: ${1:radius};\n-moz-border-radius: $1;\n-ms-border-radius: $1;\nborder-radius: $1;$0",
 			"l": "left:|;",
 			"l:a": "left:auto;",
 			"z": "z-index:|;",
@@ -509,67 +504,61 @@ zen_settings = {
 		'extends': 'common',
 		'filters': 'html',
 		'snippets': {
-			'cc:ie6': '<!--[if lte IE 6]>\n\t${child}$0\n<![endif]-->',
-			'cc:ie': '<!--[if IE]>\n\t${child}$0\n<![endif]-->',
-			'cc:noie': '<!--[if !IE]><!-->\n\t${child}$0\n<!--<![endif]-->',
+			'cc:ie6': '<!--[if lte IE 6]>\n\t${child}|\n<![endif]-->',
+			'cc:ie': '<!--[if IE]>\n\t${child}|\n<![endif]-->',
+			'cc:noie': '<!--[if !IE]><!-->\n\t${child}|\n<!--<![endif]-->',
 			'html:4t': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n' +
 					'<html lang="${lang}">\n' +
 					'<head>\n' +
-					'\t<meta http-equiv="Content-Type" content="text/html;charset=${charset}">\n' +
-					'\t<title>|</title>\n' +
+					'${indentation}<meta http-equiv="Content-Type" content="text/html;charset=${charset}">\n' +
+					'${indentation}<title></title>\n' +
 					'</head>\n' +
-					'<body>\n' +
-					'\t${child}$0\n</body>\n' +
+					'<body>\n\t${child}|\n</body>\n' +
 					'</html>',
 			
 			'html:4s': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">\n' +
 					'<html lang="${lang}">\n' +
 					'<head>\n' +
-					'\t<meta http-equiv="Content-Type" content="text/html;charset=${charset}">\n' +
-					'\t<title>|</title>\n' +
+					'${indentation}<meta http-equiv="Content-Type" content="text/html;charset=${charset}">\n' +
+					'${indentation}<title></title>\n' +
 					'</head>\n' +
-					'<body>\n' +
-					'\t${child}$0\n</body>\n' +
+					'<body>\n\t${child}|\n</body>\n' +
 					'</html>',
 			
 			'html:xt': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n' +
 					'<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${lang}">\n' +
 					'<head>\n' +
-					'\t<meta http-equiv="Content-Type" content="text/html;charset=${charset}" />\n' +
-					'\t<title>|</title>\n' +
+					'${indentation}<meta http-equiv="Content-Type" content="text/html;charset=${charset}" />\n' +
+					'${indentation}<title></title>\n' +
 					'</head>\n' +
-					'<body>\n' +
-					'\t${child}$0\n</body>\n' +
+					'<body>\n\t${child}|\n</body>\n' +
 					'</html>',
 			
 			'html:xs': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n' +
 					'<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${lang}">\n' +
 					'<head>\n' +
-					'\t<meta http-equiv="Content-Type" content="text/html;charset=${charset}" />\n' +
-					'\t<title>|</title>\n' +
+					'${indentation}<meta http-equiv="Content-Type" content="text/html;charset=${charset}" />\n' +
+					'${indentation}<title></title>\n' +
 					'</head>\n' +
-					'<body>\n' +
-					'\t${child}$0\n</body>\n' +
+					'<body>\n\t${child}|\n</body>\n' +
 					'</html>',
 			
 			'html:xxs': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">\n' +
 					'<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${lang}">\n' +
 					'<head>\n' +
-					'\t<meta http-equiv="Content-Type" content="text/html;charset=${charset}" />\n' +
-					'\t<title>|</title>\n' +
+					'${indentation}<meta http-equiv="Content-Type" content="text/html;charset=${charset}" />\n' +
+					'${indentation}<title></title>\n' +
 					'</head>\n' +
-					'<body>\n' +
-					'\t${child}$0\n</body>\n' +
+					'<body>\n\t${child}|\n</body>\n' +
 					'</html>',
 			
 			'html:5': '<!DOCTYPE HTML>\n' +
 					'<html lang="${locale}">\n' +
 					'<head>\n' +
-					'\t<meta charset="${charset}">\n' +
-					'\t<title>|</title>\n' +
+					'${indentation}<meta charset="${charset}">\n' +
+					'${indentation}<title></title>\n' +
 					'</head>\n' +
-					'<body>\n' +
-					'\t${child}$0\n</body>\n' +
+					'<body>\n\t${child}|\n</body>\n' +
 					'</html>'
 		},
 		
@@ -738,4 +727,3 @@ zen_settings = {
 		'extends': 'html'
 	}
 }
-

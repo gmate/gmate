@@ -234,7 +234,7 @@ def get_elements_collection(resource, type):
 	else:
 		return {}
 	
-def replace_variables(text): # (FM) use dynamic variables
+def replace_variables(text):
 	"""
 	Replace variables like ${var} in string
 	@param text: str
@@ -264,7 +264,7 @@ def get_snippet(res_type, snippet_name):
 	"""
 	return get_settings_resource(res_type, snippet_name, 'snippets');
 
-def get_variable(name): # (FM) variable can be missing
+def get_variable(name):
 	"""
 	Returns variable value
 	 @return: str
@@ -617,7 +617,7 @@ def abbr_to_primary_tree(abbr, doc_type='html'):
 	@return: Tag
 	"""
 	root = Tag('', 1, doc_type)
-	token = re.compile(r'([\+>])?([a-z@\!\#\.][\w:\-\$]*)((?:(?:[#\.][\w\-\$]+)|(?:\[[^\]]+\]))+)?(\*(\d*))?(\+$)?', re.IGNORECASE)
+	token = re.compile(r'([\+>])?([a-z@\!\#\.][\w:\-]*)((?:(?:[#\.][\w\-\$]+)|(?:\[[^\]]+\]))+)?(\*(\d*))?(\+$)?', re.IGNORECASE)
 	
 	if not abbr:
 		return None
@@ -771,8 +771,11 @@ def run_action(name, *args, **kwargs):
 	"""
 	import zen_actions
 	
-	if hasattr(zen_actions, name):
-		return getattr(zen_actions, name)(*args, **kwargs)
+	try:
+		if hasattr(zen_actions, name):
+			return getattr(zen_actions, name)(*args, **kwargs)
+	except:
+		return False
 
 def expand_abbreviation(abbr, syntax='html', profile_name='plain'):
 	"""
@@ -996,7 +999,7 @@ def upgrade_tabstops(node):
 	for prop in props:
 		node.__setattr__(prop, re.sub(r'\$(\d+)|\$\{(\d+):[^\}]+\}', _replace, node.__getattribute__(prop)))
 		
-	globals()['max_tabstop'] += max_num[0] + 1
+	globals()['max_tabstop'] += max_num[0]
 		
 	return max_num[0]
 
@@ -1008,60 +1011,11 @@ def unescape_text(text):
 	"""
 	return re.sub(r'\\(.)', r'\1', text)
 
-
 def get_profile(name):
 	"""
 	Get profile by it's name. If profile wasn't found, returns 'plain' profile
 	"""
 	return profiles[name] if name in profiles else profiles['plain']
-
-def get_image_size(stream): # (FM) less code when called
-	"""
-	Gets image size from image byte stream.
-	@author http://romeda.org/rePublish/
-	@param stream: Image byte stream (use <code>zen_file.read()</code>)
-	@type stream: str
-	@return: dict with <code>width</code> and <code>height</code> properties
-	""" 
-	png_magic_num = "\211PNG\r\n\032\n"
-	jpg_magic_num = "\377\330"
-	gif_magic_num = "GIF8"
-	pos = [0]
-	
-	def next_byte():
-		char = char_at(stream, pos[0])
-		pos[0] += 1
-		return ord(char)
-
-	if stream.startswith(png_magic_num):
-		# PNG. Easy peasy.
-		pos[0] = stream.find('IHDR') + 4
-	
-		return {
-			'width':  repr((next_byte() << 24) | (next_byte() << 16) | (next_byte() <<  8) | next_byte()),
-			'height': repr((next_byte() << 24) | (next_byte() << 16) | (next_byte() <<  8) | next_byte())
-		}
-	
-	elif stream.startswith(gif_magic_num):
-		pos[0] = 6
-	
-		return {
-			'width': repr(next_byte() | (next_byte() << 8)),
-			'height': repr(next_byte() | (next_byte() << 8))
-		}
-	
-	elif stream.startswith(jpg_magic_num):
-		hex_list = ["%02X" % ord(ch) for ch in stream]
-		
-		for k in range(len(hex_list) - 1):
-			if hex_list[k] == 'FF' and (hex_list[k + 1] == 'C0' or hex_list[k + 1] == 'C2'):
-				#print k, hex(k)  # test
-				return {
-					'height': repr(int(hex_list[k + 5], 16) * 256 + int(hex_list[k + 6], 16)),
-					'width': repr(int(hex_list[k + 7], 16) * 256 + int(hex_list[k + 8], 16))
-				}
-	else:
-		return None
 
 def update_settings(settings):
 	globals()['zen_settings'] = settings
@@ -1311,16 +1265,6 @@ class ZenNode(object):
 		"@return {String}"
 		content = ''.join([item.to_string() for item in self.children])
 		return self.start + self.content + content + self.end
-		
-class ZenError(Exception):
-	"""
-	Zen Coding specific error
-	@since: 0.65
-	"""
-	def __init__(self, value):
-		self.value = value
-	def __str__(self):
-		return repr(self.value)
 		
 # create default profiles
 setup_profile('xhtml');

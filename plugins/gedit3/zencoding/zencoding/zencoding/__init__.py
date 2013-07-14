@@ -1,0 +1,3 @@
+# And away we go...
+from plugin import ZenCodingPlugin
+

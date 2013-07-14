@@ -2,7 +2,7 @@
 Zen Coding's settings parser
 Created on Jun 14, 2009
 
-@author: sergey
+@author: Sergey Chikuyonok (http://chikuyonok.ru)
 '''
 from copy import deepcopy
 

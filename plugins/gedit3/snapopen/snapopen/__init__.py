@@ -161,7 +161,7 @@ class SnapOpenPluginInstance:
         #modify lines below as needed, these defaults work pretty well
         imagefilter = " ! -iname '*.jpg' ! -iname '*.jpeg' ! -iname '*.gif' ! -iname '*.png' ! -iname '*.psd' ! -iname '*.tif' "
         dirfilter = " ! -path '*.svn*' ! -path '*.git*' "
-        binfilter = " ! -iname '*.o' ! -iname '*.so' ! -iname '*.lo' ! -iname '*.Plo' ! -iname '*.a' ! -iname '*.pyc' "
+        binfilter = " ! -iname '*.o' ! -iname '*.so' ! -iname '*.lo' ! -iname '*.Plo' ! -iname '*.a' ! -iname '*.pyc' ! -iname '*.class' "
         os.popen("cd %s; find . -type f %s > %s 2> /dev/null &" % (self._rootdir.replace("file://", ""), imagefilter + dirfilter + binfilter, self._tmpfile))
 
         self._snapopen_window.show()

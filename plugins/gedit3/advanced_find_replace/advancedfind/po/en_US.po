@@ -1,0 +1,288 @@
+# English translations for .gnome package.
+# Copyright (C) 2010 THE .gnome'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the .gnome package.
+# swatch <swatch.code@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: .gnome 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-17 01:02+0800\n"
+"PO-Revision-Date: 2010-10-17 19:33+0800\n"
+"Last-Translator: swatch <swatch.code@gmail.com>\n"
+"Language-Team: none\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../advancedfind.py:150 ../advancedfind.py:218 ../advancedfind.py:661
+#: ../FindDialog.glade:12
+msgid "Advanced Find/Replace"
+msgstr "Advanced Find/Replace"
+
+#: ../advancedfind.py:219
+msgid "Find Next"
+msgstr "Find Next"
+
+#: ../advancedfind.py:220
+msgid "Find Previous"
+msgstr "Find Previous"
+
+#: ../advancedfind.py:221
+msgid "Select and Find Next"
+msgstr "Select and Find Next"
+
+#: ../advancedfind.py:222
+msgid "Select and Find Previous"
+msgstr "Select and Find Previous"
+
+#: ../advancedfind.py:223
+msgid "Advanced Find/Replace Settings"
+msgstr "Advanced Find/Replace Settings"
+
+#: ../advancedfind.py:376
+msgid "Nothing is found."
+msgstr "Nothing is found."
+
+#: ../advancedfind_ui.py:449
+msgid "Finding..."
+msgstr "Finding"
+
+#: ../advancedfind_ui.py:494
+msgid "Replacing..."
+msgstr "Replacing..."
+
+#: ../advancedfind_ui.py:520
+msgid "Replace in this scope is not supported."
+msgstr "Replace in this scope is not supported."
+
+#: ../find_result.py:111 ../find_result.py:188
+msgid "Next"
+msgstr "Next"
+
+#: ../find_result.py:114 ../find_result.py:152 ../find_result.py:189
+msgid "Expand All"
+msgstr "Expand All"
+
+#: ../find_result.py:117 ../find_result.py:153 ../find_result.py:190
+msgid "Collapse All"
+msgstr "Collapse All"
+
+#: ../find_result.py:120 ../find_result.py:154 ../find_result.py:191
+msgid "Clear Highlight"
+msgstr "Clear Highlight"
+
+#: ../find_result.py:123 ../find_result.py:155 ../find_result.py:192
+msgid "Clear"
+msgstr "Clear"
+
+#: ../find_result.py:126 ../find_result.py:156 ../find_result.py:193
+msgid "Stop"
+msgstr "Stop"
+
+#: ../find_result.py:158
+msgid "Markup"
+msgstr "Markup"
+
+#: ../find_result.py:183
+msgid "Show Buttons"
+msgstr "Show Buttons"
+
+#: ../config.glade:12
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../config.glade:51
+msgid "Background color : "
+msgstr "Background color : "
+
+#: ../config.glade:64
+msgid "Foreground color : "
+msgstr "Foreground color : "
+
+#: ../config.glade:111
+msgid "<b>Result Highlighting</b>"
+msgstr "<b>Result Highlighting</b>"
+
+#: ../config.glade:165
+msgid "Root Follow Filebrowser"
+msgstr "Root Follow Filebrowser"
+
+#: ../config.glade:181
+msgid "Keep history of patterns"
+msgstr "Keep history of patterns"
+
+#: ../config.glade:213
+msgid "<b>Others</b>"
+msgstr "<b>Others</b>"
+
+#: ../FindDialog.glade:90
+msgid "Replace with : "
+msgstr "Replace with : "
+
+#: ../FindDialog.glade:103
+msgid "Find what : "
+msgstr "Find what : "
+
+#: ../FindDialog.glade:129 ../FindDialog.glade:159 ../FindDialog.glade:214
+#: ../FindDialog.glade:270
+msgid "Add to bookmarks"
+msgstr "Add to bookmarks"
+
+#: ../FindDialog.glade:130 ../FindDialog.glade:160 ../FindDialog.glade:215
+#: ../FindDialog.glade:271
+msgid "Clear history"
+msgstr "Clear history"
+
+#: ../FindDialog.glade:228
+msgid "..."
+msgstr "..."
+
+#: ../FindDialog.glade:232
+msgid "Choose a folder"
+msgstr "Choose a folder"
+
+#: ../FindDialog.glade:264
+msgid ""
+"Use '|' to seperate multiple types.\n"
+"Add '-' before the type to exclude it.\n"
+"Leaving this field empty is equal to '*', means searching in all file types."
+msgstr ""
+"Use '|' to seperate multiple types.\n"
+"Add '-' before the type to exclude it.\n"
+"Leaving this field empty is equal to '*', means searching in all file types."
+
+#: ../FindDialog.glade:287
+msgid "Directory : "
+msgstr "Directory : "
+
+#: ../FindDialog.glade:300
+msgid "Filter : "
+msgstr "Filter : "
+
+#: ../FindDialog.glade:315
+msgid "<b>Path</b>"
+msgstr "<b>Path</b>"
+
+#: ../FindDialog.glade:339
+msgid "Wrap around"
+msgstr "Wrap around"
+
+#: ../FindDialog.glade:356
+msgid "Directory follows current doc."
+msgstr "Directory follows current doc."
+
+#: ../FindDialog.glade:373
+msgid "Directory includes sub-folder"
+msgstr "Directory includes sub-folder"
+
+#: ../FindDialog.glade:390
+msgid "Regular expression"
+msgstr "Regular expression"
+
+#: ../FindDialog.glade:407
+msgid "Match whole word"
+msgstr "Match whole word"
+
+#: ../FindDialog.glade:424
+msgid "Match case"
+msgstr "Match case"
+
+#: ../FindDialog.glade:445
+msgid "<b>Options</b>"
+msgstr "<b>Options</b>"
+
+#: ../FindDialog.glade:480
+msgid "Forward"
+msgstr "Forward"
+
+#: ../FindDialog.glade:497
+msgid "Backward"
+msgstr "Backward"
+
+#: ../FindDialog.glade:523
+msgid "<b>Direction</b>"
+msgstr "<b>Direction</b>"
+
+#: ../FindDialog.glade:552
+msgid "Current Document"
+msgstr "Current Document"
+
+#: ../FindDialog.glade:569
+msgid "All Opened Documents"
+msgstr "All Opened Documents"
+
+#: ../FindDialog.glade:586
+msgid "All Documents in Directory"
+msgstr "All Documents in Directory"
+
+#: ../FindDialog.glade:603
+msgid "Current Selected Text"
+msgstr "Current Selected Text"
+
+#: ../FindDialog.glade:626
+msgid "<b>Scope</b>"
+msgstr "<b>Scope</b>"
+
+#: ../FindDialog.glade:682
+msgid "_Find"
+msgstr "_Find"
+
+#: ../FindDialog.glade:697
+msgid "_Replace"
+msgstr "_Replace"
+
+#: ../FindDialog.glade:712
+msgid "Find _All"
+msgstr "Find _All"
+
+#: ../FindDialog.glade:727
+msgid "Replace All"
+msgstr "Replace All"
+
+#: ../FindDialog.glade:741
+msgid "_Close"
+msgstr "_Close"
+
+#: ../FindDialog.glade:811
+msgid "<b>Opacity</b>"
+msgstr "<b>Opacity</b>"
+
+#: ../FindDialog.glade:862
+msgid "Select directory"
+msgstr "Select directory"
+
+#: ../FindDialog.glade:882
+msgid "Cancel"
+msgstr "Cancel"
+
+#: ../FindDialog.glade:896
+msgid "Ok"
+msgstr "Ok"
+
+#~ msgid "Use default font"
+#~ msgstr "Use default font"
+
+#~ msgid "Font : "
+#~ msgstr "Font : "
+
+#~ msgid "Need restart to apply setting"
+#~ msgstr "Need restart to apply setting"
+
+#~ msgid "<b>Results list</b>"
+#~ msgstr "<b>Results list</b>"
+
+#~ msgid "Remove from bookmarks"
+#~ msgstr "Remove from bookmarks"
+
+#~ msgid ""
+#~ "Bookmark current pattern.\n"
+#~ "Remove current pattern from bookmarks if exists."
+#~ msgstr ""
+#~ "Bookmark current pattern.\n"
+#~ "Remove current pattern from bookmarks if exists."
+
+#~ msgid "Advanced Find/Replace Configure"
+#~ msgstr "Advanced Find/Replace Configure"

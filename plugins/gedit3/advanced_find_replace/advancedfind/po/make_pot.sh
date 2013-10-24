@@ -2,7 +2,7 @@
 #
 #Make pot file.
 
-app_name="smart_highlight"
+app_name="advancedfind"
 
 xgettext --output="${app_name}".pot ../*.py ../*.glade
 

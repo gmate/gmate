@@ -1,5 +1,5 @@
 [Plugin]
-Loader=python
+Loader=python3
 Module=line_tools
 IAge=3
 Name=Line Tools Plugin

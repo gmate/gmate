@@ -1,12 +1,12 @@
 # -*- encoding:utf-8 -*-
 
 
-# __init__.py is part of smart-highlighting-gedit.
+# __init__.py is part of advancedfind-gedit
 #
 #
 # Copyright 2010-2012 swatch
 #
-# smart-highlighting-gedit is free software; you can redistribute it and/or modify
+# advancedfind-gedit is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
@@ -25,20 +25,19 @@
 
 from gi.repository import GObject, Gtk, Gedit, PeasGtk
 
-from .smart_highlight import SmartHighlightWindowHelper
+from .advancedfind import AdvancedFindWindowHelper
 from .config_ui import ConfigUI
-#import config_manager
 
-#class SmartHighlightingPlugin(GObject.Object, Gedit.WindowActivatable, PeasGtk.Configurable):
-class SmartHighlightingPlugin(GObject.Object, Gedit.WindowActivatable):
-	__gtype_name__ = "SmartHighlightingPlugin"
+#class AdvancedFindReplacePlugin(GObject.Object, Gedit.WindowActivatable, PeasGtk.Configurable):
+class AdvancedFindReplacePlugin(GObject.Object, Gedit.WindowActivatable):
+	__gtype_name__ = "AdvancedFindReplacePlugin"
 	window = GObject.property(type=Gedit.Window)
 
 	def __init__(self):
 		GObject.Object.__init__(self)
 
 	def do_activate(self):
-		self._plugin = SmartHighlightWindowHelper(self, self.window)
+		self._plugin = AdvancedFindWindowHelper(self, self.window)
 
 	def do_deactivate(self):
 		self._plugin.deactivate()
@@ -46,15 +45,16 @@ class SmartHighlightingPlugin(GObject.Object, Gedit.WindowActivatable):
 
 	def do_update_state(self):
 		self._plugin.update_ui()
-		
+
 	'''
 	def do_create_configure_widget(self):
 		#widget = Gtk.CheckButton("A configuration setting.")
 		#widget.set_border_width(6)
-		widget = ConfigUI(self.window, self.config).configWindow
+		widget = ConfigUI(self._plugin).configWindow
 		return widget
 	#'''
 	
 	def get_instance(self):
 		return self._plugin, self.window
+
 

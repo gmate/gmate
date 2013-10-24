@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<schema path="/org/gnome/gedit/plugins/advancedfind/FindOption/" id="org.gnome.gedit.plugins.advancedfind.findoption">
+		<key type="b" name="match-whole-word">
+			<default>false</default>
+			<summary>Enable / disable match whole word</summary>
+			<description></description>
+		</key>
+		<key type="b" name="match-case">
+			<default>false</default>
+			<summary>Enable / disable match case</summary>
+			<description></description>
+		</key>
+		<key type="b" name="wrap-around">
+			<default>false</default>
+			<summary>Enable / disable wrap around</summary>
+			<description></description>
+		</key>
+		<key type="b" name="follow-current-doc">
+			<default>true</default>
+			<summary>Enable / disable follow current document</summary>
+			<description>Search thd folder where current document is.</description>
+		</key>
+		<key type="b" name="root-follow-filebrowser">
+			<default>false</default>
+			<summary>Enable / disable root follow filebrowser</summary>
+			<description>Use filebrower root as the root searching folder.</description>
+		</key>
+		<key type="b" name="include-subfolder">
+			<default>true</default>
+			<summary>Enable / disable inculde subfolder</summary>
+			<description>Search selected folder include sub-folder</description>
+		</key>
+		<key type="b" name="include-hidden">
+			<default>true</default>
+			<summary>Enable / disable incldue hidden</summary>
+			<description>Search selected folder include hidden files.</description>
+		</key>
+		<key type="b" name="regex-search">
+			<default>false</default>
+			<summary>Enable / disable regex serach</summary>
+			<description>Using regular expression to format search pattern.</description>
+		</key>
+	</schema>
+	
+	<schema path="/org/gnome/gedit/plugins/advancedfind/FindGUI/" id="org.gnome.gedit.plugins.advancedfind.findgui">
+		<key type="b" name="path-expanded">
+			<default>false</default>
+			<summary>Enable / disable path expanded</summary>
+			<description>Set the area of path is expaned or not.</description>
+		</key>
+		<key type="b" name="options-expanded">
+			<default>false</default>
+			<summary>Enable / disable options expanded</summary>
+			<description>Set the area find optionsis expaneded or not.</description>
+		</key>
+		<key type="i" name="opacity">
+			<range min="1" max="100"/>
+			<default>50</default>
+			<summary>Set opacity of find dialog</summary>
+			<description>Set the opacity of find dialog while losing focus.</description>
+		</key>
+	</schema>
+
+	<schema path="/org/gnome/gedit/plugins/advancedfind/Shortcut/" id="org.gnome.gedit.plugins.advancedfind.shortcut">
+		<key type="s" name="activate">
+			<default>"&lt;ctrl&gt;&lt;shift&gt;F"</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="find-next">
+			<default>"F3"</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="find-previous">
+			<default>"&lt;shift&gt;F"</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="select-find-next">
+			<default>"&lt;ctrl&gt;F3"</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="select-find-previous">
+			<default>"&lt;ctrl&gt;&lt;shift&gt;F3"</default>
+			<summary></summary>
+			<description></description>
+		</key>
+	</schema>
+	
+	<schema path="/org/gnome/gedit/plugins/advancedfind/ResultDisplay/" id="org.gnome.gedit.plugins.advancedfind.resultdisplay">
+		<key type="s" name="foreground-color">
+			<default>"#ffffffff0000"</default>
+			<summary></summary>
+			<description>Set foreground color of results highlighting.</description>
+		</key>
+		<key type="s" name="background-color">
+			<default>"red"</default>
+			<summary></summary>
+			<description>Set background color of results highlighting.</description>
+		</key>
+	</schema>
+	
+	<schema path="/org/gnome/gedit/plugins/advancedfind/ResultGUI/" id="org.gnome.gedit.plugins.advancedfind.resultgui">
+		<key type="b" name="next-button">
+			<default>false</default>
+			<summary>Enable / disable next button</summary>
+			<description></description>
+		</key>
+		<key type="b" name="expand-all-button">
+			<default>false</default>
+			<summary>Enable / disable expand all button</summary>
+			<description></description>
+		</key>
+		<key type="b" name="collapse-all-button">
+			<default>false</default>
+			<summary>Enable / disable collapse all button</summary>
+			<description></description>
+		</key>
+		<key type="b" name="clear-highlight-button">
+			<default>true</default>
+			<summary>Enable / disable clear highlight button</summary>
+			<description></description>
+		</key>
+		<key type="b" name="clear-button">
+			<default>true</default>
+			<summary>Enable / disable clear button</summary>
+			<description></description>
+		</key>
+		<key type="b" name="stop-button">
+			<default>true</default>
+			<summary>Enable / disable stop button</summary>
+			<description></description>
+		</key>
+	</schema>
+	
+	<schema path="/org/gnome/gedit/plugins/advancedfind/History/" id="org.gnome.gedit.plugins.advancedfind.history">
+		<key type="as" name="find-history">
+			<default>['']</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="as" name="replace-history">
+			<default>['']</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="as" name="filter-history">
+			<default>['*']</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="as" name="path-history">
+			<default>['']</default>
+			<summary></summary>
+			<description></description>
+		</key>
+	</schema>
+
+	<schema path="/org/gnome/gedit/plugins/advancedfind/ResutlFormat/" id="org.gnome.gedit.plugins.advancedfind.resultformat">
+		<key type="s" name="mode-replace">
+			<default>'&lt;span foreground="#A123FF"&gt;%(HEADER)s Replace "&lt;span foreground="red"&gt;&lt;b&gt;&lt;s&gt;%(PATTERN)s&lt;/s&gt;&lt;/b&gt;&lt;/span&gt;" with "&lt;span foreground="red"&gt;&lt;b&gt;%(REPLACE_TEXT)s&lt;/b&gt;&lt;/span&gt;"&lt;/span&gt;'</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="mode-find">
+			<default>'&lt;span foreground="#A123FF"&gt;%(HEADER)s Search "&lt;span foreground="blue"&gt;&lt;b&gt;%(PATTERN)s&lt;/b&gt;&lt;/span&gt;"&lt;/span&gt;'</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="filename">
+			<default>'&lt;span foreground="#387726"&gt;&lt;b&gt;&lt;u&gt;%(FILENAME)s&lt;/u&gt;&lt;/b&gt;&lt;/span&gt;'</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="line">
+			<default>'Line &lt;span foreground="#FF7900"&gt;%(LINE_NUM)s&lt;/span&gt; : '</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="hits-cnt">
+			<default>'&lt;span foreground="#FF7900"&gt;%(HITS_CNT)s&lt;/span&gt; hits'</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="total-hits">
+			<default>'&lt;span foreground="#FF7900"&gt;%(TOTAL_HITS)s&lt;/span&gt; hits in &lt;span foreground="#FF7900"&gt;%(FILES_CNT)s&lt;/span&gt; files'</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="find-result-text">
+			<default>'&lt;span foreground="blue"&gt;&lt;b&gt;%(RESULT_TEXT)s&lt;/b&gt;&lt;/span&gt;'</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key type="s" name="replace-result-text">
+			<default>'&lt;span foreground="red"&gt;&lt;b&gt;%(RESULT_TEXT)s&lt;/b&gt;&lt;/span&gt;'</default>
+			<summary></summary>
+			<description></description>
+		</key>
+
+	</schema>
+	
+</schemalist>

@@ -1,6 +1,6 @@
 from gi.repository import GObject, Gedit, Gtk, Gio, Gdk
 import os, os.path
-from urllib import pathname2url
+from urllib.request import pathname2url
 import tempfile
 
 max_result = 50

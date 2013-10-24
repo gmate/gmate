@@ -47,6 +47,8 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 
 ### Plugins
 
+#### gedit2:
+
 * **Advanced Bookmarks**. Highlight, remenber and toggle bookmarks in your
   files.
 * **Align columns**. Align text blocks into columns separated by pipe ( | )
@@ -97,6 +99,18 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
   <http://github.com/mikecrittenden/zen-coding-gedit>
 * **Zoom**. Adds the ability to change the text size.
   <http://github.com/algorich/gedit-zoom>
+
+#### gedit3:
+	**NOTE:** gedit3.8+, at least in Ubuntu expects python3 while earlier versions
+	did not. For now Python plugins that have been updated may not work in version
+	3.0-3.6. If you have a desire for backwards compatibility create an issue.
+* **Advanced Find/Replace**. Search and replace in all documents/tabs
+* **Gemini**. Pair complete for quotes and braces.
+* **Line Tools**. comment toggle, duplicate, selection, add semi-colon.
+* **Simple Folding**. Collapse selected text.
+* **Snap Open**. Opens files by regex
+* **Zen Coding**. Tools for faster HTML/CSS coding
+* **And More...**
 
 **Note:** Multi Edit plugin is not enabled by default GMate installation.
 

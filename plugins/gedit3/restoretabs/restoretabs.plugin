@@ -1,5 +1,5 @@
 [Plugin]
-Loader=python
+Loader=python3
 Module=restoretabs
 IAge=3
 Name=Restore Tabs

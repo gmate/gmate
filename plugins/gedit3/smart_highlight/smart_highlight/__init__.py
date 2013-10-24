@@ -25,8 +25,8 @@
 
 from gi.repository import GObject, Gtk, Gedit, PeasGtk
 
-from smart_highlight import SmartHighlightWindowHelper
-from config_ui import ConfigUI
+from .smart_highlight import SmartHighlightWindowHelper
+from .config_ui import ConfigUI
 #import config_manager
 
 #class SmartHighlightingPlugin(GObject.Object, Gedit.WindowActivatable, PeasGtk.Configurable):

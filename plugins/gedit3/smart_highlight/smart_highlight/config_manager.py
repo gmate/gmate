@@ -55,14 +55,15 @@ class ConfigManager:
 			nodes[i].firstChild.nodeValue = dic[nodes[i].getAttribute('name')]
 
 		f = open(filename, 'w+')
-		f.write(self.dom.toprettyxml('', '', 'utf-8'))
+		#print(bytes.decode(self.dom.toprettyxml('', '', 'utf-8'), 'utf-8'))
+		f.write(bytes.decode(self.dom.toprettyxml('', '', 'utf-8'), 'utf-8'))
 		f.close
 		
 	def boolean(self, string):
 		return string.lower() in ['true', 'yes', 't', 'y', 'ok', '1']
 		
 	def to_bool(self, dic):
-		for key in dic.keys():
+		for key in list(dic.keys()):
 			dic[key] = self.boolean(dic[key])
 
 	

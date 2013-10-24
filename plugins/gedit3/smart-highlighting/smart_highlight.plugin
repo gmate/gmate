@@ -1,0 +1,15 @@
+[Plugin]
+Loader=python3
+Module=smart_highlight
+IAge=3
+
+Name=Smart Highlighting
+Name[zh_TW]=Smart Highlighting
+
+Description=Highlighing all occerences of the selected text.
+Description[zh_TW]=自動高亮度標示所有選取的文字
+
+Version=3.1.0
+Authors=Swatch
+Copyright=GPLv2
+Website=http://code.google.com/p/smart-highlighting-gedit/

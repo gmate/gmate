@@ -1,0 +1,25 @@
+[Plugin]
+Loader=python3
+Module=advancedfind
+IAge=3
+
+Name=Advanced Find/Replace
+Name[zh_TW]=Advanced Find/Replace
+Name[es_ES]=Buscar/Reemplazar avanzado
+Name[fr]=Recherche/Remplacement avancés
+Name[ru_RU]=Расширенный поиск/замена
+Name[tr_TR]=Gelişmiş Bul/Değiştir
+Name[ar]=حث / استبدال متقدم
+
+Description=Search and replace in all documents/tabs.
+Description[zh_TW]=在所有文件中進行搜尋/取代
+Description[es_ES]=Buscar/Reemplazar avanzado
+Description[fr]=Rechercher et remplacer dans tous les documents ou onglets.
+Description[ru_RU]=Расширенный поиск/замена
+Description[tr_TR]=Gelişmiş Bul/Değiştir
+Description[ar]=حث / استبدال متقدم
+
+Version=3.6.0
+Authors=Swatch
+Copyright=GPLv2
+Website=http://code.google.com/p/advanced-find/

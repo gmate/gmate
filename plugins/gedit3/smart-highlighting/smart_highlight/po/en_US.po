@@ -1,0 +1,50 @@
+# English translations for .gnome package.
+# Copyright (C) 2010 THE .gnome'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the .gnome package.
+# Automatically generated, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: .gnome 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-17 19:50+0800\n"
+"PO-Revision-Date: 2010-10-17 19:50+0800\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../config.glade:6
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../config.glade:33
+msgid "Match whole word"
+msgstr "Match whole word"
+
+#: ../config.glade:48
+msgid "Match case"
+msgstr "Match case"
+
+#: ../config.glade:65
+msgid "Regular expression"
+msgstr "Regular expression"
+
+#: ../config.glade:98
+msgid "<b>Search Options</b>"
+msgstr "<b>Search Options</b>"
+
+#: ../config.glade:140
+msgid "Foreground color : "
+msgstr "Foreground color : "
+
+#: ../config.glade:173
+msgid "Background color : "
+msgstr "Background color : "
+
+#: ../config.glade:209
+msgid "<b>Highlight Setting</b>"
+msgstr "<b>Highlight Setting</b>"

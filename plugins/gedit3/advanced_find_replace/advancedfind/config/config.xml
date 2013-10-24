@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+	<FindOption name="MATCH_WHOLE_WORD" value="False"/>
+	<FindOption name="MATCH_CASE" value="False"/>
+	<FindOption name="WRAP_AROUND" value="False"/>
+	<FindOption name="FOLLOW_CURRENT_DOC" value="True"/>
+	<FindOption name="ROOT_FOLLOW_FILEBROWSER" value="True"/>
+	<FindOption name="INCLUDE_SUBFOLDER" value="True"/>
+	<FindOption name="INCLUDE_HIDDEN" value="True"/>
+	<FindOption name="REGEX_SEARCH" value="False"/>
+	<FindGUI name="PATH_EXPANDED" value="True"/>
+	<FindGUI name="OPTIONS_EXPANDED" value="True"/>
+	<FindGUI name="OPACITY" value="50.0"/>
+	<FindGUI name="KEEP_HISTORY" value="True"/>
+	<Shortcut name="ACTIVATE" value="&lt;ctrl&gt;&lt;shift&gt;F"/>
+	<Shortcut name="FIND_NEXT" value="F3"/>
+	<Shortcut name="FIND_PREVIOUS" value="&lt;shift&gt;F3"/>
+	<Shortcut name="SELECT_FIND_NEXT" value="&lt;ctrl&gt;F3"/>
+	<Shortcut name="SELECT_FIND_PREVIOUS" value="&lt;ctrl&gt;&lt;shift&gt;F3"/>
+	<ResultDisplay name="FOREGROUND_COLOR" value="#fcfce9e94f4f"/>
+	<ResultDisplay name="BACKGROUND_COLOR" value="#efef29292929"/>
+	<ResultGUI name="COLOR_THEME" value="default"/>
+	<ResultGUI name="NEXT_BUTTON" value="True"/>
+	<ResultGUI name="EXPAND_ALL_BUTTON" value="False"/>
+	<ResultGUI name="COLLAPSE_ALL_BUTTON" value="False"/>
+	<ResultGUI name="CLEAR_HIGHLIGHT_BUTTON" value="True"/>
+	<ResultGUI name="CLEAR_BUTTON" value="True"/>
+	<ResultGUI name="STOP_BUTTON" value="True"/>
+</manifest>

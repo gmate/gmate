@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><manifest>
+	<search_option name="MATCH_WHOLE_WORD">True</search_option>
+	<search_option name="MATCH_CASE">True</search_option>
+	<search_option name="REGEX_SEARCH">False</search_option>
+	<smart_highlight name="FOREGROUND_COLOR">#fcffeb6e114c</smart_highlight>
+	<smart_highlight name="BACKGROUND_COLOR">#0000672c1dc9</smart_highlight>
+</manifest>

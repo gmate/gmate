@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><manifest>
+	<result_format name='RESULT_FONT' value=''/>
+	<result_format name='SHOW_HEADERS' value='False'/>
+	<result_format name='GRID_PATTERN' value='1'/>
+	<result_format name='BACKGROUND' value='white'/>
+	<result_format name='MODE_REPLACE' value='&lt;span foreground="#A123FF"&gt;%(HEADER)s Replace "&lt;span foreground="red"&gt;&lt;b&gt;&lt;s&gt;%(PATTERN)s&lt;/s&gt;&lt;/b&gt;&lt;/span&gt;" with "&lt;span foreground="red"&gt;&lt;b&gt;%(REPLACE_TEXT)s&lt;/b&gt;&lt;/span&gt;"&lt;/span&gt;'/>
+	<result_format name='MODE_FIND' value='&lt;span foreground="#A123FF"&gt;%(HEADER)s Search "&lt;span foreground="blue"&gt;&lt;b&gt;%(PATTERN)s&lt;/b&gt;&lt;/span&gt;"&lt;/span&gt;'/>
+	<result_format name='FILENAME' value='&lt;span foreground="#387726"&gt;&lt;b&gt;&lt;u&gt;%(FILENAME)s&lt;/u&gt;&lt;/b&gt;&lt;/span&gt;'/>
+	<result_format name='LINE' value='Line &lt;span foreground="#FF7900"&gt;%(LINE_NUM)s&lt;/span&gt; : '/>
+	<result_format name='HITS_CNT' value='&lt;span foreground="#FF7900"&gt;%(HITS_CNT)s&lt;/span&gt; hits'/>
+	<result_format name='TOTAL_HITS' value='&lt;span foreground="#FF7900"&gt;%(TOTAL_HITS)s&lt;/span&gt; hits in &lt;span foreground="#FF7900"&gt;%(FILES_CNT)s&lt;/span&gt; files'/>
+	<result_format name='FIND_RESULT_TEXT' value='&lt;span foreground="blue"&gt;&lt;b&gt;%(RESULT_TEXT)s&lt;/b&gt;&lt;/span&gt;'/>
+	<result_format name='REPLACE_RESULT_TEXT' value='&lt;span foreground="red"&gt;&lt;b&gt;%(RESULT_TEXT)s&lt;/b&gt;&lt;/span&gt;'/>
+</manifest>
+
+

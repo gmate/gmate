@@ -47,7 +47,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 
 ### Plugins
 
-#### gedit2
+#### - gedit2
 
 * **Advanced Bookmarks**. Highlight, remenber and toggle bookmarks in your
   files.
@@ -99,7 +99,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
   <http://github.com/mikecrittenden/zen-coding-gedit>
 * **Zoom**. Adds the ability to change the text size.
   <http://github.com/algorich/gedit-zoom>
-#### gedit3
+### - gedit3
 	**NOTE:** gedit3.8+, at least in Ubuntu expects python3 while earlier versions
 	did not. For now Python plugins that have been updated may not work in version
 	3.0-3.6. If you have a desire for backwards compatibility create an issue.

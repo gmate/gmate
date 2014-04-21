@@ -116,7 +116,7 @@ please fill an issue in <http://github.com/gmate/gmate/issues>
 
 
 Refer to each plugin source code and readme file to get information about
-specific plugin licencing and copyright.
+specific plugin licensing and copyright.
 
 ### Language Improvements and Mime Types
 

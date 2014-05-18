@@ -1,5 +1,5 @@
 [Plugin]
-Loader=python
+Loader=python3
 Module=whitespaceterminator
 IAge=3
 Name=White Space Terminator

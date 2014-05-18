@@ -1,5 +1,5 @@
 [Plugin]
-Loader=python
+Loader=python3
 Module=open-uri-context-menu
 IAge=3
 Name=Open URI Context Menu

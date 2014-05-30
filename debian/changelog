@@ -1,3 +1,21 @@
+gedit-gmate (0.12ppa1) trusty; urgency=low
+  * Removed MediaWiki syntax (now in libgtksourceview-3.0-common 3.10.2-0ubuntu1).
+  * Improved plugin support for gedit3 (python3 loader).
+  * Adjusted versioning scheme for potential future series differentiation.
+
+ -- Jan Vermeulen <sigstart@entropy.co.za>  Fri, 30 May 2014 01:50:42 +0200
+
+gedit-gmate (0.12~uorppa0) quantal; urgency=low
+  * Add DokuWiki syntax.
+  * Add Source Code Browser plugin.
+  * Add MediaWiki syntax.
+  * Add Julia syntax.
+  * Update CoffeeScript syntax.
+  * Add Ambiance and Ambiance Dark themes.
+  * Fix Pair Char Completion plugin.
+
+ -- Andrey Sitnik <andrey@sitnik.ru>  Thu, 30 May 2013 23:20:49 +0700
+
 gedit-gmate (0.11~uorppa0) quantal; urgency=low
   * Add DokuWiki syntax.
   * Add AsciiDoc syntax.

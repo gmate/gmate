@@ -1,9 +1,9 @@
 Source: gedit-gmate
 Section: gnome
 Priority: optional
-Maintainer: Andrey Sitnik <andrey@sitnik.ru>
+Maintainer: Jan Vermeulen <sigstart@entropy.co.za>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 0.11~uorppa0
+Standards-Version: 0.12ppa1
 Homepage: http://github.com/gmate/gmate
 Vcs-Git: git://github.com/gmate/gmate.git
 Vcs-Browser: http://github.com/gmate/gmate

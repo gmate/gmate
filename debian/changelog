@@ -1,5 +1,6 @@
 gedit-gmate (0.12ppa1) trusty; urgency=low
   * Removed MediaWiki syntax (now in libgtksourceview-3.0-common 3.10.2-0ubuntu1).
+  * Removed Julia syntax (now in libgtksourceview-3.0-common 3.10.2-0ubuntu1).
   * Improved plugin support for gedit3 (python3 loader).
   * Adjusted versioning scheme for potential future series differentiation.
 

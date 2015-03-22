@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Jan Vermeulen <sigstart@entropy.co.za>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 0.12ppa2~utopic
+Standards-Version: 0.12ppa2~vivid
 Homepage: http://github.com/gmate/gmate
 Vcs-Git: git://github.com/gmate/gmate.git
 Vcs-Browser: http://github.com/gmate/gmate

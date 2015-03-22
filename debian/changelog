@@ -1,3 +1,8 @@
+gedit-gmate (0.12ppa2~vivid) vivid; urgency=low
+  * Initial version for Vivid Vervet (Ubuntu 15.04).
+
+ -- Jan Vermeulen <sigstart@entropy.co.za>  Fri, 22 Mar 2015 11:50:42 +0200
+
 gedit-gmate (0.12ppa2~utopic) utopic; urgency=low
   * Fixed conflicts caused by syntax and styles being added to GtkSourceView (libgtksourceview-3.0-common 3.12.3-1ubuntu1):
    - Removed reStructuredText syntax (rst.lang).

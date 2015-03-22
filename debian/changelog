@@ -1,3 +1,11 @@
+gedit-gmate (0.12ppa2~utopic) utopic; urgency=low
+  * Fixed conflicts caused by syntax and styles being added to GtkSourceView (libgtksourceview-3.0-common 3.12.3-1ubuntu1):
+   - Removed reStructuredText syntax (rst.lang).
+   - Removed Solarized Light theme (solarized-light.xml).
+   - Removed Solarized Dark theme (solarized-dark.xml).
+
+ -- Jan Vermeulen <sigstart@entropy.co.za>  Fri, 22 Mar 2015 11:15:25 +0200
+
 gedit-gmate (0.12ppa1) trusty; urgency=low
   * Removed MediaWiki syntax (now in libgtksourceview-3.0-common 3.10.2-0ubuntu1).
   * Removed Julia syntax (now in libgtksourceview-3.0-common 3.10.2-0ubuntu1).

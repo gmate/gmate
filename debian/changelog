@@ -1,3 +1,8 @@
+gedit-gmate (0.12ppa2~xenial) xenial; urgency=low
+  * Initial version for Xenial Xerus (Ubuntu 16.04).
+
+ -- Jan Vermeulen <sigstart@entropy.co.za>  Tue, 11 Apr 2017 00:03:42 +0200
+
 gedit-gmate (0.12ppa2~vivid) vivid; urgency=low
   * Initial version for Vivid Vervet (Ubuntu 15.04).
 

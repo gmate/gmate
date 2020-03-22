@@ -1,3 +1,11 @@
+gedit-gmate (0.12ppa3~bionic) bionic; urgency=low
+  * Initial version for Bionic Beaver (Ubuntu 18.04).
+  * Changed python dependency to python3.
+  * Pruned the following language specs, as they are now included with the base gedit package:
+    - Groovy
+
+ -- Jan Vermeulen <sigstart@entropy.co.za>  Sun, 22 Mar 2020 16:19:42 +0200
+
 gedit-gmate (0.12ppa2~zesty1) zesty; urgency=low
   * Fixed conflicts caused by syntax and styles being added to GtkSourceView (libgtksourceview-3.0-common 3.24.0-0ubuntu1):
     - Removed Django Template Language (dtl.lang).

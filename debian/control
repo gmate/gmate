@@ -1,20 +1,22 @@
 Source: gedit-gmate
+Maintainer: Jan Vermeulen <sigstart@entropy.co.za>
 Section: gnome
 Priority: optional
-Maintainer: Jan Vermeulen <sigstart@entropy.co.za>
-Build-Depends: debhelper (>= 7)
-Standards-Version: 0.12ppa2~zesty1
+Build-Depends: debhelper (>= 9)
+Standards-Version: 4.1.4
 Homepage: http://github.com/gmate/gmate
 Vcs-Git: git://github.com/gmate/gmate.git
 Vcs-Browser: http://github.com/gmate/gmate
 
 Package: gedit-gmate
 Architecture: any
-Depends: python, gedit (>= 3), xdg-utils
+Section: gnome
+Priority: optional
+Depends: python3, gedit (>= 3), xdg-utils, ${shlibs:Depends}, ${misc:Depends}
 Description: gedit gmate plugins pack
  gedit-gmate contains a collection of plugins and GtkSourceView improvements 
  (language specifications for syntax highlighting, styles/themes) to  make gedit
  more powerful, especially (but not only) for Ruby on Rails application
  development. For more information about what is included in gedit-gmate package
  please see /usr/share/doc/gedit-gmate/README.rdoc.
-
+Homepage: http://github.com/gmate/gmate

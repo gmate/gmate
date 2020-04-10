@@ -111,7 +111,7 @@ CTRL+ALT+F => Open search window to search in the project
 Indent Lines
 ------------
 CTRL+T / CRTL+TAB => Indent Selected Lines
-CTRL+SHIFT+T / CRTL+SHIFT+TAB => Unindent Linex
+CTRL+SHIFT+T / CRTL+SHIFT+TAB => Unindent Lines
 
 Quick Highlight Mode
 --------------------

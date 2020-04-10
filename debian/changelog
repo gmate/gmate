@@ -1,8 +1,16 @@
+gedit-gmate (0.12ppa4~bionic) bionic; urgency=low
+  * Removed Groovy MIME type.
+
+ -- Jan Vermeulen <sigstart@entropy.co.za>  Sun, 22 Mar 2020 23:24:42 +0200
+
 gedit-gmate (0.12ppa3~bionic) bionic; urgency=low
   * Initial version for Bionic Beaver (Ubuntu 18.04).
   * Changed python dependency to python3.
   * Pruned the following language specs, as they are now included with the base gedit package:
     - Groovy
+  * Added source/format file for the Debian package, as per recommendations (3.0 native).
+  * Corrected Standards-Version field in Debian package (used 4.1.4).
+  * Increased debhelper dependency to version 9.
 
  -- Jan Vermeulen <sigstart@entropy.co.za>  Sun, 22 Mar 2020 16:19:42 +0200
 
